@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Seller extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'gallery'
+    ];
+
+    /**
+     * Método que obtiene el usuario al que pertenece el vendedor
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Seller
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Método que obtiene la galeria del vendedor
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Seller
+     */
+    public function gallery()
+    {
+        return $this->hasOne(Galery::class);
+    }
+
+    /**
+     * Método que obtiene el artista asociado al un vendedor
+     *      
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Seller
+     */
+    public function artist()
+    {
+        return $this->hasOne(Artist::class);
+    }
+
+
+    /**
+     * Método que obtiene las obras que pertenecen a un vendedor
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Seller
+     */
+    public function artworks()
+    {
+        return $this->hasMany(Artworks::class);
+    }
+}

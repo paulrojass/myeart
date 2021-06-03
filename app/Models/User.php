@@ -46,4 +46,27 @@ protected $guarded = ['*'];
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Método que obtiene el comprador asociado al un usuario
+     *      
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo User
+     */
+    public function buyer()
+    {
+        return $this->hasOne(Buyer::class);
+    }
+
+    /**
+     * Método que obtiene el vendedor asociado al un usuario
+     *      
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo User
+     */
+    public function seller()
+    {
+        return $this->hasOne(Seller::class);
+    }
+
 }
