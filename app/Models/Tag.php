@@ -9,7 +9,18 @@ class Tag extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name'
+    ];
 
-
+    /**
+     * Método que obtiene los vendedores que pertenecen a una etiqueta
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Tag
+     */
+    public function sellers()
+    {
+        return $this->hasMany(Seller::class);
+    }
 }

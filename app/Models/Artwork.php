@@ -9,7 +9,9 @@ class Artwork extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'seller_id'
+    ];
 
     /**
      * Método que obtiene el vendedor al que pertenece la obra
@@ -19,7 +21,7 @@ class Artwork extends Model
      */
     public function seller()
     {
-        return $this->belongTo(Seller::class);
+        return $this->belongsTo(Seller::class);
     }
 
     /**
@@ -33,4 +35,14 @@ class Artwork extends Model
         return $this->hasMany(ArtworkImage::class);
     }
 
+    /**
+     * Método que obtiene los elementos de un obra
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Artwork
+     */
+    public function elements()
+    {
+        return $this->hasMany(Element::class);
+    }
 }

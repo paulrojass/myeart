@@ -26,4 +26,14 @@ class Element extends Model
         return $this->belongsTo(Attribute::class);
     }
 
+    /**
+     * Método que obtiene las obras a las que pertenece un elemento
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Element
+     */
+    public function artworks()
+    {
+        return $this->belongsToMany(Artwork::class, 'artwork_element');
+    }
 }

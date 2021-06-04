@@ -38,7 +38,7 @@ class Seller extends Model
 
     /**
      * Método que obtiene el artista asociado al un vendedor
-     *      
+     *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
      * @return object Objeto con los registros relacionados al modelo Seller
      */
@@ -57,5 +57,16 @@ class Seller extends Model
     public function artworks()
     {
         return $this->hasMany(Artworks::class);
+    }
+
+    /**
+     * Método que obtiene las etiquetas que se asignan a un vendedor
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Seller
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'seller_tag');
     }
 }
