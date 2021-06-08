@@ -45,4 +45,26 @@ class Artwork extends Model
     {
         return $this->hasMany(Element::class);
     }
+
+    /**
+     * Método que obtiene la compra de una obra
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Artwork
+     */
+    public function buy()
+    {
+        return $this->belongsTo(Buy::class);
+    }
+
+    /**
+     * Método que obtiene los me gusta de una obra
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Artwork
+     */
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }

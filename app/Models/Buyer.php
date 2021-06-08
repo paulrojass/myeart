@@ -45,6 +45,14 @@ class Buyer extends Model
         return $this->belongsTo(User::class);
     }
 
-
-
+    /**
+     * Método que obtiene las compras de un comprador
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Buyer
+     */
+    public function buys()
+    {
+        return $this->hasMany(Buy::class);
+    }
 }

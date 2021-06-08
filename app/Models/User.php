@@ -26,9 +26,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
 //You can also use below statement
 
-protected $guarded = ['*'];
-
-
+    protected $guarded = ['*'];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -50,7 +48,7 @@ protected $guarded = ['*'];
 
     /**
      * Método que obtiene el comprador asociado al un usuario
-     *      
+     *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
      * @return object Objeto con los registros relacionados al modelo User
      */
@@ -61,7 +59,7 @@ protected $guarded = ['*'];
 
     /**
      * Método que obtiene el vendedor asociado al un usuario
-     *      
+     *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
      * @return object Objeto con los registros relacionados al modelo User
      */
@@ -70,4 +68,14 @@ protected $guarded = ['*'];
         return $this->hasOne(Seller::class);
     }
 
+    /**
+     * Método que obtiene los me gusta que hizo un usuario
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo User
+     */
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
