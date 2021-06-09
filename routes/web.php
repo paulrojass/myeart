@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use Laravel\Socialite\Facades\Socialite;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,40 @@ Route::get('/auth/redirect', function () {
 
 Route::get('/auth/callback', function () {
     $user = Socialite::driver('github')->user();
-
     // $user->token
 });
+
+
+//Rutas para los modelos
+//Usuarios:
+Route::resource(
+    'usuarios',
+    App\Http\Controllers\UserController::class,
+    [ 'names' => [
+        'index' => 'users.index',
+        'create' => 'users.create',
+        'show' => 'users.show',
+        'store' => 'users.store',
+        'edit' => 'users.edit',
+        'update' => 'users.update',
+        'destroy' => 'users.destroy'
+        ]
+    ]
+);
+
+//Rutas para los modelos
+//Usuarios:
+Route::resource(
+    'compradores',
+    App\Http\Controllers\BuyerController::class,
+    [ 'names' => [
+        'index' => 'buyers.index',
+        'create' => 'buyers.create',
+        'show' => 'buyers.show',
+        'store' => 'buyers.store',
+        'edit' => 'buyers.edit',
+        'update' => 'buyers.update',
+        'destroy' => 'buyers.destroy'
+        ]
+    ]
+);

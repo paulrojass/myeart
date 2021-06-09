@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Buyer;
+use App\Models\Question;
 use Illuminate\Http\Request;
 
-class BuyerController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class BuyerController extends Controller
      */
     public function index()
     {
-        $buyers = Buyer::query();
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class BuyerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Buyer  $buyer
+     * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function show(Buyer $buyer)
+    public function show(Question $question)
     {
         //
     }
@@ -52,10 +52,10 @@ class BuyerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Buyer  $buyer
+     * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit(Buyer $buyer)
+    public function edit(Question $question)
     {
         //
     }
@@ -64,10 +64,10 @@ class BuyerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Buyer  $buyer
+     * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Buyer $buyer)
+    public function update(Request $request, Question $question)
     {
         //
     }
@@ -75,10 +75,10 @@ class BuyerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Buyer  $buyer
+     * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Buyer $buyer)
+    public function destroy(Question $question)
     {
         //
     }

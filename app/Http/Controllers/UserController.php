@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Buyer;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use App\Models\User;
 
-class BuyerController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,13 @@ class BuyerController extends Controller
      */
     public function index()
     {
-        $buyers = Buyer::query();
+        $users = User::query()->with('buyer')->with('seller')->get();
+
+        dd($users);
+
+        return Inertia::render('users/Index', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -41,21 +48,27 @@ class BuyerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Buyer  $buyer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Buyer $buyer)
+    public function show($id)
     {
-        //
+        $user = User::find($id);
+
+        dd($user);
+
+        return Inertia::render('users/show', [
+            'user' => $user
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Buyer  $buyer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Buyer $buyer)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +77,10 @@ class BuyerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Buyer  $buyer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Buyer $buyer)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +88,10 @@ class BuyerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Buyer  $buyer
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Buyer $buyer)
+    public function destroy($id)
     {
         //
     }
