@@ -53,13 +53,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::find($id);
-
-        dd($user);
-
-        return Inertia::render('users/show', [
-            'user' => $user
-        ]);
+        //
     }
 
     /**
@@ -70,7 +64,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', $id)->with('profile')->first();
+
+        return Inertia::render('user/AccountInformation', [
+            'user' => $user
+        ]);
     }
 
     /**

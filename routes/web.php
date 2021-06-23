@@ -32,14 +32,9 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/auth/redirect', function () {
-    return Socialite::driver('github')->redirect();
-});
-
-Route::get('/auth/callback', function () {
-    $user = Socialite::driver('github')->user();
-    // $user->token
-});
+//Laravel Socialite
+Route::get('/redirect', [App\Http\Controllers\LoginWithFacebookController::class, 'redirectFacebook']);
+Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class, 'facebookCallback']);
 
 
 //Rutas para los modelos
@@ -49,15 +44,13 @@ Route::resource(
     App\Http\Controllers\UserController::class,
     [ 'names' => [
         'index' => 'users.index',
-        'create' => 'users.create',
         'show' => 'users.show',
-        'store' => 'users.store',
         'edit' => 'users.edit',
         'update' => 'users.update',
         'destroy' => 'users.destroy'
         ]
     ]
-);
+)->except(['create', 'store']);
 
 //Rutas para los modelos
 //Usuarios:
@@ -72,6 +65,42 @@ Route::resource(
         'edit' => 'buyers.edit',
         'update' => 'buyers.update',
         'destroy' => 'buyers.destroy'
+        ]
+    ]
+);
+
+//Seleccionar Aristista o Galeria:
+Route::get('artista-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
+->name('artist-or-gallery');
+
+//Artistas:
+Route::resource(
+    'artistas',
+    App\Http\Controllers\ArtistController::class,
+    [ 'names' => [
+        'index' => 'artists.index',
+        'create' => 'artists.create',
+        'show' => 'artists.show',
+        'store' => 'artists.store',
+        'edit' => 'artists.edit',
+        'update' => 'artists.update',
+        'destroy' => 'artists.destroy'
+        ]
+    ]
+);
+
+//Galerias:
+Route::resource(
+    'galerias',
+    App\Http\Controllers\GalleryController::class,
+    [ 'names' => [
+        'index' => 'galleries.index',
+        'create' => 'galleries.create',
+        'show' => 'galleries.show',
+        'store' => 'galleries.store',
+        'edit' => 'galleries.edit',
+        'update' => 'galleries.update',
+        'destroy' => 'galleries.destroy'
         ]
     ]
 );

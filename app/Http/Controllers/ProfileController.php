@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Artist;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
-use Inertia\Inertia;
-
-class ArtistController extends Controller
+class ProfileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +24,7 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        return Inertia::render('gallery/Create');
+        //
     }
 
     /**
@@ -37,24 +35,16 @@ class ArtistController extends Controller
      */
     public function store(Request $request)
     {
-        //El usuario autenticado se crea sus datos como artista
-        $user = auth()->user();
-
-        $gallery = new Gallery();
-        $gallery->user_id = $user->id;
-        $gallery->artistic_name = 'artistic_name';
-        $gallery->save();
-
-        return Inertia::render('user/Profile');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Artist  $artist
+     * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function show(Artist $artist)
+    public function show(Profile $profile)
     {
         //
     }
@@ -62,10 +52,10 @@ class ArtistController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Artist  $artist
+     * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function edit(Artist $artist)
+    public function edit(Profile $profile)
     {
         //
     }
@@ -74,10 +64,10 @@ class ArtistController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Artist  $artist
+     * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artist $artist)
+    public function update(Request $request, Profile $profile)
     {
         //
     }
@@ -85,10 +75,10 @@ class ArtistController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Artist  $artist
+     * @param  \App\Models\Profile  $profile
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artist $artist)
+    public function destroy(Profile $profile)
     {
         //
     }

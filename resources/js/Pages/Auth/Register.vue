@@ -4,23 +4,33 @@
     <breeze-validation-errors class="mb-3" />
 
     <form @submit.prevent="submit">
-      <div class="form-group">
-        <breeze-label for="name" value="Name" />
-        <breeze-input id="name" type="text" v-model="form.name" required autofocus autocomplete="name" />
-      </div>
+        <div class="form-group">
+          <breeze-label for="firstName" value="Nombres" />
+          <breeze-input id="firstName" type="text" v-model="form.firstName" required autofocus autocomplete="Nombres" />
+        </div>
+
+        <div class="form-group">
+          <breeze-label for="lastName" value="Apellidos" />
+          <breeze-input id="lastName" type="text" v-model="form.lastName" required autofocus autocomplete="Apellidos" />
+        </div>
 
       <div class="form-group">
-        <breeze-label for="email" value="Email" />
+        <breeze-label for="email" value="Correo electrónico" />
         <breeze-input id="email" type="email" v-model="form.email" required />
       </div>
 
       <div class="form-group">
-        <breeze-label for="password" value="Password" />
+          <breeze-label for="name" value="Nombre de usuario" />
+          <breeze-input id="name" type="text" v-model="form.name" required autofocus autocomplete="name" />
+      </div>
+
+      <div class="form-group">
+        <breeze-label for="password" value="Clave" />
         <breeze-input id="password" type="password" v-model="form.password" required autocomplete="new-password" />
       </div>
 
       <div class="form-group">
-        <breeze-label for="password_confirmation" value="Confirm Password" />
+        <breeze-label for="password_confirmation" value="Confirmar Clave" />
         <breeze-input id="password_confirmation" type="password" v-model="form.password_confirmation" required autocomplete="new-password" />
       </div>
 
@@ -71,6 +81,8 @@ export default {
   data() {
     return {
       form: this.$inertia.form({
+        firstName: '',
+        lastName: '',
         name: '',
         email: '',
         password: '',

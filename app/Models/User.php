@@ -21,7 +21,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'avatar'
+        'avatar',
+        'facebook_id',
     ];
 
 //You can also use below statement
@@ -45,6 +46,17 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Método que obtiene el perfil asociado al un usuario
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo User
+     */
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 
     /**
      * Método que obtiene el comprador asociado al un usuario
