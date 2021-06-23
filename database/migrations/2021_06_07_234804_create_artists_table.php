@@ -16,6 +16,7 @@ class CreateArtistsTable extends Migration
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
             $table->foreignId('seller_id')->constrained()->onDelete('cascade');
+            $table->string('artistic_name');
             $table->timestamps();
         });
     }

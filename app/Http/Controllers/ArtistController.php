@@ -40,8 +40,13 @@ class ArtistController extends Controller
         //El usuario autenticado se crea sus datos como artista
         $user = auth()->user();
 
+        $seller = new Seller();
+        $seller->user_id = $user_id;
+        $seller->gallery = 0;
+        $seller->save();
+
         $gallery = new Gallery();
-        $gallery->user_id = $user->id;
+        $gallery->seller_id = $seller->id;
         $gallery->artistic_name = 'artistic_name';
         $gallery->save();
 

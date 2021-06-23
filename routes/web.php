@@ -69,9 +69,25 @@ Route::resource(
     ]
 );
 
+
 //Seleccionar Aristista o Galeria:
-Route::get('artista-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
+Route::get('/vendedores/artista-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
 ->name('artist-or-gallery');
+
+Route::resource(
+    'vendedores',
+    App\Http\Controllers\SellerController::class,
+    [ 'names' => [
+        'index' => 'sellers.index',
+        'create' => 'sellers.create',
+        'show' => 'sellers.show',
+        'store' => 'sellers.store',
+        'edit' => 'sellers.edit',
+        'update' => 'sellers.update',
+        'destroy' => 'sellers.destroy'
+        ]
+    ]
+);
 
 //Artistas:
 Route::resource(
