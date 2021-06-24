@@ -9,13 +9,14 @@
             </inertia-link>
 
             <template v-else>
+              <inertia-link v-if="canRegister" :href="route('register')" class="ml-4 text-muted">
+                Registrate
+              </inertia-link>
+              
               <inertia-link :href="route('login')" class="text-muted">
-                Log in
+                Iniciar Sesion
               </inertia-link>
 
-              <inertia-link v-if="canRegister" :href="route('register')" class="ml-4 text-muted">
-                Register
-              </inertia-link>
             </template>
           </div>
         </div>

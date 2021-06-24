@@ -1,0 +1,138 @@
+<template>
+    <footer class="footer-area footer--light">
+        <div class="footer-big">
+            <!-- start .container -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="footer-widget">
+                            <div class="widget-about">
+                                <img
+                                    src="img/footer-logo.png"
+                                    alt=""
+                                    class="img-fluid"
+                                />
+                                <p>
+                                    Pellentesque facilisis the ullamcorp keer
+                                    sapien interdum is the magna pellentesque
+                                    kequis hasellus keur condimentum eleifend.
+                                </p>
+                                <ul class="contact-details">
+                                    <li>
+                                        <span class="icon-earphones"></span>
+                                        Call Us:
+                                        <a href="tel:344-755-111"
+                                            >344-755-111</a
+                                        >
+                                    </li>
+                                    <li>
+                                        <span class="icon-envelope-open"></span>
+                                        <a href="mailto:support@aazztech.com"
+                                            >support@aazztech.com</a
+                                        >
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Ends: .footer-widget -->
+                    </div>
+                    <!-- end /.col-md-4 -->
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="footer-widget">
+                            <div class="footer-menu footer-menu--1">
+                                <h5 class="footer-widget-title">Ayuda</h5>
+                                <ul>
+                                    <li>
+                                        <a href="#">Quienes Somos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pregunta Frecuentes</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Contacto</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Categorias</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end /.footer-menu -->
+                        </div>
+                        <!-- Ends: .footer-widget -->
+                    </div>
+                    <!-- end /.col-md-3 -->
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="footer-widget">
+                            <div class="footer-menu">
+                                <h5 class="footer-widget-title">Categorias</h5>
+                                <ul>
+                                    <li>
+                                        <a href="#">categoria 1</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">categoria 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">categoria 3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">categoria 4</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end /.footer-menu -->
+                        </div>
+                        <!-- Ends: .footer-widget -->
+                    </div>
+                    <!-- end /.col-lg-3 -->
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="footer-widget">
+                            <div class="footer-menu no-padding">
+                                <h5 class="footer-widget-title">
+                                    Politicas
+                                </h5>
+                                <ul>
+                                    <li>
+                                        <a href="#">Politicas de Envio</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Politicas de Privacidad</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Terminos y Condiciones</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Soporte</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end /.footer-menu -->
+                        </div>
+                        <!-- Ends: .footer-widget -->
+                    </div>
+                    <!-- Ends: .col-lg-3 -->
+                </div>
+                <!-- end /.row -->
+            </div>
+            <!-- end /.container -->
+        </div>
+        <!-- end /.footer-big -->
+        <div class="mini-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright-text">
+                            <p>
+                                Derechos Reservados
+                                &copy; 2021
+                            </p>
+                        </div>
+                        <div class="go_top">
+                            <span class="icon-arrow-up"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</template>

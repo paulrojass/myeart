@@ -28,7 +28,7 @@ class ArtistController extends Controller
     {
         $tags = Tag::all();
         return Inertia::render('artists/Create', [
-            'tags' => $tags;
+            'tags' => $tags
         ]);
     }
 
