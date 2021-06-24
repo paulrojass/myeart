@@ -66,7 +66,7 @@ class UserController extends Controller
     {
         $user = User::where('id', $id)->with('profile')->first();
 
-        return Inertia::render('user/AccountInformation', [
+        return Inertia::render('users/AccountInformation', [
             'user' => $user
         ]);
     }

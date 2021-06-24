@@ -26,7 +26,10 @@ class ArtistController extends Controller
      */
     public function create()
     {
-        return Inertia::render('gallery/Create');
+        $tags = Tag::all();
+        return Inertia::render('artists/Create', [
+            'tags' => $tags;
+        ]);
     }
 
     /**
@@ -39,17 +42,26 @@ class ArtistController extends Controller
     {
         //El usuario autenticado se crea sus datos como artista
         $user = auth()->user();
-
+        //Creando vendedor
         $seller = new Seller();
         $seller->user_id = $user_id;
         $seller->gallery = 0;
         $seller->save();
 
-        $gallery = new Gallery();
-        $gallery->seller_id = $seller->id;
-        $gallery->artistic_name = 'artistic_name';
-        $gallery->save();
+        //Se Asigna role de vendedor
+        $user->assignRole('seller');
 
+        //Creando datos artista del vendedor
+        $artist = new Artist();
+        $artist->seller_id = $seller->id;
+        $artist->artistic_name = 'artistic_name';
+        $artist->save();
+
+        foreach ($request->tags as $tag) {
+            //reviso luego esta parte
+            $seller->tag = $tag;
+        }
+        
         return Inertia::render('user/Profile');
     }
 

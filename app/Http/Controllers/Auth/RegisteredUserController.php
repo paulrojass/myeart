@@ -55,11 +55,15 @@ class RegisteredUserController extends Controller
             'firstName' => $request->firstName,
             'lastName' => $request->lastName
         ]);
+        //Asignamos el rol de comprador a todos los usuarios creados
+        $user->assignRole('buyer');
 
         event(new Registered($user));
 
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
+        //Se cambia el retorno a la vista de Información de la cuenta
+        return redirect()->route('users.edit', $user->id);
     }
 }

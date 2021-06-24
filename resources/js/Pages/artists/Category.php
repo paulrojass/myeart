@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -14,13 +14,15 @@ class Tag extends Model
     ];
 
     /**
-     * Método que obtiene los vendedores que pertenecen a una etiqueta
+     * Método que obtiene los atributos de una categoria
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
-     * @return object Objeto con los registros relacionados al modelo Tag
+     * @return object Objeto con los registros relacionados al modelo Category
      */
-    public function sellers()
+    public function attributes()
     {
-        return $this->hasMany(Seller::class, 'seller_tag');
+        return $this->hasMany(Attribute::class);
     }
+
+
 }
