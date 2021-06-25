@@ -8,9 +8,9 @@
                         <div class="menu-fullwidth">
                             <div class="logo-wrapper">
                                 <div class="logo logo-top">
-                                    <a href="index.html"
+                                    <a href="/"
                                         ><img
-                                            src="img/logo.png"
+                                            src="imagenes/Logo.png"
                                             alt="logo image"
                                             class="img-fluid"
                                     /></a>

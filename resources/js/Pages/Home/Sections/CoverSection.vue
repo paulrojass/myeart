@@ -1,8 +1,12 @@
 <template>
-    <section class="hero-area bgimage">
-        <div class="bg_image_holder">
-            <img src="img/hero-image01.png" alt="background-image" />
-        </div>
+    <section 
+        class="hero-area bgimage"
+        style="
+            background-image: url('imagenes/Banner.jpg'); 
+            background-size: cover;
+        "
+    >
+        <!-- <div class="bg-overlay"></div> -->
         <div class="hero-content content_above">
             <div class="content-wrapper">
                 <div class="container">
@@ -10,13 +14,12 @@
                         <div class="col-md-12">
                             <div class="hero__content__title">
                                 <h1 class="display-3">
-                                    Build A Better
+                                    El arte que todos
                                     <br />
-                                    Digital Product Marketplace
+                                    llevamos dentro...
                                 </h1>
                                 <p class="tagline">
-                                    DigiPro is the most powerful, & customizable
-                                    template for Easy Digital Downloads Products
+                                    La Red Social donde podrás exponer, difundir y compartir el amor por el arte y tus creaciones
                                 </p>
                             </div>
                             <!-- end .hero__btn-area-->
@@ -28,7 +31,7 @@
                                                 <input
                                                     type="text"
                                                     class="text_field"
-                                                    placeholder="Search your products..."
+                                                    placeholder="Realiza tu busqueda"
                                                 />
                                                 <div
                                                     class="search__select select-wrap"
@@ -38,7 +41,7 @@
                                                         class="select--field"
                                                     >
                                                         <option value="">
-                                                            All Categories
+                                                           Categorias
                                                         </option>
                                                         <option value="">
                                                             PSD
@@ -62,7 +65,7 @@
                                                     type="submit"
                                                     class="search-btn btn--lg btn-primary"
                                                 >
-                                                    Search Now
+                                                    Avanzada
                                                 </button>
                                             </form>
                                         </div>

@@ -25,6 +25,7 @@ mix.js('resources/js/app.js', 'public/js').vue()
         // "resources/css/trumbowyg.min.css",
         // "resources/css/venobox.css",
         "resources/css/style.css",
+        "resources/css/styles.css"
     ], 'public/css/styles.css')
     .sass('resources/sass/app.scss', 'public/css/')
     .webpackConfig(require('./webpack.config'));

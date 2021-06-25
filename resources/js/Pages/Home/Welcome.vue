@@ -3,6 +3,7 @@
     <CoverSection />
     <WorksArtSection />
     <BIOArtistSection />
+    <GalleryReferencesSection />
     <InfoConvertedSection />
     <ListBenefitsSection />
     <NewsletterSection />

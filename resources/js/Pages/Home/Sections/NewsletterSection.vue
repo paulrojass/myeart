@@ -1,35 +1,44 @@
 <template>
-    <section class="subscribe bgimage">
-        <div class="bg_image_holder">
-            <img src="img/subscribe-bg.png" alt="" />
-        </div>
+    <section class="subscribe"
+        style="                    
+        background-image: url('/imagenes/banner-newsletter.jpg');
+        background-size: cover;
+        "
+    >
         <div class="container">
             <div class="row">
+                <div class="col-12">
+                    <p class="subcribe-title">Una newsletter con mucho arte... no te pierdas!</p>
+                </div>
                 <div class="col-lg-6 offset-lg-3 col-md-12 subscribe-inner">
-                    <div class="envelope-svg">
-                        <img src="img/svg/newsletter.svg" alt="" class="svg" />
-                    </div>
-                    <p>
-                        Subscribe to get the latest themes, templates and offer
-                        information. Don't worry, we won't send spam!
-                    </p>
                     <form action="#" class="subscribe-form">
                         <div class="form-group">
-                            <input
-                                type="text"
-                                placeholder="Enter your email address"
-                                required
-                            />
+                            <input type="text" placeholder="" required />
                             <button
                                 type="submit"
                                 class="btn btn--sm btn-primary"
                             >
-                                Subscribe
+                                Subscribete
                             </button>
                         </div>
                     </form>
+                </div>
+
+                <div class="col-12">
+                    <p class="mt-4 subcribe-subtitle">
+                        El Spam es una obra fallida, por eso no enviaremos
+                        información que no sea de tu interés
+                    </p>
+
                 </div>
             </div>
         </div>
     </section>
 </template>
+
+<style scoped>
+    .subcribe-title {
+        font-size: calc(.8rem + 1vw);
+        text-align: center;
+    }
+</style>

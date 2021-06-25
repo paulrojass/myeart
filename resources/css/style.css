@@ -2570,9 +2570,9 @@ select:active, select.form-control:focus, select.form-control:active, .form-cont
 }
 
 .btn-shadow-primary {
-  -webkit-box-shadow: 0 10px 20px rgba(110, 79, 246, 0.2);
-  -moz-box-shadow: 0 10px 20px rgba(110, 79, 246, 0.2);
-  box-shadow: 0 10px 20px rgba(110, 79, 246, 0.2);
+  -webkit-box-shadow: 0 10px 20px rgba(37, 102, 174, 0.2);
+  -moz-box-shadow: 0 10px 20px rgba(37, 102, 174, 0.2);
+  box-shadow: 0 10px 20px rgba(37, 102, 174, 0.2);
 }
 
 .btn-shadow-secondary {
@@ -3044,7 +3044,7 @@ ul li {
 }
 
 .bg_image_holder img {
-  display: none;
+  /* display: none; */
 }
 
 .dark-bg {
