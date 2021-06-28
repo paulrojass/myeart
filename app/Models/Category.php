@@ -14,6 +14,16 @@ class Category extends Model
     ];
 
     /**
+     * Método que obtiene las obras de una categoria
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Category
+     */
+    public function artworks()
+    {
+        return $this->hasMany(Artwork::class);
+    }
+    /**
      * Método que obtiene los atributos de una categoria
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
@@ -23,6 +33,4 @@ class Category extends Model
     {
         return $this->hasMany(Attribute::class);
     }
-
-
 }

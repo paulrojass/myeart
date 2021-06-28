@@ -1,14 +1,18 @@
 <template id="">
-
+<div class="">
+    <form class="form" @submit="submit">
+        <button type="submit" name="button">enviar</button>
+    </form>
+</div>
 </template>
-<script>
 
+<script>
 export default {
     props: ['user'],
     data() {
       return {
         form: this.$inertia.form({
-            avatar: this.profile.avatar,
+            avatar: this.user.profile.avatar,
             firstName: this.user.firstName,
             lastName: this.user.lastName,
             email: this.user.email,
@@ -30,7 +34,7 @@ export default {
     methods: {
         submit(evt) {
           evt.preventDefault()
-          this.form.post(route('users.update', this.user.id))
+          this.form.put(route('users.update', this.user.id))
         },
     }
 }

@@ -22,7 +22,13 @@ class ProfileFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'avatar' => 'defaul.jpg',
+            'firstName' => $this->faker->firstNameMale(),
+            'lastName' => $this->faker->lastName(),
+            'biography' => $this->faker->paragraph(),
+            'address' => $this->faker->address(),
+            'country' => $this->faker->country(),
+            'city' => $this->faker->city()
         ];
     }
 }

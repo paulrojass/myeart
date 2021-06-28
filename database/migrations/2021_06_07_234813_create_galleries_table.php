@@ -16,6 +16,8 @@ class CreateGalleriesTable extends Migration
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
             $table->foreignId('seller_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->text('address');
             $table->timestamps();
         });
     }

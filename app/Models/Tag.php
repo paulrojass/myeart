@@ -21,6 +21,7 @@ class Tag extends Model
      */
     public function sellers()
     {
-        return $this->hasMany(Seller::class, 'seller_tag');
+        return $this->belongsToMany(Seller::class, 'seller_tag')
+        ->withPivot('tag_id');
     }
 }

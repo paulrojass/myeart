@@ -11,7 +11,7 @@ class Seller extends Model
 
     protected $fillable = [
         'user_id',
-        'gallery'
+        'has_gallery'
     ];
 
     /**
@@ -47,7 +47,6 @@ class Seller extends Model
         return $this->hasOne(Artist::class);
     }
 
-
     /**
      * Método que obtiene las obras que pertenecen a un vendedor
      *
@@ -56,7 +55,7 @@ class Seller extends Model
      */
     public function artworks()
     {
-        return $this->hasMany(Artworks::class);
+        return $this->hasMany(Artwork::class);
     }
 
     /**
@@ -67,6 +66,7 @@ class Seller extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'seller_tag');
+        return $this->belongsToMany(Tag::class, 'seller_tag')
+            ->withPivot('seller_id');
     }
 }

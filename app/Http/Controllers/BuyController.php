@@ -17,6 +17,24 @@ class BuyController extends Controller
         //
     }
 
+    public function buysIndex()
+    {
+        $buys = Buy::where('buyer_id', auth()->user()->buyer->id)->first();
+
+        return Inertia::render('buys/BuysIndex', [
+            'buys' => $buys
+        ]);
+    }
+
+    public function salesIndex()
+    {
+        $buys = auth()->user()->seller->buys;
+
+        return Inertia::render('buys/BuysIndex', [
+            'buys' => $buys
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -22,7 +22,7 @@ class ArtworkFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'seller_id'
         ];
     }
 }

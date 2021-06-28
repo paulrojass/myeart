@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('dashboard/categories/Index', [
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('dashboard/categories/Create');
     }
 
     /**
@@ -35,7 +38,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+
+        $category->name = $request->name;
+
+        $category->save();
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -44,9 +53,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        return Inertia::render('dashboard/categories/Show', [
+            'category' => Category::find($id)
+        ]);
     }
 
     /**
@@ -55,9 +66,11 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        return Inertia::render('dashboard/categories/Edit', [
+            'category' => Category::find($id)
+        ]);
     }
 
     /**
@@ -69,7 +82,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category = Category::find($id);
+
+        $category->update($request->all());
+
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -78,8 +95,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+
+        $category->delete();
+
+        return redirect()->route('categories.index');
     }
 }

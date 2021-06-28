@@ -57,6 +57,8 @@ class RegisteredUserController extends Controller
         ]);
         //Asignamos el rol de comprador a todos los usuarios creados
         $user->assignRole('buyer');
+        //Asignamos el id de Stripe
+        $stripeCustomer = $user->createAsStripeCustomer();
 
         event(new Registered($user));
 

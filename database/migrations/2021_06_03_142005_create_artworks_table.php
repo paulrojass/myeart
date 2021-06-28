@@ -16,6 +16,8 @@ class CreateArtworksTable extends Migration
         Schema::create('artworks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('seller_id')->constrained()->onDelete('cascade');
+            $table->text('description');
+            $table->decimal('price', 10, 2);
             $table->timestamps();
         });
     }

@@ -10,7 +10,9 @@ class Artwork extends Model
     use HasFactory;
 
     protected $fillable = [
-        'seller_id'
+        'seller_id',
+        'category_id',
+        'name'
     ];
 
     /**
@@ -25,6 +27,17 @@ class Artwork extends Model
     }
 
     /**
+     * Método que obtiene la categoria a la que pertenece la obra
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Artwork
+     */
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    /**
      * Método que obtiene las imagenes de una obra
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
@@ -36,17 +49,6 @@ class Artwork extends Model
     }
 
     /**
-     * Método que obtiene los elementos de un obra
-     *
-     * @author  Paúl Rojas <paul.rojase@gmail.com>
-     * @return object Objeto con los registros relacionados al modelo Artwork
-     */
-    public function elements()
-    {
-        return $this->hasMany(Element::class);
-    }
-
-    /**
      * Método que obtiene la compra de una obra
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
@@ -54,7 +56,7 @@ class Artwork extends Model
      */
     public function buy()
     {
-        return $this->belongsTo(Buy::class);
+        return $this->hasOne(Buy::class);
     }
 
     /**
@@ -66,5 +68,17 @@ class Artwork extends Model
     public function likes()
     {
         return $this->hasMany(Like::class);
+    }
+
+    /**
+     * Método que obtiene los elementos de un obra
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Artwork
+     */
+    public function elements()
+    {
+        return $this->belongsToMany(Element::class, 'artwork_element')
+                    ->withPivot('artwork_id');
     }
 }

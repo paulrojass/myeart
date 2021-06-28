@@ -22,7 +22,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
-        'avatar',
         'facebook_id',
     ];
 
@@ -60,17 +59,6 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Método que obtiene el comprador asociado al un usuario
-     *
-     * @author  Paúl Rojas <paul.rojase@gmail.com>
-     * @return object Objeto con los registros relacionados al modelo User
-     */
-    public function buyer()
-    {
-        return $this->hasOne(Buyer::class);
-    }
-
-    /**
      * Método que obtiene el vendedor asociado al un usuario
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
@@ -91,4 +79,26 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Like::class);
     }
+    /**
+     * Método que obtiene los comentarios que hizo un usuario
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo User
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
+     * Método que obtiene las compras que hizo un usuario
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo User
+     */
+    public function buys()
+    {
+        return $this->hasMany(Buy::class);
+    }
+
 }

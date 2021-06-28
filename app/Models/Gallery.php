@@ -10,7 +10,9 @@ class Gallery extends Model
     use HasFactory;
 
     protected $fillable = [
-        'seller_id'
+        'seller_id',
+        'name',
+        'address'
     ];
 
     /**
