@@ -15,7 +15,7 @@ class CreateBuysTable extends Migration
     {
         Schema::create('buys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->foreignId('artwork_id')->constrained()->onDelete('cascade');
             $table->boolean('finished')->default(0);
             $table->text('comment')->nullable();

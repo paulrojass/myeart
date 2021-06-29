@@ -33,7 +33,7 @@ class Seller extends Model
      */
     public function gallery()
     {
-        return $this->hasOne(Galery::class);
+        return $this->hasOne(Gallery::class);
     }
 
     /**

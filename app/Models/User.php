@@ -91,14 +91,13 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * Método que obtiene las compras que hizo un usuario
+     * Método que obtiene las ordenes que hizo un usuario
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
      * @return object Objeto con los registros relacionados al modelo User
      */
-    public function buys()
+    public function orders()
     {
-        return $this->hasMany(Buy::class);
+        return $this->hasMany(Order::class);
     }
-
 }

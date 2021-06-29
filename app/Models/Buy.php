@@ -18,14 +18,14 @@ class Buy extends Model
     ];
 
     /**
-     * Método que obtiene el usuario comprador al de la obra
+     * Método que obtiene la orden a la que pertenece la compra
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
      * @return object Objeto con los registros relacionados al modelo Buy
      */
-    public function user()
+    public function order()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Order::class);
     }
 
     /**

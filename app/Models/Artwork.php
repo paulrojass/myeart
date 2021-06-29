@@ -12,7 +12,13 @@ class Artwork extends Model
     protected $fillable = [
         'seller_id',
         'category_id',
-        'name'
+        'name',
+        'description',
+        'price',
+        'offer',
+        'weight',
+        'width',
+        'height'
     ];
 
     /**
