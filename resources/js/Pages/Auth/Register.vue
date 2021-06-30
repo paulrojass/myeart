@@ -1,76 +1,108 @@
 <template>
-  <div class="card-body">
+<div>
+  <Header title="Registrarse" />
+  <section class="signup_area section--padding">
+    <div class="container">
+      <div class="row justify-content-center my-5">
+        <div class="col-sm-12 col-md-8 col-lg-6">
+          <div class="card shadow-sm px-3">
+            <div class="card-body p-0 px-4">
 
-    <breeze-validation-errors class="mb-3" />
+              <breeze-validation-errors class="mb-3" />
 
-    <form @submit.prevent="submit">
-        <div class="form-group">
-          <breeze-label for="firstName" value="Nombres" />
-          <breeze-input id="firstName" type="text" v-model="form.firstName" required autofocus autocomplete="Nombres" />
+              <form @submit.prevent="submit">
+                  <div class="form-group text-center">
+                      <h3 class="font-weight-bolder"> Crea tu cuenta </h3>
+                      <p class="text-muted px-4">Y podras disponer de un sin fin de obras a tu disposicion o vender las tuyas propias.</p>
+                  </div>
+
+                  <div class="form-group">
+                    <breeze-label for="firstName" value="Nombres" />
+                    <breeze-input id="firstName" type="text" v-model="form.firstName" required autofocus autocomplete="Nombres" />
+                  </div>
+
+                  <div class="form-group">
+                    <breeze-label for="lastName" value="Apellidos" />
+                    <breeze-input id="lastName" type="text" v-model="form.lastName" required autofocus autocomplete="Apellidos" />
+                  </div>
+
+                <div class="form-group">
+                  <breeze-label for="email" value="Correo electrónico" />
+                  <breeze-input id="email" type="email" v-model="form.email" required />
+                </div>
+
+                <div class="form-group">
+                    <breeze-label for="name" value="Nombre de usuario" />
+                    <breeze-input id="name" type="text" v-model="form.name" required autofocus autocomplete="name" />
+                </div>
+
+                <div class="form-group">
+                  <breeze-label for="password" value="Clave" />
+                  <breeze-input id="password" type="password" v-model="form.password" required autocomplete="new-password" />
+                </div>
+
+                <div class="form-group">
+                  <breeze-label for="password_confirmation" value="Confirmar Clave" />
+                  <breeze-input id="password_confirmation" type="password" v-model="form.password_confirmation" required autocomplete="new-password" />
+                </div>
+
+                <div class="form-group">
+                  <div class="custom-control custom-checkbox">
+                    <breeze-checkbox name="terms" id="terms" v-model:checked="form.terms" />
+
+                    <label class="custom-control-label" for="terms">
+                      He leído y acepto los términos y condición de uso
+                    </label>
+                  </div>
+                </div>
+
+                <div class="mb-0">
+                  <div class="d-flex justify-content-start align-items-baseline">
+                    <b-button class="mr-4 btn  btn--lg btn-primary" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
+                      Registrate
+                    </b-button>
+                    <inertia-link :href="route('login')" class="text-muted mr-3 text-decoration-none">
+                      ya tienes una cuenta ?
+                    </inertia-link>
+
+                  </div>
+                </div>
+
+                <!-- <div class="d-flex justify-content-center mt-3">
+                  <div>
+                    <label>O inicia sesion con</label>
+                    <div>
+                      
+                    </div>
+                  </div>
+                </div> -->
+              </form>
+            </div>
+
+          </div>
         </div>
-
-        <div class="form-group">
-          <breeze-label for="lastName" value="Apellidos" />
-          <breeze-input id="lastName" type="text" v-model="form.lastName" required autofocus autocomplete="Apellidos" />
-        </div>
-
-      <div class="form-group">
-        <breeze-label for="email" value="Correo electrónico" />
-        <breeze-input id="email" type="email" v-model="form.email" required />
       </div>
+    </div>
+  </section>
+</div>
 
-      <div class="form-group">
-          <breeze-label for="name" value="Nombre de usuario" />
-          <breeze-input id="name" type="text" v-model="form.name" required autofocus autocomplete="name" />
-      </div>
-
-      <div class="form-group">
-        <breeze-label for="password" value="Clave" />
-        <breeze-input id="password" type="password" v-model="form.password" required autocomplete="new-password" />
-      </div>
-
-      <div class="form-group">
-        <breeze-label for="password_confirmation" value="Confirmar Clave" />
-        <breeze-input id="password_confirmation" type="password" v-model="form.password_confirmation" required autocomplete="new-password" />
-      </div>
-
-      <div class="form-group" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
-        <div class="custom-control custom-checkbox">
-          <breeze-checkbox name="terms" id="terms" v-model:checked="form.terms" />
-
-          <label class="custom-control-label" for="terms">
-            I agree to the <a target="_blank" :href="route('terms.show')">Terms of Service</a> and <a target="_blank" :href="route('policy.show')">Privacy Policy</a>
-          </label>
-        </div>
-      </div>
-
-      <div class="mb-0">
-        <div class="d-flex justify-content-end align-items-baseline">
-          <inertia-link :href="route('login')" class="text-muted mr-3 text-decoration-none">
-            Already registered?
-          </inertia-link>
-
-          <breeze-button class="ml-4" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
-            Register
-          </breeze-button>
-        </div>
-      </div>
-    </form>
-  </div>
 </template>
 
 <script>
+import Layout from "@/Layouts/Default/LayoutDefault"
+import Header from '@/Layouts/Header'
+
 import BreezeButton from '@/Components/Button'
 import BreezeCheckbox from "@/Components/Checkbox";
-import BreezeGuestLayout from "@/Layouts/Guest"
 import BreezeInput from '@/Components/Input'
 import BreezeLabel from '@/Components/Label'
 import BreezeValidationErrors from '@/Components/ValidationErrors'
 
 export default {
-  layout: BreezeGuestLayout,
+  layout: Layout,
 
   components: {
+    Header,
     BreezeButton,
     BreezeCheckbox,
     BreezeInput,

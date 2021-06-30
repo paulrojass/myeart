@@ -1,5 +1,55 @@
 <template>
-  <div class="card-body">
+  <div>
+    <Header title="Iniciar Sesión" />
+    <section class="login_area section--padding">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+                  <form action="#">
+                      <div class="cardify login">
+                          <div class="login--header">
+                              <h3>Iniciar Sesión</h3>
+                              <p>Y podrás dispoiner de un sin fin de obras a tu desposición o vender las tuyas propias</p>
+                          </div><!-- end .login_header -->
+                          <div class="login--form">
+                              <div class="form-group">
+                                  <label for="email">Email</label>
+                                  <input id="email" type="email" v-model="form.email" required autofocus>
+                              </div>
+                              <div class="form-group">
+                                  <label for="password">Contraseña</label>
+                                  <input id="password" type="password" v-model="form.password" required autocomplete="current-password">
+                              </div>
+                              <div class="form-group">
+                                  <div class="custom_checkbox">
+                                      <input type="checkbox" id="ch2">
+                                      <label for="ch2">
+                                          <span class="shadow_checkbox"></span>
+                                          <span class="label_text text-muted">
+                                            He leido y acepto los terminos y condición de uso
+                                          </span>
+                                      </label>
+                                  </div>
+                              </div>
+                                <b-button class="ml-4 btn--lg btn btn-primary" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
+                                  Iniciar
+                                </b-button>
+
+                              <div class="login_assist">
+                                  <inertia-link :href="route('register')" class="text-muted mr-3">
+                                    ¿ No tienes una cuenta?
+                                  </inertia-link>
+                              </div>
+                          </div><!-- end .login--form -->
+                      </div><!-- end .cardify -->
+                  </form>
+              </div><!-- end .col-md-6 -->
+          </div><!-- end .row -->
+      </div><!-- end .container -->
+    </section><!-- ends: .login_area -->
+  </div>
+
+  <!-- <div class="card-body">
 
     <breeze-validation-errors class="mb-3" />
 
@@ -49,10 +99,13 @@
 
 
     </form>
-  </div>
+  </div> -->
 </template>
 
 <script>
+import layout from "@/Layouts/Default/LayoutDefault.vue"
+import Header from "@/Layouts/Header.vue"
+
 import BreezeButton from '@/Components/Button'
 import BreezeGuestLayout from "@/Layouts/Guest"
 import BreezeInput from '@/Components/Input'
@@ -61,14 +114,15 @@ import BreezeLabel from '@/Components/Label'
 import BreezeValidationErrors from '@/Components/ValidationErrors'
 
 export default {
-  layout: BreezeGuestLayout,
+  layout: layout,
 
   components: {
     BreezeButton,
     BreezeInput,
     BreezeCheckbox,
     BreezeLabel,
-    BreezeValidationErrors
+    BreezeValidationErrors,
+    Header
   },
 
   props: {

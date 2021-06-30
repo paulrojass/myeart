@@ -91,10 +91,10 @@
                     {
                         label: "Daily Sales",
                         backgroundColor: 'rgba(0, 71, 193,.5)',
-                        borderColor: '#6E4FF6',
+                        borderColor: '#125CA0',
                         data: [13, 23, 17, 14, 11, 24, 20],
-                        pointBackgroundColor: '#6E4FF6',
-                        pointBorderColor: '#6E4FF6',
+                        pointBackgroundColor: '#125CA0',
+                        pointBorderColor: '#125CA0',
                         fill: false,
                         borderWidth: 2.5
                     },

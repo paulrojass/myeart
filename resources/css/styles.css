@@ -21,16 +21,23 @@
   font-size: calc(1.8rem + 0.9vw);
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #2566AE;
-  border-color: #2566AE;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 4px 4px 0 0;
 }
 
-.btn-primary:hover {
-  color: #fff;
-  background-color: #502bf4;
-  border-color: #461ef4;
+.card-primary {
+  background: #fff;
+  padding: 30px;
+  border-radius: 4px 4px 0 0;
+  border: 2px solid #80A7CB;
+}
+
+.border {
+  border: 2px solid #80A7CB !important;
+}
+
+.bg-primary {
+  background: #125CA0 !important;
 }

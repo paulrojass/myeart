@@ -17,6 +17,14 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
+Route::get('/test', function(){
+    return Inertia::render('Template/Login', []);
+});
+
+Route::get('/publicArtist', function(){
+    return Inertia::render('PublicArtist/index', []);
+});
+
 Route::get('/', function () {
     return Inertia::render('Home/Welcome', [
         'canLogin' => Route::has('login'),
@@ -25,6 +33,12 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+// Route::get('/profile-public-artist', function () {
+//     return Inertia::render('ProfilePublicArtist/index', [
+
+//     ]);
+// });
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
