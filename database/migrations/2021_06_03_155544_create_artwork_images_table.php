@@ -17,6 +17,7 @@ class CreateArtworkImagesTable extends Migration
             $table->id();
             $table->foreignId('artwork_id')->constrained()->onDelete('cascade');
             $table->string('location');
+            $table->boolean('principal')->default(0);
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ class ArtworkController extends Controller
      */
     public function index()
     {
-        return Inertia::render('artworks.index')
+        return Inertia::render('artworks.index');
     }
 
     /**
@@ -47,6 +47,20 @@ class ArtworkController extends Controller
             'height' => $request->height
         ]);
 
+
+        if($request->hasFile('image')) {
+            foreach($request->file('image') as $image) {
+                $destinationPath = 'artwork_images/';
+                $fileName = Str::random(15).'.'.$format;
+                $image->move($destinationPath, $filename);
+
+                $artwork_image = Artwork::create([
+                    'artwork_id' => $artwork->id,
+                    'location'  => $filename
+                ]);
+            }
+        }
+
         return redirect()->route('artworks.index');
     }
 
@@ -56,9 +70,17 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function show(Artwork $artwork)
+    public function show($id)
     {
-        return 
+
+        $artwork = query('id', $id)->with('artworkImages')->first();
+
+        $seller = $artwork->seller->with('user')->with('user.profile')->first();
+
+        return Inertia::render('artworks/Show', [
+            'artwork' => $artwork,
+            'seller' => $seller
+        ]);
     }
 
     /**
@@ -67,9 +89,14 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function edit(Artwork $artwork)
+    public function edit($id)
     {
-        //
+        $artwork = Artwork::find($id);
+
+        return Inertia::render('artworks/Edit', [
+            'artwork' => $artwork
+        ]);
+
     }
 
     /**
@@ -79,9 +106,14 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artwork $artwork)
+    public function update(Request $request, $id)
     {
-        //
+        $artwork = Artwork::find($id);
+
+        $artwork->update($request->all());
+
+        return redirect()->route('my-account.artworks');
+
     }
 
     /**
@@ -90,9 +122,14 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Artwork $artwork)
+    public function destroy($id)
     {
-        //
+        $artwork = Artwork::find($id);
+
+        $artwork->delete();
+
+        return redirect()->route('my-account.artworks');
+
     }
 
     /**

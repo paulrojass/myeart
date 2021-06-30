@@ -11,7 +11,8 @@ class ArtworkImage extends Model
 
     protected $fillable = [
         'artwork_id',
-        'location'
+        'location',
+        'principal'
     ];
 
     /**

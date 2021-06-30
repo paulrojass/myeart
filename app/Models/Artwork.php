@@ -77,6 +77,17 @@ class Artwork extends Model
     }
 
     /**
+     * Método que obtiene los comentarios de una obra
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Artwork
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
      * Método que obtiene los elementos de un obra
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>

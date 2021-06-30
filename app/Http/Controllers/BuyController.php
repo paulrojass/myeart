@@ -17,24 +17,6 @@ class BuyController extends Controller
         //
     }
 
-    public function buysIndex()
-    {
-        $buys = Buy::where('buyer_id', auth()->user()->buyer->id)->first();
-
-        return Inertia::render('buys/BuysIndex', [
-            'buys' => $buys
-        ]);
-    }
-
-    public function salesIndex()
-    {
-        $buys = auth()->user()->seller->buys;
-
-        return Inertia::render('buys/BuysIndex', [
-            'buys' => $buys
-        ]);
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -100,4 +82,28 @@ class BuyController extends Controller
     {
         //
     }
+
+    /**
+     * Muestra la vista de las compras del usuario autenticado.
+     *
+     */
+    public function myShopping()
+    {
+        $purchases = auth()->user()->purchases;
+
+        return Inertia::render('buys/MyShopping', [
+            'purchases' => $purchases
+        ]);
+    }
+
+    public function mySales()
+    {
+
+        $sales = auth()->user()->seller->sales;
+
+        return Inertia::render('buys/MySales', [
+            'sales' => $sales
+        ]);
+    }
+
 }

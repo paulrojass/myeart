@@ -39,7 +39,7 @@ Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class
 
 //Vistas para home
 //Seleccionar Aristista o Galeria:
-Route::get('/vendedores/artista-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
+Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
 ->name('artist-or-gallery');
 
 //Rutas para los modelos
