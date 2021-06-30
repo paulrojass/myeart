@@ -37,29 +37,24 @@ Route::get('/redirect', [App\Http\Controllers\LoginWithFacebookController::class
 Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class, 'facebookCallback']);
 
 
-//Rutas para los modelos
-//Informacion de una Cuenta
-Route::get('usuarios/informacion-de-la-cuenta', [App\Http\Controllers\UserController::class, 'accountInformation'])
-->name('users.account-information');
-//Usuarios:
-// Route::resource(
-//     'usuarios',
-//     App\Http\Controllers\UserController::class,
-//     [ 'names' => [
-//         'index' => 'users.index',
-//         'show' => 'users.show',
-//         'edit' => 'users.edit',
-//         'update' => 'users.update',
-//         'destroy' => 'users.destroy'
-//         ]
-//     ]
-// )->except(['create', 'store']);
-
-//Rutas para los modelos
-
+//Vistas para home
 //Seleccionar Aristista o Galeria:
 Route::get('/vendedores/artista-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
 ->name('artist-or-gallery');
+
+//Rutas para los modelos
+//Informacion de una Cuenta
+Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function () {
+    Route::get('editar', [App\Http\Controllers\UserController::class, 'editAccountInformation'])
+    ->name('my-account.edit');
+    Route::get('mis-obras', [App\Http\Controllers\ArtworkController::class, 'myArtworks'])
+    ->name('my-account.artworks');
+    Route::get('mis-compras', [App\Http\Controllers\BuyController::class, 'myShopping'])
+    ->name('my-account.shopping');
+    Route::get('mis-ventas', [App\Http\Controllers\BuyController::class, 'mySales'])
+    ->name('my-account.shopping');
+});
+
 
 Route::resource(
     'vendedores',

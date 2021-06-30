@@ -107,14 +107,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function accountInformation()
+    public function editAccountInformation()
     {
-        $user = auth()->user()->with('profile')->first();
-
-        //$user = User::where('id', $id)->with('profile')->first();
-
-        return Inertia::render('users/AccountInformation', [
-            'user' => $user
-        ]);
+        // En la vista se se toma la variable del usuario autenticado
+        return Inertia::render('users/AccountInformation');
     }
 }

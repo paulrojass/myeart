@@ -14,7 +14,7 @@ class ArtworkController extends Controller
      */
     public function index()
     {
-        //
+        return Inertia::render('artworks.index')
     }
 
     /**
@@ -24,7 +24,7 @@ class ArtworkController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('artworks/Create');
     }
 
     /**
@@ -35,7 +35,19 @@ class ArtworkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $artwork = Artwork::create([
+            'seller_id' => auth()->user()->seller->id,
+            'category_id' => $request->category_id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+            'offer' => $request->offer,
+            'weight' => $request->weight,
+            'width' => $reqest->width,
+            'height' => $request->height
+        ]);
+
+        return redirect()->route('artworks.index');
     }
 
     /**
@@ -46,7 +58,7 @@ class ArtworkController extends Controller
      */
     public function show(Artwork $artwork)
     {
-        //
+        return 
     }
 
     /**
@@ -81,5 +93,15 @@ class ArtworkController extends Controller
     public function destroy(Artwork $artwork)
     {
         //
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function myArtworks()
+    {
+        return Inertia::render('artworks/MyArtworks');
     }
 }
