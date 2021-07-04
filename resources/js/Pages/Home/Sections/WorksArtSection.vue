@@ -44,9 +44,17 @@
                             <!-- Ends: .tab-pane -->
                         </div>
                         <div class="text-center m-top-20">
-                            <a href="" class="btn btn--lg btn-primary"
-                                >Ver mas</a
+                                                        <inertia-link
+                                :href="
+                                    route('search')
+                                "
+                                class="btn btn--lg btn-primary"
                             >
+                                Ver mas
+                            </inertia-link>
+                            <!-- <a href="" class="btn btn--lg btn-primary"
+                                >Ver mas</a
+                            > -->
                         </div>
                     </div>
                     <!-- Ends: .product-list -->

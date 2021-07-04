@@ -12,7 +12,9 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js').vue()
-    .styles([
+.sass('resources/sass/app.scss', 'public/css/')
+.styles([
+        // "resources/css/bootstrap/bootstrap.css",
         // "resources/css/animate.css",
         // "resources/css/font-awesome.min.css",
         // "resources/css/jquery-ui.css",
@@ -27,7 +29,6 @@ mix.js('resources/js/app.js', 'public/js').vue()
         "resources/css/style.css",
         "resources/css/styles.css"
     ], 'public/css/styles.css')
-    .sass('resources/sass/app.scss', 'public/css/')
     .webpackConfig(require('./webpack.config'));
 
 if (mix.inProduction()) {

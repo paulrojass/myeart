@@ -1,42 +1,49 @@
 <template>
-    <div class="product-single latest-single">
-        <div class="product-thumb">
-            <figure>
-                <img :src="item.photo" alt="" class="img-fluid" />
-                <figcaption>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href=""><span class="icon-basket"></span></a>
-                        </li>
-                        <li>
-                            <a href="">Live Demo</a>
-                        </li>
-                    </ul>
-                </figcaption>
-            </figure>
-        </div>
-        <!-- Ends: .product-thumb -->
-        <div class="product-excerpt">
-            <h5 class="mb-1">
-                {{ item.title }}
-            </h5>
-            <div class="titlebtm">
-                {{ item.author.name }}
+    <inertia-link
+        :href="
+            route('detailsWorkArtist')
+        "
+    >
+        <div class="product-single latest-single">
+            <div class="product-thumb">
+                <figure>
+                    <img :src="item.photo" alt="" class="img-fluid" />
+                    <figcaption>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href=""><span class="icon-basket"></span></a>
+                            </li>
+                            <li>
+                                <a href="">Live Demo</a>
+                            </li>
+                        </ul>
+                    </figcaption>
+                </figure>
             </div>
-            <div class="row-cardWorkArt mt-2 pt-3 d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <span
-                        class="icon-heart icon-cardWorkArt"
-                        title="Add to collection"
-                        data-toggle="tooltip"
-                    />
-                    <span class="ml-1"> 30 </span>
+            <!-- Ends: .product-thumb -->
+            <div class="product-excerpt">
+                <h5 class="mb-1">
+                    {{ item.title }}
+                </h5>
+                <div class="titlebtm">
+                    {{ item.author.name }}
                 </div>
-                <div class="price"> {{ item.price }} $</div>
+                <div class="row-cardWorkArt mt-2 pt-3 d-flex justify-content-between">
+                    
+                    <div class="d-flex align-items-center">
+                        <span
+                            class="icon-heart icon-cardWorkArt"
+                            title="Add to collection"
+                            data-toggle="tooltip"
+                        />
+                        <span class="ml-1"> 30 </span>
+                    </div>
+                    <div class="price"> {{ item.price }}$</div>
+                </div>
             </div>
-        </div>
 
-    </div>
+        </div>
+    </inertia-link>
 </template>
 
 <script>

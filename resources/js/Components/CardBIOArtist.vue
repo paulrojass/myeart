@@ -6,8 +6,8 @@
                 <figcaption
                     style="
                         border-radius: 50%;
-                        width: 350px;
-                        height: 300px;
+                        width: 100%;
+                        height: 100%;
                         cursor: pointer;
                     "
                 >
@@ -104,7 +104,7 @@ export default {
 
 .product-single .product-thumb figure img {
     border-radius: 50%;
-    width: 350px;
-    height: 300px;
+    width: 100%;
+    height: auto;
 }
 </style>

@@ -18,13 +18,25 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/test', function(){
-    return Inertia::render('Template/Login', []);
+    return Inertia::render('Search/index', []);
 });
 
-Route::get('/publicArtist', function(){
-    return Inertia::render('PublicArtist/index', []);
-});
+// Vista del autor (Public)
+Route::get('/profileAuthor', function(){
+    return Inertia::render('DetailsArtist/index', []);
+})->middleware([])->name('profileAuthor');
 
+// Vista detalles de la obra (Public)
+Route::get('/detailsWorkArtist', function(){
+    return Inertia::render('DetailsWorkArtist/index', []);
+})->middleware([])->name('detailsWorkArtist');
+
+// Vista Obras (Public)
+Route::get('/search', function(){
+    return Inertia::render('Search/index', []);
+})->middleware([])->name('search');
+
+// Vista Home 
 Route::get('/', function () {
     return Inertia::render('Home/Welcome', [
         'canLogin' => Route::has('login'),
@@ -32,13 +44,7 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
-
-// Route::get('/profile-public-artist', function () {
-//     return Inertia::render('ProfilePublicArtist/index', [
-
-//     ]);
-// });
+})->middleware([])->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

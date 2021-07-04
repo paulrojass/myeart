@@ -72,3 +72,10 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+    .product-single {
+        background: none;
+        height: auto;
+    }
+</style>

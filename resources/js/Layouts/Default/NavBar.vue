@@ -43,7 +43,7 @@
                                                 <li>
                                                     <inertia-link
                                                         :href="
-                                                            route('dashboard')
+                                                            route('home')
                                                         "
                                                     >
                                                         Inicio
@@ -52,7 +52,7 @@
                                                 <li>
                                                     <inertia-link
                                                         :href="
-                                                            route('dashboard')
+                                                            route('search')
                                                         "
                                                     >
                                                         Obras
@@ -61,28 +61,10 @@
                                                 <li>
                                                     <inertia-link
                                                         :href="
-                                                            route('dashboard')
+                                                            route('profileAuthor')
                                                         "
                                                     >
                                                         Artistas
-                                                    </inertia-link>
-                                                </li>
-                                                <li>
-                                                    <inertia-link
-                                                        :href="
-                                                            route('dashboard')
-                                                        "
-                                                    >
-                                                        Galeria
-                                                    </inertia-link>
-                                                </li>
-                                                <li>
-                                                    <inertia-link
-                                                        :href="
-                                                            route('dashboard')
-                                                        "
-                                                    >
-                                                        Eventos
                                                     </inertia-link>
                                                 </li>
                                             </ul>
