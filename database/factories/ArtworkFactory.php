@@ -22,8 +22,8 @@ class ArtworkFactory extends Factory
     public function definition()
     {
         return [
-        'name' => 'artwork name'
-        'description' $this->faker->paragraph(),
+        'name' => $this->faker->catchPhrase(),
+        'description'=> $this->faker->paragraph(),
         'price' => $this->faker->numberBetween(100, 1000),
         'offer' => $this->faker->numberBetween(100, 1000),
         'weight' => $this->faker->numberBetween(10, 100),

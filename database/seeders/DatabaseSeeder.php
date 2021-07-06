@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -23,5 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call(SellerSeeder::class);
         $this->call(GallerySeeder::class);
         $this->call(ArtistSeeder::class);
+        $this->call(ArtworkSeeder::class);
+        $this->call(ArtworkImageSeeder::class);
+        $this->call(ArtworkElementSeeder::class);
     }
 }

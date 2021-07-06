@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Artwork;
 use App\Models\Category;
-use App\Models\Seeler;
+use App\Models\Seller;
 
 class ArtworkSeeder extends Seeder
 {
@@ -18,8 +18,8 @@ class ArtworkSeeder extends Seeder
     public function run()
     {
         foreach (Seller::all() as $seller) {
-            $category = Category::random();
-            Profile::factory()->create(['seller_id' => $seller->id, 'category_id' => $category->id]);
+            $category = Category::all()->random();
+            Artwork::factory()->create(['seller_id' => $seller->id, 'category_id' => $category->id]);
         }
     }
 }
