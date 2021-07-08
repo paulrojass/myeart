@@ -28,6 +28,17 @@ class Comment extends Model
     }
 
     /**
+     * Método que obtiene la obra a la que se realiza el comentario
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Comment
+     */
+    public function artwork()
+    {
+        return $this->belongsTo(Artwork::class);
+    }
+
+    /**
      * Método que obtiene el comentario al que responde el comentario
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>

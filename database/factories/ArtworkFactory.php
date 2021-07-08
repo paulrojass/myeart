@@ -22,7 +22,13 @@ class ArtworkFactory extends Factory
     public function definition()
     {
         return [
-            'seller_id'
+        'name' => $this->faker->catchPhrase(),
+        'description'=> $this->faker->paragraph(),
+        'price' => $this->faker->numberBetween(100, 1000),
+        'offer' => $this->faker->numberBetween(100, 1000),
+        'weight' => $this->faker->numberBetween(10, 100),
+        'width'=> $this->faker->numberBetween(10, 100),
+        'height' => $this->faker->numberBetween(10, 100),
         ];
     }
 }

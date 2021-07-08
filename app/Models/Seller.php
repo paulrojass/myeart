@@ -69,4 +69,16 @@ class Seller extends Model
         return $this->belongsToMany(Tag::class, 'seller_tag')
             ->withPivot('seller_id');
     }
+
+    /**
+     * Método que obtiene las ventas de obras que tiene un vendedor
+     *
+     * @author  Paúl Rojas <paul.rojase@gmail.com>
+     * @return object Objeto con los registros relacionados al modelo Seller
+     */
+    public function sales()
+    {
+        return $this->hasManyThrough(Buy::class, Artwork::class);
+    }
+
 }
