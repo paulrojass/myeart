@@ -18,7 +18,12 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/test', function(){
-    return Inertia::render('Search/index', []);
+    return Inertia::render('Account/SalesHistory', []);
+});
+
+// Vista del pago
+Route::get('/payment', function(){
+    return Inertia::render('Checkout/index', []);
 });
 
 // Vista del autor (Public)
