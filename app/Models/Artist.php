@@ -10,7 +10,8 @@ class Artist extends Model
     use HasFactory;
 
     protected $fillable = [
-        'seller_id'
+        'seller_id',
+        'artistic_name'
     ];
 
     /**

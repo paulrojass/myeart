@@ -16,6 +16,14 @@ class CreateArtworksTable extends Migration
         Schema::create('artworks', function (Blueprint $table) {
             $table->id();
             $table->foreignId('seller_id')->constrained()->onDelete('cascade');
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->string('name');
+            $table->text('description');
+            $table->decimal('price', 8, 2);
+            $table->decimal('offer', 8, 2)->nullable();
+            $table->decimal('weight', 8, 2)->nullable();
+            $table->decimal('width', 8, 2)->nullable();
+            $table->decimal('height', 8, 2)->nullable();
             $table->timestamps();
         });
     }

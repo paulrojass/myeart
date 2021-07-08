@@ -22,7 +22,8 @@ class ArtworkImageFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'artwork_id'
+            'location' => 'default.jpg',
         ];
     }
 }

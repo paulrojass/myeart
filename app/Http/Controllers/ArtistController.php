@@ -57,11 +57,11 @@ class ArtistController extends Controller
         $artist->artistic_name = 'artistic_name';
         $artist->save();
 
-        foreach ($request->tags as $tag) {
+        foreach ($request->tags as $tag_id) {
             //reviso luego esta parte
-            $seller->tag = $tag;
+            $seller->tags->attach($tag_id, ['seller_id', $seller->id ]);
         }
-        
+
         return Inertia::render('user/Profile');
     }
 

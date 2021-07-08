@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attribute;
 use App\Models\Element;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,13 @@ class ElementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($attribute_id)
     {
-        //
+        $attribute = Attribute::find($attribute_id);
+
+        return Inertia::render('dashboard/elements/Index', [
+            'elements' => $attribute->elements
+        ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class ElementController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('dashboard/elements/Create');
     }
 
     /**
@@ -35,7 +40,15 @@ class ElementController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $element = new Element();
+
+        $element->attribute_id = $request->attribute_id;
+
+        $element->name = $request->name;
+
+        $element->save();
+
+        return redirect()->route('elements.index', $element->$attribute_id);
     }
 
     /**
@@ -44,9 +57,11 @@ class ElementController extends Controller
      * @param  \App\Models\Element  $element
      * @return \Illuminate\Http\Response
      */
-    public function show(Element $element)
+    public function show($id)
     {
-        //
+        return Inertia::render('dashboard/elements/Show', [
+         'element' => Element::find($id)
+        ]);
     }
 
     /**
@@ -55,9 +70,11 @@ class ElementController extends Controller
      * @param  \App\Models\Element  $element
      * @return \Illuminate\Http\Response
      */
-    public function edit(Element $element)
+    public function edit($id)
     {
-        //
+        return Inertia::render('dashboard/elements/Edit', [
+            'element' => Element::find($id)
+        ]);
     }
 
     /**
@@ -67,9 +84,13 @@ class ElementController extends Controller
      * @param  \App\Models\Element  $element
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Element $element)
+    public function update(Request $request, $id)
     {
-        //
+        $element = Element::find($id);
+
+        $element->update($request->all());
+
+        return redirect()->route('elements.index', $element->attribute_id);
     }
 
     /**
@@ -78,8 +99,14 @@ class ElementController extends Controller
      * @param  \App\Models\Element  $element
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Element $element)
+    public function destroy($id)
     {
-        //
+        $element = Element::find($id);
+
+        $attribute_id = $element->attribute_id;
+
+        $element->delete();
+
+        return redirect()->route('elements.index', $attribute_id);
     }
 }

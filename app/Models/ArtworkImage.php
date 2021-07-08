@@ -24,6 +24,4 @@ class ArtworkImage extends Model
     {
         return $this->belongsTo(Artwork::class);
     }
-
-
 }

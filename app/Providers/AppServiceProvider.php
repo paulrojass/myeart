@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +26,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Schema::defaultStringLength(191);
+
+        Carbon::setLocale(config('app.locale'));
+
+        /**
+        * Permite mostrar las rutas en español
+        *
+        * @author Paúl Rojas <paulrojas.dev@gmail.com>
+        */
+        Route::resourceVerbs([
+          'create' => 'crear',
+          'edit' => 'editar',
+        ]);
     }
 }

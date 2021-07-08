@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attribute;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class AttributeController extends Controller
@@ -12,9 +13,13 @@ class AttributeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($category_id)
     {
-        //
+        $category = Category::find($category_id);
+
+        return Inertia::render('dashboard/attributes/Index', [
+            'attributes' => $category->attributes
+        ]);
     }
 
     /**
@@ -24,7 +29,7 @@ class AttributeController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('dashboard/attributes/Create');
     }
 
     /**
@@ -35,7 +40,15 @@ class AttributeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attribute = new Attribute();
+
+        $attribute->category_id = $request->category_id;
+
+        $attribute->name = $request->name;
+
+        $attribute->save();
+
+        return redirect()->route('attributes.index', $attribute->$category_id);
     }
 
     /**
@@ -44,9 +57,11 @@ class AttributeController extends Controller
      * @param  \App\Models\Attribute  $attribute
      * @return \Illuminate\Http\Response
      */
-    public function show(Attribute $attribute)
+    public function show($id)
     {
-        //
+        return Inertia::render('dashboard/attributes/Show', [
+            'attribute' => Attribute::find($id)
+        ]);
     }
 
     /**
@@ -55,9 +70,11 @@ class AttributeController extends Controller
      * @param  \App\Models\Attribute  $attribute
      * @return \Illuminate\Http\Response
      */
-    public function edit(Attribute $attribute)
+    public function edit($id)
     {
-        //
+        return Inertia::render('dashboard/attributes/Edit', [
+            'attribute' => Attribute::find($id)
+        ]);
     }
 
     /**
@@ -67,9 +84,13 @@ class AttributeController extends Controller
      * @param  \App\Models\Attribute  $attribute
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Attribute $attribute)
+    public function update(Request $request, $id)
     {
-        //
+        $attribute = Attribute::find($id);
+
+        $attribute->update($request->all());
+
+        return redirect()->route('attributes.index', $attribute->category_id);
     }
 
     /**
@@ -78,8 +99,14 @@ class AttributeController extends Controller
      * @param  \App\Models\Attribute  $attribute
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Attribute $attribute)
+    public function destroy($id)
     {
-        //
+        $attribute = Attribute::find($id);
+
+        $category_id = $attribute->category_id;
+
+        $attribute->delete();
+
+        return redirect()->route('attributes.index', $category_id);
     }
 }

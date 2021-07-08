@@ -63,37 +63,24 @@ Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class
 
 
 //Rutas para los modelos
+//Informacion de una Cuenta
+Route::get('usuarios/informacion-de-la-cuenta', [App\Http\Controllers\UserController::class, 'accountInformation'])
+->name('users.account-information');
 //Usuarios:
-Route::resource(
-    'usuarios',
-    App\Http\Controllers\UserController::class,
-    [ 'names' => [
-        'index' => 'users.index',
-        'show' => 'users.show',
-        'edit' => 'users.edit',
-        'update' => 'users.update',
-        'destroy' => 'users.destroy'
-        ]
-    ]
-)->except(['create', 'store']);
+// Route::resource(
+//     'usuarios',
+//     App\Http\Controllers\UserController::class,
+//     [ 'names' => [
+//         'index' => 'users.index',
+//         'show' => 'users.show',
+//         'edit' => 'users.edit',
+//         'update' => 'users.update',
+//         'destroy' => 'users.destroy'
+//         ]
+//     ]
+// )->except(['create', 'store']);
 
 //Rutas para los modelos
-//Usuarios:
-Route::resource(
-    'compradores',
-    App\Http\Controllers\BuyerController::class,
-    [ 'names' => [
-        'index' => 'buyers.index',
-        'create' => 'buyers.create',
-        'show' => 'buyers.show',
-        'store' => 'buyers.store',
-        'edit' => 'buyers.edit',
-        'update' => 'buyers.update',
-        'destroy' => 'buyers.destroy'
-        ]
-    ]
-);
-
 
 //Seleccionar Aristista o Galeria:
 Route::get('/vendedores/artista-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
@@ -145,3 +132,90 @@ Route::resource(
         ]
     ]
 );
+
+Route::group(['middleware' => ['web', 'auth', 'role:admin|operator'], 'prefix' => 'panel'], function () {
+    //Usuarios:
+    Route::resource(
+        'usuarios',
+        App\Http\Controllers\UserController::class,
+        [ 'names' => [
+            'index' => 'users.index',
+            'create' => 'users.create',
+            'show' => 'users.show',
+            'store' => 'users.store',
+            'edit' => 'users.edit',
+            'update' => 'users.update',
+            'destroy' => 'users.destroy'
+            ]
+        ]
+    );
+
+    //Tags de Vendedor:
+    Route::resource(
+        'tags',
+        App\Http\Controllers\TagController::class,
+        [ 'names' => [
+            'index' => 'tags.index',
+            'create' => 'tags.create',
+            'store' => 'tags.store',
+            'edit' => 'tags.edit',
+            'update' => 'tags.update',
+            'destroy' => 'tags.destroy'
+            ]
+        ]
+    )->except(['show']);
+
+    Route::group(['prefix' => 'categorias'], function () {
+        //Categorias de las obras:
+        Route::resource(
+            '/',
+            App\Http\Controllers\CategoryController::class,
+            [ 'names' => [
+                'index' => 'categories.index',
+                'create' => 'categories.create',
+                'show' => 'categories.show',
+                'store' => 'categories.store',
+                'edit' => 'categories.edit',
+                'update' => 'categories.update',
+                'destroy' => 'categories.destroy'
+                ]
+            ]
+        );
+        Route::get('{category_id}/atributos', [App\Http\Controllers\AttributeController::class, 'index'])
+        ->name('attributes.index');
+
+        Route::group(['prefix' => 'atributos'], function () {
+            //Atributos de las categorias
+            Route::resource(
+                '/',
+                App\Http\Controllers\AttributeController::class,
+                [ 'names' => [
+                    'create' => 'attributes.create',
+                    'show' => 'attributes.show',
+                    'store' => 'attributes.store',
+                    'edit' => 'attributes.edit',
+                    'update' => 'attributes.update',
+                    'destroy' => 'attributes.destroy'
+                    ]
+                ]
+            )->except(['index']);
+
+            //Elementos de los atributos
+            Route::get('{attribute_id}/elementos', [App\Http\Controllers\AttributeController::class, 'index'])
+            ->name('elements.index');
+            Route::resource(
+                'elementos',
+                App\Http\Controllers\ElementController::class,
+                [ 'names' => [
+                    'create' => 'elements.create',
+                    'show' => 'elements.show',
+                    'store' => 'elements.store',
+                    'edit' => 'elements.edit',
+                    'update' => 'elements.update',
+                    'destroy' => 'elements.destroy'
+                    ]
+                ]
+            );
+        });
+    });
+});

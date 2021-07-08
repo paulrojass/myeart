@@ -10,21 +10,22 @@ class Buy extends Model
     use HasFactory;
 
     protected $fillable = [
-        'buyer_id',
+        'user_id',
         'artwork_id',
+        'finished',
         'comment',
-        'rating'
+        'rating',
     ];
 
     /**
-     * Método que obtiene el comprador al de la obra
+     * Método que obtiene la orden a la que pertenece la compra
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
      * @return object Objeto con los registros relacionados al modelo Buy
      */
-    public function buyer()
+    public function order()
     {
-        return $this->belongsTo(Buyer::class);
+        return $this->belongsTo(Order::class);
     }
 
     /**

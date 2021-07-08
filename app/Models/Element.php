@@ -34,6 +34,7 @@ class Element extends Model
      */
     public function artworks()
     {
-        return $this->belongsToMany(Artwork::class, 'artwork_element');
+        return $this->belongsToMany(Artwork::class, 'artwork_element')
+                    ->withPivot('element_id');
     }
 }

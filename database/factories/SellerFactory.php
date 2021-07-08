@@ -22,7 +22,7 @@ class SellerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'has_gallery' => $this->faker->numberBetween(0, 1)
         ];
     }
 }
