@@ -33,11 +33,14 @@
                             >
                                 <div class="row">
                                     <div
-                                        class="col-md-6 col-lg-4"
-                                        v-for="(item, i) in items"
+                                        class="col-md-6 col-lg-6 p-3"
+                                        v-for="(item, i) in [1,2,3,4]"
                                         :key="i"
                                     >
-                                        <CardWorkArtModel />
+                                        <CardWorkArtModel 
+                                            color="color-pink"
+                                            :index="i"
+                                        />
                                     </div>
                                 </div>
                             </div>

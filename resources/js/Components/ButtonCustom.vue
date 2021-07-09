@@ -58,6 +58,7 @@
     }
   }
   .btn:hover {
+    opacity: .8;
     color: #212529;
     text-decoration: none;
   }

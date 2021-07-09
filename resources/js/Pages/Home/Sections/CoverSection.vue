@@ -2,7 +2,7 @@
     <section 
         class="hero-area bgimage"
         style="
-            background-image: url('imagenes/Banner.jpg'); 
+            background-image: url('imagenes/Banner-home.jpg'); 
             background-size: cover;
         "
     >
@@ -44,16 +44,16 @@
                                                            Categorias
                                                         </option>
                                                         <option value="">
-                                                            PSD
+                                                            opcion 1
                                                         </option>
                                                         <option value="">
-                                                            HTML
+                                                            opcion 2
                                                         </option>
                                                         <option value="">
-                                                            WordPress
+                                                            opcion 3
                                                         </option>
                                                         <option value="">
-                                                            Plugins
+                                                            opcion 4
                                                         </option>
                                                     </select>
                                                     <span

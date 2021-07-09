@@ -74,7 +74,10 @@
 
 <script>
 export default {
-    props: ["item"],
+    props: ["item", 'index'],
+    created(){
+        this.photoTemplate();
+    },
     data() {
         return {
             item: {
@@ -89,6 +92,18 @@ export default {
             },
         };
     },
+    methods: {
+        photoTemplate(){
+            let indice = this.index + 1;
+            if (!(indice <= 3))
+            {
+                indice = (indice - 3) ;
+            }
+            
+            this.item.photo = `/imagenes/artistas/artista-${indice }.png`;
+            
+        }
+    }
 };
 </script>
 

@@ -4,11 +4,15 @@
             route('detailsWorkArtist')
         "
     >
-        <div class="product-single latest-single">
+        <div :class="`product-single ${color}`">
             <div class="product-thumb">
                 <figure>
-                    <img :src="item.photo" alt="" class="img-fluid" />
-                    <figcaption>
+                    <img 
+                        :src="item.photo" 
+                        alt="" 
+                        class="img-fluid" 
+                    />
+                    <!-- <figcaption>
                         <ul class="list-unstyled">
                             <li>
                                 <a href=""><span class="icon-basket"></span></a>
@@ -17,24 +21,25 @@
                                 <a href="">Live Demo</a>
                             </li>
                         </ul>
-                    </figcaption>
+                    </figcaption> -->
                 </figure>
             </div>
             <!-- Ends: .product-thumb -->
-            <div class="product-excerpt">
-                <h5 class="mb-1">
+            <div class="descCardWorkArt">
+                <h5 class="mb-1 title-author-workArt">
                     {{ item.title }}
                 </h5>
-                <div class="titlebtm">
+                <div class="subtitle-author-workArt">
                     {{ item.author.name }}
                 </div>
-                <div class="row-cardWorkArt mt-2 pt-3 d-flex justify-content-between">
+                <div class="row-cardWorkArt my-2 pt-3 d-flex justify-content-between">
                     
                     <div class="d-flex align-items-center">
                         <span
                             class="icon-heart icon-cardWorkArt"
                             title="Add to collection"
                             data-toggle="tooltip"
+                            style=""
                         />
                         <span class="ml-1"> 30 </span>
                     </div>
@@ -49,18 +54,28 @@
 <script>
 
 export default {
-    props: ['item'],
+    props: ['item', 'color', 'index'],
+    created(){
+        this.photoTemplate();
+    },
     data(){
         return {
             item: {
                 photo: '/img/product1.png',
-                title: 'Lorem ipsum dolor sit',
+                title: 'Nombre de la obra',
                 subtitle: '',
                 author: {
-                    name: "Lorem inpum",
+                    name: "Nombre del autor",
                     avatar: "/img/auth-img.png"
                 },
-                price: 10
+                price: 24
+            }
+        }
+    },
+    methods: {
+        photoTemplate(){
+            if (this.index < 6) {
+                this.item.photo = `/imagenes/obras/obra-${this.index + 1}.jpg`
             }
         }
     }
@@ -68,8 +83,35 @@ export default {
 </script>
 
 <style scoped>
+    .product-single.color-pink {
+        background: #F3EAEE;
+    }
+
+    .product-single {
+        padding: 10px;
+    }
+
+    .descCardWorkArt {
+        padding: 10px;
+        color: #125CA0;
+    }
+
+    .descCardWorkArt:hover {
+        text-decoration: none;
+    }
+
+    .title-author-workArt {
+        font-size: 1.5rem;
+        color: black;
+        font-weight: bolder;
+    }
+    .subtitle-author-workArt {
+        font-size: 1.2rem;
+        color: black;
+        font-weight: bolder;
+    }
     .row-cardWorkArt {
-        border-top: 1px solid #ebedf2;
+        border-top: 2px solid #125CA0;
         font-size: 22px;
     }
     
