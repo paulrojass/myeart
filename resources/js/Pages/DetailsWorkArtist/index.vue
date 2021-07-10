@@ -11,23 +11,44 @@
                                     <div class="item__preview-img">
                                         <div class="item__preview-slider">
                                             <div class="prev-slide">
-                                                <img src="img/single1.jpg" alt="Preview Image">
+                                                <img :src="preview().photo" 
+                                                    alt="Preview Image" 
+                                                    class="w-100"
+                                                >
                                             </div>
                                         </div>
                                         <div class="prev-nav thumb-nav">
-                                            <span class="lnr nav-left icon-arrow-left"></span>
-                                            <span class="lnr nav-right icon-arrow-right"></span>
+                                            <div>
+                                                <span 
+                                                    v-if="preview().index !== 0"
+                                                    class="lnr nav-left icon-arrow-left" 
+                                                    @click="changeTo('prev')"
+                                                />
+                                            </div>
+                                            <div>
+                                                <span 
+                                                    v-if="preview().index !== items.length -1"
+                                                    class="lnr nav-right icon-arrow-right" 
+                                                    @click="changeTo('next')"
+                                                />
+                                            </div>
+                                            
                                         </div><!-- ends: .prev-nav -->
                                     </div>
                                     <div class="item__preview-thumb pb-4 mt-4 border-primary">
                                         <div class="prev-thumb ">
                                             <div 
-                                                class="thumb-slider d-flex"
+                                                class="thumb-slider d-flex justify-content-around"
                                                 
                                                 >
                                                 <div class="item-thumb" 
-                                                    v-for="(item, i) in [1,2,3,4,5,6,7,8,9,10]" :key="i"> 
-                                                    <img src="img/thumb1.jpg" alt="Thumbnail Image">
+                                                    v-for="(item, i) in items" :key="i"> 
+                                                    <img 
+                                                        :src="item.photo" 
+                                                        alt="Thumbnail Image"
+                                                        style="width: 100px; height: 80px;"
+                                                        @click="changeToPreview(item)"
+                                                    >
                                                 </div>
                                             </div><!-- end .thumb-slider -->
                                         </div>
@@ -204,7 +225,7 @@
                                                             <div class="pull-left">
                                                                 <div class="media-heading">
                                                                     <!-- <a href="author.html"> -->
-                                                                        <h4 class="text-primary mb-0">
+                                                                        <h4 class="text-primary mb-0 font-weight-border">
                                                                             Autor:
                                                                         </h4>
                                                                         <h4>
@@ -236,27 +257,35 @@
                         </div><!-- ends: .item-info -->
                     </div><!-- ends: .col-md-8 -->
                     <div class="col-lg-4 col-md-12">
-                        <aside class="sidebar sidebar--single-product card-specs">
+                        <aside id="sidebar" ref="sidebar" class="sidebar sidebar--single-product card-specs position-relative">
                             <div class="sidebar-card card-pricing bg-primary text-white">
-                                <div class="price border-none d-flex justify-content-end mb-0">
+                                <div class="my-1 border-none d-flex justify-content-end mb-0">
                                     <h1 class="text-white">
                                         20,00 <sup>$</sup>
                                     </h1>
                                 </div>
-                                <div class="d-flex justify-content-around mb-2">
-                                    <a href="#" class="btn btn--sm btn-warning">Comprar</a>
-                                    <a href="#" class="btn btn--sm btn-secondary">Agregar a carrito</a>
+                                <div class="row d-flex justify-content-around">
+                                    <div class="col-5 btn-list buy">
+                                        <span class="">Comprar</span>
+                                    </div>
+                                    <div class="col-5 btn-list add">
+                                        <span class=" ">Agregar a carrito</span>
+                                    </div>
                                 </div><!-- ends: .author-btn -->
 
-                                <ul class="pricing-options border-bottom">
+                                <ul class="border-bottom">
                                     <li>
                                         <div class="custom-radio d-flex">
-                                            <div class="mt-2 mr-2">
-                                                <img class="media-object rounded-circle" src="img/buyr1.png" alt="">
+                                            <div class="mt-2 mr-2 img-list">
+                                                <img 
+                                                    class="media-object rounded-circle" 
+                                                    src="/imagenes/icons/detailsWorkArtist/User.png" 
+                                                    alt=""
+                                                >
                                             </div>
                                             <div class="mt-2">
                                                 <!-- <div> -->
-                                                    <div class="text-weight-bold">Autor</div>
+                                                    <div class="list-bold">Autor</div>
                                                     <p>Daniel L Lewis P.</p>
                                                 <!-- </div> -->
                                             </div>
@@ -264,8 +293,12 @@
                                     </li>
                                     <li class="border-none">
                                         <div class="custom-radio d-flex">
-                                            <div class="mt-2 mr-2">
-                                                <img class="media-object rounded-circle" src="img/buyr1.png" alt="">
+                                            <div class="mt-2 mr-2 img-list">
+                                                <img 
+                                                    class="media-object rounded-circle" 
+                                                    src="/imagenes/icons/detailsWorkArtist/Desc.png" 
+                                                    alt=""
+                                                >
                                             </div>
                                             <div class="mt-2">
                                                 <!-- <div> -->
@@ -277,32 +310,96 @@
                                     </li>
                                 </ul><!-- end .pricing-options -->
                                 
-                                <div class="">
-                                    <h3 class="text-white">Atritutos.</h3>
+                                <div class="mt-3">
+                                    <div class="ml-4">
+                                        <h3 class="list-bold text-white">Atritutos.</h3>
+                                    </div>
 
-                                    <ul class="pricing-options mb-0 border-bottom">
-                                        <li 
-                                            class="border-none"
-                                            v-for="(item, i) in 
-                                            [
-                                                '20cm x 20xm',
-                                                '1 kg.',
-                                                'Tematica: Abstracta Contemporanea',
-                                                'Estilo: Clasico, Lumisimo',
-                                                'Tecnica: Oleo, Pastel, Barniz',
-                                                'Fecha: Desconocida'
-                                            ]
-                                            " :key="i"
-                                            >
+                                    <ul class="list-specs mb-0 border-bottom">
+                                        <li class="border-none">
                                             <div class="custom-radio d-flex align-items-center">
-                                                <div class="mt-2 mr-2">
-                                                    <img class="media-object rounded-circle" src="img/buyr1.png" alt="">
+                                                <div class="mt-2 mr-2 img-list">
+                                                    <img 
+                                                        class="media-object rounded-circle" 
+                                                        src="/imagenes/icons/detailsWorkArtist/Size.png" 
+                                                        alt=""
+                                                    >
                                                 </div>
                                                 <div class="mt-2">
-                                                   {{ item }}
+                                                   20cm x 20xm
                                                 </div>
                                             </div>
                                         </li>
+                                        <li class="border-none">
+                                            <div class="custom-radio d-flex align-items-center">
+                                                <div class="mt-2 mr-2 img-list">
+                                                    <img 
+                                                        class="media-object rounded-circle" 
+                                                        src="/imagenes/icons/detailsWorkArtist/Weight.png" 
+                                                        alt=""
+                                                    >
+                                                </div>
+                                                <div class="mt-2">
+                                                   1 kg
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="border-none">
+                                            <div class="custom-radio d-flex align-items-center">
+                                                <div class="mt-2 mr-2 img-list">
+                                                    <img 
+                                                        class="media-object rounded-circle" 
+                                                        src="/imagenes/icons/detailsWorkArtist/Thematic.png" 
+                                                        alt=""
+                                                    >
+                                                </div>
+                                                <div class="mt-2">
+                                                   Tematica: Abstracta Contemporanea
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="border-none">
+                                            <div class="custom-radio d-flex align-items-center">
+                                                <div class="mt-2 mr-2 img-list">
+                                                    <img 
+                                                        class="media-object rounded-circle" 
+                                                        src="/imagenes/icons/detailsWorkArtist/Style.png" 
+                                                        alt=""
+                                                    >
+                                                </div>
+                                                <div class="mt-2">
+                                                   Estilo: Clasico, Lumisimo
+                                                </div>
+                                            </div>
+                                        </li>  
+                                        <li class="border-none">
+                                            <div class="custom-radio d-flex align-items-center">
+                                                <div class="mt-2 mr-2 img-list">
+                                                    <img 
+                                                        class="media-object rounded-circle" 
+                                                        src="/imagenes/icons/detailsWorkArtist/Technique.png" 
+                                                        alt=""
+                                                    >
+                                                </div>
+                                                <div class="mt-2">
+                                                   Tecnica: Oleo, Pastel, Barniz
+                                                </div>
+                                            </div>
+                                        </li>    
+                                        <li class="border-none mb-2">
+                                            <div class="custom-radio d-flex align-items-center">
+                                                <div class="mt-2 mr-2 img-list">
+                                                    <img 
+                                                        class="media-object rounded-circle" 
+                                                        src="/imagenes/icons/detailsWorkArtist/Calendar.png" 
+                                                        alt=""
+                                                    >
+                                                </div>
+                                                <div class="m-2">
+                                                   Fecha: Desconocida
+                                                </div>
+                                            </div>
+                                        </li>                                                                                                                     
                                     </ul><!-- end .pricing-options -->
                                 </div>
 
@@ -325,15 +422,155 @@ export default {
     layout: Layout,
     components: {
         Header
+    },
+  destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
+  },
+    created(){
+        window.addEventListener('scroll', this.handleScroll);
+
+        let newItems = this.items.map((item, index) => ({
+            ...item,
+            index
+        }))
+
+        console.log(newItems)
+
+        this.items = newItems;
+        this.currentItem = newItems[0];
+    },
+    data(){
+        return {
+            items: [
+                {
+                    id: 1,
+                    photo: "/imagenes/pinturas/pintura-1.jpg"
+                },
+                {
+                    id: 2,
+                    photo: "/imagenes/pinturas/pintura-2.jpg"
+                },
+                {
+                    id: 3,
+                    photo: "/imagenes/pinturas/pintura-3.jpg"
+                },
+                {
+                    id: 4,
+                    photo: "/imagenes/pinturas/pintura-4.jpg"
+                },
+                {
+                    id: 5,
+                    photo: "/imagenes/pinturas/pintura-5.jpg"
+                },
+                {
+                    id: 6,
+                    photo: "/imagenes/pinturas/pintura-6.jpg"
+                },
+                {
+                    id: 7,
+                    photo: "/imagenes/pinturas/pintura-7.jpg"
+                },
+                {
+                    id: 8,
+                    photo: "/imagenes/pinturas/pintura-8.jpg"
+                }
+            ],
+            currentItem: null
+        }
+    },
+    methods: {
+        preview(){
+            return this.currentItem;
+        },
+        changeToPreview(item){
+            console.log(item)
+            this.currentItem = item;
+        },
+        changeTo(type){
+            let index =  this.currentItem.index;
+
+            let newIndex = type === 'prev' ? index - 1 : index +1;
+
+            if (index === -1 || index === this.items.length){
+                return ;
+            }
+            let newItem = {
+                ...[...this.items].splice(newIndex, 1)[0]
+            };
+
+            this.currentItem = newItem;
+        },
+        handleScroll(event){
+            // console.log('scrollFn', event)
+
+            if (window.innerWidth < 1000){
+                return;
+            }
+
+            if (window.scrollY > 270 && window.scrollY < 1000){
+                // let { sidebar: refSidebar } = this.$refs;
+                // if (refSidebar){
+                    let elem = document.getElementById('sidebar');
+                    // console.log('ele', elem)
+                    elem.style.top = `${window.scrollY -280}px`;
+                    // ele = 500;
+                    // this.$refs.sidebar.top = 300;
+                    // console.log('refs', this.$refs.sidebar)
+                // }
+
+            }
+            // console.log('scrrol', window.scrollY)
+        }
     }
 }
 </script>
 
 <style scoped>
 
- @media (min-width: 768px){
-     .card-specs {
-        /* position: absolute; */
-     }
- }
+    .card-specs {
+        max-height: 95vh;
+        overflow: hidden;
+    }
+
+    .list-specs li {
+        margin-top: 5px;
+        font-size: 1.1rem;
+    }
+
+    .list-bold {
+        font-weight: border;
+        font-size: 1.2rem;
+    }
+
+    .img-list {
+        display: flex;
+        align-items: center;
+    }
+    .img-list img {
+        width: 30px;
+    }
+
+    .btn-list {
+        background: red;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 50px;
+    }
+
+    .btn-list.buy {
+        background: #79F013;
+        color: black;
+    }
+
+    .btn-list.add {
+        background: #F5B731;
+    }
+
+
+    /* @media (min-width: 768px){
+
+    } */
 </style>

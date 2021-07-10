@@ -1,17 +1,18 @@
 <template>
     <div>
-        <div class="dashboard_contents section--padding">
+        <HeaderAccount title="Hola Daniel"/>
+        <div class="dashboard_contents mt-5">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
                         <div class="filter-bar clearfix filter-bar2 ">
                             <div class="dashboard__title d-flex align-items-center">
-                                <h3>Historial de ventas</h3>
+                                <span class="title">Historial de ventas</span>
                             </div>
                             <div class="filter__items m-4 col-6">
                                 <div class="filter__option filter--search w-100">
                                     <form action="#">
-                                        <input type="text" placeholder="Search products">
+                                        <input type="text" placeholder="Buscar Productos">
                                         <button type="submit"><span class="icon-magnifier"></span></button>
                                     </form>
                                 </div>
@@ -20,108 +21,60 @@
                     </div><!-- ends: .col-md-12 -->
                 </div><!-- ends: .row -->
 
-                <div class="product_archive mb-5">
-                    <table class="table">
+                <div class="product_archive table-responsive table-custom">
+                    <table class="table mx-3">
                         <thead>
-                            <th>Producto</th>
-                            <th>Info</th>
-                            <th>Precio</th>
-                            <th>Certificado</th>
-                            <th>Estado</th>
+                            <th class="text-muted">Producto</th>
+                            <th class="text-muted">Info</th>
+                            <th class="text-muted">Precio</th>
+                            <th class="text-primary">Certificado</th>
+                            <th class="text-primary text-center">Estado</th>
                         </thead>
-                        <tr>
-                            <td>
-                                Cuadro oleo verde
-                            </td>
-                            <td>
-                                <div>17/02/20</div>
-                                <div>Daniel Lewis</div>
-                            </td>
-                            <td>
-                                <div class="item_price">
-                                    <span>59 $</span>
-                                </div>
-                            </td>
-                            <td>
-                                Icon
-                            </td>
-                            <td>
-                                En Progreso
-                            </td>
-                        </tr>
+                        <tbody>
+                            <tr v-for="(items, i) in [1,2,3,4]" :key="i">
+                                <td>
+                                    <div class="d-flex">
+                                        <img src="/img/pur1.jpg"
+                                             alt="Purchase image"
+                                             style="width: 100px; height: 80px;"
+                                        >
+                                        <div class="ml-3">
+                                            <span>
+                                                Cuadro oleo verde
+                                            </span>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>17/02/20</div>
+                                    <div>Daniel Lewis</div>
+                                </td>
+                                <td>
+                                    <div class="ml-3">
+                                        <span>59 $</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="ml-4">
+                                        <img
+                                            src="/imagenes/icons/fl_downloader.png" 
+                                            alt="" 
+                                            style="width: 30px; height: 30px;"
+                                        >
+                                    </div>
+                                </td>
+                                <td class="text-primary">
+                                    <div>
+                                        En Progreso
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
 
                 <div class="product_archive">
-                    <div class="title_area">
-                        <div class="row">
-                            <div class="col-md-4 col-sm-6">
-                                <h5>Producto</h5>
-                            </div>
-                            <div class="col-md-2 col-sm-6">
-                                <h5 class="add_info">Info</h5>
-                            </div>
-                            <div class="col-md-2 col-sm-6 text-center">
-                                <h5>Precio</h5>
-                            </div>
-                            <div class="col-md-2 col-sm-6">
-                                <h5>Certificado</h5>
-                            </div>
-                            <div class="col-md-2 col-sm-6">
-                                <h5>Estado</h5>
-                            </div>
-                        </div>
-                    </div><!-- ends: .title_area -->
                     <div class="row">
-                        <div class="single_product clearfix col-md-12">
-                            <div class="row">
-                                <div class="col-lg-4 col-sm-12">
-                                    <div class="product__description">
-                                        <img src="img/pur1.jpg" alt="Purchase image">
-                                        <div class="short_desc">
-                                            <h5>
-                                                <a href="">Cuadro oleo verde</a>
-                                            </h5>
-                                        </div>
-                                    </div>
-                                    <!-- ends: .product__description -->
-                                </div>
-                                <!-- ends: .col-md-5 -->
-                                <div class="col-lg-2 col-sm-6">
-                                    <div class="d-flex aling-items-center">
-                                        <div>
-                                            <h5>17/02/20</h5>
-                                            <h5>Daniel Lewis</h5>
-                                        </div>
-                                    </div>
-                                    <!-- ends: .product__additional_info -->
-                                </div>
-                                <!-- ends: .col-md-3 -->
-                                <div class="col-lg-2 col-sm-6">
-                                    <div class="product__price_download">
-                                        <div class="item_price ">
-                                            <span>$59</span>
-                                        </div>
-                                    </div><!-- ends: .product__price_download -->
-                                </div><!-- ends: .col-md-4 -->
-
-                                <div class="col-lg-2 col-sm-6">
-                                    <div class="d-flex justify-content-center align-items-center">
-                                        <div>
-                                            <img src="imagenes/icons/fl_downloader.png" alt="" width="40px">
-                                        </div>
-                                    </div>
-                                </div><!-- ends: .col-md-4 -->
-
-                                <div class="col-lg-2 col-sm-6">
-                                    <div class="product__price_download">
-                                        <div class="item_price ">
-                                            <span>En proceso</span>
-                                        </div>
-                                    </div><!-- ends: .product__price_download -->
-                                </div><!-- ends: .col-md-4 -->
-                            </div>
-                        </div><!-- ends: .single_product -->
                         <!-- Start Pagination -->
                         <div class="col-md-12">
                             <!-- Start Pagination -->
@@ -153,3 +106,29 @@
         </div><!-- ends: .dashboard_menu_area -->
     </div>
 </template>
+
+<script>
+import layout from "@/Layouts/Default/LayoutDefault.vue"
+import HeaderAccount from './HeaderMenu.vue'
+
+export default {
+    layout,
+    components: {
+        HeaderAccount
+    }
+}
+
+</script>
+
+
+<style scoped>
+    .table-custom th{
+        font-size: 1.2rem;
+    }
+
+    .table-custom td{
+        font-weight: bolder;
+        font-size: 1.2rem;
+    }
+
+</style>

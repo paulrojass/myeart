@@ -37,7 +37,9 @@
                                         v-for="(item, i) in items"
                                         :key="i"
                                     >
-                                        <CardWorkArtModel />
+                                        <CardWorkArtModel 
+                                            :index="i"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +69,7 @@ export default {
     },
     data() {
         return {
-            items: [1, 2, 3],
+            items: [1, 2, 3, 4, 5, 6],
         };
     },
 };
