@@ -21,6 +21,24 @@ Route::get('/test', function(){
     return Inertia::render('Account/SalesHistory', []);
 });
 
+// Account
+
+Route::get('/account/salesHistory', function(){
+    return Inertia::render('Account/SalesHistory', []);
+})->name('account-salesHistory');
+
+Route::get('/account/shoppingHistory', function(){
+    return Inertia::render('Account/ShoppingHistory', []);
+})->name('account-shoppingHistory');
+
+Route::get('/account/profile', function(){
+    return Inertia::render('Account/Profile', []);
+})->name('account-profile');
+
+// Route::get('/account/shoppingHistory', function(){
+//     return Inertia::render('Account/ShoppingHistory', []);
+// })->name('account-worksArtist');
+
 // Vista del pago
 Route::get('/payment', function(){
     return Inertia::render('Checkout/index', []);

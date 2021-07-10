@@ -1,6 +1,7 @@
 <template>
     <div>
-        <div class="dashboard_contents section--padding">
+        <HeaderAccount title="Hola Daniel"/>
+        <div class="dashboard_contents mt-5">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -33,7 +34,10 @@
                             <tr v-for="(items, i) in [1,2,3,4]" :key="i">
                                 <td>
                                     <div class="d-flex">
-                                        <img src="img/pur1.jpg" alt="Purchase image">
+                                        <img src="/img/pur1.jpg"
+                                             alt="Purchase image"
+                                             style="width: 100px; height: 80px;"
+                                        >
                                         <div class="ml-3">
                                             <span>
                                                 Cuadro oleo verde
@@ -60,7 +64,9 @@
                                     </div>
                                 </td>
                                 <td class="text-primary">
-                                    En Progreso
+                                    <div>
+                                        En Progreso
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
@@ -101,6 +107,20 @@
     </div>
 </template>
 
+<script>
+import layout from "@/Layouts/Default/LayoutDefault.vue"
+import HeaderAccount from './HeaderMenu.vue'
+
+export default {
+    layout,
+    components: {
+        HeaderAccount
+    }
+}
+
+</script>
+
+
 <style scoped>
     .table-custom th{
         font-size: 1.2rem;
@@ -110,4 +130,5 @@
         font-weight: bolder;
         font-size: 1.2rem;
     }
+
 </style>
