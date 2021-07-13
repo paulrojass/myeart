@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artwork;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class ArtworkController extends Controller
 {
@@ -14,7 +16,13 @@ class ArtworkController extends Controller
      */
     public function index()
     {
-        return Inertia::render('artworks.index');
+        $artworks = Artwork::query()->with(['seller', 'category', 'artworkImages', 'likes'])->get();
+
+        dd($artworks);
+
+        return Inertia::render('artworks/Index', [
+            'artworks' => $artworks
+        ]);
     }
 
     /**
@@ -24,7 +32,13 @@ class ArtworkController extends Controller
      */
     public function create()
     {
-        return Inertia::render('artworks/Create');
+        $categories = Category::query()->with(['attributes', 'attributes.elements'])->get();
+
+        dd($categories);
+
+        return Inertia::render('artworks/Create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -48,8 +62,8 @@ class ArtworkController extends Controller
         ]);
 
 
-        if($request->hasFile('image')) {
-            foreach($request->file('image') as $image) {
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $image) {
                 $destinationPath = 'artwork_images/';
                 $fileName = Str::random(15).'.'.$format;
                 $image->move($destinationPath, $filename);
@@ -73,10 +87,10 @@ class ArtworkController extends Controller
     public function show($id)
     {
 
-        $artwork = query('id', $id)->with('artworkImages')->first();
+        $artwork = Artwork::where('id', $id)->with(['seller','artworkImages', 'elements'])->first();
 
-        $seller = $artwork->seller->with('user')->with('user.profile')->first();
-
+        //dd($artwork);
+        return response()->json(['artwork' => $artwork]);
         return Inertia::render('artworks/Show', [
             'artwork' => $artwork,
             'seller' => $seller
@@ -91,12 +105,13 @@ class ArtworkController extends Controller
      */
     public function edit($id)
     {
-        $artwork = Artwork::find($id);
+        $artwork = Artwork::where('id', $id)->with('elements')->first();
+
+        dd($artwork);
 
         return Inertia::render('artworks/Edit', [
             'artwork' => $artwork
         ]);
-
     }
 
     /**
@@ -113,7 +128,6 @@ class ArtworkController extends Controller
         $artwork->update($request->all());
 
         return redirect()->route('my-account.artworks');
-
     }
 
     /**
@@ -139,6 +153,9 @@ class ArtworkController extends Controller
      */
     public function myArtworks()
     {
-        return Inertia::render('artworks/MyArtworks');
+        $artworks = auth()->user()->seller->artworks;
+        return Inertia::render('artworks/MyArtworks', [
+            'artworks' => $artworks;
+        ]);
     }
 }

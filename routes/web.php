@@ -41,7 +41,7 @@ Route::get('/search', function(){
     return Inertia::render('Search/index', []);
 })->middleware([])->name('search');
 
-// Vista Home 
+// Vista Home
 Route::get('/', function () {
     return Inertia::render('Home/Welcome', [
         'canLogin' => Route::has('login'),
@@ -68,19 +68,6 @@ Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 's
 ->name('artist-or-gallery');
 
 //Rutas para los modelos
-//Informacion de una Cuenta
-Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function () {
-    Route::get('editar', [App\Http\Controllers\UserController::class, 'editAccountInformation'])
-    ->name('my-account.edit');
-    Route::get('mis-obras', [App\Http\Controllers\ArtworkController::class, 'myArtworks'])
-    ->name('my-account.artworks');
-    Route::get('mis-compras', [App\Http\Controllers\BuyController::class, 'myShopping'])
-    ->name('my-account.shopping');
-    Route::get('mis-ventas', [App\Http\Controllers\BuyController::class, 'mySales'])
-    ->name('my-account.shopping');
-});
-
-
 Route::resource(
     'vendedores',
     App\Http\Controllers\SellerController::class,
@@ -128,6 +115,35 @@ Route::resource(
     ]
 );
 
+//Obras:
+Route::resource(
+    'obras',
+    App\Http\Controllers\ArtworkController::class,
+    [ 'names' => [
+        'index' => 'artworks.index',
+        'create' => 'artworks.create',
+        'show' => 'artworks.show',
+        'store' => 'artworks.store',
+        'edit' => 'artworks.edit',
+        'update' => 'artworks.update',
+        'destroy' => 'artworks.destroy'
+        ]
+    ]
+);
+
+//Informacion de una Cuenta
+Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function () {
+    Route::get('editar', [App\Http\Controllers\UserController::class, 'editAccountInformation'])
+    ->name('my-account.edit');
+    Route::get('mis-obras', [App\Http\Controllers\ArtworkController::class, 'myArtworks'])
+    ->name('my-account.artworks');
+    Route::get('mis-compras', [App\Http\Controllers\BuyController::class, 'myShopping'])
+    ->name('my-account.shopping');
+    Route::get('mis-ventas', [App\Http\Controllers\BuyController::class, 'mySales'])
+    ->name('my-account.shopping');
+});
+
+//Rutas del panel administrativo
 Route::group(['middleware' => ['web', 'auth', 'role:admin|operator'], 'prefix' => 'panel'], function () {
     //Usuarios:
     Route::resource(
