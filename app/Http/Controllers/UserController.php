@@ -71,6 +71,8 @@ class UserController extends Controller
     {
         $user = User::where('id', $id)->with('profile')->first();
 
+        dd($user);
+
         return Inertia::render('users/AccountInformation', [
             'user' => $user
         ]);
@@ -87,7 +89,10 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        $profile = $user->profile;
+        $user->update($request->all());
+        $user->profile->update($request->all());
+
+        return back()->json(['success' => 'Datos actualizados']);
 
     }
 
@@ -99,7 +104,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id)
+
+        return $user->delete();
     }
 
     /**
@@ -111,5 +118,18 @@ class UserController extends Controller
     {
         // En la vista se se toma la variable del usuario autenticado
         return Inertia::render('users/AccountInformation');
+    }
+
+    /**
+     * Muestra la vista de las compras del usuario autenticado.
+     *
+     */
+    public function myShopping()
+    {
+        $purchases = auth()->user()->purchases;
+
+        return Inertia::render('buys/MyShopping', [
+            'purchases' => $purchases
+        ]);
     }
 }

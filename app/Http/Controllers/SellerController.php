@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Seller;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class SellerController extends Controller
 {
@@ -14,8 +15,31 @@ class SellerController extends Controller
      */
     public function index()
     {
-        //
+
+        $sellers = Seller::query()->with(['user', 'artist', 'gallery'])->get();
+        dd($sellers);
+
+        return Inertia::render('dashboard/sellers/Index', [
+            'sellers' => $sellers
+        ]);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+
+        $sellers = Seller::query()->with(['user', 'artist', 'gallery'])->get();
+        dd($sellers);
+
+        return Inertia::render('sellers/Index', [
+            'sellers' => $sellers
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -24,18 +48,7 @@ class SellerController extends Controller
      */
     public function create()
     {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+        return Inertia::render('sellers/Create');
     }
 
     /**
@@ -44,32 +57,22 @@ class SellerController extends Controller
      * @param  \App\Models\Seller  $seller
      * @return \Illuminate\Http\Response
      */
-    public function show(Seller $seller)
+    public function show($id)
     {
-        //
-    }
+        $seller = Seller::where('id', $id)->with([
+            'user'
+            'user.profile',
+            'gallery'
+            'artist'
+        ]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Seller  $seller
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Seller $seller)
-    {
-        //
-    }
+        dd($seller);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Seller  $seller
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Seller $seller)
-    {
-        //
+        return Inertia::render('sellers/Show', [
+            'seller' => $seller
+        ]);
+
+
     }
 
     /**
@@ -81,5 +84,22 @@ class SellerController extends Controller
     public function destroy(Seller $seller)
     {
         //
+    }
+
+    /**
+     * Muestra las ventas del vendedor.
+     *
+     * @param  
+     * @return \Illuminate\Http\Response
+     */
+
+    public function mySales()
+    {
+
+        $sales = auth()->user()->seller->sales;
+
+        return Inertia::render('buys/MySales', [
+            'sales' => $sales
+        ]);
     }
 }

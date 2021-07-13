@@ -16,8 +16,33 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        //
+        $artists = Artist::query()->with(['seller', 'seller.user', 'seller.user.profile'])->get();
+
+        dd($artists);
+
+        return Inertia::render('dasboard/artists/Index', [
+            'artists' => $artists
+        ]);
+
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        $artists = Artist::query()->with(['seller', 'seller.user', 'seller.user.profile'])->get();
+
+        dd($artists);
+
+        return Inertia::render('artists/Index', [
+            'artists' => $artists
+        ]);
+
+    }
+
 
     /**
      * Show the form for creating a new resource.

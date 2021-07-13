@@ -17,8 +17,10 @@ class ElementController extends Controller
     {
         $attribute = Attribute::find($attribute_id);
 
+        $elements = $attribute->elements;
+
         return Inertia::render('dashboard/elements/Index', [
-            'elements' => $attribute->elements
+            'elements' => $elements
         ]);
     }
 
