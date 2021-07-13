@@ -83,27 +83,4 @@ class BuyController extends Controller
         //
     }
 
-    /**
-     * Muestra la vista de las compras del usuario autenticado.
-     *
-     */
-    public function myShopping()
-    {
-        $purchases = auth()->user()->purchases;
-
-        return Inertia::render('buys/MyShopping', [
-            'purchases' => $purchases
-        ]);
-    }
-
-    public function mySales()
-    {
-
-        $sales = auth()->user()->seller->sales;
-
-        return Inertia::render('buys/MySales', [
-            'sales' => $sales
-        ]);
-    }
-
 }

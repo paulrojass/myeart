@@ -16,7 +16,35 @@ class ArtworkController extends Controller
      */
     public function index()
     {
-        $artworks = Artwork::query()->with(['seller', 'category', 'artworkImages', 'likes'])->get();
+        $artworks = Artwork::where('seller_id', auth()->user()->seller->id)->with([
+            'seller',
+            'artworkImages',
+            'elements',
+            'comments',
+            'likes'
+        ])->get();
+
+        dd($artworks);
+
+        return Inertia::render('artworks/Index', [
+            'artworks' => $artworks
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        $artworks = Artwork::query()->with([
+            'seller',
+            'artworkImages',
+            'elements',
+            'comments',
+            'likes'
+        ])->get();
 
         dd($artworks);
 
@@ -87,10 +115,12 @@ class ArtworkController extends Controller
     public function show($id)
     {
 
-        $artwork = Artwork::where('id', $id)->with(['seller','artworkImages', 'elements'])->first();
+        $artwork = Artwork::where('id', $id)->with(['seller','artworkImages', 'elements', 'comments', 'likes'])->first();
 
-        //dd($artwork);
-        return response()->json(['artwork' => $artwork]);
+        dd($artwork);
+
+        //return response()->json(['artwork' => $artwork]);
+        
         return Inertia::render('artworks/Show', [
             'artwork' => $artwork,
             'seller' => $seller
@@ -144,18 +174,5 @@ class ArtworkController extends Controller
 
         return redirect()->route('my-account.artworks');
 
-    }
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function myArtworks()
-    {
-        $artworks = auth()->user()->seller->artworks;
-        return Inertia::render('artworks/MyArtworks', [
-            'artworks' => $artworks;
-        ]);
     }
 }

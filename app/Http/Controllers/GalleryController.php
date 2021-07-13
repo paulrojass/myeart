@@ -14,7 +14,39 @@ class GalleryController extends Controller
      */
     public function index()
     {
-        //
+        $galleries = Gallery::query()->with([
+            'seller.user',
+            'seller.user.profile',
+            'seller',
+            'seller.artworks'
+        ])->get();
+
+        dd($galleries);
+
+        return Inertia::render('dashboard/galleries/Index', [
+            'galleries' => $galleries
+        ]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function list()
+    {
+        $galleries = Gallery::query()->with([
+            'seller.user',
+            'seller.user.profile',
+            'seller',
+            'seller.artworks'
+        ])->get();
+
+        dd($galleries);
+
+        return Inertia::render('galleries/Index', [
+            'galleries' => $galleries
+        ]);
     }
 
     /**
@@ -40,10 +72,11 @@ class GalleryController extends Controller
     {
         //El usuario autenticado se crea sus datos como artista
         $user = auth()->user();
+
         //Creando vendedor
         $seller = new Seller();
         $seller->user_id = $user_id;
-        $seller->gallery = 1;
+        $seller->has_gallery = 1;
         $seller->save();
 
         //Se Asigna role de vendedor

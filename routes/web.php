@@ -67,85 +67,83 @@ Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class
 Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
 ->name('artist-or-gallery');
 
-//Rutas para los modelos
-Route::resource(
-    'vendedores',
-    App\Http\Controllers\SellerController::class,
-    [ 'names' => [
-        'index' => 'sellers.index',
-        'create' => 'sellers.create',
-        'show' => 'sellers.show',
-        'store' => 'sellers.store',
-        'edit' => 'sellers.edit',
-        'update' => 'sellers.update',
-        'destroy' => 'sellers.destroy'
-        ]
-    ]
-);
-
-//Artistas:
-Route::resource(
-    'artistas',
-    App\Http\Controllers\ArtistController::class,
-    [ 'names' => [
-        'index' => 'artists.index',
-        'create' => 'artists.create',
-        'show' => 'artists.show',
-        'store' => 'artists.store',
-        'edit' => 'artists.edit',
-        'update' => 'artists.update',
-        'destroy' => 'artists.destroy'
-        ]
-    ]
-);
-
-//Galerias:
-Route::resource(
-    'galerias',
-    App\Http\Controllers\GalleryController::class,
-    [ 'names' => [
-        'index' => 'galleries.index',
-        'create' => 'galleries.create',
-        'show' => 'galleries.show',
-        'store' => 'galleries.store',
-        'edit' => 'galleries.edit',
-        'update' => 'galleries.update',
-        'destroy' => 'galleries.destroy'
-        ]
-    ]
-);
-
-//Obras:
-Route::resource(
-    'obras',
-    App\Http\Controllers\ArtworkController::class,
-    [ 'names' => [
-        'index' => 'artworks.index',
-        'create' => 'artworks.create',
-        'show' => 'artworks.show',
-        'store' => 'artworks.store',
-        'edit' => 'artworks.edit',
-        'update' => 'artworks.update',
-        'destroy' => 'artworks.destroy'
-        ]
-    ]
-);
+//Listados de vendedores (artistas y galerias)
+Route::get('vendedores',  [App\Http\Controllers\SellerController::class, 'list'])->name('sellers.index');
+Route::get('vendedores/{id}',  [App\Http\Controllers\SellerController::class, 'show'])->name('sellers.show');
+Route::get('vendedores/artistas',  [App\Http\Controllers\ArtistController::class, 'list'])->name('artists.index');
+Route::get('vendedores/galerias',  [App\Http\Controllers\GalleryController::class, 'list'])->name('galleries.index');
+Route::get('obras',  [App\Http\Controllers\ArtworkController::class, 'list'])->name('artworks.index');
 
 //Informacion de una Cuenta
 Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function () {
     Route::get('editar', [App\Http\Controllers\UserController::class, 'editAccountInformation'])
     ->name('my-account.edit');
-    Route::get('mis-obras', [App\Http\Controllers\ArtworkController::class, 'myArtworks'])
-    ->name('my-account.artworks');
-    Route::get('mis-compras', [App\Http\Controllers\BuyController::class, 'myShopping'])
+    Route::get('mis-compras', [App\Http\Controllers\UserController::class, 'myShopping'])
     ->name('my-account.shopping');
-    Route::get('mis-ventas', [App\Http\Controllers\BuyController::class, 'mySales'])
+    Route::get('mis-ventas', [App\Http\Controllers\SellerController::class, 'mySales'])
     ->name('my-account.shopping');
+
+    //Obras del usuario
+    Route::resource(
+        'mis-obras',
+        App\Http\Controllers\ArtworkController::class,
+        [ 'names' => [
+            'index' => 'my-artworks.index',
+            'create' => 'my-artworks.create',
+            'store' => 'my-artworks.store',
+            'show' => 'my-artworks.show',
+            'edit' => 'my-artworks.edit',
+            'update' => 'my-artworks.update',
+            'destroy' => 'my-artworks.destroy'
+            ]
+        ]
+    );
+
+    //Perfil de Usuario
+    //Usuario se puede actualizar y eliminar
+    Route::resource(
+        'usuario',
+        App\Http\Controllers\UserController::class,
+        [ 'names' => [
+            'update' => 'users.update',
+            'destroy' => 'users.destroy'
+            ]
+        ]
+    )->except(['index','create', 'store','show', 'edit']);
+    //Usuario como vendedor solo se puede eliminar
+    Route::delete('vendedor/{id}', [App\Http\Controllers\SellerController::class, 'destroy'])->name('sellers.destroy');
+    //Usuario se crea como vendedor galeria, guardarse, actualizar sus datos y eliminarse como galeria 
+    Route::resource(
+        'vendedor/galeria',
+        App\Http\Controllers\GalleryController::class,
+        [ 'names' => [
+            'create' => 'galleries.create',
+            'store' => 'galleries.store',
+            'edit' => 'galleries.edit',
+            'update' => 'galleries.update',
+            'destroy' => 'galleries.destroy'
+            ]
+        ]
+    )->except(['index', 'show']);
+
+    //Usuario se crea como vendedor artista, guardarse, actualizar sus datos y eliminarse como artista 
+    Route::resource(
+        'vendedor/artista',
+        App\Http\Controllers\ArtistController::class,
+        [ 'names' => [
+            'create' => 'artists.create',
+            'store' => 'artists.store',
+            'edit' => 'artists.edit',
+            'update' => 'artists.update',
+            'destroy' => 'artists.destroy'
+            ]
+        ]
+    )->except(['index', 'show']);
 });
 
 //Rutas del panel administrativo
 Route::group(['middleware' => ['web', 'auth', 'role:admin|operator'], 'prefix' => 'panel'], function () {
-    //Usuarios:
+    //Usuarios: un administrador puede crear visualizar usuarios, crearlos, y eliminarlos
     Route::resource(
         'usuarios',
         App\Http\Controllers\UserController::class,
@@ -154,14 +152,12 @@ Route::group(['middleware' => ['web', 'auth', 'role:admin|operator'], 'prefix' =
             'create' => 'users.create',
             'show' => 'users.show',
             'store' => 'users.store',
-            'edit' => 'users.edit',
-            'update' => 'users.update',
             'destroy' => 'users.destroy'
             ]
         ]
-    );
+    )->except(['edit', 'update']);
 
-    //Tags de Vendedor:
+    //Tags de Vendedor: un administrador puede crear, visualizar, actualizar y eliminar Tags
     Route::resource(
         'tags',
         App\Http\Controllers\TagController::class,
@@ -177,7 +173,8 @@ Route::group(['middleware' => ['web', 'auth', 'role:admin|operator'], 'prefix' =
     )->except(['show']);
 
     Route::group(['prefix' => 'categorias'], function () {
-        //Categorias de las obras:
+        //Categorias de las obras: un administrador puede crear, visualizar, actualizar y eliminar categorias
+
         Route::resource(
             '/',
             App\Http\Controllers\CategoryController::class,
