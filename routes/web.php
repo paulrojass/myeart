@@ -102,20 +102,55 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
     ->name('my-account.shopping');
 
     //Obras del usuario
-    Route::resource(
-        'mis-obras',
-        App\Http\Controllers\ArtworkController::class,
-        [ 'names' => [
-            'index' => 'my-artworks.index',
-            'create' => 'my-artworks.create',
-            'store' => 'my-artworks.store',
-            'show' => 'my-artworks.show',
-            'edit' => 'my-artworks.edit',
-            'update' => 'my-artworks.update',
-            'destroy' => 'my-artworks.destroy'
+    Route::group(['prefix' => 'mis-obras'], function () {
+        //Obras de arte del usuario autenticado
+        Route::resource(
+            '/',
+            App\Http\Controllers\ArtworkController::class,
+            [ 'names' => [
+                'index' => 'my-artworks.index',
+                'create' => 'my-artworks.create',
+                'store' => 'my-artworks.store',
+                'show' => 'my-artworks.show',
+                'edit' => 'my-artworks.edit',
+                'update' => 'my-artworks.update',
+                'destroy' => 'my-artworks.destroy'
+                ]
             ]
-        ]
-    );
+        );
+        //Comentarios de las obras de arte del usuario autenticado
+        Route::resource(
+            'comentarios',
+            App\Http\Controllers\ArtworkController::class,
+            [ 'names' => [
+                'store' => 'comments.store',
+                'update' => 'comments.update',
+                'destroy' => 'comments.destroy'
+                ]
+            ]
+        )->except(['index', 'show', 'create', 'edit']);
+
+        //Likes de las obras de arte del usuario autenticado
+        Route::resource(
+            'likes',
+            App\Http\Controllers\LikeController::class,
+            [ 'names' => [
+                'store' => 'likes.store',
+                'destroy' => 'likes.destroy'
+                ]
+            ]
+        )->except(['index', 'show', 'updates', 'create', 'edit']);
+    });
+
+
+
+
+
+
+
+
+
+
 
     //Perfil de Usuario
     //Usuario se puede actualizar y eliminar

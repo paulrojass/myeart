@@ -20,9 +20,11 @@ class CategorySeeder extends Seeder
         //Model::unguard();
         
         $categories = [
-            "1" => "Categoria_1",
-            "2" => "Categoria_2",
-            "3" => "Categoria_3"
+            "1" => "Libro",
+            "2" => "Pintura",
+            "3" => "Escultura",
+            "4" => "Dibujo",
+            "5" => "Fotrografía",
         ];
 
         DB::transaction(function () use ($categories) {

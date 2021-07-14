@@ -22,18 +22,32 @@ class AttributeSeeder extends Seeder
 
         /** @var array Ciudades asociadas a un Estado */
         $categories_attributes = [
-            "1" => [
-                "Atributo_1_1",
-                "Atributo_1_2"
+            "1" => [ //Libro
+                "Temática", //1
+                "Idioma",   //2
+                "Material"  //3
             ],
-            "2" => [
-                "Atributo_2_1",
-                "Atributo_2_2"
+            "2" => [//Pintura
+                "Temática", //4
+                "Estilo",   //5
+                "Técnica"   //6
             ],
-            "3" => [
-                "Atributo_3_1",
-                "Atributo_3_2"
+            "3" => [//Escultura
+                "Temática", //7
+                "Estilo",   //8
+                "Material"  //9
             ],
+            "4" => [//Dibujo
+                "Temática", //10
+                "Estilo",   //11
+                "Técnica"   //12
+            ],           
+            "5" => [//Fotografía
+                "Temática", //13
+                "Estilo",   //14
+                "Técnica"   //15
+            ],
+
         ];
 
         DB::transaction(function () use ($categories_attributes) {
