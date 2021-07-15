@@ -60,9 +60,9 @@ class SellerController extends Controller
     public function show($id)
     {
         $seller = Seller::where('id', $id)->with([
-            'user'
+            'user',
             'user.profile',
-            'gallery'
+            'gallery',
             'artist'
         ]);
 
@@ -89,7 +89,7 @@ class SellerController extends Controller
     /**
      * Muestra las ventas del vendedor.
      *
-     * @param  
+     * @param
      * @return \Illuminate\Http\Response
      */
 
