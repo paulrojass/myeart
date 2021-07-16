@@ -97,7 +97,6 @@ export default {
 
 </script>
 
-
 <style scoped>
     .table-custom th{
         font-size: 1.2rem;

@@ -3,7 +3,9 @@
         <HeaderAccount />
 
         <div class="container my-5">
-            <form action="#" class="setting_form">
+            <form 
+                @submit.prevent="submit" class="setting_form"
+            >
                 <div class="row">
                     <div class="col-md-12">
                         <div class="information_module">
@@ -34,7 +36,7 @@
                                             <label for="firstName">Nombre
                                                 <sup>*</sup>
                                             </label>
-                                            <input type="text" id="firstName" class="text_field">
+                                            <input type="text" id="firstName" class="text_field" v-model="form.firstName">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -42,7 +44,7 @@
                                             <label for="lastName">Apellido
                                                 <sup>*</sup>
                                             </label>
-                                            <input type="text" id="lastName" class="text_field">
+                                            <input type="text" id="lastName" class="text_field" v-model="form.LastName">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -50,7 +52,7 @@
                                             <label for="emailad">Mail
                                                 <sup>*</sup>
                                             </label>
-                                            <input type="text" id="emailad" class="text_field" >
+                                            <input type="text" id="emailad" class="text_field" v-model="form.email">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -204,7 +206,7 @@
                                             <span class="fa fa-facebook"></span>
                                         </div>
                                         <div class="link_field">
-                                            <input type="text" class="text_field" placeholder="ex: www.facebook.com/myeaert">
+                                            <input type="text" class="text_field">
                                         </div>
                                     </div>
                                     <div class="social__single">
@@ -212,7 +214,7 @@
                                             <span class="fa fa-twitter"></span>
                                         </div>
                                         <div class="link_field">
-                                            <input type="text" class="text_field" placeholder="ex: www.twitter.com/myeaert">
+                                            <input type="text" class="text_field">
                                         </div>
                                     </div>
                                     <div class="social__single">
@@ -220,7 +222,7 @@
                                             <span class="fa fa-google-plus"></span>
                                         </div>
                                         <div class="link_field">
-                                            <input type="text" class="text_field" placeholder="ex: www.google.com/myeaert">
+                                            <input type="text" class="text_field">
                                         </div>
                                     </div>
                                 </div>
@@ -247,7 +249,21 @@ export default {
     layout,
     components: {
         HeaderAccount
-    }
+    },
+    data(){
+        return {
+            form: this.$inertia.form({
+                campo: ''
+            })            
+        }
+    },
+    methods: {
+        submit() {
+            // this.form.post(this.route('register'), {
+            //     onFinish: () => this.form.reset('password', 'password_confirmation'),
+            // })
+        }
+  }
 }
 
 </script>
@@ -262,5 +278,4 @@ export default {
         font-weight: bolder;
         font-size: 1.2rem;
     }
-
 </style>

@@ -2,7 +2,7 @@
   <div class="card-body">
 
     <div class="mb-2">
-      This is a secure area of the application. Please confirm your password before continuing.
+      Esta es un área segura de la aplicación. Confirme su contraseña antes de continuar.
     </div>
 
     <breeze-validation-errors class="mb-2" />
@@ -15,7 +15,7 @@
 
       <div class="d-flex justify-content-end mt-2">
         <breeze-button class="ml-4" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
-          Confirm
+          Confirmar
         </breeze-button>
       </div>
     </form>

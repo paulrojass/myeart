@@ -1,7 +1,7 @@
 <template>
   <div class="card-body">
     <div class="mb-2">
-      Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
+      ¿Olvidaste tu contraseña? No hay problema. Simplemente díganos su dirección de correo electrónico y le enviaremos un enlace para restablecer la contraseña que le permitirá elegir una nueva.
     </div>
 
     <div v-if="status" class="alert alert-success" role="alert">
@@ -18,7 +18,7 @@
 
       <div class="d-flex justify-content-end mt-4">
         <breeze-button :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
-          Email Password Reset Link
+          Reset
         </breeze-button>
       </div>
     </form>
