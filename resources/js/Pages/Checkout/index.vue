@@ -21,7 +21,7 @@
                                                         </label>
                                                         <input type="text" id="first_name" class="text_field" placeholder="" value="">
                                                     </div>
-                                                </div><!-- ends: .col-md-6 -->
+                                                </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="last_name">Apellido
@@ -29,7 +29,7 @@
                                                         </label>
                                                         <input type="text" id="last_name" class="text_field" placeholder="" value="">
                                                     </div>
-                                                </div><!-- ends: .col-md-6 -->
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="email">Nombre de Compañia
@@ -91,10 +91,10 @@
                                                         <input type="text" id="zipcode" class="text_field" placeholder="">
                                                     </div>
                                                 </div>
-                                            </div><!-- ends: .row -->
+                                            </div>
                                         </div>
-                                    </div><!-- end .information__set -->
-                                </div><!-- end .information_module -->
+                                    </div>
+                                </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
                                 <div class="information_module order_summary">
@@ -129,7 +129,7 @@
                                             <span> 110 $</span>
                                         </li>
                                     </ul>
-                                </div><!-- ends: .information_module-->
+                                </div>
                                 <div class="information_module payment_options">
                                     <div class="toggle_title">
                                         <h4>Seleccionar método de pago</h4>
@@ -157,7 +157,7 @@
                                             <label for="card_number">N de Tarjeta</label>
                                             <input id="card_number" type="text" class="text_field" placeholder="">
                                         </div>
-                                        <!-- lebel for date selection -->
+                                        
                                         <label for="name">Fecha de Vencimiento</label>
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6">
@@ -179,9 +179,9 @@
                                                             <option value="dec">Dec</option>
                                                         </select>
                                                         <span class="icon-arrow-down"></span>
-                                                    </div><!-- end /.select-wrap -->
-                                                </div><!-- end /.form-group -->
-                                            </div><!-- end /.col-md-6-->
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="col-md-6 col-sm-6">
                                                 <div class="form-group">
                                                     <div class="select-wrap select-wrap2">
@@ -201,10 +201,10 @@
                                                             <option value="17">2017</option>
                                                         </select>
                                                         <span class="icon-arrow-down"></span>
-                                                    </div><!-- ends: .select-wrap -->
-                                                </div><!-- ends: .form-group -->
-                                            </div><!-- ends: .col-md-6-->
-                                        </div><!-- ends: .row -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -214,13 +214,13 @@
                                                 <button type="submit" class="btn btn--md btn-primary">Proceder Compra</button>
                                             </div>
                                         </div>
-                                    </div><!-- ends: .payment_info -->
-                                </div><!-- ends: .information_module-->
+                                    </div>
+                                </div>
                             </div>
-                        </div><!-- ends: .row -->
-                    </form><!-- ends: form -->
+                        </div>
+                    </form>
                 </div>
-            </div><!-- ends: .dashboard_contents -->
+            </div>
         </section>
     </div>
 

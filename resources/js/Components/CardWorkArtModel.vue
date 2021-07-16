@@ -15,7 +15,7 @@
                 </figcaption>
             </figure>
         </div>
-        <!-- Ends: .product-thumb -->
+        
         <div class="product-excerpt">
             <h5>
                 <a href="">E-commerce Shopping Cart</a>
@@ -67,6 +67,6 @@
                 </li>
             </ul>
         </div>
-        <!-- Ends: .product-excerpt -->
+        
     </div>
 </template>

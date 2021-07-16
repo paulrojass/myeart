@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Ends: .col-md-12 -->
+                    
                     <div class="col-lg-12">
                         <div class="product-list">
                             <div class="tab-content" id="lp-tab-content">
@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Ends: .tab-pane -->
+                                
                             </div>
                             <div class="text-center m-top-20">
                                 <a href="" class="btn btn--lg btn-primary"
@@ -52,7 +52,7 @@
                                 >
                             </div>
                         </div>
-                        <!-- Ends: .product-list -->
+                        
                     </div>
                 </div>
             </div>

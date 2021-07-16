@@ -58,7 +58,7 @@
 
                 <div class="mb-0">
                   <div class="d-flex justify-content-start align-items-baseline">
-                    <b-button class="mr-4 btn  btn--lg btn-primary" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
+                    <b-button @click="submit" class="mr-4 btn  btn--lg btn-primary" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
                       Registrate
                     </b-button>
                     <inertia-link :href="route('login')" class="text-muted mr-3 text-decoration-none">

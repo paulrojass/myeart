@@ -1,5 +1,5 @@
 <template>
-    <!-- Menu -->
+    
     <div class="menu-area">
         <div class="top-menu-area">
             <div class="container-fluid">
@@ -10,7 +10,7 @@
                                 <div class="logo logo-top">
                                     <a href="/"
                                         ><img
-                                            src="imagenes/Logo.png"
+                                            src="/imagenes/Logo.png"
                                             alt="logo image"
                                             class="img-fluid"
                                     /></a>
@@ -34,7 +34,7 @@
                                                 class="navbar-toggler-icon icon-menu"
                                             ></span>
                                         </button>
-                                        <!-- Collect the nav links, forms, and other content for toggling -->
+                                        
                                         <div
                                             class="collapse navbar-collapse"
                                             id="bs-example-navbar-collapse-1"
@@ -69,12 +69,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- /.navbar-end -->
+                                        
                                     </nav>
                                 </div>
                             </div>
                             <div class="author-menu">
-                                <!-- start .author-area -->
                                 <div class="author-area">
                                     <div class="search-wrapper">
                                         <div
@@ -167,7 +166,7 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.notifications -->
+
                                                             <div
                                                                 class="notification__icons"
                                                             >
@@ -175,9 +174,9 @@
                                                                     class="icon-heart loved noti_icon"
                                                                 ></span>
                                                             </div>
-                                                            <!-- end /.notifications -->
+
                                                         </div>
-                                                        <!-- end /.notifications -->
+
                                                         <div
                                                             class="notification"
                                                         >
@@ -215,7 +214,7 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.notifications -->
+
                                                             <div
                                                                 class="notification__icons"
                                                             >
@@ -223,9 +222,9 @@
                                                                     class="icon-bubble commented noti_icon"
                                                                 ></span>
                                                             </div>
-                                                            <!-- end /.notifications -->
+
                                                         </div>
-                                                        <!-- end /.notifications -->
+
                                                         <div
                                                             class="notification"
                                                         >
@@ -262,7 +261,7 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.notifications -->
+    
                                                             <div
                                                                 class="notification__icons"
                                                             >
@@ -270,9 +269,9 @@
                                                                     class="icon-basket-loaded purchased noti_icon"
                                                                 ></span>
                                                             </div>
-                                                            <!-- end /.notifications -->
+    
                                                         </div>
-                                                        <!-- end /.notifications -->
+
                                                         <div
                                                             class="notification"
                                                         >
@@ -310,7 +309,7 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.notifications -->
+    
                                                             <div
                                                                 class="notification__icons"
                                                             >
@@ -318,9 +317,9 @@
                                                                     class="icon-star reviewed noti_icon"
                                                                 ></span>
                                                             </div>
-                                                            <!-- end /.notifications -->
+    
                                                         </div>
-                                                        <!-- end /.notifications -->
+
                                                         <div
                                                             class="text-center m-top-30 p-left-20 p-right-20"
                                                         >
@@ -330,9 +329,9 @@
                                                                 >View All</a
                                                             >
                                                         </div>
-                                                        <!-- end /.notifications -->
+
                                                     </div>
-                                                    <!-- end /.dropdown -->
+
                                                 </div>
                                             </li>
                                             <li class="has_dropdown">
@@ -369,7 +368,7 @@
                                                                     />
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.actions -->
+
                                                             <div
                                                                 class="message_data"
                                                             >
@@ -401,9 +400,9 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.message_data -->
+                                                            
                                                         </a>
-                                                        <!-- end /.message -->
+                                                        
                                                         <a
                                                             href="message.html"
                                                             class="message recent"
@@ -420,7 +419,7 @@
                                                                     />
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.actions -->
+
                                                             <div
                                                                 class="message_data"
                                                             >
@@ -453,9 +452,9 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.message_data -->
+
                                                         </a>
-                                                        <!-- end /.message -->
+
                                                         <a
                                                             href="message.html"
                                                             class="message"
@@ -472,7 +471,7 @@
                                                                     />
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.actions -->
+
                                                             <div
                                                                 class="message_data"
                                                             >
@@ -502,9 +501,9 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.message_data -->
+                                                            
                                                         </a>
-                                                        <!-- end /.message -->
+                                                        
                                                         <a
                                                             href="message.html"
                                                             class="message"
@@ -521,7 +520,7 @@
                                                                     />
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.actions -->
+
                                                             <div
                                                                 class="message_data"
                                                             >
@@ -550,9 +549,9 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.message_data -->
+
                                                         </a>
-                                                        <!-- end /.message -->
+
                                                         <a
                                                             href="message.html"
                                                             class="message"
@@ -569,7 +568,7 @@
                                                                     />
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.actions -->
+
                                                             <div
                                                                 class="message_data"
                                                             >
@@ -601,9 +600,9 @@
                                                                     </p>
                                                                 </div>
                                                             </div>
-                                                            <!-- end /.message_data -->
+
                                                         </a>
-                                                        <!-- end /.message -->
+
                                                     </div>
                                                     <div
                                                         class="text-center m-top-30 m-bottom-30 p-left-20 p-right-20"
@@ -761,19 +760,20 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <!--start .author-author__info-->
+
                                     <div
                                         class="author-author__info has_dropdown"
+                                        v-if="user"
                                     >
                                         <div class="author__avatar online">
                                             <img
-                                                src="img/user-avater.png"
+                                                src="/img/user-avater.png"
                                                 alt="user avatar"
                                                 class="rounded-circle"
                                             />
                                         </div>
                                         <div class="dropdown dropdown--author">
-                                            <div class="author-credits d-flex">
+                                            <!-- <div class="author-credits d-flex">
                                                 <div class="author__avatar">
                                                     <img
                                                         src="img/user-avater.png"
@@ -787,118 +787,59 @@
                                                     </p>
                                                     <p class="amount">$20.45</p>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <ul>
                                                 <li>
-                                                    <a href="author.html">
+                                                    <inertia-link
+                                                        :href="
+                                                            route('register')
+                                                        "
+                                                    >
                                                         <span
                                                             class="icon-user"
                                                         ></span
-                                                        >Profile</a
-                                                    >
+                                                        >Perfil
+                                                    </inertia-link>
+                                                    
                                                 </li>
                                                 <li>
-                                                    <a href="dashboard.html">
-                                                        <span
-                                                            class="icon-home"
-                                                        ></span>
-                                                        Dashboard</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="dashboard-setting.html"
-                                                    >
-                                                        <span
-                                                            class="icon-settings"
-                                                        ></span>
-                                                        Setting</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="cart.html">
-                                                        <span
-                                                            class="icon-basket"
-                                                        ></span
-                                                        >Purchases</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="favourites.html">
-                                                        <span
-                                                            class="icon-heart"
-                                                        ></span>
-                                                        Favourite</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="dashboard-add-credit.html"
-                                                    >
-                                                        <span
-                                                            class="icon-credit-card"
-                                                        ></span
-                                                        >Add Credits</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="dashboard-statement.html"
-                                                    >
-                                                        <span
-                                                            class="icon-chart"
-                                                        ></span
-                                                        >Sale Statement</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="dashboard-upload.html"
-                                                    >
-                                                        <span
-                                                            class="icon-cloud-upload"
-                                                        ></span
-                                                        >Upload Item</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="dashboard-manage-item.html"
-                                                    >
-                                                        <span
-                                                            class="icon-notebook"
-                                                        ></span
-                                                        >Manage Item</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a
-                                                        href="dashboard-withdrawal.html"
-                                                    >
-                                                        <span
-                                                            class="icon-briefcase"
-                                                        ></span
-                                                        >Withdrawals</a
-                                                    >
-                                                </li>
-                                                <li>
-                                                    <a href="#">
+                                                    <inertia-link :href="route('logout')">
                                                         <span
                                                             class="icon-logout"
                                                         ></span
-                                                        >Logout</a
-                                                    >
+                                                        >Salir
+                                                    </inertia-link>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <!--end /.author-author__info-->
+                                    <div v-else>
+                                        <inertia-link
+                                            :href="
+                                                route('register')
+                                            "
+                                            class="btn--xs btn btn-primary"
+                                        >
+                                            Registrarse
+                                        </inertia-link>
+                                        <inertia-link
+                                            :href="
+                                                route('login')
+                                            "
+                                            class="ml-1 btn--xs btn btn-warning"
+                                            style="background: #F4B731; color: white;"
+                                        >
+                                            Iniciar Sesion
+                                        </inertia-link
+                                        >
+                                    </div>
+                                    
                                 </div>
-                                <!-- end .author-area -->
-                                <!-- author area restructured for mobile -->
-                                <div class="mobile_content">
+                                
+                                
+                                <!-- <div class="mobile_content">
                                     <span class="icon-user menu_icon"></span>
-                                    <!-- offcanvas menu -->
+                                    
                                     <div class="offcanvas-menu closed">
                                         <span
                                             class="icon-close close_menu"
@@ -913,7 +854,7 @@
                                                 />
                                             </div>
                                         </div>
-                                        <!--end /.author-author__info-->
+
                                         <div class="author__notification_area">
                                             <ul>
                                                 <li>
@@ -957,7 +898,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!--start .author__notification_area -->
+
                                         <div class="dropdown dropdown--author">
                                             <ul>
                                                 <li>
@@ -1070,16 +1011,28 @@
                                             >
                                         </div>
                                     </div>
-                                </div>
-                                <!-- end /.mobile_content -->
+                                </div> -->
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- end /.row -->
+                
             </div>
-            <!-- end /.container -->
+            
         </div>
-        <!-- end  -->
+        
     </div>
 </template>
+
+<script>
+
+export default ({
+    computed: {
+        user() {
+            return this.$page.props.auth.user
+        }
+    }
+    
+})
+</script>

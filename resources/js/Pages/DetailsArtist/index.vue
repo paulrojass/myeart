@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- Breadcrumb Area -->
+        
         <section class="breadcrumb-area">
             <div class="container">
                 <div class="row">
@@ -8,10 +8,10 @@
                         <div class="breadcrumb-contents d-flex justify-content-center">
                             <h2 class="page-title">Perfil del Autor</h2>
                         </div>
-                    </div><!-- end .col-md-12 -->
-                </div><!-- end .row -->
-            </div><!-- end .container -->
-        </section><!-- ends: .breadcrumb-area -->
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="author-profile-area">
             <div class="container">
                 <div class="row">
@@ -37,8 +37,8 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                    </div><!-- ends: .author-desc -->
-                                </div><!-- ends: .col-lg-5 -->
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 order-lg-1 col-md-12 order-md-2">
                                     <div class="author-social social social--color--filled">
                                         <ul>
@@ -58,8 +58,8 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div><!-- ends: .author-social -->
-                                </div><!-- ends: .col-lg-3 -->
+                                    </div>
+                                </div>
                                 <div class="col-lg-3 order-lg-2 col-md-5 order-md-1">
                                     <div class="author-stats">
                                         <ul>
@@ -86,11 +86,11 @@
                                                 <p>Calificaciones de autor</p>
                                             </li>
                                         </ul>
-                                    </div><!-- ends: .author-stats -->
-                                </div><!-- ends: .col-lg-4 -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div><!-- ends: .col-lg-12 -->
+                    </div>
                     <div class="col-md-12 author-info-tabs">
                         <ul class="nav nav-tabs" id="author-tab" role="tablist">
                             <li>
@@ -102,7 +102,7 @@
                             <li>
                                 <a id="reviews-tab" data-toggle="tab" href="#reviews" role="tab" aria-controls="reviews" aria-selected="false">Reseñas</a>
                             </li>
-                        </ul><!-- Ends: .nav-tabs -->
+                        </ul>
                         <div class="tab-content" id="author-tab-content">
                             <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                 <div class="author_module about_author">
@@ -191,8 +191,8 @@
                                         <CardWordArtModel />
                                     </div>
                                 </div>
-                                <!-- Start Pagination -->
-                                <!-- Start Pagination -->
+                                
+                                
                                 <nav class="pagination-default ">
                                     <ul class="pagination">
                                         <li class="page-item">
@@ -213,8 +213,8 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </nav><!-- Ends: .pagination-default -->
-                            </div><!-- Ends: .items-tab -->
+                                </nav>
+                            </div>
                             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -496,10 +496,10 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                            </ul><!-- ends: .media-list -->
-                                        </div><!-- ends: .comments -->
-                                        <!-- Start Pagination -->
-                                        <!-- Start Pagination -->
+                                            </ul>
+                                        </div>
+                                        
+                                        
                                         <nav class="pagination-default ">
                                             <ul class="pagination">
                                                 <li class="page-item">
@@ -520,15 +520,15 @@
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </nav><!-- Ends: .pagination-default -->
-                                    </div><!-- ends: .col-md-12 -->
-                                </div><!-- ends: .row -->
-                            </div><!-- Ends: reviews-tab -->
-                        </div><!-- ends: .tab-content -->
-                    </div><!-- Ends: .author-info-tabs -->
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section><!-- ends: .author-profile-area -->
+        </section>
     </div>
 </template>
 

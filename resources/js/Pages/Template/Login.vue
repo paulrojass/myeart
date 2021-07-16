@@ -8,7 +8,7 @@
                             <div class="login--header">
                                 <h3>Welcome Back</h3>
                                 <p>You can sign in with your username</p>
-                            </div><!-- end .login_header -->
+                            </div>
                             <div class="login--form">
                                 <div class="form-group">
                                     <label for="user_name">Username</label>
@@ -37,11 +37,11 @@
                                         <a href="signup.html">account</a>?
                                     </p>
                                 </div>
-                            </div><!-- end .login--form -->
-                        </div><!-- end .cardify -->
+                            </div>
+                        </div>
                     </form>
-                </div><!-- end .col-md-6 -->
-            </div><!-- end .row -->
-        </div><!-- end .container -->
-    </section><!-- ends: .login_area -->
+                </div>
+            </div>
+        </div>
+    </section>
 </template>

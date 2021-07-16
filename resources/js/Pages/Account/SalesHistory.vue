@@ -1,6 +1,6 @@
 <template>
     <div>
-        <HeaderAccount title="Hola Daniel"/>
+        <HeaderAccount />
         <div class="dashboard_contents mt-5">
             <div class="container">
                 <div class="row">
@@ -16,10 +16,10 @@
                                         <button type="submit"><span class="icon-magnifier"></span></button>
                                     </form>
                                 </div>
-                            </div><!-- ends: .pull-right -->
-                        </div><!-- ends: .filter-bar -->
-                    </div><!-- ends: .col-md-12 -->
-                </div><!-- ends: .row -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="product_archive table-responsive table-custom">
                     <table class="table mx-3">
@@ -75,9 +75,9 @@
 
                 <div class="product_archive">
                     <div class="row">
-                        <!-- Start Pagination -->
+                        
                         <div class="col-md-12">
-                            <!-- Start Pagination -->
+                            
                             <nav class="pagination-default ">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -98,12 +98,12 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav><!-- Ends: .pagination-default -->
+                            </nav>
                         </div>
-                    </div><!-- ends: .row -->
-                </div><!-- ends: .product_archive2 -->
-            </div><!-- ends: .container -->
-        </div><!-- ends: .dashboard_menu_area -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 

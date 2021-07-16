@@ -33,7 +33,7 @@
                                                 />
                                             </div>
                                             
-                                        </div><!-- ends: .prev-nav -->
+                                        </div>
                                     </div>
                                     <div class="item__preview-thumb pb-4 mt-4 border-primary">
                                         <div class="prev-thumb ">
@@ -50,12 +50,12 @@
                                                         @click="changeToPreview(item)"
                                                     >
                                                 </div>
-                                            </div><!-- end .thumb-slider -->
+                                            </div>
                                         </div>
-                                    </div><!-- ends: .item__preview-thumb -->
-                                </div><!-- ends: .preview-img-wrapper -->
-                            </div><!-- Ends: .item-prev-area -->
-                        </div><!-- ends: .item-preview-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="item-info border-primary">
                             <div class="item-navigation">
                                 <ul class="nav nav-tabs" role="tablist">
@@ -73,7 +73,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div><!-- ends: .item-navigation -->
+                            </div>
                             <div class="tab-content">
                                 <div class="fade show tab-pane product-tab active" id="product-details" role="tabpanel" aria-labelledby="tab1">
                                     <div class="tab-content-wrapper">
@@ -87,7 +87,7 @@
                                             scelerisque.</p>
                                         <img src="img/prodesc.jpg" alt="This is product description thumbnail">
                                     </div>
-                                </div><!-- ends: .tab-content -->
+                                </div>
                                 <div class="fade tab-pane product-tab" id="product-comment" role="tabpanel" aria-labelledby="tab2">
                                     <div class="thread">
                                         <ul class="media-list thread-list">
@@ -113,8 +113,8 @@
                                                             sceleris que the mattis, leo quam aliquet congue placerat mi id nisi
                                                             interdum mollis. </p>
                                                     </div>
-                                                </div><!-- ends: .media -->
-                                                <!-- nested comment markup / replies -->
+                                                </div>
+                                                
                                                 <ul class="children">
                                                     <li class="single-thread depth-2">
                                                         <div class="media">
@@ -153,8 +153,8 @@
                                                             </div>
                                                         </div>
                                                     </li>
-                                                </ul><!-- ends: .children -->
-                                                <!-- comment reply -->
+                                                </ul>
+                                                
                                                 <!-- <div class="media depth-2 reply-comment">
                                                     <div class="media-left">
                                                         <a href="#">
@@ -168,9 +168,9 @@
                                                         </form>
                                                     </div>
                                                 </div> -->
-                                            </li><!-- ends: .single-thread-->
-                                        </ul><!-- ends: .media-list -->
-                                        <!-- Start Pagination -->
+                                            </li>
+                                        </ul>
+                                        
                                         <!-- <nav class="pagination-default ">
                                             <ul class="pagination">
                                                 <li class="page-item">
@@ -206,56 +206,56 @@
                                                         <button class="btn btn--sm btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- ends: .comment-form -->
-                                        </div><!-- ends: .comment-form-area -->
-                                    </div><!-- ends: .comments -->
-                                </div><!-- ends: .product-comment -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="fade tab-pane product-tab" id="product-review" role="tabpanel" aria-labelledby="tab3">
                                     <div class="thread thread_review">
                                         <ul class="media-list thread-list">
                                             <li class="single-thread">
                                                 <div class="media">
                                                     <div class="media-left">
-                                                        <!-- <a href="#"> -->
+                                                        
                                                             <img class="media-object rounded-circle" src="img/m1.png" alt="Commentator Avatar">
-                                                        <!-- </a> -->
-                                                    </div><!-- ends: .media-left -->
+                                                        
+                                                    </div>
                                                     <div class="media-body">
                                                         <div class="clearfix">
                                                             <div class="pull-left">
                                                                 <div class="media-heading">
-                                                                    <!-- <a href="author.html"> -->
+                                                                    
                                                                         <h4 class="text-primary mb-0 font-weight-border">
                                                                             Autor:
                                                                         </h4>
                                                                         <h4>
                                                                             Daniel L Lewis P.
                                                                         </h4>
-                                                                    <!-- </a> -->
+                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div><!-- ends: .media-body -->
-                                                </div><!-- ends: .media -->
+                                                    </div>
+                                                </div>
                                                 <div class="p-4">
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
                                                 </div>
-                                                <!-- comment reply -->
-                                            </li><!-- end single comment thread-->
+                                                
+                                            </li>
                                             
                                             <div class="ml-5">
                                                 <button class="btn btn--md btn-primary">Ver Autor</button>
                                             </div>
 
-                                        </ul><!-- ends: .media-list -->
-                                        <!-- Start Pagination -->
-                                    </div><!-- ends: .comments -->
-                                </div><!-- ends: .product-comment -->
+                                        </ul>
+                                        
+                                    </div>
+                                </div>
 
-                            </div><!-- ends: .tab-content -->
-                        </div><!-- ends: .item-info -->
-                    </div><!-- ends: .col-md-8 -->
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-4 col-md-12">
                         <aside id="sidebar" ref="sidebar" class="sidebar sidebar--single-product card-specs position-relative">
                             <div class="sidebar-card card-pricing bg-primary text-white">
@@ -271,7 +271,7 @@
                                     <div class="col-5 btn-list add">
                                         <span class=" ">Agregar a carrito</span>
                                     </div>
-                                </div><!-- ends: .author-btn -->
+                                </div>
 
                                 <ul class="border-bottom">
                                     <li>
@@ -284,10 +284,10 @@
                                                 >
                                             </div>
                                             <div class="mt-2">
-                                                <!-- <div> -->
+                                                
                                                     <div class="list-bold">Autor</div>
                                                     <p>Daniel L Lewis P.</p>
-                                                <!-- </div> -->
+                                                
                                             </div>
                                         </div>
                                     </li>
@@ -301,14 +301,14 @@
                                                 >
                                             </div>
                                             <div class="mt-2">
-                                                <!-- <div> -->
+                                                
                                                     <div class="mb-0">Titulo obra:</div>
                                                     <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                                <!-- </div> -->
+                                                
                                             </div>
                                         </div>
                                     </li>
-                                </ul><!-- end .pricing-options -->
+                                </ul>
                                 
                                 <div class="mt-3">
                                     <div class="ml-4">
@@ -400,16 +400,16 @@
                                                 </div>
                                             </div>
                                         </li>                                                                                                                     
-                                    </ul><!-- end .pricing-options -->
+                                    </ul>
                                 </div>
 
 
-                            </div><!-- end .sidebar--card -->
+                            </div>
 
-                        </aside><!-- ends: .sidebar -->
-                    </div><!-- ends: .col-md-4 -->
-                </div><!-- ends: .row -->
-            </div><!-- ends: .container -->
+                        </aside>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 </template>

@@ -40,6 +40,9 @@ export default {
   props: {
 
   },
+  created(){
+    console.log('this', this.$page.props)
+  },
 
   data() {
     return {

@@ -40,11 +40,11 @@
                                         <div class="prev-slide">
                                             <img src="img/single1.jpg" alt="Preview Image">
                                         </div> -->
-                                    </div><!-- ends: .item--preview-slider -->
+                                    </div>
                                     <div class="prev-nav thumb-nav">
                                         <span class="lnr nav-left icon-arrow-left"></span>
                                         <span class="lnr nav-right icon-arrow-right"></span>
-                                    </div><!-- ends: .prev-nav -->
+                                    </div>
                                 </div>
                                 <div class="item__preview-thumb">
                                     <div class="prev-thumb">
@@ -79,11 +79,11 @@
                                             <div class="item-thumb">
                                                 <img src="img/thumb5.jpg" alt="Thumbnail Image">
                                             </div>
-                                        </div><!-- end .thumb-slider -->
+                                        </div>
                                     </div>
-                                </div><!-- ends: .item__preview-thumb -->
-                            </div><!-- ends: .preview-img-wrapper -->
-                        </div><!-- Ends: .item-prev-area -->
+                                </div>
+                            </div>
+                        </div>
                         <div class="item-preview--excerpt">
                             <div class="item-preview--action">
                                 <div class="action-btns m-n15">
@@ -91,7 +91,7 @@
                                     <a href="#" class="btn btn--lg btn--icon btn-outline-primary m-15">
                                         <span class="lnr icon-heart"></span>Add To Favorites</a>
                                 </div>
-                            </div><!-- ends: .item-preview--action -->
+                            </div>
                             <div class="item-preview--activity">
                                 <div class="activity-single">
                                     <p>
@@ -120,9 +120,9 @@
                                     </p>
                                     <p>425</p>
                                 </div>
-                            </div><!-- Ends: .item-preview--activity -->
+                            </div>
                         </div>
-                    </div><!-- ends: .item-preview-->
+                    </div>
                     <div class="item-info">
                         <div class="item-navigation">
                             <ul class="nav nav-tabs" role="tablist">
@@ -149,7 +149,7 @@
                                         <span class="icon icon-question"></span> item FAQ</a>
                                 </li>
                             </ul>
-                        </div><!-- ends: .item-navigation -->
+                        </div>
                         <div class="tab-content">
                             <div class="fade show tab-pane product-tab active" id="product-details" role="tabpanel" aria-labelledby="tab1">
                                 <div class="tab-content-wrapper">
@@ -184,7 +184,7 @@
                                     <h3>Features With HTML List Ordered:</h3>
                                     <iframe width="100" height="400" src="https://www.youtube.com/embed/w2zIUJrglR4" allowfullscreen></iframe>
                                 </div>
-                            </div><!-- ends: .tab-content -->
+                            </div>
                             <div class="fade tab-pane product-tab" id="product-comment" role="tabpanel" aria-labelledby="tab2">
                                 <div class="thread">
                                     <ul class="media-list thread-list">
@@ -210,8 +210,8 @@
                                                         sceleris que the mattis, leo quam aliquet congue placerat mi id nisi
                                                         interdum mollis. </p>
                                                 </div>
-                                            </div><!-- ends: .media -->
-                                            <!-- nested comment markup / replies -->
+                                            </div>
+                                            
                                             <ul class="children">
                                                 <li class="single-thread depth-2">
                                                     <div class="media">
@@ -250,8 +250,8 @@
                                                         </div>
                                                     </div>
                                                 </li>
-                                            </ul><!-- ends: .children -->
-                                            <!-- comment reply -->
+                                            </ul>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -264,8 +264,8 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- ends: .single-thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
@@ -287,9 +287,9 @@
                                                         sceleris que the mattis, leo quam aliquet congue placerat mi id nisi
                                                         interdum mollis. </p>
                                                 </div>
-                                            </div><!-- ends: .media -->
-                                            <!-- nested comment markup / replies -->
-                                            <!-- comment reply -->
+                                            </div>
+                                            
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -302,8 +302,8 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- ends: .single-thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
@@ -326,9 +326,9 @@
                                                         sceleris que the mattis, leo quam aliquet congue placerat mi id nisi
                                                         interdum mollis. </p>
                                                 </div>
-                                            </div><!-- ends: .media -->
-                                            <!-- nested comment markup / replies -->
-                                            <!-- comment reply -->
+                                            </div>
+                                            
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -341,8 +341,8 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- ends: .single-thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
@@ -364,9 +364,9 @@
                                                         sceleris que the mattis, leo quam aliquet congue placerat mi id nisi
                                                         interdum mollis. </p>
                                                 </div>
-                                            </div><!-- ends: .media -->
-                                            <!-- nested comment markup / replies -->
-                                            <!-- comment reply -->
+                                            </div>
+                                            
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -379,10 +379,10 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- ends: .single-thread-->
-                                    </ul><!-- ends: .media-list -->
-                                    <!-- Start Pagination -->
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    
                                     <nav class="pagination-default ">
                                         <ul class="pagination">
                                             <li class="page-item">
@@ -403,7 +403,7 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </nav><!-- Ends: .pagination-default -->
+                                    </nav>
                                     <div class="comment-form-area">
                                         <h4>Leave a comment</h4>
                                         <div class="media comment-form">
@@ -418,10 +418,10 @@
                                                     <button class="btn btn--sm btn-primary">Post Comment</button>
                                                 </form>
                                             </div>
-                                        </div><!-- ends: .comment-form -->
-                                    </div><!-- ends: .comment-form-area -->
-                                </div><!-- ends: .comments -->
-                            </div><!-- ends: .product-comment -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="fade tab-pane product-tab" id="product-review" role="tabpanel" aria-labelledby="tab3">
                                 <div class="thread thread_review">
                                     <ul class="media-list thread-list">
@@ -431,7 +431,7 @@
                                                     <a href="#">
                                                         <img class="media-object" src="img/m1.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -456,9 +456,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -471,15 +471,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m2.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -504,9 +504,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -519,15 +519,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m3.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -552,9 +552,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -567,15 +567,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m4.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -600,9 +600,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -615,15 +615,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m5.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -648,9 +648,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -663,15 +663,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m1.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -696,9 +696,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -711,15 +711,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m2.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -744,9 +744,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -759,15 +759,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m3.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -792,9 +792,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -807,15 +807,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m4.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -840,9 +840,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -855,15 +855,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m5.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -888,9 +888,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -903,15 +903,15 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
+                                            </div>
+                                        </li>
                                         <li class="single-thread">
                                             <div class="media">
                                                 <div class="media-left">
                                                     <a href="#">
                                                         <img class="media-object" src="img/m1.png" alt="Commentator Avatar">
                                                     </a>
-                                                </div><!-- ends: .media-left -->
+                                                </div>
                                                 <div class="media-body">
                                                     <div class="clearfix">
                                                         <div class="pull-left">
@@ -936,9 +936,9 @@
                                                     </div>
                                                     <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
                                                         sceleris que the mattis, leo quam aliquet congue placerat.</p>
-                                                </div><!-- ends: .media-body -->
-                                            </div><!-- ends: .media -->
-                                            <!-- comment reply -->
+                                                </div>
+                                            </div>
+                                            
                                             <div class="media depth-2 reply-comment">
                                                 <div class="media-left">
                                                     <a href="#">
@@ -951,10 +951,10 @@
                                                         <button class="btn btn--md btn-primary">Post Comment</button>
                                                     </form>
                                                 </div>
-                                            </div><!-- comment reply -->
-                                        </li><!-- end single comment thread-->
-                                    </ul><!-- ends: .media-list -->
-                                    <!-- Start Pagination -->
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    
                                     <nav class="pagination-default ">
                                         <ul class="pagination">
                                             <li class="page-item">
@@ -975,9 +975,9 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </nav><!-- Ends: .pagination-default -->
-                                </div><!-- ends: .comments -->
-                            </div><!-- ends: .product-comment -->
+                                    </nav>
+                                </div>
+                            </div>
                             <div class="fade tab-pane product-tab" id="product-support" role="tabpanel" aria-labelledby="tab4">
                                 <div class="support">
                                     <div class="support__title">
@@ -1002,7 +1002,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div><!-- ends: .product-support -->
+                            </div>
                             <div class="fade tab-pane product-tab" id="product-faq" role="tabpanel" aria-labelledby="tab5">
                                 <div class="tab-content-wrapper">
                                     <div class="faq-accordion">
@@ -1030,7 +1030,7 @@
                                                             apparel, butcher .</p>
                                                     </div>
                                                 </div>
-                                            </div><!-- end .accordion__single -->
+                                            </div>
                                             <div class="panel accordion__single" id="panel-two">
                                                 <div class="single_acco_title">
                                                     <h4>
@@ -1054,7 +1054,7 @@
                                                             apparel, butcher .</p>
                                                     </div>
                                                 </div>
-                                            </div><!-- end .accordion__single -->
+                                            </div>
                                             <div class="panel accordion__single" id="panel-three">
                                                 <div class="single_acco_title">
                                                     <h4>
@@ -1078,7 +1078,7 @@
                                                             apparel, butcher .</p>
                                                     </div>
                                                 </div>
-                                            </div><!-- end .accordion__single -->
+                                            </div>
                                             <div class="panel accordion__single" id="panel-four">
                                                 <div class="single_acco_title">
                                                     <h4>
@@ -1102,7 +1102,7 @@
                                                             apparel, butcher .</p>
                                                     </div>
                                                 </div>
-                                            </div><!-- end .accordion__single -->
+                                            </div>
                                             <div class="panel accordion__single" id="panel-five">
                                                 <div class="single_acco_title">
                                                     <h4>
@@ -1126,7 +1126,7 @@
                                                             apparel, butcher .</p>
                                                     </div>
                                                 </div>
-                                            </div><!-- end .accordion__single -->
+                                            </div>
                                             <div class="panel accordion__single" id="panel-six">
                                                 <div class="single_acco_title">
                                                     <h4>
@@ -1150,14 +1150,14 @@
                                                             apparel, butcher .</p>
                                                     </div>
                                                 </div>
-                                            </div><!-- end .accordion__single -->
-                                        </div><!-- end .accordion -->
-                                    </div><!-- ends: .faq-accordion -->
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div><!-- ends: .product-faq -->
-                        </div><!-- ends: .tab-content -->
-                    </div><!-- ends: .item-info -->
-                </div><!-- ends: .col-md-8 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-lg-4 col-md-12">
                     <aside class="sidebar sidebar--single-product">
                         <div class="sidebar-card card-pricing">
@@ -1195,13 +1195,13 @@
                                         </label>
                                     </div>
                                 </li>
-                            </ul><!-- end .pricing-options -->
+                            </ul>
                             <div class="purchase-button">
                                 <a href="#" class="btn btn--lg btn-primary">Purchase Now</a>
                                 <a href="#" class="btn btn--lg cart-btn btn-secondary">
                                     <span class="icon-basket"></span> Add To Cart</a>
-                            </div><!-- end .purchase-button -->
-                        </div><!-- end .sidebar--card -->
+                            </div>
+                        </div>
                         <div class="sidebar-card card--product-infos">
                             <div class="card-title">
                                 <h4>Product Information</h4>
@@ -1256,8 +1256,8 @@
                                         <a href="#">html5</a>
                                     </p>
                                 </li>
-                            </ul><!-- ends: .infos -->
-                        </div><!-- ends: .card--product-infos -->
+                            </ul>
+                        </div>
                         <div class="sidebar-card social-share-card">
                             <p>Social Share:</p>
                             <ul class="list-unstyled">
@@ -1282,7 +1282,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </div><!-- Ends: .social-share-card -->
+                        </div>
                         <div class="author-card sidebar-card">
                             <div class="card-title">
                                 <h4>Product Information</h4>
@@ -1296,7 +1296,7 @@
                                         <h5>AazzTech</h5>
                                         <p>Joined: 08 April 2016</p>
                                     </div>
-                                </div><!-- ends: .author-top -->
+                                </div>
                                 <div class="social social--color--filled">
                                     <ul>
                                         <li>
@@ -1325,28 +1325,28 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div><!-- ends: .social -->
+                                </div>
                                 <div class="author-btn">
                                     <a href="#" class="btn btn--sm btn-primary">View Profile</a>
                                     <a href="#" class="btn btn--sm btn-secondary">Send Message</a>
-                                </div><!-- ends: .author-btn -->
-                            </div><!-- ends: .author-infos -->
-                        </div><!-- ends: .author-card -->
-                    </aside><!-- ends: .sidebar -->
-                </div><!-- ends: .col-md-4 -->
-            </div><!-- ends: .row -->
-        </div><!-- ends: .container -->
-    </section><!-- ends: .single-product-desc -->
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="more_product_area p-top-105 p-bottom-75">
         <div class="container">
             <div class="row">
-                <!-- start col-md-12 -->
+                
                 <div class="col-md-12">
                     <div class="section-title">
                         <h2>More Items by <span>Aazztech</span>
                         </h2>
                     </div>
-                </div><!-- ends: .col-md-12 -->
+                </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="product-single latest-single">
                         <div class="product-thumb">
@@ -1360,7 +1360,7 @@
                                 </figcaption>
                             </figure>
                         </div>
-                        <!-- Ends: .product-thumb -->
+                        
                         <div class="product-excerpt">
                             <h5>
                                 <a href="">E-commerce Shopping Cart</a>
@@ -1394,9 +1394,9 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- Ends: .product-excerpt -->
-                    </div><!-- Ends: .product-single -->
-                </div><!-- ends: .col-lg-4 -->
+                        
+                    </div>
+                </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="product-single latest-single">
                         <div class="product-thumb">
@@ -1410,7 +1410,7 @@
                                 </figcaption>
                             </figure>
                         </div>
-                        <!-- Ends: .product-thumb -->
+                        
                         <div class="product-excerpt">
                             <h5>
                                 <a href="">TheBizz Wordpress Theme</a>
@@ -1444,9 +1444,9 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- Ends: .product-excerpt -->
-                    </div><!-- Ends: .product-single -->
-                </div><!-- ends: .col-lg-4 -->
+                        
+                    </div>
+                </div>
                 <div class="col-lg-4 col-md-6">
                     <div class="product-single latest-single">
                         <div class="product-thumb">
@@ -1460,7 +1460,7 @@
                                 </figcaption>
                             </figure>
                         </div>
-                        <!-- Ends: .product-thumb -->
+                        
                         <div class="product-excerpt">
                             <h5>
                                 <a href="">DigiPro EDD Template</a>
@@ -1494,12 +1494,12 @@
                                 </li>
                             </ul>
                         </div>
-                        <!-- Ends: .product-excerpt -->
-                    </div><!-- Ends: .product-single -->
-                </div><!-- ends: .col-lg-4 -->
+                        
+                    </div>
+                </div>
             </div>
         </div>
-    </section><!-- ends: .more_product_area -->
+    </section>
 </div>
 
 </template>

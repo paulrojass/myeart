@@ -3,7 +3,7 @@
         <div class="header-title d-flex justify-content-center align-items-end">
             <div class="">
                 <h2 class="header-text text-white font-weight-bolder">
-                    {{ title }}
+                    Hola {{ user.name }}
                 </h2>
             </div>
         </div>
@@ -45,17 +45,20 @@ const itemsMenu = [
     {
         title: "Historial de compras",
         icon: "/imagenes/icons/AccountMenu/Shopping.png",
-        path: "account-shoppingHistory"
+        path: "account-shoppingHistory",
+        userType: ["buyer"]
     },
     {
         title: "Historial de ventas",
         icon: "/imagenes/icons/AccountMenu/Setting.png",
-        path: "account-salesHistory"
+        path: "account-salesHistory",
+        userType: ["seller"]
     },
     {
         title: "Informacion de la cuenta",
         icon: "/imagenes/icons/AccountMenu/Setting.png",
-        path: "account-profile"
+        path: "account-profile",
+        userType: ["buyer","seller"]
     },
     // {
     //     title: "Obras",
@@ -64,12 +67,20 @@ const itemsMenu = [
     // }
 ];
 export default {
-    props: ['title'],
     data(){
         return {
-            itemsMenu
+            itemsMenu: []
+        }
+    },
+    created(){
+        this.itemsMenu = itemsMenu;
+    },
+    computed: {
+        user() {
+            return this.$page.props.auth.user
         }
     }
+    
 }
 </script>
 

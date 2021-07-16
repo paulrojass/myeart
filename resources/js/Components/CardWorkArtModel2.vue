@@ -15,7 +15,7 @@
                 </figcaption> -->
             </figure>
         </div>
-        <!-- Ends: .product-thumb -->
+        
         <div class="product-excerpt">
             <div class="d-flex justify-content-between align-items-center">
                 <div>

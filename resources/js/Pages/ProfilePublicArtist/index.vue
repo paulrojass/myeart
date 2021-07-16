@@ -1,7 +1,7 @@
 <template>
     
 <div>
-    <!-- Breadcrumb Area -->
+    
     <section class="breadcrumb-area">
         <div class="container">
             <div class="row">
@@ -9,17 +9,17 @@
                     <div class="breadcrumb-contents d-flex justify-content-center">
                         <h2 class="page-title">Pinturas 22</h2>
                     </div>
-                </div><!-- end .col-md-12 -->
-            </div><!-- end .row -->
-        </div><!-- end .container -->
-    </section><!-- ends: .breadcrumb-area -->
-    <!-- Content Area -->
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <section class="author-profile-area">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-12">
                     <Gallery />
-                </div><!-- ends: .col-lg-12 -->
+                </div>
                 <div class="col-lg-4 col-12">
                     <Specs />
                 </div>
@@ -29,7 +29,7 @@
             </div>
         </div>
     </section>
-    <!-- ends: Content Area -->
+    
 </div>
 </template>
 <script>

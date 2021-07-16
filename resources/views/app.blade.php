@@ -9,7 +9,7 @@
 
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
         
-        <!-- Styles -->
+        
         <link rel="stylesheet" href="/vendor_assets/css/bootstrap/bootstrap.css">
         <link rel="stylesheet" href="/vendor_assets/css/animate.css">
         <link rel="stylesheet" href="/vendor_assets/css/font-awesome.min.css">
@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="/vendor_assets/css/venobox.css">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ mix('css/styles.css') }}">
-        <!-- Scripts -->
+        
         @routes
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js" defer></script>
         <script src="vendor_assets/js/bootstrap/bootstrap.min.js" defer></script>

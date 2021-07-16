@@ -1,6 +1,6 @@
 <template>
     <div style="background: white;">
-        <!-- end /.menu-area -->
+        
         <section class="hero-area2 hero-area3 bgimage">
             <div class="bg_image_holder">
                 <img src="img/hero-image01.png" alt="background-image">
@@ -12,32 +12,32 @@
                             <div class="col-md-12">
                                 <div class="hero__content__title">
                                     <h1>Busca tu obra favorita</h1>
-                                </div><!-- end .hero__btn-area-->
-                            </div><!-- end .col-md-12 -->
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div><!-- end .contact_wrapper -->
-            </div><!-- end hero-content -->
-        </section><!-- ends: .hero-area -->
+                </div>
+            </div>
+        </section>
         <div class="filter-area product-filter-area filter-area2">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                    </div><!-- end .col-md-12 -->
-                </div><!-- end filter-bar -->
+                    </div>
+                </div>
             </div>
-        </div><!-- end .filter-area -->
+        </div>
         <section class="product-grid p-bottom-100 p-4">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 col-md-12 order-lg-0 order-md-1 order-sm-1 order-1 pl-5 pr-5">
                         <h3 class="h3 text-primary mb-4 font-weight-bolder">Avanzada</h3>
                         <aside class="sidebar product--sidebar">
-                            <!-- Item -->
+                            
                             <div>
                                 <h2 class="text-primary">Medio</h2>
                                 <div class="sidebar-card card--category border-primary mb-2">
-                                <!-- End Item -->
+                                
                                     <a class="card-title" href="#collapse1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse1">
                                         <h5 class="mb-0">Pintura
                                             <span class="icon-arrow-down text-primary"></span>
@@ -56,10 +56,10 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div><!-- end .collapsible_content -->
-                                </div><!-- end .sidebar-card -->
+                                    </div>
+                                </div>
                                 <div class="sidebar-card card--category border-primary mb-2">
-                                <!-- End Item -->
+                                
                                     <a class="card-title" href="#collapse2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse2">
                                         <h5 class="mb-0">Categoria de Pintura
                                             <span class="icon-arrow-down text-primary"></span>
@@ -78,14 +78,14 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div><!-- end .collapsible_content -->
-                                </div><!-- end .sidebar-card -->
+                                    </div>
+                                </div>
 
                             </div>
                             <div class="mt-4">
                                 <h2 class="text-primary">Estilo de pintura</h2>
                                 <div class="sidebar-card card--category border-primary mb-2">
-                                <!-- End Item -->
+                                
                                     <a class="card-title" href="#collapse3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse3">
                                         <h5 class="mb-0">Figurativo
                                             <span class="icon-arrow-down text-primary"></span>
@@ -104,10 +104,10 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div><!-- end .collapsible_content -->
-                                </div><!-- end .sidebar-card -->
+                                    </div>
+                                </div>
                                 <div class="sidebar-card card--category border-primary mb-2">
-                                <!-- End Item -->
+                                
                                     <a class="card-title" href="#collapse4" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse4">
                                         <h5 class="mb-0">Tecnicas de pintura
                                             <span class="icon-arrow-down text-primary"></span>
@@ -126,8 +126,8 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div><!-- end .collapsible_content -->
-                                </div><!-- end .sidebar-card -->
+                                    </div>
+                                </div>
 
                                 <div class="mt-4">
                                     <ItemRange 
@@ -179,8 +179,8 @@
                                     />
                                 </div>
                             </div>
-                        </aside><!-- end aside -->
-                    </div><!-- end .col-md-3 -->
+                        </aside>
+                    </div>
                     <div class="col-xl-9 col-lg-8 col-md-12 order-lg-1 order-md-0 order-sm-0 order-0 product-list">
                         <div class="row">
                             <div 
@@ -191,7 +191,7 @@
                                 <CardWordArtModel />
                             </div>
                         </div>
-                        <!-- Start Pagination -->
+                        
                         <nav class="pagination-default mb-lg-0 mb-30">
                             <ul class="pagination">
                                 <li class="page-item">
@@ -212,15 +212,15 @@
                                     </a>
                                 </li>
                             </ul>
-                        </nav><!-- Ends: .pagination-default -->
+                        </nav>
                     </div>
-                    <!-- Ends: .product-list -->
+                    
                 </div>
             </div>
             <div class="mt-5">
                 <NewsletterSection />
             </div>
-        </section><!-- ends: .product-grid -->
+        </section>
 
     </div>
 

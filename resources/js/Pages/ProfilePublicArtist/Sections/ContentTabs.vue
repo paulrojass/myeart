@@ -16,19 +16,19 @@
                     Autor
                 </a>
             </li>
-        </ul><!-- Ends: .nav-tabs -->
+        </ul>
         <div class="tab-content border" id="author-tab-content">
             <div class="tab-pane fade show active p-0" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <DetailsTab />
-            </div><!-- Ends: .profile-tab -->
+            </div>
             <div class="tab-pane fade p-0" id="items" role="tabpanel" aria-labelledby="items-tab">
                 <CommentsTab />
-            </div><!-- Ends: .items-tab -->
+            </div>
             <div class="tab-pane fade p-0" id="reviews" role="tabpanel" aria-labelledby="items-tab">
                 <AuthorTab />
-            </div><!-- Ends: .items-tab -->
-        </div><!-- ends: .tab-content -->
-    </div><!-- Ends -->
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>

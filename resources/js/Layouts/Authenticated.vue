@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top">
       <div class="container">
-        <!-- Logo -->
+        
         <a class="navbar-brand" href="/">
           <inertia-link :href="route('dashboard')">
             <breeze-application-logo width="36" />
@@ -13,16 +13,16 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <!-- Left Side Of Navbar -->
+          
           <ul class="navbar-nav mr-auto">
             <breeze-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
               Dashboard
             </breeze-nav-link>
           </ul>
 
-          <!-- Right Side Of Navbar -->
+          
           <ul class="navbar-nav ml-auto align-items-baseline">
-            <!-- Authentication Links -->
+            
             <breeze-dropdown id="settingsDropdown">
               <template #trigger>
                 {{ $page.props.auth.user.name }}
@@ -33,7 +33,7 @@
               </template>
 
               <template #content>
-                <!-- Authentication -->
+                
                 <breeze-dropdown-link :href="route('logout')" method="post">
                   Log Out
                 </breeze-dropdown-link>
@@ -44,14 +44,14 @@
       </div>
     </nav>
 
-    <!-- Page Heading -->
+    
     <header class="d-flex py-3 bg-white shadow-sm border-bottom">
       <div class="container">
         <slot name="header" />
       </div>
     </header>
 
-    <!-- Page Content -->
+    
     <main class="container my-5">
       <slot />
     </main>

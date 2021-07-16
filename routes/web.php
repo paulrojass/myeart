@@ -18,7 +18,7 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/test', function(){
-    return Inertia::render('Account/SalesHistory', []);
+    return Inertia::render('Account/UploadProduct', []);
 });
 
 // Account

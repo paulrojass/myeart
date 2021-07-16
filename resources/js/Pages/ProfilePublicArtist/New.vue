@@ -1,7 +1,7 @@
 <template>
     
 <div>
-    <!-- Breadcrumb Area -->
+    
     <section class="breadcrumb-area">
         <div class="container">
             <div class="row">
@@ -9,10 +9,10 @@
                     <div class="breadcrumb-contents d-flex justify-content-center">
                         <h2 class="page-title">Pinturas 22</h2>
                     </div>
-                </div><!-- end .col-md-12 -->
-            </div><!-- end .row -->
-        </div><!-- end .container -->
-    </section><!-- ends: .breadcrumb-area -->
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="author-profile-area">
         <div class="container">
             <div class="row">
@@ -26,11 +26,11 @@
                                         <h4>Peter Crenshaw</h4>
                                         <span>Member Since May 2014</span>
                                     </div>
-                                </div><!-- ends: .author-desc -->
-                            </div><!-- ends: .col-lg-5 -->
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div><!-- ends: .col-lg-12 -->
+                </div>
                 <div class="col-md-12 author-info-tabs">
                     <ul class="nav nav-tabs" id="author-tab" role="tablist">
                         <li>
@@ -48,7 +48,7 @@
                                 Autor
                             </a>
                         </li>
-                    </ul><!-- Ends: .nav-tabs -->
+                    </ul>
                     <div class="tab-content" id="author-tab-content">
                         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="author_module about_author">
@@ -64,19 +64,19 @@
                                     the mattisleo quam aliquet congue. Nunc placerat mi id nisi interdum mollis.
                                     Praesent pharetra.</p>
                             </div>
-                        </div><!-- Ends: .profile-tab -->
+                        </div>
                         <div class="tab-pane fade" id="items" role="tabpanel" aria-labelledby="items-tab">
                             <div class="author_module about_author">
                                 comentarios
                             </div>
-                        </div><!-- Ends: .items-tab -->
+                        </div>
                         <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="items-tab">
                             <div class="author_module about_author">
                                 autor
                             </div>
-                        </div><!-- Ends: .items-tab -->
-                    </div><!-- ends: .tab-content -->
-                </div><!-- Ends: .author-info-tabs -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

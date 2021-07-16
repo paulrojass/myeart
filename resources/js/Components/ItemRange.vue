@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <!-- title -->
+        
         <div class="col-12 mb-0">
             <div class="d-flex justify-content-between section-title-range">
                 <div class="text-primary">

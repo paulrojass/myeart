@@ -18,10 +18,10 @@
                             </ul>
                         </div>
                     </div>
-                </div><!-- end .col-md-12 -->
-            </div><!-- end .row -->
-        </div><!-- end .container -->
-    </section><!-- ends: .breadcrumb-area -->
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="dashboard-area dashboard_purchase">
         <div class="dashboard_menu_area">
             <div class="container">
@@ -55,11 +55,11 @@
                             <li>
                                 <a href="dashboard-withdrawal.html"><span class="lnr icon-briefcase"></span>Withdrawals</a>
                             </li>
-                        </ul><!-- ends: .dashboard_menu -->
-                    </div><!-- ends: .col-md-12 -->
-                </div><!-- ends: .row -->
-            </div><!-- ends: .container -->
-        </div><!-- ends: .dashboard_menu_area -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="dashboard_contents section--padding">
             <div class="container">
                 <div class="row">
@@ -86,10 +86,10 @@
                                         <span class="lnr icon-arrow-down"></span>
                                     </div>
                                 </div>
-                            </div><!-- ends: .pull-right -->
-                        </div><!-- ends: .filter-bar -->
-                    </div><!-- ends: .col-md-12 -->
-                </div><!-- ends: .row -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="product_archive">
                     <div class="title_area">
                         <div class="row">
@@ -106,7 +106,7 @@
                                 <h5>Download</h5>
                             </div>
                         </div>
-                    </div><!-- ends: .title_area -->
+                    </div>
                     <div class="row">
                         <div class="single_product clearfix col-md-12">
                             <div class="row">
@@ -120,9 +120,9 @@
                                             <p>Wordpress</p>
                                         </div>
                                     </div>
-                                    <!-- ends: .product__description -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-5 -->
+                                
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="product__additional_info">
                                         <ul>
@@ -143,9 +143,9 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <!-- ends: .product__additional_info -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-3 -->
+                                
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="product__price_download">
                                         <div class="item_price v_middle">
@@ -174,12 +174,12 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </a><!-- ends: .rating_btn -->
-                                        </div><!-- ends: .item_action -->
-                                    </div><!-- ends: .product__price_download -->
-                                </div><!-- ends: .col-md-4 -->
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div><!-- ends: .single_product -->
+                        </div>
                         <div class="single_product clearfix col-md-12">
                             <div class="row">
                                 <div class="col-lg-5 col-ms-12">
@@ -191,8 +191,8 @@
                                             </h5>
                                             <p>HTML</p>
                                         </div>
-                                    </div><!-- ends: .product__description -->
-                                </div><!-- ends: .col-md-5 -->
+                                    </div>
+                                </div>
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="product__additional_info">
                                         <ul>
@@ -212,8 +212,8 @@
                                                 </p>
                                             </li>
                                         </ul>
-                                    </div><!-- ends: .product__additional_info -->
-                                </div><!-- ends: .col-md-3 -->
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="product__price_download">
                                         <div class="item_price v_middle">
@@ -241,12 +241,12 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </a><!-- ends: .rating_btn -->
-                                        </div><!-- ends: .item_action -->
-                                    </div><!-- ends: .product__price_download -->
-                                </div><!-- ends: .col-md-4 -->
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div><!-- ends: .single_product -->
+                        </div>
                         <div class="single_product clearfix col-md-12">
                             <div class="row">
                                 <div class="col-lg-5 col-sm-12">
@@ -258,8 +258,8 @@
                                             </h5>
                                             <p>Template</p>
                                         </div>
-                                    </div><!-- ends: .product__description -->
-                                </div><!-- ends: .col-md-5 -->
+                                    </div>
+                                </div>
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="product__additional_info">
                                         <ul>
@@ -279,8 +279,8 @@
                                                 </p>
                                             </li>
                                         </ul>
-                                    </div><!-- ends: .product__additional_info -->
-                                </div><!-- ends: .col-md-3 -->
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="product__price_download">
                                         <div class="item_price v_middle">
@@ -309,12 +309,12 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </a><!-- ends: .rating--btn -->
-                                        </div><!-- ends: .item_action -->
-                                    </div><!-- ends: .product__price_download -->
-                                </div><!-- ends: .col-md-4 -->
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div><!-- ends: .single_product -->
+                        </div>
                         <div class="single_product clearfix col-md-12">
                             <div class="row">
                                 <div class="col-lg-5 col-sm-12">
@@ -326,8 +326,8 @@
                                             </h5>
                                             <p>HTML</p>
                                         </div>
-                                    </div><!-- ends: .product__description -->
-                                </div><!-- ends: .col-md-5 -->
+                                    </div>
+                                </div>
                                 <div class="col-lg-3 col-sm-6">
                                     <div class="product__additional_info">
                                         <ul>
@@ -347,8 +347,8 @@
                                                 </p>
                                             </li>
                                         </ul>
-                                    </div><!-- ends: .product__additional_info -->
-                                </div><!-- ends: .col-md-3 -->
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-sm-6">
                                     <div class="product__price_download">
                                         <div class="item_price v_middle">
@@ -377,15 +377,15 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </a><!-- ends: .rating--btn -->
-                                        </div><!-- ends: .item_action -->
-                                    </div><!-- ends: .product__price_download -->
-                                </div><!-- ends: .col-md-4 -->
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div><!-- ends: .single_product -->
-                        <!-- Start Pagination -->
+                        </div>
+                        
                         <div class="col-md-12">
-                            <!-- Start Pagination -->
+                            
                             <nav class="pagination-default ">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -406,14 +406,14 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav><!-- Ends: .pagination-default -->
+                            </nav>
                         </div>
-                    </div><!-- ends: .row -->
-                </div><!-- ends: .product_archive2 -->
-            </div><!-- ends: .container -->
-        </div><!-- ends: .dashboard_menu_area -->
-    </section><!-- ends: .dashboard-area -->
-    <!-- Modal Rating -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <div class="modal fade rating_modal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="rating_modal">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -427,7 +427,7 @@
                         <a href="author.html">AazzTech</a>
                     </p>
                 </div>
-                <!-- end /.modal-header -->
+                
                 <div class="modal-body">
                     <form action="#">
                         <ul>
@@ -470,14 +470,14 @@
                             <button class="btn modal_close m-1" data-dismiss="modal">Close</button>
                         </div>
                     </form>
-                    <!-- end /.form -->
+                    
                 </div>
-                <!-- end /.modal-body -->
+                
             </div>
         </div>
     </div>
 
-    <!-- endinject-->
+    
 </div>
 
 </template>

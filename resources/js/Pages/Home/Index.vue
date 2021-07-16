@@ -1,6 +1,6 @@
 <template>
     <div class="preload">
-        <!-- start menu-area -->
+        
         <div class="menu-area">
             <div class="top-menu-area">
                 <div class="container-fluid">
@@ -35,7 +35,7 @@
                                                     class="navbar-toggler-icon icon-menu"
                                                 ></span>
                                             </button>
-                                            <!-- Collect the nav links, forms, and other content for toggling -->
+                                            
                                             <div
                                                 class="collapse navbar-collapse"
                                                 id="bs-example-navbar-collapse-1"
@@ -815,12 +815,12 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <!-- /.navbar-collapse -->
+                                            
                                         </nav>
                                     </div>
                                 </div>
                                 <div class="author-menu">
-                                    <!-- start .author-area -->
+                                    
                                     <div class="author-area">
                                         <div class="search-wrapper">
                                             <div
@@ -915,7 +915,7 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.notifications -->
+                                                                
                                                                 <div
                                                                     class="notification__icons"
                                                                 >
@@ -923,9 +923,9 @@
                                                                         class="icon-heart loved noti_icon"
                                                                     ></span>
                                                                 </div>
-                                                                <!-- end /.notifications -->
+                                                                
                                                             </div>
-                                                            <!-- end /.notifications -->
+                                                            
                                                             <div
                                                                 class="notification"
                                                             >
@@ -964,7 +964,7 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.notifications -->
+                                                                
                                                                 <div
                                                                     class="notification__icons"
                                                                 >
@@ -972,9 +972,9 @@
                                                                         class="icon-bubble commented noti_icon"
                                                                     ></span>
                                                                 </div>
-                                                                <!-- end /.notifications -->
+                                                                
                                                             </div>
-                                                            <!-- end /.notifications -->
+                                                            
                                                             <div
                                                                 class="notification"
                                                             >
@@ -1012,7 +1012,7 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.notifications -->
+                                                                
                                                                 <div
                                                                     class="notification__icons"
                                                                 >
@@ -1020,9 +1020,9 @@
                                                                         class="icon-basket-loaded purchased noti_icon"
                                                                     ></span>
                                                                 </div>
-                                                                <!-- end /.notifications -->
+                                                                
                                                             </div>
-                                                            <!-- end /.notifications -->
+                                                            
                                                             <div
                                                                 class="notification"
                                                             >
@@ -1062,7 +1062,7 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.notifications -->
+                                                                
                                                                 <div
                                                                     class="notification__icons"
                                                                 >
@@ -1070,9 +1070,9 @@
                                                                         class="icon-star reviewed noti_icon"
                                                                     ></span>
                                                                 </div>
-                                                                <!-- end /.notifications -->
+                                                                
                                                             </div>
-                                                            <!-- end /.notifications -->
+                                                            
                                                             <div
                                                                 class="text-center m-top-30 p-left-20 p-right-20"
                                                             >
@@ -1082,9 +1082,9 @@
                                                                     >View All</a
                                                                 >
                                                             </div>
-                                                            <!-- end /.notifications -->
+                                                            
                                                         </div>
-                                                        <!-- end /.dropdown -->
+                                                        
                                                     </div>
                                                 </li>
                                                 <li class="has_dropdown">
@@ -1121,7 +1121,7 @@
                                                                         />
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.actions -->
+                                                                
                                                                 <div
                                                                     class="message_data"
                                                                 >
@@ -1154,9 +1154,9 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.message_data -->
+                                                                
                                                             </a>
-                                                            <!-- end /.message -->
+                                                            
                                                             <a
                                                                 href="message.html"
                                                                 class="message recent"
@@ -1173,7 +1173,7 @@
                                                                         />
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.actions -->
+                                                                
                                                                 <div
                                                                     class="message_data"
                                                                 >
@@ -1208,9 +1208,9 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.message_data -->
+                                                                
                                                             </a>
-                                                            <!-- end /.message -->
+                                                            
                                                             <a
                                                                 href="message.html"
                                                                 class="message"
@@ -1227,7 +1227,7 @@
                                                                         />
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.actions -->
+                                                                
                                                                 <div
                                                                     class="message_data"
                                                                 >
@@ -1259,9 +1259,9 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.message_data -->
+                                                                
                                                             </a>
-                                                            <!-- end /.message -->
+                                                            
                                                             <a
                                                                 href="message.html"
                                                                 class="message"
@@ -1278,7 +1278,7 @@
                                                                         />
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.actions -->
+                                                                
                                                                 <div
                                                                     class="message_data"
                                                                 >
@@ -1309,9 +1309,9 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.message_data -->
+                                                                
                                                             </a>
-                                                            <!-- end /.message -->
+                                                            
                                                             <a
                                                                 href="message.html"
                                                                 class="message"
@@ -1328,7 +1328,7 @@
                                                                         />
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.actions -->
+                                                                
                                                                 <div
                                                                     class="message_data"
                                                                 >
@@ -1361,9 +1361,9 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <!-- end /.message_data -->
+                                                                
                                                             </a>
-                                                            <!-- end /.message -->
+                                                            
                                                         </div>
                                                         <div
                                                             class="text-center m-top-30 m-bottom-30 p-left-20 p-right-20"
@@ -1532,7 +1532,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!--start .author-author__info-->
+                                        
                                         <div
                                             class="author-author__info has_dropdown"
                                         >
@@ -1673,15 +1673,15 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <!--end /.author-author__info-->
+                                        
                                     </div>
-                                    <!-- end .author-area -->
-                                    <!-- author area restructured for mobile -->
+                                    
+                                    
                                     <div class="mobile_content">
                                         <span
                                             class="icon-user menu_icon"
                                         ></span>
-                                        <!-- offcanvas menu -->
+                                        
                                         <div class="offcanvas-menu closed">
                                             <span
                                                 class="icon-close close_menu"
@@ -1696,7 +1696,7 @@
                                                     />
                                                 </div>
                                             </div>
-                                            <!--end /.author-author__info-->
+                                            
                                             <div
                                                 class="author__notification_area"
                                             >
@@ -1750,7 +1750,7 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <!--start .author__notification_area -->
+                                            
                                             <div
                                                 class="dropdown dropdown--author"
                                             >
@@ -1870,18 +1870,18 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- end /.mobile_content -->
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- end /.row -->
+                    
                 </div>
-                <!-- end /.container -->
+                
             </div>
-            <!-- end  -->
+            
         </div>
-        <!-- end /.menu-area -->
+        
 <section class="hero-area bgimage">
     <div class="bg_image_holder">
         <img src="img/hero-image01.png" alt="background-image" />
@@ -1903,7 +1903,7 @@
                                 Downloads Products
                             </p>
                         </div>
-                        <!-- end .hero__btn-area-->
+                        
                         <div class="search-area">
                             <div class="row">
                                 <div class="col-md-10 offset-md-1">
@@ -1941,7 +1941,7 @@
                                                     class="icon-arrow-down"
                                                 ></span>
                                             </div>
-                                            <!-- ends: .select-wrap -->
+                                            
                                             <button
                                                 type="submit"
                                                 class="search-btn btn--lg btn-primary"
@@ -1950,23 +1950,23 @@
                                             </button>
                                         </form>
                                     </div>
-                                    <!-- end .search_box -->
+                                    
                                 </div>
                             </div>
                         </div>
-                        <!--start .search-area -->
+                        
                     </div>
-                    <!-- ends: .col-md-12 -->
+                    
                 </div>
-                <!-- ends: .row -->
+                
             </div>
-            <!-- ends: .container -->
+            
         </div>
-        <!-- ends: .contact_wrapper -->
+        
     </div>
-    <!-- ends: hero-content -->
+    
 </section>
-        <!-- ends: .hero-area -->
+        
     <section class="featured-area section--padding bgcolor">
         <div class="container">
             <div class="row">
@@ -1980,7 +1980,7 @@
                         </p>
                     </div>
                 </div>
-                <!-- Ends: .col-md-12 -->
+                
                 <div class="col-md-12">
                     <div class="product-slide-area owl-carousel">
                         <div class="product-single">
@@ -2010,7 +2010,7 @@
                                     </figcaption>
                                 </figure>
                             </div>
-                            <!-- Ends: .product-thumb -->
+                            
                             <div class="product-excerpt">
                                 <h3>
                                     <a href=""
@@ -2081,9 +2081,9 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Ends: .product-excerpt -->
+                            
                         </div>
-                        <!-- Ends: .product-single -->
+                        
                         <div class="product-single">
                             <div class="featured-badge">
                                 <span>Featured</span>
@@ -2111,7 +2111,7 @@
                                     </figcaption>
                                 </figure>
                             </div>
-                            <!-- Ends: .product-thumb -->
+                            
                             <div class="product-excerpt">
                                 <h3>
                                     <a href="">TheBizz Wordpress Theme</a>
@@ -2180,9 +2180,9 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Ends: .product-excerpt -->
+                            
                         </div>
-                        <!-- Ends: .product-single -->
+                        
                         <div class="product-single">
                             <div class="featured-badge">
                                 <span>Featured</span>
@@ -2210,7 +2210,7 @@
                                     </figcaption>
                                 </figure>
                             </div>
-                            <!-- Ends: .product-thumb -->
+                            
                             <div class="product-excerpt">
                                 <h3>
                                     <a href="">DigiPro EDD Template</a>
@@ -2279,9 +2279,9 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Ends: .product-excerpt -->
+                            
                         </div>
-                        <!-- Ends: .product-single -->
+                        
                     </div>
                     <div class="more-item-btn">
                         <a href="" class="btn btn--lg btn-secondary"
@@ -2289,11 +2289,11 @@
                         >
                     </div>
                 </div>
-                <!-- Ends: .produ-slide-area -->
+                
             </div>
         </div>
     </section>
-        <!-- ends: .featured-area -->
+        
 <section class="latest-product section--padding">
     <div class="container">
         <div class="row">
@@ -2307,7 +2307,7 @@
                     </p>
                 </div>
             </div>
-            <!-- Ends: .col-md-12 -->
+            
             <div class="col-lg-12">
                 <div class="product-list">
                     <ul
@@ -2452,7 +2452,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -2534,11 +2534,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -2571,7 +2571,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -2653,11 +2653,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -2690,7 +2690,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -2770,11 +2770,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -2807,7 +2807,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -2887,11 +2887,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -2924,7 +2924,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -3006,11 +3006,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -3043,7 +3043,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -3125,14 +3125,14 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                             </div>
                         </div>
-                        <!-- Ends: .tab-pane -->
+                        
                         <div
                             class="tab-pane fade"
                             id="tab2"
@@ -3172,7 +3172,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -3254,11 +3254,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -3291,7 +3291,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -3373,11 +3373,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -3410,7 +3410,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -3490,11 +3490,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -3527,7 +3527,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -3607,11 +3607,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -3644,7 +3644,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -3726,11 +3726,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -3763,7 +3763,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -3845,14 +3845,14 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                             </div>
                         </div>
-                        <!-- Ends: .tab-pane -->
+                        
                         <div
                             class="tab-pane fade"
                             id="tab3"
@@ -3892,7 +3892,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -3974,11 +3974,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -4011,7 +4011,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -4093,11 +4093,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -4130,7 +4130,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -4210,11 +4210,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -4247,7 +4247,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -4327,11 +4327,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -4364,7 +4364,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -4446,11 +4446,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -4483,7 +4483,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -4565,14 +4565,14 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                             </div>
                         </div>
-                        <!-- Ends: .tab-pane -->
+                        
                         <div
                             class="tab-pane fade"
                             id="tab4"
@@ -4612,7 +4612,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -4694,11 +4694,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -4731,7 +4731,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -4813,11 +4813,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -4850,7 +4850,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -4930,11 +4930,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -4967,7 +4967,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -5047,11 +5047,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -5084,7 +5084,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -5166,11 +5166,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -5203,7 +5203,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -5285,14 +5285,14 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                             </div>
                         </div>
-                        <!-- Ends: .tab-pane -->
+                        
                         <div
                             class="tab-pane fade"
                             id="tab5"
@@ -5332,7 +5332,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -5414,11 +5414,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -5451,7 +5451,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -5533,11 +5533,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -5570,7 +5570,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -5650,11 +5650,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -5687,7 +5687,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -5767,11 +5767,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -5804,7 +5804,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -5886,11 +5886,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -5923,7 +5923,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -6005,14 +6005,14 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                             </div>
                         </div>
-                        <!-- Ends: .tab-pane -->
+                        
                         <div
                             class="tab-pane fade"
                             id="tab6"
@@ -6052,7 +6052,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -6134,11 +6134,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -6171,7 +6171,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -6253,11 +6253,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -6290,7 +6290,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -6370,11 +6370,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -6407,7 +6407,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -6487,11 +6487,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -6524,7 +6524,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -6606,11 +6606,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -6643,7 +6643,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -6725,15 +6725,15 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                             </div>
                         </div>
-                        <!-- Ends: .tab-pane -->
-                        <!-- Start .tab-pane -->
+                        
+                        
                         <div
                             class="tab-pane fade"
                             id="tab7"
@@ -6773,7 +6773,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -6855,11 +6855,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -6892,7 +6892,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -6974,11 +6974,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -7011,7 +7011,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -7091,11 +7091,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -7128,7 +7128,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -7208,11 +7208,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -7245,7 +7245,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -7327,11 +7327,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -7364,7 +7364,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -7446,15 +7446,15 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                             </div>
                         </div>
-                        <!-- Ends: .tab-pane -->
-                        <!-- Start .tab-pane -->
+                        
+                        
                         <div
                             class="tab-pane fade"
                             id="tab8"
@@ -7494,7 +7494,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -7576,11 +7576,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -7613,7 +7613,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -7695,11 +7695,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -7732,7 +7732,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -7812,11 +7812,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -7849,7 +7849,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -7929,11 +7929,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -7966,7 +7966,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -8048,11 +8048,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                                 <div class="col-lg-4 col-md-6">
                                     <div
                                         class="product-single latest-single"
@@ -8085,7 +8085,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href=""
@@ -8167,14 +8167,14 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
+                                        
                                     </div>
-                                    <!-- Ends: .product-single -->
+                                    
                                 </div>
-                                <!-- ends: .col-md-6 -->
+                                
                             </div>
                         </div>
-                        <!-- Ends: .tab-pane -->
+                        
                     </div>
                     <div class="text-center m-top-20">
                         <a href="" class="btn btn--lg btn-primary"
@@ -8182,12 +8182,12 @@
                         >
                     </div>
                 </div>
-                <!-- Ends: .product-list -->
+                
             </div>
         </div>
     </div>
 </section>
-        <!-- ends: .latest-product -->
+        
         <section class="services">
             <div class="container">
                 <div class="row">
@@ -8201,7 +8201,7 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Ends: .col-sm-6 -->
+                    
                     <div class="col-lg-3 col-sm-6">
                         <div class="service-single">
                             <span class="icon-like"></span>
@@ -8212,7 +8212,7 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Ends: .col-sm-6 -->
+                    
                     <div class="col-lg-3 col-sm-6">
                         <div class="service-single">
                             <span class="icon-wallet"></span>
@@ -8223,7 +8223,7 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Ends: .col-sm-6 -->
+                    
                     <div class="col-lg-3 col-sm-6">
                         <div class="service-single">
                             <span class="icon-people"></span>
@@ -8234,16 +8234,16 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Ends: .col-sm-6 -->
+                    
                 </div>
             </div>
         </section>
-        <!-- ends: .services -->
+        
         <section class="counter-up-area bgimage">
             <div class="bg_image_holder">
                 <img src="img/countbg.png" alt="" />
             </div>
-            <!-- start .container -->
+            
             <div class="container content_above">
                 <div class="row">
                     <div class="col-md-12">
@@ -8253,37 +8253,37 @@
                                 <span class="count_up">38,436</span>
                                 <p>Items for sale</p>
                             </div>
-                            <!-- ends: .counter -->
+                            
                             <div class="counter info">
                                 <span class="icon-basket"></span>
                                 <span class="count_up">68,257</span>
                                 <p>Total Sale</p>
                             </div>
-                            <!-- ends: .counter -->
+                            
                             <div class="counter secondary">
                                 <span class="icon-emotsmile"></span>
                                 <span class="count_up">25,567</span>
                                 <p>Happy Customers</p>
                             </div>
-                            <!-- ends: .counter -->
+                            
                             <div class="counter danger">
                                 <span class="icon-people"></span>
                                 <span class="count_up">76,458</span>
                                 <p>Members</p>
                             </div>
-                            <!-- ends: .counter -->
+                            
                         </div>
-                        <!-- ends: .counter-up -->
+                        
                     </div>
-                    <!-- end .col-md-12 -->
+                    
                 </div>
             </div>
-            <!-- end .container -->
+            
         </section>
         <section class="working-process section--padding">
             <div class="container">
                 <div class="row">
-                    <!-- Start Section Title -->
+                    
                     <div class="col-md-12">
                         <div class="section-title">
                             <h1>It Works Really Easy</h1>
@@ -8294,7 +8294,7 @@
                             </p>
                         </div>
                     </div>
-                    <!-- Ends: .col-md-12/Section Title -->
+                    
                     <div class="col-md-12 step-single">
                         <div class="step-count">
                             <span>Step 1</span>
@@ -8327,7 +8327,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Ends .step-single -->
+                    
                     <div class="col-md-12 step-single">
                         <div class="step-count step-count2">
                             <span>Step 2</span>
@@ -8360,7 +8360,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Ends .step-single -->
+                    
                     <div class="col-md-12 step-single">
                         <div class="step-count step-last">
                             <span>Step 3</span>
@@ -8393,11 +8393,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Ends .step-single -->
+                    
                 </div>
             </div>
         </section>
-        <!-- ends: .wroking-process -->
+        
         <section class="testimonial2 bgimage">
             <div class="bg_image_holder">
                 <img src="img/testimonial-bg.png" alt="" />
@@ -8409,7 +8409,7 @@
                             <h1>We’ve Made Happy Over 2 Million Customers</h1>
                         </div>
                     </div>
-                    <!-- Ends: .col-md-12 -->
+                    
                     <div class="col-md-12 testimonial-carousel">
                         <div class="row">
                             <div
@@ -8431,7 +8431,7 @@
                                         >Product Designer</span
                                     >
                                 </div>
-                                <!-- Ends: .tsingle -->
+                                
                                 <div class="tsingle">
                                     <span class="quotei">
                                         <i class="fa fa-quote-right"></i>
@@ -8446,7 +8446,7 @@
                                     <h3>@Jhonathan Scott</h3>
                                     <span class="auth-title">UI Expert</span>
                                 </div>
-                                <!-- Ends: .tsingle -->
+                                
                                 <div class="tsingle">
                                     <span class="quotei">
                                         <i class="fa fa-quote-right"></i>
@@ -8463,7 +8463,7 @@
                                         >Web Developer</span
                                     >
                                 </div>
-                                <!-- Ends: .tsingle -->
+                                
                                 <div class="tsingle">
                                     <span class="quotei">
                                         <i class="fa fa-quote-right"></i>
@@ -8478,7 +8478,7 @@
                                     <h3>@Fizz Rahman</h3>
                                     <span class="auth-title">UI Expert</span>
                                 </div>
-                                <!-- Ends: .tsingle -->
+                                
                                 <div class="tsingle">
                                     <span class="quotei">
                                         <i class="fa fa-quote-right"></i>
@@ -8493,7 +8493,7 @@
                                     <h3>@Mash Mortaza</h3>
                                     <span class="auth-title">UI Expert</span>
                                 </div>
-                                <!-- Ends: .tsingle -->
+                                
                                 <div class="tsingle">
                                     <span class="quotei">
                                         <i class="fa fa-quote-right"></i>
@@ -8508,15 +8508,15 @@
                                     <h3>@Jhonathan Scott</h3>
                                     <span class="auth-title">UI Expert</span>
                                 </div>
-                                <!-- Ends: .tsingle -->
+                                
                             </div>
-                            <!-- Ends: .slider-for -->
+                            
                         </div>
                     </div>
-                    <!-- Ends: .testimonial-carousel -->
+                    
                 </div>
             </div>
-            <!-- ends: .container -->
+            
             <div class="slider-bottom-nav content_above">
                 <div class="container">
                     <div class="row">
@@ -8579,9 +8579,9 @@
                     </div>
                 </div>
             </div>
-            <!-- Ends: .slider-bottom-nav -->
+            
         </section>
-        <!-- ends: .testimonial2 -->
+        
         <section class="cta">
             <div class="container">
                 <div class="row">
@@ -8590,7 +8590,7 @@
                             <h1>Join Our Community Club</h1>
                         </div>
                     </div>
-                    <!-- CTA Single -->
+                    
                     <div class="col-md-5 cta-single">
                         <h3>Want to Sell Your Products</h3>
                         <p>
@@ -8621,7 +8621,7 @@
                 </div>
             </div>
         </section>
-        <!-- ends: .cta -->
+        
         <section class="clients-logo">
             <div class="container">
                 <div class="row">
@@ -8653,7 +8653,7 @@
                 </div>
             </div>
         </section>
-        <!-- ends: .clients-logo -->
+        
         <section class="subscribe bgimage">
             <div class="bg_image_holder">
                 <img src="img/subscribe-bg.png" alt="" />
@@ -8691,10 +8691,10 @@
                 </div>
             </div>
         </section>
-        <!-- ends: .subscribe -->
+        
         <footer class="footer-area footer--light">
             <div class="footer-big">
-                <!-- start .container -->
+                
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-sm-6">
@@ -8731,9 +8731,9 @@
                                     </ul>
                                 </div>
                             </div>
-                            <!-- Ends: .footer-widget -->
+                            
                         </div>
-                        <!-- end /.col-md-4 -->
+                        
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer-widget">
                                 <div class="footer-menu footer-menu--1">
@@ -8758,11 +8758,11 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- end /.footer-menu -->
+                                
                             </div>
-                            <!-- Ends: .footer-widget -->
+                            
                         </div>
-                        <!-- end /.col-md-3 -->
+                        
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer-widget">
                                 <div class="footer-menu">
@@ -8793,11 +8793,11 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- end /.footer-menu -->
+                                
                             </div>
-                            <!-- Ends: .footer-widget -->
+                            
                         </div>
-                        <!-- end /.col-lg-3 -->
+                        
                         <div class="col-lg-3 col-sm-6">
                             <div class="footer-widget">
                                 <div class="footer-menu no-padding">
@@ -8828,17 +8828,17 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- end /.footer-menu -->
+                                
                             </div>
-                            <!-- Ends: .footer-widget -->
+                            
                         </div>
-                        <!-- Ends: .col-lg-3 -->
+                        
                     </div>
-                    <!-- end /.row -->
+                    
                 </div>
-                <!-- end /.container -->
+                
             </div>
-            <!-- end /.footer-big -->
+            
             <div class="mini-footer">
                 <div class="container">
                     <div class="row">

@@ -8,7 +8,7 @@
                     alt="author image"
                 >
             </div>
-        </div><!-- ends: .col-lg-12 -->
+        </div>
 
         <div class="d-flex card-primary mt-4">
             <div v-for="(item, i) in items" :key="i" class="m-1">

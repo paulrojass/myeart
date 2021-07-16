@@ -10,7 +10,7 @@
                           <div class="login--header">
                               <h3>Iniciar Sesión</h3>
                               <p>Y podrás dispoiner de un sin fin de obras a tu desposición o vender las tuyas propias</p>
-                          </div><!-- end .login_header -->
+                          </div>
                           <div class="login--form">
                               <div class="form-group">
                                   <label for="email">Email</label>
@@ -31,7 +31,10 @@
                                       </label>
                                   </div>
                               </div>
-                                <b-button class="ml-4 btn--lg btn btn-primary" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
+                                <b-button 
+                                  @click="submit"
+                                  class="ml-4 btn--lg btn btn-primary" 
+                                  :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
                                   Iniciar
                                 </b-button>
 
@@ -40,13 +43,13 @@
                                     ¿ No tienes una cuenta?
                                   </inertia-link>
                               </div>
-                          </div><!-- end .login--form -->
-                      </div><!-- end .cardify -->
+                          </div>
+                      </div>
                   </form>
-              </div><!-- end .col-md-6 -->
-          </div><!-- end .row -->
-      </div><!-- end .container -->
-    </section><!-- ends: .login_area -->
+              </div>
+          </div>
+      </div>
+    </section>
   </div>
 
   <!-- <div class="card-body">

@@ -1,7 +1,7 @@
 <template>
     <footer class="footer-area footer--light">
         <div class="footer-big">
-            <!-- start .container -->
+            
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
@@ -34,9 +34,9 @@
                                 </ul>
                             </div>
                         </div>
-                        <!-- Ends: .footer-widget -->
+                        
                     </div>
-                    <!-- end /.col-md-4 -->
+                    
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
                             <div class="footer-menu footer-menu--1">
@@ -56,11 +56,11 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- end /.footer-menu -->
+                            
                         </div>
-                        <!-- Ends: .footer-widget -->
+                        
                     </div>
-                    <!-- end /.col-md-3 -->
+                    
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
                             <div class="footer-menu">
@@ -80,11 +80,11 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- end /.footer-menu -->
+                            
                         </div>
-                        <!-- Ends: .footer-widget -->
+                        
                     </div>
-                    <!-- end /.col-lg-3 -->
+                    
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
                             <div class="footer-menu no-padding">
@@ -106,17 +106,17 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- end /.footer-menu -->
+                            
                         </div>
-                        <!-- Ends: .footer-widget -->
+                        
                     </div>
-                    <!-- Ends: .col-lg-3 -->
+                    
                 </div>
-                <!-- end /.row -->
+                
             </div>
-            <!-- end /.container -->
+            
         </div>
-        <!-- end /.footer-big -->
+        
         <div class="mini-footer">
             <div class="container">
                 <div class="row">

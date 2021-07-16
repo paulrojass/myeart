@@ -1,7 +1,7 @@
 <template>
   <div>
     <NavBar />
-    <!-- Page Content -->
+    
     <main class="">
       <slot />
     </main>

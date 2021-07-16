@@ -1,7 +1,7 @@
 <template>
     
 <div class="preload">
-    <!-- Breadcrumb Area -->
+    
     <section class="breadcrumb-area">
         <div class="container">
             <div class="row">
@@ -19,10 +19,10 @@
                             </ul>
                         </div>
                     </div>
-                </div><!-- end .col-md-12 -->
-            </div><!-- end .row -->
-        </div><!-- end .container -->
-    </section><!-- ends: .breadcrumb-area -->
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="author-profile-area">
         <div class="container">
             <div class="row">
@@ -51,8 +51,8 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div><!-- ends: .author-desc -->
-                            </div><!-- ends: .col-lg-5 -->
+                                </div>
+                            </div>
                             <div class="col-lg-4 order-lg-1 col-md-12 order-md-2">
                                 <div class="author-social social social--color--filled">
                                     <ul>
@@ -87,8 +87,8 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div><!-- ends: .author-social -->
-                            </div><!-- ends: .col-lg-3 -->
+                                </div>
+                            </div>
                             <div class="col-lg-3 order-lg-2 col-md-5 order-md-1">
                                 <div class="author-stats">
                                     <ul>
@@ -115,11 +115,11 @@
                                             <p>Author Ratings</p>
                                         </li>
                                     </ul>
-                                </div><!-- ends: .author-stats -->
-                            </div><!-- ends: .col-lg-4 -->
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div><!-- ends: .col-lg-12 -->
+                </div>
                 <div class="col-md-12 author-info-tabs">
                     <ul class="nav nav-tabs" id="author-tab" role="tablist">
                         <li>
@@ -137,7 +137,7 @@
                         <li>
                             <a id="following-tab" data-toggle="tab" href="#following" role="tab" aria-controls="following" aria-selected="false">Following</a>
                         </li>
-                    </ul><!-- Ends: .nav-tabs -->
+                    </ul>
                     <div class="tab-content" id="author-tab-content">
                         <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                             <div class="author_module about_author">
@@ -171,7 +171,7 @@
                                                     </figcaption>
                                                 </figure>
                                             </div>
-                                            <!-- Ends: .product-thumb -->
+                                            
                                             <div class="product-excerpt">
                                                 <h5>
                                                     <a href="">E-commerce Shopping Cart</a>
@@ -205,9 +205,9 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <!-- Ends: .product-excerpt -->
-                                        </div><!-- Ends: .product-single -->
-                                    </div><!-- Ends: .col-md-4 -->
+                                            
+                                        </div>
+                                    </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="product-single latest-single">
                                             <div class="product-thumb">
@@ -221,7 +221,7 @@
                                                     </figcaption>
                                                 </figure>
                                             </div>
-                                            <!-- Ends: .product-thumb -->
+                                            
                                             <div class="product-excerpt">
                                                 <h5>
                                                     <a href="">TheBizz Wordpress Theme</a>
@@ -255,9 +255,9 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <!-- Ends: .product-excerpt -->
-                                        </div><!-- Ends: .product-single -->
-                                    </div><!-- Ends: .col-md-4 -->
+                                            
+                                        </div>
+                                    </div>
                                     <div class="col-lg-4 col-md-6">
                                         <div class="product-single latest-single">
                                             <div class="product-thumb">
@@ -271,7 +271,7 @@
                                                     </figcaption>
                                                 </figure>
                                             </div>
-                                            <!-- Ends: .product-thumb -->
+                                            
                                             <div class="product-excerpt">
                                                 <h5>
                                                     <a href="">Directory Wordpress Plugin</a>
@@ -305,12 +305,12 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <!-- Ends: .product-excerpt -->
-                                        </div><!-- Ends: .product-single -->
-                                    </div><!-- Ends: .col-md-4 -->
+                                            
+                                        </div>
+                                    </div>
                                 </div>
-                            </div><!-- ends: .author_featured_items -->
-                        </div><!-- Ends: .profile-tab -->
+                            </div>
+                        </div>
                         <div class="tab-pane fade" id="items" role="tabpanel" aria-labelledby="items-tab">
                             <h3>All Items By
                                 <span>Peter Crenshow</span>
@@ -329,7 +329,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href="">E-commerce Shopping Cart</a>
@@ -363,9 +363,9 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
-                                    </div><!-- Ends: .product-single -->
-                                </div><!-- Ends: .col-md-4 -->
+                                        
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="product-single latest-single">
                                         <div class="product-thumb">
@@ -379,7 +379,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href="">TheBizz Wordpress Theme</a>
@@ -413,9 +413,9 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
-                                    </div><!-- Ends: .product-single -->
-                                </div><!-- Ends: .col-md-4 -->
+                                        
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="product-single latest-single">
                                         <div class="product-thumb">
@@ -429,7 +429,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href="">Directory Wordpress Plugin</a>
@@ -463,9 +463,9 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
-                                    </div><!-- Ends: .product-single -->
-                                </div><!-- Ends: .col-md-4 -->
+                                        
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="product-single latest-single">
                                         <div class="product-thumb">
@@ -479,7 +479,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href="">AppPress PSD Template</a>
@@ -513,9 +513,9 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
-                                    </div><!-- Ends: .product-single -->
-                                </div><!-- Ends: .col-md-4 -->
+                                        
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="product-single latest-single">
                                         <div class="product-thumb">
@@ -529,7 +529,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href="">Ecommerce Shopping Cart</a>
@@ -563,9 +563,9 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
-                                    </div><!-- Ends: .product-single -->
-                                </div><!-- Ends: .col-md-4 -->
+                                        
+                                    </div>
+                                </div>
                                 <div class="col-lg-4 col-md-6">
                                     <div class="product-single latest-single">
                                         <div class="product-thumb">
@@ -579,7 +579,7 @@
                                                 </figcaption>
                                             </figure>
                                         </div>
-                                        <!-- Ends: .product-thumb -->
+                                        
                                         <div class="product-excerpt">
                                             <h5>
                                                 <a href="">Directoria Wordpress Theme</a>
@@ -613,12 +613,12 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <!-- Ends: .product-excerpt -->
-                                    </div><!-- Ends: .product-single -->
-                                </div><!-- Ends: .col-md-4 -->
+                                        
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Start Pagination -->
-                            <!-- Start Pagination -->
+                            
+                            
                             <nav class="pagination-default ">
                                 <ul class="pagination">
                                     <li class="page-item">
@@ -639,8 +639,8 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </nav><!-- Ends: .pagination-default -->
-                        </div><!-- Ends: .items-tab -->
+                            </nav>
+                        </div>
                         <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                             <div class="row">
                                 <div class="col-md-12">
@@ -648,7 +648,7 @@
                                         <div class="product__title">
                                             <h3><span class="bold">226</span> Customer Reviews</h3>
                                         </div>
-                                    </div><!-- ends: .product-title-area -->
+                                    </div>
                                     <div class="thread thread_review thread_review2">
                                         <ul class="media-list thread-list">
                                             <li class="single-thread">
@@ -1111,10 +1111,10 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                        </ul><!-- ends: .media-list -->
-                                    </div><!-- ends: .comments -->
-                                    <!-- Start Pagination -->
-                                    <!-- Start Pagination -->
+                                        </ul>
+                                    </div>
+                                    
+                                    
                                     <nav class="pagination-default ">
                                         <ul class="pagination">
                                             <li class="page-item">
@@ -1135,10 +1135,10 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </nav><!-- Ends: .pagination-default -->
-                                </div><!-- ends: .col-md-12 -->
-                            </div><!-- ends: .row -->
-                        </div><!-- Ends: reviews-tab -->
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
                         <div class="tab-pane fade" id="followers" role="tabpanel" aria-labelledby="followers-tab">
                             <div class="row">
                                 <div class="col-md-12">
@@ -1146,7 +1146,7 @@
                                         <div class="product__title">
                                             <h3><span class="bold">167</span> Followers</h3>
                                         </div>
-                                    </div><!-- ends: .product-title-area -->
+                                    </div>
                                     <div class="user_area">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6">
@@ -1173,8 +1173,8 @@
                                                         </div>
                                                         <div class="user__status user--following"><a href="#" class="btn btn-sm btn-secondary">Following</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1199,8 +1199,8 @@
                                                         </div>
                                                         <div class="user__status"><a href="#" class="btn btn-sm btn-primary">Follow</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1225,8 +1225,8 @@
                                                         </div>
                                                         <div class="user__status"><a href="#" class="btn btn-sm btn-primary">Follow</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1251,8 +1251,8 @@
                                                         </div>
                                                         <div class="user__status"><a href="#" class="btn btn-sm btn-primary">Follow</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1277,8 +1277,8 @@
                                                         </div>
                                                         <div class="user__status user--following"><a href="#" class="btn btn-sm btn-secondary">Following</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1303,12 +1303,12 @@
                                                         </div>
                                                         <div class="user__status"><a href="#" class="btn btn-sm btn-primary">Follow</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div><!-- ends: .user_area -->
-                                    <!-- Start Pagination -->
-                                    <!-- Start Pagination -->
+                                    </div>
+                                    
+                                    
                                     <nav class="pagination-default ">
                                         <ul class="pagination">
                                             <li class="page-item">
@@ -1329,11 +1329,11 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </nav><!-- Ends: .pagination-default -->
-                                </div><!-- ends: .col-md-12 -->
-                            </div><!-- ends: .row -->
+                                    </nav>
+                                </div>
+                            </div>
                         </div>
-                        <!-- Ends: followers-tab -->
+                        
                         <div class="tab-pane fade" id="following" role="tabpanel" aria-labelledby="following-tab">
                             <div class="row">
                                 <div class="col-md-12">
@@ -1341,7 +1341,7 @@
                                         <div class="product__title">
                                             <h3><span class="bold">143</span> Following</h3>
                                         </div>
-                                    </div><!-- ends: .product-title-area -->
+                                    </div>
                                     <div class="user_area">
                                         <div class="row">
                                             <div class="col-lg-4 col-md-6">
@@ -1368,8 +1368,8 @@
                                                         </div>
                                                         <div class="user__status user--following"><a href="#" class="btn btn-sm btn-secondary">Following</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1394,8 +1394,8 @@
                                                         </div>
                                                         <div class="user__status user--following"><a href="#" class="btn btn-sm btn-secondary">Following</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1420,8 +1420,8 @@
                                                         </div>
                                                         <div class="user__status user--following"><a href="#" class="btn btn-sm btn-secondary">Following</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1446,8 +1446,8 @@
                                                         </div>
                                                         <div class="user__status user--following"><a href="#" class="btn btn-sm btn-secondary">Following</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1472,8 +1472,8 @@
                                                         </div>
                                                         <div class="user__status user--following"><a href="#" class="btn btn-sm btn-secondary">Following</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                             <div class="col-lg-4 col-md-6">
                                                 <div class='user-single card '>
                                                     <div class="card-body">
@@ -1498,12 +1498,12 @@
                                                         </div>
                                                         <div class="user__status user--following"><a href="#" class="btn btn-sm btn-secondary">Following</a></div>
                                                     </div>
-                                                </div><!-- ends: .user-single -->
-                                            </div><!-- ends: .col-lg-4 -->
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div><!-- ends: .user_area -->
-                                    <!-- Start Pagination -->
-                                    <!-- Start Pagination -->
+                                    </div>
+                                    
+                                    
                                     <nav class="pagination-default ">
                                         <ul class="pagination">
                                             <li class="page-item">
@@ -1524,12 +1524,12 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </nav><!-- Ends: .pagination-default -->
-                                </div><!-- ends: .col-md-12 -->
+                                    </nav>
+                                </div>
                             </div>
-                        </div><!-- Ends: following-tab -->
-                    </div><!-- ends: .tab-content -->
-                </div><!-- Ends: .author-info-tabs -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

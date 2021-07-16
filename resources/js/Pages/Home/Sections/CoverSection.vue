@@ -6,7 +6,7 @@
             background-size: cover;
         "
     >
-        <!-- <div class="bg-overlay"></div> -->
+        
         <div class="hero-content content_above">
             <div class="content-wrapper">
                 <div class="container">
@@ -22,7 +22,7 @@
                                     La Red Social donde podrás exponer, difundir y compartir el amor por el arte y tus creaciones
                                 </p>
                             </div>
-                            <!-- end .hero__btn-area-->
+                            
                             <div class="search-area">
                                 <div class="row">
                                     <div class="col-md-10 offset-md-1">
@@ -60,7 +60,7 @@
                                                         class="icon-arrow-down"
                                                     ></span>
                                                 </div>
-                                                <!-- ends: .select-wrap -->
+                                                
                                                 <button
                                                     type="submit"
                                                     class="search-btn btn--lg btn-primary"
@@ -69,20 +69,20 @@
                                                 </button>
                                             </form>
                                         </div>
-                                        <!-- end .search_box -->
+                                        
                                     </div>
                                 </div>
                             </div>
-                            <!--start .search-area -->
+                            
                         </div>
-                        <!-- ends: .col-md-12 -->
+                        
                     </div>
-                    <!-- ends: .row -->
+                    
                 </div>
-                <!-- ends: .container -->
+                
             </div>
-            <!-- ends: .contact_wrapper -->
+            
         </div>
-        <!-- ends: hero-content -->
+        
     </section>
 </template>

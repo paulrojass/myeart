@@ -3,32 +3,16 @@
         <HeaderAccount />
         <div class="dashboard_contents mt-5">
             <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="filter-bar clearfix filter-bar2 ">
-                            <div class="dashboard__title d-flex align-items-center">
-                                <span class="title">Historial de compras</span>
-                            </div>
-                            <div class="filter__items m-4 col-6">
-                                <div class="filter__option filter--search w-100">
-                                    <form action="#">
-                                        <input type="text" placeholder="Buscar Productos">
-                                        <button type="submit"><span class="icon-magnifier"></span></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="product_archive table-responsive table-custom">
                     <table class="table mx-3">
                         <thead>
-                            <th class="text-muted">Producto</th>
-                            <th class="text-muted">Info</th>
+                            <th class="text-muted">Nombre</th>
+                            <th class="text-muted">ID</th>
                             <th class="text-muted">Precio</th>
-                            <th class="text-primary">Certificado</th>
-                            <th class="text-primary text-center">Estado</th>
+                            <th class="text-muted">Categoria</th>
+                            <th class="text-muted">Fecha</th>
+                            <th class="text-muted"></th>
                         </thead>
                         <tbody>
                             <tr v-for="(items, i) in [1,2,3,4]" :key="i">
@@ -36,41 +20,29 @@
                                     <div class="d-flex">
                                         <img src="/img/pur1.jpg"
                                              alt="Purchase image"
-                                             style="width: 100px; height: 80px;"
+                                             style="width: 60px; height: 60px; border-radius: 50%;"
                                         >
-                                        <div class="ml-3">
-                                            <span>
-                                                Cuadro oleo verde
+                                        <div class="ml-2 d-flex align-items-center">
+                                            <span class="text-primary">
+                                                Mariposa Grande
                                             </span>
                                         </div>
                                     </div>
                                 </td>
-                                <td>
-                                    <div>17/02/20</div>
-                                    <div>Daniel Lewis</div>
+                                <td class="text-muted">
+                                    <div>3333</div>
                                 </td>
-                                <td>
-                                    <div class="ml-3">
+                                <td class="text-muted">
+                                    <div class="">
                                         <span>59 $</span>
                                     </div>
                                 </td>
-                                <td>
-                                    <div class="ml-4">
-                                        <img
-                                            src="/imagenes/icons/fl_downloader.png" 
-                                            alt="" 
-                                            style="width: 30px; height: 30px;"
-                                        >
-                                    </div>
+                                <td class="text-muted">
+                                    Oleao
                                 </td>
-                                <td class="text-primary p-3 text-center">
+                                <td class="text-muted">
                                     <div>
-                                        <div>
-                                            En Progreso
-                                        </div>
-                                        <div class="btn-end">
-                                            Finalizar
-                                        </div>
+                                        21/10/01
                                     </div>
                                 </td>
                             </tr>
@@ -136,15 +108,4 @@ export default {
         font-size: 1.2rem;
     }
 
-    .btn-end {
-        color: white;
-        background: #F8CF58;
-        border-radius: 10px;
-        text-align: center;
-        cursor:pointer;
-    }
-
-    .btn-end:hover {
-        opacity: .8;
-    }
 </style>

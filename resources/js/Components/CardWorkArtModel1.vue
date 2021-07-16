@@ -24,7 +24,7 @@
                     </figcaption> -->
                 </figure>
             </div>
-            <!-- Ends: .product-thumb -->
+            
             <div class="descCardWorkArt">
                 <h5 class="mb-1 title-author-workArt">
                     {{ item.title }}
