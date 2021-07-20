@@ -58,14 +58,14 @@ class RegisteredUserController extends Controller
         //Asignamos el rol de comprador a todos los usuarios creados
         $user->assignRole('buyer');
         //Asignamos el id de Stripe
-        $stripeCustomer = $user->createAsStripeCustomer();
+        // $stripeCustomer = $user->createAsStripeCustomer();
 
-        event(new Registered($user));
+        // event(new Registered($user));
 
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
         //Se cambia el retorno a la vista de Información de la cuenta
-        return redirect()->route('users.edit', $user->id);
+        // return redirect()->route('users.edit', $user->id);
     }
 }

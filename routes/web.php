@@ -18,7 +18,7 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/test', function(){
-    return Inertia::render('Account/UploadProduct', []);
+    return Inertia::render('Auth/VerifyEmail', []);
 });
 
 // Account
@@ -31,9 +31,9 @@ Route::get('/account/shoppingHistory', function(){
     return Inertia::render('Account/ShoppingHistory', []);
 })->name('account-shoppingHistory');
 
-Route::get('/account/profile', function(){
-    return Inertia::render('Account/Profile', []);
-})->name('account-profile');
+// Route::get('/account/profile', function(){
+//     return Inertia::render('Account/Profile', []);
+// })->name('account-profile');
 
 // Route::get('/account/shoppingHistory', function(){
 //     return Inertia::render('Account/ShoppingHistory', []);
@@ -95,7 +95,7 @@ Route::get('obras',  [App\Http\Controllers\ArtworkController::class, 'list'])->n
 //Informacion de una Cuenta
 Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function () {
     Route::get('editar', [App\Http\Controllers\UserController::class, 'editAccountInformation'])
-    ->name('my-account.edit');
+    ->name('account-profile');
     Route::get('mis-compras', [App\Http\Controllers\UserController::class, 'myShopping'])
     ->name('my-account.shopping');
     Route::get('mis-ventas', [App\Http\Controllers\SellerController::class, 'mySales'])

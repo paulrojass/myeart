@@ -92,7 +92,8 @@ class UserController extends Controller
         $user->update($request->all());
         $user->profile->update($request->all());
 
-        return back()->json(['success' => 'Datos actualizados']);
+        return back();
+        // return back()->json(['success' => 'Datos actualizados']);
 
     }
 

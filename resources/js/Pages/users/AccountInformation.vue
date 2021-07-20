@@ -44,7 +44,7 @@
                                             <label for="lastName">Apellido
                                                 <sup>*</sup>
                                             </label>
-                                            <input type="text" id="lastName" class="text_field" v-model="form.LastName">
+                                            <input type="text" id="lastName" class="text_field" v-model="form.lastName">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -60,7 +60,7 @@
                                             <label for="usrname">Nombre de Usuario
                                                 <sup>*</sup>
                                             </label>
-                                            <input type="text" id="usrname" class="text_field">
+                                            <input type="text" id="usrname" class="text_field" v-model="form.name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -82,7 +82,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="prohead">Rellena tu biografía</label>
-                                            <input type="text" id="prohead" class="text_field">
+                                            <input type="text" id="prohead" class="text_field" v-model="form.biography">
                                         </div>
                                     </div>
                                 </div>
@@ -99,18 +99,18 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="first_name">Dirección
+                                                <label for="first">Dirección
                                                     <sup>*</sup>
                                                 </label>
-                                                <input type="text" id="first_name" class="text_field">
+                                                <input type="text" id="first" class="text_field" v-model="form.address">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="country1">País
+                                                <label for="country">País
                                                     <sup>*</sup>
                                                 </label>
-                                                <input type="text" id="country1" class="text_field">
+                                                <input type="text" id="country" class="text_field" v-model="form.country">
                                                 <!-- <div class="select-wrap select-wrap2">
                                                     <select name="country" id="country1" class="text_field">
                                                         <option value="">Select one</option>
@@ -128,13 +128,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="address1">Ciudad Provincia</label>
-                                                <input type="text" id="address1" class="text_field">
+                                                <input type="text" id="address1" class="text_field" v-model="form.city">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="address2">Región</label>
-                                                <input type="text" id="address2" class="text_field">
+                                                <label for="regiton">Región</label>
+                                                <input type="text" id="regiton" class="text_field" v-model="form.region">
                                             </div>
                                         </div>
 
@@ -143,7 +143,7 @@
                                                 <label for="zipcode">Código postal
                                                     <sup>*</sup>
                                                 </label>
-                                                <input type="text" id="zipcode" class="text_field" >
+                                                <input type="text" id="zipcode" class="text_field" v-model="form.zip_code">
                                             </div>
                                         </div>
                                     </div>
@@ -206,7 +206,7 @@
                                             <span class="fa fa-facebook"></span>
                                         </div>
                                         <div class="link_field">
-                                            <input type="text" class="text_field">
+                                            <input type="text" class="text_field" v-model="form.facebook">
                                         </div>
                                     </div>
                                     <div class="social__single">
@@ -214,7 +214,7 @@
                                             <span class="fa fa-twitter"></span>
                                         </div>
                                         <div class="link_field">
-                                            <input type="text" class="text_field">
+                                            <input type="text" class="text_field" v-model="form.twitter">
                                         </div>
                                     </div>
                                     <div class="social__single">
@@ -222,7 +222,7 @@
                                             <span class="fa fa-google-plus"></span>
                                         </div>
                                         <div class="link_field">
-                                            <input type="text" class="text_field">
+                                            <input type="text" class="text_field" v-model="form.google">
                                         </div>
                                     </div>
                                 </div>
@@ -252,38 +252,45 @@ import HeaderAccount from '@/Layouts/HeaderMenu.vue'
 
 export default {
     layout,
-    props: ['user'],
     components: {
         HeaderAccount
     },
     data() {
-      return {
-        form: this.$inertia.form({
-            // avatar: this.user.profile.avatar,
-        //     firstName: this.user.firstName,
-        //     lastName: this.user.lastName,
-        //     email: this.user.email,
-        //     name: this.user.name,
-        //     address: this.user.profile.address,
-        //     country: this.user.profile.country,
-        //     city: this.user.profile.city,
-        //     region: this.user.profile.region,
-        //     zip_code: this.user.profile.zip_code,
-        //     card_brand: this.user.card_brand,
-        //     card_last_four: this.user.card_last_four,
-        //     trial_ends_at: this.user.trial_ends_at,
-        //     facebook: this.user.profile.facebook,
-        //     twitter: this.user.profile.twitter,
-        //     google: this.user.profile.google,
-            }),
+        return {
+            form: {}
         }
     },
     created(){
-        console.log('props user', this.user)
+        let user = this.$page.props.auth.user;
+
+        this.form = this.$inertia.form({
+            avatar: this.user.profile.avatar,
+            firstName: this.user.profile.firstName,
+            lastName: this.user.profile.lastName,
+            email: this.user.email,
+            name: this.user.name,
+            biography: this.user.profile.biography,
+            address: this.user.profile.address,
+            country: this.user.profile.country,
+            city: this.user.profile.city,
+            region: this.user.profile.region,
+            zip_code: this.user.profile.zip_code,
+            card_brand: this.user.card_brand,
+            card_last_four: this.user.card_last_four,
+            trial_ends_at: this.user.trial_ends_at,
+            facebook: this.user.profile.facebook,
+            twitter: this.user.profile.twitter,
+            google: this.user.profile.google,
+        })
+        console.log('props user', this)
+    },
+    computed: {
+        user(){
+            return this.$page.props.auth.user;
+        }
     },
     methods: {
-        submit(evt) {
-          evt.preventDefault()
+        submit() {
           this.form.put(route('users.update', this.user.id))
         },
     }

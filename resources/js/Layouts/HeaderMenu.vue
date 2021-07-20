@@ -4,12 +4,12 @@
             <div class="row">
                 <div class="col-12 position-relative btn-warning">
                     <div class="container col-12 position-absolute d-flex justify-content-end">
-                        <b-button
+                        <inertia-link
                             class="btn btn--xs btn-toArtist"
-                            
+                            :href="route('artist-or-gallery')"
                         >
                             Quiero ser Artista
-                        </b-button>
+                        </inertia-link>
                     </div>
                 </div>
                 <div class="col-12 text-center">

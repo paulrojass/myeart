@@ -792,7 +792,7 @@
                                                 <li>
                                                     <inertia-link
                                                         :href="
-                                                            route('register')
+                                                            route('account-profile')
                                                         "
                                                     >
                                                         <span

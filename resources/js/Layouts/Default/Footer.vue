@@ -8,7 +8,7 @@
                         <div class="footer-widget">
                             <div class="widget-about">
                                 <img
-                                    src="img/footer-logo.png"
+                                    src="/imagenes/Logo.png"
                                     alt=""
                                     class="img-fluid"
                                 />

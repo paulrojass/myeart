@@ -9,6 +9,7 @@
                             title="Artista"
                             desc="Si eres artista y quieres vender tu obra registra aqui"
                             icon="artist"
+                            path=""
                         />
                     </div>
 
@@ -17,6 +18,7 @@
                             title="Galeria"
                             desc="Si eres una Galeria o gestionas multiples obras registrate aqui"
                             icon="gallery"
+                            path=""
                         />
                     </div>
                 </div>

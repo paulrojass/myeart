@@ -30,6 +30,6 @@ class HomeController extends Controller
 
     public function selectArtistOrGallery()
     {
-        return Inertia::render('home/ArtistOrGallery');
+        return Inertia::render('users/ArtistOrGallery');
     }
 }
