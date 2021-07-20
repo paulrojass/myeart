@@ -86,11 +86,11 @@ Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 's
 ->name('artist-or-gallery');
 
 //Listados de vendedores (artistas y galerias)
-Route::get('vendedores',  [App\Http\Controllers\SellerController::class, 'list'])->name('sellers.index');
-Route::get('vendedores/{id}',  [App\Http\Controllers\SellerController::class, 'show'])->name('sellers.show');
-Route::get('vendedores/artistas',  [App\Http\Controllers\ArtistController::class, 'list'])->name('artists.index');
-Route::get('vendedores/galerias',  [App\Http\Controllers\GalleryController::class, 'list'])->name('galleries.index');
-Route::get('obras',  [App\Http\Controllers\ArtworkController::class, 'list'])->name('artworks.index');
+Route::get('vendedores', [App\Http\Controllers\SellerController::class, 'list'])->name('sellers.index');
+Route::get('vendedores/{id}', [App\Http\Controllers\SellerController::class, 'show'])->name('sellers.show');
+Route::get('vendedores/artistas', [App\Http\Controllers\ArtistController::class, 'list'])->name('artists.index');
+Route::get('vendedores/galerias', [App\Http\Controllers\GalleryController::class, 'list'])->name('galleries.index');
+Route::get('obras', [App\Http\Controllers\ArtworkController::class, 'list'])->name('artworks.index');
 
 //Informacion de una Cuenta
 Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function () {
@@ -165,7 +165,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
     )->except(['index','create', 'store','show', 'edit']);
     //Usuario como vendedor solo se puede eliminar
     Route::delete('vendedor/{id}', [App\Http\Controllers\SellerController::class, 'destroy'])->name('sellers.destroy');
-    //Usuario se crea como vendedor galeria, guardarse, actualizar sus datos y eliminarse como galeria 
+    //Usuario se crea como vendedor galeria, guardarse, actualizar sus datos y eliminarse como galeria
     Route::resource(
         'vendedor/galeria',
         App\Http\Controllers\GalleryController::class,
@@ -179,7 +179,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
         ]
     )->except(['index', 'show']);
 
-    //Usuario se crea como vendedor artista, guardarse, actualizar sus datos y eliminarse como artista 
+    //Usuario se crea como vendedor artista, guardarse, actualizar sus datos y eliminarse como artista
     Route::resource(
         'vendedor/artista',
         App\Http\Controllers\ArtistController::class,
