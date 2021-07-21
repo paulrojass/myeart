@@ -2,15 +2,32 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Route;
 
 use Inertia\Inertia;
+use App\Models\Artist;
+use App\Models\Artwork;
+use App\Models\Gallery;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        return Inertia::render('Home');
+        $artworks = Artwork::all()->sortByDesc('created_at')->take(6);
+        $artists = Artist::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get();
+        $galleries = Gallery::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get();
+
+        return Inertia::render('Home/Welcome', [
+            'canLogin' => Route::has('login'),
+            'canRegister' => Route::has('register'),
+            'laravelVersion' => Application::VERSION,
+            'phpVersion' => PHP_VERSION,
+            'artworks' => $artworks,
+            'artists' => $artists,
+            'galleries' => $galleries,
+        ]);
+
     }
 
     public function artworks()
