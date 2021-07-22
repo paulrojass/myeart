@@ -86,7 +86,7 @@
 
 <script>
 import layout from "@/Layouts/Default/LayoutDefault.vue"
-import HeaderAccount from './HeaderMenu.vue'
+import HeaderAccount from '../Account/HeaderMenu.vue'
 
 export default {
     layout,

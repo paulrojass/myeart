@@ -6,6 +6,8 @@ use App\Models\Artwork;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Support\Str;
+use App\Models\ArtworkImage;
 
 class ArtworkController extends Controller
 {
@@ -24,7 +26,7 @@ class ArtworkController extends Controller
             'likes'
         ])->get();
 
-        dd($artworks);
+        // dd($artworks);
 
         return Inertia::render('artworks/Index', [
             'artworks' => $artworks
@@ -62,7 +64,7 @@ class ArtworkController extends Controller
     {
         $categories = Category::query()->with(['attributes', 'attributes.elements'])->get();
 
-        dd($categories);
+        // dd($categories);
 
         return Inertia::render('artworks/Create', [
             'categories' => $categories
@@ -77,6 +79,7 @@ class ArtworkController extends Controller
      */
     public function store(Request $request)
     {
+
         $artwork = Artwork::create([
             'seller_id' => auth()->user()->seller->id,
             'category_id' => $request->category_id,
@@ -85,25 +88,27 @@ class ArtworkController extends Controller
             'price' => $request->price,
             'offer' => $request->offer,
             'weight' => $request->weight,
-            'width' => $reqest->width,
+            'width' => $request->width,
             'height' => $request->height
         ]);
 
-
         if ($request->hasFile('image')) {
-            foreach ($request->file('image') as $image) {
+            foreach ($request->file('image') as $key => $image) {
                 $destinationPath = 'artwork_images/';
-                $fileName = Str::random(15).'.'.$format;
-                $image->move($destinationPath, $filename);
+                
+                $format = $image->extension();
 
-                $artwork_image = Artwork::create([
+                $fileName = 'artwork'.$artwork->id.'.'.$format;
+                $image->move($destinationPath, $fileName);
+
+                $artwork_image = ArtworkImage::create([
                     'artwork_id' => $artwork->id,
-                    'location'  => $filename
+                    'location'  => '/'.$destinationPath.$fileName,
+                    'principal' => $key === 0 ? 1 : 0
                 ]);
             }
         }
-
-        return redirect()->route('artworks.index');
+        return redirect()->route('my-artworks.index');
     }
 
     /**

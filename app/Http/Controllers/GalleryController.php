@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use App\Models\Tag;
+use App\Models\Artist;
+use Inertia\Inertia;
+use App\Models\Seller;
 
 class GalleryController extends Controller
 {
@@ -75,7 +79,7 @@ class GalleryController extends Controller
 
         //Creando vendedor
         $seller = new Seller();
-        $seller->user_id = $user_id;
+        $seller->user_id = $user->id;
         $seller->has_gallery = 1;
         $seller->save();
 
@@ -90,7 +94,7 @@ class GalleryController extends Controller
 
         foreach ($request->tags as $tag) {
             //reviso luego esta parte
-            $seller->tag = $tag;
+            $seller->tags()->attach($tag);
         }
 
         return Inertia::render('user/Profile');

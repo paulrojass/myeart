@@ -142,16 +142,6 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
         )->except(['index', 'show', 'updates', 'create', 'edit']);
     });
 
-
-
-
-
-
-
-
-
-
-
     //Perfil de Usuario
     //Usuario se puede actualizar y eliminar
     Route::resource(

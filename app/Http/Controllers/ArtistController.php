@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Artist;
 use Illuminate\Http\Request;
 
+use App\Models\Seller;
+use App\Models\Tag;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Redirect;
 
 class ArtistController extends Controller
 {
@@ -18,7 +21,7 @@ class ArtistController extends Controller
     {
         $artists = Artist::query()->with(['seller', 'seller.user', 'seller.user.profile'])->get();
 
-        dd($artists);
+        // dd($artists);
 
         return Inertia::render('dasboard/artists/Index', [
             'artists' => $artists
@@ -35,7 +38,7 @@ class ArtistController extends Controller
     {
         $artists = Artist::query()->with(['seller', 'seller.user', 'seller.user.profile'])->get();
 
-        dd($artists);
+        // dd($artists);
 
         return Inertia::render('artists/Index', [
             'artists' => $artists
@@ -53,7 +56,8 @@ class ArtistController extends Controller
     {
         $tags = Tag::all();
         return Inertia::render('artists/Create', [
-            'tags' => $tags
+            'tags' => $tags,
+            'entity' => "artista"
         ]);
     }
 
@@ -69,8 +73,8 @@ class ArtistController extends Controller
         $user = auth()->user();
         //Creando vendedor
         $seller = new Seller();
-        $seller->user_id = $user_id;
-        $seller->gallery = 0;
+        $seller->user_id = $user->id;
+        $seller->has_gallery = 0;
         $seller->save();
 
         //Se Asigna role de vendedor
@@ -84,10 +88,10 @@ class ArtistController extends Controller
 
         foreach ($request->tags as $tag_id) {
             //reviso luego esta parte
-            $seller->tags->attach($tag_id, ['seller_id', $seller->id ]);
+            $seller->tags()->attach($tag_id);
         }
 
-        return Inertia::render('user/Profile');
+        return Redirect::route('account-profile');
     }
 
     /**

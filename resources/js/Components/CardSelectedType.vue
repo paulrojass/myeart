@@ -17,19 +17,24 @@
             </div>
 
             <div class="col-12 my-3">
-                <inertia-link :href="route('login')"
+                <Link :href="route('artists.create')" :data="{type}"
                     class="mr-4 btn  btn--lg btn-primary" 
                 >
                     Registrate
-                </inertia-link>
+                </Link>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { Link } from '@inertiajs/inertia-vue3'
+
 export default {
-    props: ['title', 'desc', 'icon']
+    props: ['type','title', 'desc', 'icon'],
+    components: {
+        Link
+    }
 }
 </script>
 

@@ -5,6 +5,7 @@
                 <div class="col-12 position-relative btn-warning">
                     <div class="container col-12 position-absolute d-flex justify-content-end">
                         <inertia-link
+                            v-if="!user.roles.find(r => r.name === 'seller')"
                             class="btn btn--xs btn-toArtist"
                             :href="route('artist-or-gallery')"
                         >
@@ -58,25 +59,32 @@ const itemsMenu = [
         title: "Historial de compras",
         icon: "/imagenes/icons/AccountMenu/Shopping.png",
         path: "account-shoppingHistory",
-        userType: ["buyer"]
+        roles: ["buyer"]
     },
     // {
     //     title: "Historial de ventas",
     //     icon: "/imagenes/icons/AccountMenu/Setting.png",
     //     path: "account-salesHistory",
-    //     userType: ["seller"]
+    //     roles: ["seller"]
     // },
     {
         title: "Informacion de la cuenta",
         icon: "/imagenes/icons/AccountMenu/Setting.png",
         path: "account-profile",
-        userType: ["buyer","seller"]
+        roles: ["buyer"]
     },
-    // {
-    //     title: "Obras",
-    //     icon: "/imagenes/icons/AccountMenu/Obras.png",
-    //     path: "account-worksArtist"
-    // }
+    {
+        title: "Obras",
+        icon: "/imagenes/icons/AccountMenu/Obras.png",
+        path: "my-artworks.index",
+        roles: ["seller"]
+    },
+    {
+        title: "Subir Obras",
+        icon: "/imagenes/icons/AccountMenu/Obras.png",
+        path: "my-artworks.create",
+        roles: ["seller"]
+    }
 ];
 export default {
     data(){
@@ -85,7 +93,13 @@ export default {
         }
     },
     created(){
-        this.itemsMenu = itemsMenu;
+        this.itemsMenu = itemsMenu.filter(item => {
+            let rolesUser = this.user.roles.map(r => r.name);
+            let isRoles = rolesUser.filter(r => item.roles.includes(r))
+
+            // console.log('isRoles',isRoles)
+            return !isRoles.length ? false : true;
+        });
     },
     computed: {
         user() {

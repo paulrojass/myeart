@@ -6,19 +6,19 @@
                 <div class="row my-5">
                     <div class="col-12 col-md-6">
                         <CardSelectedType 
+                            type="artists"
                             title="Artista"
                             desc="Si eres artista y quieres vender tu obra registra aqui"
                             icon="artist"
-                            path=""
                         />
                     </div>
 
                     <div class="col-12 col-md-6">
                         <CardSelectedType
+                            type="galleries"
                             title="Galeria"
                             desc="Si eres una Galeria o gestionas multiples obras registrate aqui"
                             icon="gallery"
-                            path=""
                         />
                     </div>
                 </div>
