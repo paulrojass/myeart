@@ -48,9 +48,7 @@ class ArtworkController extends Controller
             'likes'
         ])->get();
 
-        dd($artworks);
-
-        return Inertia::render('artworks/Index', [
+        return Inertia::render('Search/index', [
             'artworks' => $artworks
         ]);
     }

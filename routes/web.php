@@ -2,6 +2,8 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+
 use Inertia\Inertia;
 
 use Laravel\Socialite\Facades\Socialite;
@@ -54,20 +56,11 @@ Route::get('/detailsWorkArtist', function(){
     return Inertia::render('DetailsWorkArtist/index', []);
 })->middleware([])->name('detailsWorkArtist');
 
-// Vista Obras (Public)
-Route::get('/search', function(){
-    return Inertia::render('Search/index', []);
-})->middleware([])->name('search');
+// Vista Obras (Public) Editada (Paul)
+Route::get('/search', [App\Http\Controllers\ArtworkController::class, 'list'])->middleware([])->name('search');
 
-// Vista Home
-Route::get('/', function () {
-    return Inertia::render('Home/Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-})->middleware([])->name('home');
+// Vista  Home , Editada Paul
+Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->middleware([])->name('home');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -90,7 +83,6 @@ Route::get('vendedores', [App\Http\Controllers\SellerController::class, 'list'])
 Route::get('vendedores/{id}', [App\Http\Controllers\SellerController::class, 'show'])->name('sellers.show');
 Route::get('vendedores/artistas', [App\Http\Controllers\ArtistController::class, 'list'])->name('artists.index');
 Route::get('vendedores/galerias', [App\Http\Controllers\GalleryController::class, 'list'])->name('galleries.index');
-Route::get('obras', [App\Http\Controllers\ArtworkController::class, 'list'])->name('artworks.index');
 
 //Informacion de una Cuenta
 Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function () {
