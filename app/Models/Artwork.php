@@ -98,4 +98,14 @@ class Artwork extends Model
         return $this->belongsToMany(Element::class, 'artwork_element')
                     ->withPivot('artwork_id');
     }
+
+
+    //Scopes
+    public function scopeOrderByLikes($query)
+    {
+        $query->leftJoin('likes', 'likes.artwork_id', '=', 'artworks.id')
+            ->selectRaw('artworks.*, count(likes.id) as aggregate')
+            ->orderBy('aggregate', 'desc');
+    }
+
 }
