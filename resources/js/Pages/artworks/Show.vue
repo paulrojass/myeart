@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Header title="Pintura 22" />
+        <Header :title="artwork.name" />
         <section class="single-product-desc">
             <div class="container">
                 <div class="row">
@@ -11,7 +11,7 @@
                                     <div class="item__preview-img">
                                         <div class="item__preview-slider">
                                             <div class="prev-slide">
-                                                <img :src="preview().photo" 
+                                                <img :src="preview().location" 
                                                     alt="Preview Image" 
                                                     class="w-100"
                                                 >
@@ -44,7 +44,7 @@
                                                 <div class="item-thumb" 
                                                     v-for="(item, i) in items" :key="i"> 
                                                     <img 
-                                                        :src="item.photo" 
+                                                        :src="item.location" 
                                                         alt="Thumbnail Image"
                                                         style="width: 100px; height: 80px;"
                                                         @click="changeToPreview(item)"
@@ -78,24 +78,22 @@
                                 <div class="fade show tab-pane product-tab active" id="product-details" role="tabpanel" aria-labelledby="tab1">
                                     <div class="tab-content-wrapper">
                                         <h3 class="text-primary">Información:</h3>
-                                        <p class="p-bottom-30">Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut scelerisque the
-                                            mattis, leo quam aliquet congue placerat mi id nisi interdum mollis. Praesent
-                                            pharetra,
-                                            justo ut scel erisque the mattis, leo quam aliquet congue justo ut scelerisque.
-                                            Praesent
-                                            pharetra, justo ut scelerisque the mattis, leo quam aliquet congue justo ut
-                                            scelerisque.</p>
-                                        <img src="img/prodesc.jpg" alt="This is product description thumbnail">
+                                        <p class="p-bottom-30">{{ artwork.description }}</p>
+                                        <img src="/img/prodesc.jpg" alt="This is product description thumbnail">
                                     </div>
                                 </div>
                                 <div class="fade tab-pane product-tab" id="product-comment" role="tabpanel" aria-labelledby="tab2">
                                     <div class="thread">
-                                        <ul class="media-list thread-list">
+                                        <ul 
+                                            class="media-list thread-list"
+                                            v-for="item in artwork.comments"
+                                            :key="item.id"
+                                            >
                                             <li class="single-thread">
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <a href="#">
-                                                            <img class="media-object" src="img/m1.png" alt="Commentator Avatar">
+                                                            <img class="media-object" src="/img/m1.png" alt="Commentator Avatar">
                                                         </a>
                                                     </div>
                                                     <div class="media-body">
@@ -120,7 +118,7 @@
                                                         <div class="media">
                                                             <div class="media-left">
                                                                 <a href="#">
-                                                                    <img class="media-object" src="img/m2.png" alt="Commentator Avatar">
+                                                                    <img class="media-object" src="/img/m2.png" alt="Commentator Avatar">
                                                                 </a>
                                                             </div>
                                                             <div class="media-body">
@@ -139,7 +137,7 @@
                                                         <div class="media">
                                                             <div class="media-left">
                                                                 <a href="#">
-                                                                    <img class="media-object" src="img/m1.png" alt="Commentator Avatar">
+                                                                    <img class="media-object" src="/img/m1.png" alt="Commentator Avatar">
                                                                 </a>
                                                             </div>
                                                             <div class="media-body">
@@ -155,55 +153,21 @@
                                                     </li>
                                                 </ul>
                                                 
-                                                <!-- <div class="media depth-2 reply-comment">
-                                                    <div class="media-left">
-                                                        <a href="#">
-                                                            <img class="media-object" src="img/m2.png" alt="Commentator Avatar">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <form action="#" class="comment-reply-form">
-                                                            <textarea class="bla" name="reply-comment" placeholder="Write your comment..."></textarea>
-                                                            <button class="btn btn--md btn-primary">Post Comment</button>
-                                                        </form>
-                                                    </div>
-                                                </div> -->
                                             </li>
                                         </ul>
-                                        
-                                        <!-- <nav class="pagination-default ">
-                                            <ul class="pagination">
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#" aria-label="Previous">
-                                                        <span aria-hidden="true"><i class="fa fa-long-arrow-left"></i></span>
-                                                        <span class="sr-only">Previous</span>
-                                                    </a>
-                                                </li>
-                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">10</a></li>
-                                                <li class="page-item">
-                                                    <a class="page-link" href="#" aria-label="Next">
-                                                        <span aria-hidden="true"><i class="fa fa-long-arrow-right"></i></span>
-                                                        <span class="sr-only">Next</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </nav> -->
+                                    
                                         <div class="comment-form-area">
-                                            <h4>Leave a comment</h4>
+                                            <h4>Enviar un Comentario</h4>
                                             <div class="media comment-form">
                                                 <div class="media-left">
                                                     <a href="#">
-                                                        <img class="media-object" src="img/m7.png" alt="Commentator Avatar">
+                                                        <img class="media-object" src="/img/m7.png" alt="Commentator Avatar">
                                                     </a>
                                                 </div>
                                                 <div class="media-body">
                                                     <form action="#" class="comment-reply-form">
-                                                        <textarea name="reply-comment" placeholder="Write your comment..."></textarea>
-                                                        <button class="btn btn--sm btn-primary">Post Comment</button>
+                                                        <textarea name="reply-comment" placeholder="Escribe tu comentario..."></textarea>
+                                                        <button class="btn btn--sm btn-primary">Postear Comentario</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -217,7 +181,12 @@
                                                 <div class="media">
                                                     <div class="media-left">
                                                         
-                                                            <img class="media-object rounded-circle" src="img/m1.png" alt="Commentator Avatar">
+                                                        <img 
+                                                            class="media-object rounded-circle" 
+                                                            :src="artwork.seller.user.profile.avatar || '/imagenes/profile.png'"
+                                                            alt="Commentator Avatar" 
+                                                            style="width: 80px; height: 80px;"
+                                                        >
                                                         
                                                     </div>
                                                     <div class="media-body">
@@ -229,7 +198,7 @@
                                                                             Autor:
                                                                         </h4>
                                                                         <h4>
-                                                                            Daniel L Lewis P.
+                                                                            {{ artwork.seller.user.name }}
                                                                         </h4>
                                                                     
                                                                 </div>
@@ -238,8 +207,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="p-4">
-                                                    <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
-                                                        sceleris que the mattis, leo quam aliquet congue placerat.</p>
+                                                    <p>{{ artwork.seller.user.profile.biography }}</p>
                                                 </div>
                                                 
                                             </li>
@@ -261,7 +229,7 @@
                             <div class="sidebar-card card-pricing bg-primary text-white">
                                 <div class="my-1 border-none d-flex justify-content-end mb-0">
                                     <h1 class="text-white">
-                                        20,00 <sup>$</sup>
+                                        {{ artwork.price }} <sup>$</sup>
                                     </h1>
                                 </div>
                                 <div class="row d-flex justify-content-around">
@@ -286,7 +254,7 @@
                                             <div class="mt-2">
                                                 
                                                     <div class="list-bold">Autor</div>
-                                                    <p>Daniel L Lewis P.</p>
+                                                    <p>{{ artwork.seller.user.name }}</p>
                                                 
                                             </div>
                                         </div>
@@ -300,11 +268,9 @@
                                                     alt=""
                                                 >
                                             </div>
-                                            <div class="mt-2">
-                                                
-                                                    <div class="mb-0">Titulo obra:</div>
-                                                    <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                                
+                                            <div class="mt-2">                                             
+                                                <div class="mb-0">Titulo de la obra:</div>
+                                                <p class="">{{ artwork.name }}</p>                                  
                                             </div>
                                         </div>
                                     </li>
@@ -326,7 +292,7 @@
                                                     >
                                                 </div>
                                                 <div class="mt-2">
-                                                   20cm x 20xm
+                                                   {{artwork.width}} cm x {{artwork.height}} cm
                                                 </div>
                                             </div>
                                         </li>
@@ -340,7 +306,7 @@
                                                     >
                                                 </div>
                                                 <div class="mt-2">
-                                                   1 kg
+                                                   {{ artwork.weight }} kg
                                                 </div>
                                             </div>
                                         </li>
@@ -396,7 +362,7 @@
                                                     >
                                                 </div>
                                                 <div class="m-2">
-                                                   Fecha: Desconocida
+                                                   {{ moment(artwork.created_at).format('DD/MM/YYYY')}}
                                                 </div>
                                             </div>
                                         </li>                                                                                                                     
@@ -424,15 +390,15 @@ export default {
     components: {
         Header
     },
-  destroyed () {
-      window.removeEventListener('scroll', this.handleScroll);
-  },
+    destroyed () {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
     created(){
-        console.log('artwork', this.artwork)
+        console.log('artwork', this.artwork);
 
         window.addEventListener('scroll', this.handleScroll);
 
-        let newItems = this.items.map((item, index) => ({
+        let newItems = this.artwork.artwork_images.map((item, index) => ({
             ...item,
             index
         }))

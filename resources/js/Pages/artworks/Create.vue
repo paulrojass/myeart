@@ -235,7 +235,7 @@ export default {
         this.form.image = this.previewFiles.map(p => p.file)
         console.log('form', this.form)
         // console.log('query', route().params.type) 
-        // this.form.post(route('my-artworks.store'))
+        this.form.post(route('my-artworks.store'))
       },
       newFile(event){
         let file = event.target.files[0];

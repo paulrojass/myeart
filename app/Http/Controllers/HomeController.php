@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Artist;
 use App\Models\Artwork;
@@ -14,9 +15,9 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $artworks = Artwork::all()->sortByDesc('created_at')->take(6);
-        $artists = Artist::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get();
-        $galleries = Gallery::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get();
+        $artworks = Artwork::with(['artworkImages', 'seller.user'])->take(6)->get();
+        $artists = Artist::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get()->sortByDesc('created_at');
+        $galleries = Gallery::latest()->with(['seller', 'seller.user', 'seller.user'])->take(6)->get();
 
         return Inertia::render('Home/Welcome', [
             'canLogin' => Route::has('login'),
@@ -35,9 +36,15 @@ class HomeController extends Controller
         return Inertia::render('artworks/Index');
     }
 
-    public function artist()
+    public function artist(Request $request)
     {
-        return Inertia::render('artists/Index');
+        $artist = Artist::where('id', $request->id)->with('seller.user.profile')->first();
+        $artworks = Artwork::where('seller_id', $artist->seller->id)->with(['artworkImages', 'seller.user'])->take(6)->get();
+
+        return Inertia::render('artists/Index', [
+            'artist' => $artist,
+            'artworks' => $artworks
+        ]);
     }
 
     public function events()

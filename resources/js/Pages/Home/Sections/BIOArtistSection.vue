@@ -35,11 +35,11 @@
                                     <div class="row">
                                         <div
                                             class="col-md-6 col-lg-4 my-2"
-                                            v-for="(item, i) in items"
-                                            :key="i"
+                                            v-for="doc in docs"
+                                            :key="doc.id"
                                         >
                                             <CardBIOArtist 
-                                                :index="i"
+                                                :doc="doc"
                                             />
                                         </div>
                                     </div>
@@ -65,15 +65,11 @@ import CardBIOArtist from "../../../Components/CardBIOArtist";
 import Buttom from '../../../Components/ButtonCustom'
 
 export default {
+    props: ['docs'],
     components: {
         CardBIOArtist,
         Buttom
-    },
-    data() {
-        return {
-            items: [1, 2, 3, 4, 5, 6],
-        };
-    },
+    }
 };
 </script>
 

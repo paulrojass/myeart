@@ -18,16 +18,16 @@
         
         <div class="product-excerpt">
             <div class="d-flex justify-content-between align-items-center">
-                <div>
+                <div class="col-">
                     <h5 class="mb-1">
-                        {{ item.title }}
+                        {{ doc.name }}
                     </h5>
                     <div class="titlebtm">
-                        {{ item.author.name }}
+                        {{ doc.seller.user.name }}
                     </div>
                 </div>
-                <div>
-                    <div class="price text-primary"> {{ item.price }} $</div>
+                <div class="col-3">
+                    <div class="price text-primary"> {{ item.price }}$</div>
                 </div>
 
             </div>
@@ -78,8 +78,11 @@
 <script>
 
 export default {
-    props: ['item', "index"],
-    created(){ this.photoTemplate() },
+    props: ['doc'],
+    created(){ 
+        this.photoTemplate();
+        // console.log('doc', this.doc)
+    },
     data(){
         return {
             item: {
@@ -102,7 +105,7 @@ export default {
                 indice = (indice - 3) ;
             }
             
-            this.item.photo = `/imagenes/galerias/galeria-${indice}.jpg`;
+            this.item.photo = `/imagenes/galerias/galeria-1.jpg`;
             
         }
     }
@@ -120,7 +123,7 @@ export default {
     }
 
     .price {
-        padding: 0 10px;
+        /* padding: 0 10px; */
         line-height: 30px;
         border-radius: 3px; 
         font-size: 25px;

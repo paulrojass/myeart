@@ -34,11 +34,11 @@
                                 <div class="row">
                                     <div
                                         class="col-md-6 col-lg-4"
-                                        v-for="(item, i) in items"
-                                        :key="i"
+                                        v-for="doc in docs"
+                                        :key="doc.id"
                                     >
                                         <CardWorkArtModel 
-                                            :index="i"
+                                            :doc="doc"
                                         />
                                     </div>
                                 </div>
@@ -63,9 +63,13 @@ import CardWorkArtModel from "../../../Components/CardWorkArtModel2";
 import Buttom from '../../../Components/ButtonCustom'
 
 export default {
+    props: ['docs'],
     components: {
         CardWorkArtModel,
         Buttom
+    },
+    created(){
+        // console.log('docs', this.docs )
     },
     data() {
         return {

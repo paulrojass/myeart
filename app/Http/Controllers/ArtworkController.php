@@ -121,18 +121,18 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
 
-        $artwork = Artwork::where('id', $id)->with(['seller','artworkImages', 'elements', 'comments', 'likes'])->first();
+        $artwork = Artwork::where('id', $request->id)->with(['seller.user.profile','artworkImages', 'elements', 'comments', 'likes'])->first();
 
-        dd($artwork);
+        // dd($artwork);
 
         //return response()->json(['artwork' => $artwork]);
         
         return Inertia::render('artworks/Show', [
             'artwork' => $artwork,
-            'seller' => $seller
+            // 'seller' => $seller
         ]);
     }
 

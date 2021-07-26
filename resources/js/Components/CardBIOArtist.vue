@@ -1,125 +1,117 @@
 <template>
-    <div class="product-single latest-single">
-        <div class="product-thumb card-artist">
-            <figure class="position-relative">
-                <img :src="item.photo" alt="" class="" />
-                <figcaption
-                    style="
-                        border-radius: 50%;
-                        width: 100%;
-                        height: 100%;
-                        cursor: pointer;
-                    "
-                >
-                    <div
-                        class="p-5 text-center d-flex flex-column justify-content-between"
-                        style="color: white; height: 100%"
+        <div class="product-single latest-single">
+    <inertia-link
+        :href="
+            route('home.artist', { id: doc.id })
+        "
+    >
+            <div class="product-thumb card-artist">
+                <figure class="position-relative artist-image" >
+                    <img :src="doc.seller.user.profile.avatar || '/img/speaker1.jpg'" alt="" style="width: 100%; height: 100%" />
+                    <figcaption
+                        style="
+                            border-radius: 50%;
+                            width: 100%;
+                            height: 100%;
+                            cursor: pointer;
+                        "
                     >
-                        <div class="cardBIO-text">Artista 1</div>
-                        <div class="cardBIO-text">Pintor</div>
-                        <div class="d-flex justify-content-center">
-                            <div class="product-excerpt m-0 p-0 border-none">
-                                <div class="d-flex align-items-center">
-                                    <div>
-                                        <ul
-                                            class="product-facts clearfix m-0 p-0 border-none position-relative"
-                                            style="width: 100px"
-                                        >
-                                            <li class="product-rating">
-                                                <ul class="list-unstyled">
-                                                    <li>
-                                                        <span
-                                                            class="rate_active"
-                                                        ></span>
-                                                    </li>
-                                                    <li>
-                                                        <span
-                                                            class="rate_active"
-                                                        ></span>
-                                                    </li>
-                                                    <li>
-                                                        <span
-                                                            class="rate_active"
-                                                        ></span>
-                                                    </li>
-                                                    <li>
-                                                        <span
-                                                            class="rate_active"
-                                                        ></span>
-                                                    </li>
-                                                    <li>
-                                                        <span
-                                                            class="rate_disabled"
-                                                        ></span>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
+                        <div
+                            class="p-5 text-center d-flex flex-column justify-content-between"
+                            style="color: white; height: 100%"
+                        >
+                            <div class="cardBIO-text"> {{ doc.artistic_name }} </div>
+                            <div class="cardBIO-text"> {{ doc.seller.user.name }} </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="product-excerpt m-0 p-0 border-none">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <ul
+                                                class="product-facts clearfix m-0 p-0 border-none position-relative"
+                                                style="width: 100px"
+                                            >
+                                                <li class="product-rating">
+                                                    <ul class="list-unstyled">
+                                                        <li>
+                                                            <span
+                                                                class="rate_active"
+                                                            ></span>
+                                                        </li>
+                                                        <li>
+                                                            <span
+                                                                class="rate_active"
+                                                            ></span>
+                                                        </li>
+                                                        <li>
+                                                            <span
+                                                                class="rate_active"
+                                                            ></span>
+                                                        </li>
+                                                        <li>
+                                                            <span
+                                                                class="rate_active"
+                                                            ></span>
+                                                        </li>
+                                                        <li>
+                                                            <span
+                                                                class="rate_disabled"
+                                                            ></span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <span
+                                            class="icon-user icon-cardWorkArt"
+                                            title="Add to collection"
+                                            data-toggle="tooltip"
+                                        />
+                                        <span class="ml-1"> 30 </span>
                                     </div>
-                                    <span
-                                        class="icon-user icon-cardWorkArt"
-                                        title="Add to collection"
-                                        data-toggle="tooltip"
-                                    />
-                                    <span class="ml-1"> 30 </span>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </figcaption>
-            </figure>
+                    </figcaption>
+                </figure>
+            </div>
+    </inertia-link>
         </div>
-    </div>
 </template>
 
 <script>
 export default {
-    props: ["item", 'index'],
+    props: ['doc'],
     created(){
-        this.photoTemplate();
-    },
-    data() {
-        return {
-            item: {
-                photo: "/img/product1.png",
-                title: "Lorem ipsum dolor sit",
-                subtitle: "",
-                author: {
-                    name: "Lorem inpum",
-                    avatar: "/img/auth-img.png",
-                },
-                price: 10,
-            },
-        };
+        console.log('doc', this.doc);
     },
     methods: {
-        photoTemplate(){
-            let indice = this.index + 1;
-            if (!(indice <= 3))
-            {
-                indice = (indice - 3) ;
-            }
-            
-            this.item.photo = `/imagenes/artistas/artista-${indice }.png`;
-            
-        }
+
     }
 };
 </script>
 
 <style scoped>
-.cardBIO-text {
-    font-weight: bold;
-    font-size: 18px;
-}
+    .card-artist {
+        width: 290px;
+        height: 290px;
+    }
+    .cardBIO-text {
+        font-weight: bold;
+        font-size: 18px;
+    }
 
-.product-thumb.product-thumb {
-    overflow: revert;
-}
+    .product-thumb.product-thumb {
+        overflow: revert;
+    }
 
-.product-single .product-thumb figure img {
-    border-radius: 50%;
-    width: 100%;
-    height: auto;
-}
+    .product-single .product-thumb figure img {
+        border-radius: 50%;
+        width: 100%;
+        height: auto;
+    }
+
+    .artist-image {
+        width: 290px;
+        height: 290px;
+    }
 </style>
