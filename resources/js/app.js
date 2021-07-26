@@ -4,6 +4,7 @@ require('./bootstrap');
 import { createApp, h } from 'vue';
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue3';
 import { InertiaProgress } from '@inertiajs/progress';
+import moment from 'moment'
 
 const el = document.getElementById('app');
 
@@ -14,7 +15,14 @@ createApp({
             resolveComponent: (name) => require(`./Pages/${name}`).default,
         }),
 })
-    .mixin({ methods: { route } })
+    .mixin({
+        methods: { 
+            route,
+            moment(...args){
+                return moment(...args);
+            }
+        } 
+    })
     .use(InertiaPlugin)
     .mount(el);
 

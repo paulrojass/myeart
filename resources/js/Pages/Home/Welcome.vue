@@ -1,9 +1,15 @@
 <template>
 <div>
     <CoverSection />
-    <WorksArtSection />
-    <BIOArtistSection />
-    <GalleryReferencesSection />
+    <WorksArtSection 
+      :docs="artworks" 
+    />
+    <BIOArtistSection  
+      :docs="artists"
+    />
+    <GalleryReferencesSection 
+      :docs="galleries"
+    />
     <InfoConvertedSection />
     <ListBenefitsSection />
     <NewsletterSection />
@@ -25,6 +31,11 @@ import ListBenefitsSection from './Sections/ListBenefitsSection'
 import NewsletterSection from './Sections/NewsletterSection'
 
 export default {
+  props: [
+    'artists',
+    'artworks',
+    'galleries'
+  ],
   layout: LayoutDefault,
 
   components: {
@@ -37,9 +48,6 @@ export default {
     NewsletterSection
   },
 
-  props: {
-
-  },
   created(){
     console.log('this', this.$page.props)
   },

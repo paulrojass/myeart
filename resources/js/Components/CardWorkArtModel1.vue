@@ -1,14 +1,14 @@
 <template>
     <inertia-link
         :href="
-            route('detailsWorkArtist')
+            route('my-artworks.show', { id: doc.id })
         "
     >
         <div :class="`product-single ${color}`">
             <div class="product-thumb">
                 <figure>
                     <img 
-                        :src="item.photo" 
+                        :src="doc?.artwork_images[0]?.location" 
                         alt="" 
                         class="img-fluid" 
                     />
@@ -27,10 +27,10 @@
             
             <div class="descCardWorkArt">
                 <h5 class="mb-1 title-author-workArt">
-                    {{ item.title }}
+                    {{ doc.name }}
                 </h5>
                 <div class="subtitle-author-workArt">
-                    {{ item.author.name }}
+                    {{ doc.seller.user.name || 'Nombre Autor'}}
                 </div>
                 <div class="row-cardWorkArt my-2 pt-3 d-flex justify-content-between">
                     
@@ -41,9 +41,9 @@
                             data-toggle="tooltip"
                             style=""
                         />
-                        <span class="ml-1"> 30 </span>
+                        <span class="ml-1"> 0 </span>
                     </div>
-                    <div class="price"> {{ item.price }}$</div>
+                    <div class="price"> {{ doc.price }}$</div>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
 <script>
 
 export default {
-    props: ['item', 'color', 'index'],
+    props: ['doc'],
     created(){
         this.photoTemplate();
     },

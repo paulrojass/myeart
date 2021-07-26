@@ -77,6 +77,8 @@ Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class
 //Seleccionar Aristista o Galeria:
 Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
 ->name('artist-or-gallery');
+Route::get('/artista/{id}', [App\Http\Controllers\HomeController::class, 'artist'])
+->name('home.artist');
 
 //Listados de vendedores (artistas y galerias)
 Route::get('vendedores', [App\Http\Controllers\SellerController::class, 'list'])->name('sellers.index');
