@@ -26,7 +26,6 @@ class ArtworkController extends Controller
             'likes'
         ])->get();
 
-        // dd($artworks);
 
         return Inertia::render('artworks/Index', [
             'artworks' => $artworks
@@ -40,18 +39,34 @@ class ArtworkController extends Controller
      */
     public function list()
     {
+        $categories = Category::with('attributes', 'attributes.elements')->get();
         $artworks = Artwork::query()->with([
             'seller',
             'artworkImages',
             'elements',
-            'comments',
             'likes'
         ])->get();
 
+
         return Inertia::render('Search/index', [
-            'artworks' => $artworks
+            'artworks' => $artworks,
+            'categories' => $categories,
         ]);
     }
+
+
+    
+    /**
+     * Busqueda de obras
+     *
+     * @param  \App\Models\Artist  $artist
+     * @return \Illuminate\Http\Response
+     */
+    public function searchArtworks(Artist $artist)
+    {
+        //
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -124,7 +139,12 @@ class ArtworkController extends Controller
     public function show(Request $request)
     {
 
-        $artwork = Artwork::where('id', $request->id)->with(['seller.user.profile','artworkImages', 'elements', 'comments', 'likes'])->first();
+        $artwork = Artwork::where('id', $request->id)->with([
+            'seller.user.profile',
+            'artworkImages',
+            'elements',
+            'comments',
+            'likes'])->first();
 
         // dd($artwork);
 
@@ -184,4 +204,5 @@ class ArtworkController extends Controller
         return redirect()->route('my-account.artworks');
 
     }
+
 }

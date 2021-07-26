@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artist;
 use Illuminate\Http\Request;
 
+use App\Models\Artwork;
 use App\Models\Seller;
 use App\Models\Tag;
 use Inertia\Inertia;
@@ -100,9 +101,27 @@ class ArtistController extends Controller
      * @param  \App\Models\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function show(Artist $artist)
+    public function show($id)
     {
-        //
+        $artist = Artist::find($id)->with([
+            'seller.user',
+            'seller.user.profile',
+            'seller.artworks',
+            'seller.artworks.artworkImages',
+            'seller.sales'
+        ])->first();
+
+        $popular_artworks = Artwork::where('seller_id', $artist->seller_id)->withCount('likes')->with(['likes', 'artworkImages', 'seller.user'])->orderByDesc('likes_count')->take(6)->get();
+
+        //dd($popular_artworks);
+
+        //Aqui me falta agregar las resenas
+
+        return Inertia::render('artists/Index', [
+            'artist' => $artist,
+            'popular_artworks' => $popular_artworks
+        ]);
+
     }
 
     /**
