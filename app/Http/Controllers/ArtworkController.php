@@ -37,24 +37,24 @@ class ArtworkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function list()
+    public function list(Request $request)
     {
         $categories = Category::with('attributes', 'attributes.elements')->get();
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
+        $elements = $request->elements;
         $artworks = Artwork::query()->with([
             'seller',
             'artworkImages',
             'elements',
             'likes'
-        ])->get();
-
+        ])->minPrice($minPrice)->maxPrice($maxPrice)->elements($elements)->get();
 
         return Inertia::render('Search/index', [
             'artworks' => $artworks,
             'categories' => $categories,
         ]);
     }
-
-
     
     /**
      * Busqueda de obras

@@ -99,13 +99,25 @@ class Artwork extends Model
                     ->withPivot('artwork_id');
     }
 
-
     //Scopes
-    public function scopeOrderByLikes($query)
-    {
-        $query->leftJoin('likes', 'likes.artwork_id', '=', 'artworks.id')
-            ->selectRaw('artworks.*, count(likes.id) as aggregate')
-            ->orderBy('aggregate', 'desc');
+    public function scopeMinPrice($query, $minPrice) {
+        if ($minPrice) {
+            return $query->where('apellidos','>', $minPrice);
+        }
     }
 
+    public function scopeMaxPrice($query, $maxPrice) {
+        if ($maxPrice) {
+            return $query->where('apellidos','<', $maxPrice);
+        }
+    }
+
+    public function scopeElements($query, $elements) {
+        if ($elements) {
+            foreach($elements as $element_id) {
+                return $query->where('pivot.element_id', $element_id);
+            }
+        }
+
+    }
 }
