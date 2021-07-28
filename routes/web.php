@@ -72,7 +72,8 @@ require __DIR__.'/auth.php';
 Route::get('/redirect', [App\Http\Controllers\LoginWithFacebookController::class, 'redirectFacebook']);
 Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class, 'facebookCallback']);
 
-
+Route::get('obra/{id}/agregar-a-carrito', [App\Http\Controllers\HomeController::class, 'addToCart'])
+->name('artowork.add-to-cart');
 //Vistas para home
 //Seleccionar Aristista o Galeria:
 Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])

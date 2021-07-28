@@ -16827,6 +16827,10 @@ span.counter {
   font-size: calc(1.8rem + 0.9vw);
 }
 
+.subtitle {
+  
+}
+
 .card {
   background: #fff;
   padding: 30px;
@@ -16846,4 +16850,22 @@ span.counter {
 
 .bg-primary {
   background: #125CA0 !important;
+}
+
+.btn-primary-dark {
+  color: #fff;
+  background-color: #2566AE;
+  border-color: #2566AE;
+}
+
+.btn-primary-dark:hover {
+  color: #fff;
+  background-color: #2566AE;
+  border-color:#2566AE;
+}
+.btn-primary-dark:focus, .btn-primary-dark.focus {
+  color: #fff;
+  background-color: #2566AE;
+  border-color: #2176bd;
+  box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
 }
