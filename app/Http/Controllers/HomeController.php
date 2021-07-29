@@ -9,22 +9,29 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Artist;
 use App\Models\Artwork;
+use App\Models\Category;
 use App\Models\Gallery;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        $artworks = Artwork::with(['artworkImages', 'seller.user'])->take(6)->get();
+        $categories = Category::with(['artworks', 'artworks.ArtworkImages', 'attributes', 'attributes.elements'])->get();
+        $latest_artworks = Artwork::latest()->with(['artworkImages', 'seller.user'])->take(6)->get();
+        //$popular_artworks = Artwork::latest()->with(['artworkImages', 'seller.user'])->take(6)->get();
+        $popular_artworks = Artwork::withCount('likes')->with(['likes', 'artworkImages', 'seller.user'])->orderByDesc('likes_count')->take(6)->get();
+
         $artists = Artist::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get()->sortByDesc('created_at');
-        $galleries = Gallery::latest()->with(['seller', 'seller.user', 'seller.user'])->take(6)->get();
+        $galleries = Gallery::latest()->with(['seller', 'seller.user', 'seller.user', 'seller.artworks', 'seller.artworks.artworkImages'])->take(6)->get();
+
 
         return Inertia::render('Home/Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'artworks' => $artworks,
+            'latest_artworks' => $latest_artworks,
+            'popular_artworks' => $popular_artworks,
             'artists' => $artists,
             'galleries' => $galleries,
         ]);

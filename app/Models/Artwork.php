@@ -98,4 +98,26 @@ class Artwork extends Model
         return $this->belongsToMany(Element::class, 'artwork_element')
                     ->withPivot('artwork_id');
     }
+
+    //Scopes
+    public function scopeMinPrice($query, $minPrice) {
+        if ($minPrice) {
+            return $query->where('apellidos','>', $minPrice);
+        }
+    }
+
+    public function scopeMaxPrice($query, $maxPrice) {
+        if ($maxPrice) {
+            return $query->where('apellidos','<', $maxPrice);
+        }
+    }
+
+    public function scopeElements($query, $elements) {
+        if ($elements) {
+            foreach($elements as $element_id) {
+                return $query->where('pivot.element_id', $element_id);
+            }
+        }
+
+    }
 }

@@ -57,7 +57,7 @@ Route::get('/detailsWorkArtist', function(){
 })->middleware([])->name('detailsWorkArtist');
 
 // Vista Obras (Public) Editada (Paul)
-Route::get('/search', [App\Http\Controllers\ArtworkController::class, 'list'])->middleware([])->name('search');
+Route::get('obras', [App\Http\Controllers\ArtworkController::class, 'list'])->middleware([])->name('search');
 
 // Vista  Home , Editada Paul
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->middleware([])->name('home');
@@ -77,7 +77,9 @@ Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class
 //Seleccionar Aristista o Galeria:
 Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
 ->name('artist-or-gallery');
-Route::get('/artista/{id}', [App\Http\Controllers\HomeController::class, 'artist'])
+// Route::get('/artista/{id}', [App\Http\Controllers\HomeController::class, 'artist'])
+// ->name('home.artist');
+Route::get('/artista/{id}', [App\Http\Controllers\ArtistController::class, 'show'])
 ->name('home.artist');
 
 //Listados de vendedores (artistas y galerias)

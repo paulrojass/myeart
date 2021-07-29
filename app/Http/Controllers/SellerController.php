@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Seller;
+use App\Models\Artwork;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -63,8 +64,13 @@ class SellerController extends Controller
             'user',
             'user.profile',
             'gallery',
-            'artist'
-        ]);
+            'artist',
+            'artworks',
+            'sales'
+        ])->first();
+
+
+        //$popular_artworks = $seller->artworks->orderByLikes()->limit(6)->get();
 
         dd($seller);
 
