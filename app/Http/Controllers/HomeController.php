@@ -4,27 +4,35 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
+use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Artist;
 use App\Models\Artwork;
+use App\Models\Category;
 use App\Models\Gallery;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        $artworks = Artwork::all()->sortByDesc('created_at')->take(6);
-        $artists = Artist::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get();
-        $galleries = Gallery::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get();
+        $categories = Category::with(['artworks', 'artworks.ArtworkImages', 'attributes', 'attributes.elements'])->get();
+        $latest_artworks = Artwork::latest()->with(['artworkImages', 'seller.user'])->take(6)->get();
+        //$popular_artworks = Artwork::latest()->with(['artworkImages', 'seller.user'])->take(6)->get();
+        $popular_artworks = Artwork::withCount('likes')->with(['likes', 'artworkImages', 'seller.user'])->orderByDesc('likes_count')->take(6)->get();
+
+        $artists = Artist::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get()->sortByDesc('created_at');
+        $galleries = Gallery::latest()->with(['seller', 'seller.user', 'seller.user', 'seller.artworks', 'seller.artworks.artworkImages'])->take(6)->get();
+
 
         return Inertia::render('Home/Welcome', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
             'phpVersion' => PHP_VERSION,
-            'artworks' => $artworks,
+            'latest_artworks' => $latest_artworks,
+            'popular_artworks' => $popular_artworks,
             'artists' => $artists,
             'galleries' => $galleries,
         ]);
@@ -36,9 +44,15 @@ class HomeController extends Controller
         return Inertia::render('artworks/Index');
     }
 
-    public function artist()
+    public function artist(Request $request)
     {
-        return Inertia::render('artists/Index');
+        $artist = Artist::where('id', $request->id)->with('seller.user.profile')->first();
+        $artworks = Artwork::where('seller_id', $artist->seller->id)->with(['artworkImages', 'seller.user'])->take(6)->get();
+
+        return Inertia::render('artists/Index', [
+            'artist' => $artist,
+            'artworks' => $artworks
+        ]);
     }
 
     public function events()
@@ -51,12 +65,61 @@ class HomeController extends Controller
         return Inertia::render('users/ArtistOrGallery');
     }
 
-    public function addToCart(Request $request, $id)
+    public function addToCart(Request $request)
     {
-        $artwork = Artwork::find($id);
-        $request->session()->put('id', $id);
-        dd($request);
+        $artowork_id = $request->input('artwork_id');
 
-        return back();
+        if (Cookie::get('shopping_cart'))
+        {
+            $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+            $cart_data = json_decode($cookie_data, true);
+        }
+        else
+        {
+            $cart_data = array();
+        }
+
+        $item_id_list = array_column($cart_data, 'item_id');
+        $prod_id_is_there = $artwork_id;
+
+        if(in_array($prod_id_is_there, $item_id_list))
+        {
+            foreach($cart_data as $keys => $values)
+            {
+                if($cart_data[$keys]["item_id"] == $artwork_id)
+                {
+                    //$cart_data[$keys]["item_quantity"] = $request->input('quantity');
+                    $item_data = json_encode($cart_data);
+                    $minutes = 60;
+                    Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                    return response()->json(['status'=>'"'.$cart_data[$keys]["item_name"].'" Already Added to Cart','status2'=>'2']);
+                }
+            }
+        }
+        else
+        {
+            $artwork = Artwork::find($artwork_id);
+            $artwork_name = $artwork->name;
+            $artwork_image = $artwork->image;
+            $artwork_price = $artwork->price;
+            $artwork_offer = $artwork->offer;
+
+            if($products)
+            {
+                $item_array = array(
+                    'item_id' => $artwork_id,
+                    'item_name' => $artwork_name,
+                    'item_price' => $artwork_price,
+                    'item_offer' => $artwork_offer,
+                    'item_image' => $artwork_image
+                );
+                $cart_data[] = $item_array;
+
+                $item_data = json_encode($cart_data);
+                $minutes = 60;
+                Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                return response()->json(['status'=>'"'.$prod_name.'" Added to Cart']);
+            }
+        }
     }
 }

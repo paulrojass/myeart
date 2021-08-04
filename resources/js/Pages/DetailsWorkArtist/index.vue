@@ -420,6 +420,7 @@ import Header from "@/Layouts/Header"
 
 export default {
     layout: Layout,
+    props: ['artwork'],
     components: {
         Header
     },
@@ -427,6 +428,8 @@ export default {
       window.removeEventListener('scroll', this.handleScroll);
   },
     created(){
+        console.log('artwork', this.artwork)
+
         window.addEventListener('scroll', this.handleScroll);
 
         let newItems = this.items.map((item, index) => ({

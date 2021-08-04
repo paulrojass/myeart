@@ -26,7 +26,6 @@ class ArtworkController extends Controller
             'likes'
         ])->get();
 
-        // dd($artworks);
 
         return Inertia::render('artworks/Index', [
             'artworks' => $artworks
@@ -38,20 +37,36 @@ class ArtworkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function list()
+    public function list(Request $request)
     {
+        $categories = Category::with('attributes', 'attributes.elements')->get();
+        $minPrice = $request->minPrice;
+        $maxPrice = $request->maxPrice;
+        $elements = $request->elements;
         $artworks = Artwork::query()->with([
             'seller',
             'artworkImages',
             'elements',
-            'comments',
             'likes'
-        ])->get();
+        ])->minPrice($minPrice)->maxPrice($maxPrice)->elements($elements)->get();
 
         return Inertia::render('Search/index', [
-            'artworks' => $artworks
+            'artworks' => $artworks,
+            'categories' => $categories,
         ]);
     }
+    
+    /**
+     * Busqueda de obras
+     *
+     * @param  \App\Models\Artist  $artist
+     * @return \Illuminate\Http\Response
+     */
+    public function searchArtworks(Artist $artist)
+    {
+        //
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -77,7 +92,7 @@ class ArtworkController extends Controller
      */
     public function store(Request $request)
     {
-
+        dd($request->all());
         $artwork = Artwork::create([
             'seller_id' => auth()->user()->seller->id,
             'category_id' => $request->category_id,
@@ -89,6 +104,12 @@ class ArtworkController extends Controller
             'width' => $request->width,
             'height' => $request->height
         ]);
+
+        foreach ($request->elements as $key => $element_id) {
+            $artwork->elements->attach($element_id);
+            //creo que no es necesario enviar el artwork_id si ves que no funciona solo descomenta la lina siguiente y comenta la anterior, si funciona pues borras esto con la siguiente:
+            //$artwork->elements->attach($element_id , ['artwork_id', $artwork_id]);
+        }
 
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $key => $image) {
@@ -115,18 +136,23 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
 
-        $artwork = Artwork::where('id', $id)->with(['seller','artworkImages', 'elements', 'comments', 'likes'])->first();
+        $artwork = Artwork::where('id', $request->id)->with([
+            'seller.user.profile',
+            'artworkImages',
+            'elements',
+            'comments',
+            'likes'])->first();
 
-        dd($artwork);
+        // dd($artwork);
 
         //return response()->json(['artwork' => $artwork]);
         
         return Inertia::render('artworks/Show', [
             'artwork' => $artwork,
-            'seller' => $seller
+            // 'seller' => $seller
         ]);
     }
 
@@ -178,4 +204,5 @@ class ArtworkController extends Controller
         return redirect()->route('my-account.artworks');
 
     }
+
 }
