@@ -66,6 +66,8 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::post('add-to-cart', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add-to-cart');
+
 require __DIR__.'/auth.php';
 
 //Laravel Socialite

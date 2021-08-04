@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cookie;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -62,5 +63,63 @@ class HomeController extends Controller
     public function selectArtistOrGallery()
     {
         return Inertia::render('users/ArtistOrGallery');
+    }
+
+    public function addToCart(Request $request)
+    {
+        $artowork_id = $request->input('artwork_id');
+
+        if(Cookie::get('shopping_cart'))
+        {
+            $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+            $cart_data = json_decode($cookie_data, true);
+        }
+        else
+        {
+            $cart_data = array();
+        }
+
+        $item_id_list = array_column($cart_data, 'item_id');
+        $prod_id_is_there = $artwork_id;
+
+        if(in_array($prod_id_is_there, $item_id_list))
+        {
+            foreach($cart_data as $keys => $values)
+            {
+                if($cart_data[$keys]["item_id"] == $artwork_id)
+                {
+                    //$cart_data[$keys]["item_quantity"] = $request->input('quantity');
+                    $item_data = json_encode($cart_data);
+                    $minutes = 60;
+                    Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                    return response()->json(['status'=>'"'.$cart_data[$keys]["item_name"].'" Already Added to Cart','status2'=>'2']);
+                }
+            }
+        }
+        else
+        {
+            $artwork = Artwork::find($artwork_id);
+            $artwork_name = $artwork->name;
+            $artwork_image = $artwork->image;
+            $artwork_price = $artwork->price;
+            $artwork_offer = $artwork->offer;
+
+            if($products)
+            {
+                $item_array = array(
+                    'item_id' => $artwork_id,
+                    'item_name' => $artwork_name,
+                    'item_price' => $artwork_price,
+                    'item_offer' => $artwork_offer,
+                    'item_image' => $artwork_image
+                );
+                $cart_data[] = $item_array;
+
+                $item_data = json_encode($cart_data);
+                $minutes = 60;
+                Cookie::queue(Cookie::make('shopping_cart', $item_data, $minutes));
+                return response()->json(['status'=>'"'.$prod_name.'" Added to Cart']);
+            }
+        }
     }
 }
