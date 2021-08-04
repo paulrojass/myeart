@@ -527,6 +527,11 @@ export default {
         align-items: center;
         width: 90%;
         height: 50px;
+        cursor: pointer;
+    }
+
+    .btn-list:hover {
+        opacity: .6;
     }
 
     .btn-list.buy {

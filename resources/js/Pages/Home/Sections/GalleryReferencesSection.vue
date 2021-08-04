@@ -6,7 +6,7 @@
                     <div class="section-title">
                         <h2 class="title">Galerías de Referencia</h2>
                     </div>
-                    <div class="d-flex justify-content-center mb-4">
+                    <!-- <div class="d-flex justify-content-center mb-4">
                         <div class="m-1">
                             <Buttom
                                 text="obras destacadas"
@@ -19,7 +19,7 @@
                                 size="lg"
                             />
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 
                 <div class="col-lg-12">
