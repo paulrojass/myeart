@@ -66,13 +66,16 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::post('add-to-cart', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add-to-cart');
+
 require __DIR__.'/auth.php';
 
 //Laravel Socialite
 Route::get('/redirect', [App\Http\Controllers\LoginWithFacebookController::class, 'redirectFacebook']);
 Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class, 'facebookCallback']);
 
-
+Route::get('obra/{id}/agregar-a-carrito', [App\Http\Controllers\HomeController::class, 'addToCart'])
+->name('artowork.add-to-cart');
 //Vistas para home
 //Seleccionar Aristista o Galeria:
 Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
