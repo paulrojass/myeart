@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Inertia\Middleware;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 
 class HandleInertiaRequests extends Middleware
 {
@@ -33,6 +35,8 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        $user = User::with(['profile', 'roles'])
+            ->find(Auth::id());
 
         return array_merge(parent::share($request), [
 
@@ -40,9 +44,7 @@ class HandleInertiaRequests extends Middleware
             'appName' => config('app.name'),
 
             // Lazily
-            'auth.user' => fn () => $request->user()
-                ? $request->user()->with(['profile', 'roles'])->first()
-                : null,
+            'auth.user' => $user,
         ]);
     }
 }

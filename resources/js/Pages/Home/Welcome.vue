@@ -2,7 +2,8 @@
 <div>
     <CoverSection />
     <WorksArtSection 
-      :docs="artworks" 
+      :docsLastest="latest_artworks"
+      :docsPopulate="popular_artworks"
     />
     <BIOArtistSection  
       :docs="artists"
@@ -33,7 +34,8 @@ import NewsletterSection from './Sections/NewsletterSection'
 export default {
   props: [
     'artists',
-    'artworks',
+    'latest_artworks',
+    'popular_artworks',
     'galleries'
   ],
   layout: LayoutDefault,

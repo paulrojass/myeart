@@ -21,6 +21,7 @@
                 :format="formatPrefix"
                 showTooltip="focus"
                 class="slider-custom"
+                @update="handleChange"
             />
         </div>
     </div>
@@ -30,7 +31,7 @@
 import Slider from '@vueform/slider'
 
 export default {
-    props:['title', 'prefix', 'min', 'max'],
+    props:['title', 'prefix', 'min', 'max', 'handleChange'],
 
     data() {
         return {
@@ -46,6 +47,9 @@ export default {
     methods: {
         formatPrefix(value){
             return `${value} $`;
+        },
+        print(value){
+            console.log('pring', value)
         }
     }
 }

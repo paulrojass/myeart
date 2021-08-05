@@ -82,7 +82,7 @@
 export default {
     props: ['doc'],
     created(){
-        console.log('doc', this.doc);
+        // console.log('doc', this.doc);
     },
     methods: {
 

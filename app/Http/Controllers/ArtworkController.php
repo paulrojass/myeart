@@ -44,7 +44,7 @@ class ArtworkController extends Controller
         $maxPrice = $request->maxPrice;
         $elements = $request->elements;
         $artworks = Artwork::query()->with([
-            'seller',
+            'seller.user',
             'artworkImages',
             'elements',
             'likes'

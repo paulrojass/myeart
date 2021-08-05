@@ -35,46 +35,43 @@
                         <aside class="sidebar product--sidebar">
                             
                             <div>
-                                <h2 class="text-primary">Medio</h2>
+                                <h2 class="text-primary">Categoria</h2>
                                 <div class="sidebar-card card--category border-primary mb-2">
                                 
-                                    <a class="card-title" href="#collapse1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse1">
+                                    <!-- <a class="card-title" href="#collapse1" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse1">
                                         <h5 class="mb-0">Pintura
                                             <span class="icon-arrow-down text-primary"></span>
                                         </h5>
-                                    </a>
-                                    <div class="collapse collapsible-content" id="collapse1">
+                                    </a> -->
+                                    <!-- <div class="collapse collapsible-content" id="collapse1">
                                         <ul class="card-content">
                                             <li>
                                                 <a href="#">
                                                     option 1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    option 2
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="sidebar-card card--category border-primary mb-2">
                                 
-                                    <a class="card-title" href="#collapse2" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse2">
-                                        <h5 class="mb-0">Categoria de Pintura
+                                    <a class="card-title" href="#category" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="category">
+                                        <h5 class="mb-0">{{ form.category.name ? form.category.name : 'Categoria de Pintura'}}
                                             <span class="icon-arrow-down text-primary"></span>
                                         </h5>
                                     </a>
-                                    <div class="collapse collapsible-content" id="collapse2">
-                                        <ul class="card-content">
-                                            <li>
-                                                <a href="#">
-                                                    option 1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    option 2
+                                    <div class="collapse collapsible-content" id="category">
+                                        <ul 
+                                            class="card-content">
+                                            <li
+                                                v-for="category in categories"
+                                                :key="category.id"
+                                            >
+                                                <a 
+                                                    style="cursor:pointer"
+                                                    @click="handleChange('category', category)"
+                                                    >
+                                                    {{ category.name }}
                                                 </a>
                                             </li>
                                         </ul>
@@ -83,50 +80,33 @@
 
                             </div>
                             <div class="mt-4">
-                                <h2 class="text-primary">Estilo de pintura</h2>
-                                <div class="sidebar-card card--category border-primary mb-2">
-                                
-                                    <a class="card-title" href="#collapse3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse3">
-                                        <h5 class="mb-0">Figurativo
-                                            <span class="icon-arrow-down text-primary"></span>
-                                        </h5>
-                                    </a>
-                                    <div class="collapse collapsible-content" id="collapse3">
-                                        <ul class="card-content">
-                                            <li>
-                                                <a href="#">
-                                                    option 1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    option 2
-                                                </a>
-                                            </li>
-                                        </ul>
+                                <div                                 
+                                    v-for="attribute in attributes"
+                                    :key="attribute.id">
+                                    <h2 class="text-primary">{{ attribute.name }}</h2>
+                                    <div class="sidebar-card card--category border-primary mb-2">
+                                    
+                                        <a class="card-title" :href="`#collaps-${attribute.name}`" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse3">
+                                            <h5 class="mb-0">{{ 
+                                                    form.elements[attribute.id]?.name
+                                                }}
+                                                <span class="icon-arrow-down text-primary"></span>
+                                            </h5>
+                                        </a>
+                                        <div class="collapse collapsible-content" :id="`collaps-${attribute.name}`">
+                                            <ul class="card-content">
+                                                <li v-for="element in attribute.elements" :key="element.id">
+                                                    <a
+                                                        style="cursor:pointer"
+                                                        @click="handleChangeElement(attribute, element)"
+                                                    >
+                                                        {{ element.name }}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="sidebar-card card--category border-primary mb-2">
-                                
-                                    <a class="card-title" href="#collapse4" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapse4">
-                                        <h5 class="mb-0">Tecnicas de pintura
-                                            <span class="icon-arrow-down text-primary"></span>
-                                        </h5>
-                                    </a>
-                                    <div class="collapse collapsible-content" id="collapse4">
-                                        <ul class="card-content">
-                                            <li>
-                                                <a href="#">
-                                                    option 1
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    option 2
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
+
                                 </div>
 
                                 <div class="mt-4">
@@ -134,11 +114,12 @@
                                         title="Precio"
                                         prefix=" €"
                                         :min="0"
-                                        :max="100"
+                                        :max="1000"
+                                        :handleChange="value => form.price = value"
                                     />
                                 </div>
 
-                                <div class="mt-4">
+                                <!-- <div class="mt-4">
                                     <h2 class="text-primary">Orientacion</h2>
                                     <div class="row">
                                         <div 
@@ -147,10 +128,10 @@
                                             <img src="img/buyr1.png" alt="" style="width: 100%">
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="mt-4">
                                     <h2 class="text-primary">Tamaño</h2>
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-4">
                                             <img src="img/buyr1.png" alt="" style="width: 100%">
                                         </div>
@@ -160,7 +141,7 @@
                                         <div class="col-4">
                                             <img src="img/buyr1.png" alt="" style="width: 100%">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="mt-4">
                                     <ItemRange 
@@ -168,6 +149,7 @@
                                         prefix=" + CM"
                                         :min="0"
                                         :max="500"
+                                        :handleChange="value => form.height = value"
                                     />
                                 </div>
                                 <div class="mt-4">
@@ -176,7 +158,11 @@
                                         prefix=" + CM"
                                         :min="0"
                                         :max="500"
+                                        :handleChange="value => form.width = value"
                                     />
+                                </div>
+                                <div class="mt-4">
+                                    <button class="btn btn-primary" @click="print()">Buscar</button>
                                 </div>
                             </div>
                         </aside>
@@ -185,10 +171,10 @@
                         <div class="row">
                             <div 
                                 class="col-xl-4 col-lg-6 col-md-6"
-                                v-for="(item, index) in [1,2,3,4,5,6]"
-                                :key="index"                                
+                                v-for="doc in displayDocs"
+                                :key="doc.id"                                
                             >
-                                <CardWordArtModel />
+                                <CardWordArtModel :doc="doc" />
                             </div>
                         </div>
                         
@@ -227,19 +213,134 @@
 </template>
 
 <script>
-import Layout from "@/Layouts/Default/LayoutDefault"
+import layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
 import CardWordArtModel from "@/Components/CardWorkArtModel1"
 import NewsletterSection from "@/Pages/Home/Sections/NewsletterSection"
 import ItemRange from '@/Components/ItemRange'
 
 export default {
-    layout: Layout,
+    layout,
+    props: ['categories', 'artworks'],
     components: {
         Header,
         CardWordArtModel,
         NewsletterSection,
         ItemRange
-    }
+    },
+    created(){
+        console.log('props', {
+            categories: this.categories,
+            artworks: this.artworks
+        })
+
+        this.form.category = this.categories[0];
+    },
+    data(){
+        return {
+            form: {
+                category: {},
+                elements: {},
+                price: [],
+                height: [],
+                width: []
+            }
+        }
+    },
+    computed: {
+        attributes(){
+            return this.categories ? this.categories
+                .find( c => c.id === this.form.category.id)
+                ?.attributes : []
+        },
+        displayDocs(){
+            return this.artworks ? 
+                this.artworks.filter(artwork => this.filterByForm(artwork))
+                : 
+                [];
+        }
+    },
+    methods: {
+        filterByForm(artwork){
+            let valid = true;
+
+            // Verificar Categoria
+            if (artwork.category_id !== this.form.category.id){
+                valid = false;
+            }
+
+            // Verificar Precios
+            if (this.form.price.length 
+                && !(Number(artwork.price) >= this.form.price[0] 
+                && Number(artwork.price) <= this.form.price[1] )
+            ){
+                valid = false;
+            }
+
+            // Verficar Altura
+
+            if (this.form.height.length 
+                && !(Number(artwork.height) >= this.form.height[0] 
+                && Number(artwork.height) <= this.form.height[1] )
+            ){
+                valid = false;
+            }
+
+            // Verficar Ancho
+
+            if (this.form.width.length 
+                && !(Number(artwork.width) >= this.form.width[0] 
+                && Number(artwork.width) <= this.form.width[1] )
+            ){
+                valid = false;
+            }
+
+            let elems = Object.values(this.form.elements).map(e => e.id);
+            console.log('elems', elems)
+            // Verificar elementos
+
+            let elemConc = elems.filter(e => artwork.elements.find( elem => elem.id === e))
+            console.log('elemsConc', elemConc)
+            
+            if (elems.length && !elemConc.length){
+                valid = false;
+            }
+
+            return valid;
+        },
+        handleChange(field, value){
+            console.log('event', {
+                field,
+                value
+            })
+            this.form[field] = value;
+
+            if (field === 'category'){
+                this.form.elements = [];
+                window.$('#category').removeClass('show')
+            }
+
+            // let div = document.getElementById(`collaps-${value.name}`);
+            // console.log('div', div)
+        },
+        handleChangeElement(attribute, element){
+            this.form.elements = {
+                ...this.form.elements,
+                [attribute.id]: element
+            }
+
+            window.$(`#collaps-${attribute.name}`).removeClass('show');
+
+            console.log('attribute', {
+                attribute, element
+            })
+            
+
+        },
+        print(){
+            console.log('print', this.form)
+        }
+
+    },
 }
 </script>
