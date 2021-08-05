@@ -38,6 +38,11 @@ class HandleInertiaRequests extends Middleware
         $user = User::with(['profile', 'roles'])
             ->find(Auth::id());
 
+        if(Cookie::get('shopping_cart')) {
+            $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+            $shopping_cart = json_decode($cookie_data, true);
+        }
+
         return array_merge(parent::share($request), [
 
             // Synchronously
@@ -45,6 +50,8 @@ class HandleInertiaRequests extends Middleware
 
             // Lazily
             'auth.user' => $user,
+
+            'shopping_cart' => $shopping_cart ? $shopping_cart : null
         ]);
     }
 }

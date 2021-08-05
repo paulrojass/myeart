@@ -35,7 +35,28 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order = new Order;
+        //transaction_id es el id de la orden en stripe, eso al final
+        $order->transaction_id = $request->transaction_id;
+        $order->name = $request->name;
+        $order->lastname = $request->lastname;
+        $order->country = $request->country;
+        $order->address = $request->address;
+        $order->zip_code = $request->zip_code;
+        $order->city = $request->city;
+        $order->region = $request->region;
+        $order->phone = $request->phone;
+        $order->email = $request->email;
+        $order->total = $request->total;
+
+        $order->save();
+
+        dd($order);
+
+        //Por ahora return al resultado de la compra con los datos del pedido
+        return Inertia::render('successful-order', [
+            'order' => $order
+        ]);
     }
 
     /**
@@ -81,5 +102,13 @@ class OrderController extends Controller
     public function destroy(Order $order)
     {
         //
+    }
+
+    public function checkout(Artwork $artworks, $total)
+    {
+        //return Inertia::render('', [
+        //    'artworks => $artworks,
+        //    'total => $total
+        //]);
     }
 }

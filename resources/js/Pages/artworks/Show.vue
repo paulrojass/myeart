@@ -236,9 +236,9 @@
                                     <div class="col-5 btn-list buy">
                                         <span class="">Comprar</span>
                                     </div>
-                                    <div class="col-5 btn-list add">
+                                    <button class="col-5 btn-list add" v-on:click="addToCart(artwork.id)">
                                         <span class=" ">Agregar a carrito</span>
-                                    </div>
+                                    </button>
                                 </div>
 
                                 <ul class="border-bottom">
@@ -383,7 +383,7 @@
 <script>
 import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
-
+import { Inertia } from '@inertiajs/inertia'
 export default {
     layout: Layout,
     props: ['artwork'],
@@ -489,7 +489,11 @@ export default {
 
             }
             // console.log('scrrol', window.scrollY)
+        },
+        addToCart(id){
+            Inertia.get(route('add-to-cart', id))
         }
+
     }
 }
 </script>
