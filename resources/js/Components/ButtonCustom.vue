@@ -1,6 +1,6 @@
 <template>
   <button 
-    :class="`btn btn-${variant ? variant : 'primary'} text-capitalize btn-lg`"
+    :class="`btn btn-${variant ? variant : 'primary'} ${active && 'activo'} text-capitalize btn-lg`"
   >
     {{ text }}
   </button>
@@ -8,7 +8,7 @@
 
 <script>
   export default {
-    props: ['text', 'variant', 'size']
+    props: ['text', 'variant', 'size', 'active']
   }
 </script>
 
@@ -73,8 +73,12 @@
   /* Variants Primary */
   .btn-primary {
     color: #fff;
-    background-color: #2566AE;
+    background-color: rgba(82, 161, 225, 0.5);
     border-color: #2566AE;
+  }
+
+  .btn-primary.activo {
+    background-color: #2566AE;
   }
 
   .btn-primary:hover {
@@ -101,6 +105,10 @@
     color: #2566AE;
     background-color: #F2DFA8;
     border-color: #ffe817;
+  }
+
+  .btn-secondary.activo {
+    background-color: #f0d78e
   }
 
   .btn-secondary:focus, .btn-secondary.focus {

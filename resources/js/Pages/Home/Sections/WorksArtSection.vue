@@ -10,6 +10,8 @@
                         <div class="m-1">
                             <Buttom
                                 text="obras destacadas"
+                                :active="!lastest"
+                                @click="handleChange"
                             />
                         </div>
                         <div class="m-1">
@@ -17,6 +19,8 @@
                                 text="ultimas obras"
                                 variant="secondary"
                                 size="lg"
+                                :active="lastest"
+                                @click="handleChange"
                             />
                         </div>
                     </div>
@@ -72,7 +76,7 @@ import CardWorkArtModel from "../../../Components/CardWorkArtModel1";
 import Buttom from '../../../Components/ButtonCustom'
 
 export default {
-    props: ['docs'],
+    props: ['docsLastest', 'docsPopulate'],
     components: {
         CardWorkArtModel,
         Buttom
@@ -82,8 +86,18 @@ export default {
     },
     data() {
         return {
-            items: [1, 2, 3],
+            lastest: true
         };
     },
+    computed: {
+        docs(){
+            return this.lastest ? this.docsLastest : this.docsPopulate;
+        }
+    },
+    methods: {
+        handleChange(){
+            this.lastest = !this.lastest;
+        }
+    }
 };
 </script>
