@@ -67,11 +67,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
-Route::get('carrito', [App\Http\Controllers\HomeController::class, 'shoppingCart'])->name('shopping-cart');
-
-Route::get('carrito/agregar/{artwork_id}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add-to-cart');
-
-Route::get('carrito/limpiar', [App\Http\Controllers\HomeController::class, 'cleanShoppingCart'])->name('shopping-cart.clean');
+// Route::get('carrito', [App\Http\Controllers\HomeController::class, 'shoppingCart'])->name('shopping-cart');
+//
+// Route::get('carrito/agregar/{artwork_id}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add-to-cart');
+//
+// Route::get('carrito/limpiar', [App\Http\Controllers\HomeController::class, 'cleanShoppingCart'])->name('shopping-cart.clean');
 
 
 require __DIR__.'/auth.php';
@@ -104,8 +104,23 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
     Route::get('mis-ventas', [App\Http\Controllers\SellerController::class, 'mySales'])
     ->name('my-account.shopping');
 
+    //Rutas para las compras
     Route::post('checkout', [App\Http\Controllers\BuyController::class, 'checkout'])
     ->name('my-account.checkout');
+    Route::get('compra/obra/{id}', [App\Http\Controllers\BuyController::class, 'create'])
+    ->name('buys.create');
+    Route::resource(
+        'compra',
+        App\Http\Controllers\GalleryController::class,
+        [ 'names' => [
+            'store' => 'buys.store',
+            'edit' => 'buys.edit',
+            'show' => 'buys.show',
+            'update' => 'buys.update',
+            'destroy' => 'buys.destroy'
+            ]
+        ]
+    )->except(['index', 'create']);
 
     //Obras del usuario
     Route::group(['prefix' => 'mis-obras'], function () {

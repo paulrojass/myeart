@@ -80,5 +80,4 @@ class Seller extends Model
     {
         return $this->hasManyThrough(Buy::class, Artwork::class);
     }
-
 }

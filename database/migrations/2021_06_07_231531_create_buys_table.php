@@ -15,11 +15,22 @@ class CreateBuysTable extends Migration
     {
         Schema::create('buys', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('artwork_id')->constrained()->onDelete('cascade');
             $table->boolean('finished')->default(0);
             $table->text('comment')->nullable();
             $table->integer('rating')->nullable();
+            $table->bigInteger('transaction_id');
+            $table->string('name')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('country')->nullable();
+            $table->text('address')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('city')->nullable();
+            $table->string('region')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
+            $table->decimal('total', 10, 2);
             $table->timestamps();
         });
     }

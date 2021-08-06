@@ -15,17 +15,28 @@ class Buy extends Model
         'finished',
         'comment',
         'rating',
+        'transaction_id',
+        'name',
+        'lastname',
+        'country',
+        'address',
+        'zip_code',
+        'city',
+        'region',
+        'phone',
+        'email',
+        'total'
     ];
 
     /**
-     * Método que obtiene la orden a la que pertenece la compra
+     * Método que obtiene el usuario que realizo la compra
      *
      * @author  Paúl Rojas <paul.rojase@gmail.com>
      * @return object Objeto con los registros relacionados al modelo Buy
      */
-    public function order()
+    public function user()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(User::class);
     }
 
     /**

@@ -66,94 +66,94 @@ class HomeController extends Controller
         return Inertia::render('users/ArtistOrGallery');
     }
 
-    public function shoppingCart()
-    {
-        if(Cookie::get('shopping_cart')) {
-        $cookie_data = stripslashes(Cookie::get('shopping_cart'));
-        $cart_data = json_decode($cookie_data, true);
-
-        $artwork_ids = Arr::pluck($cart_data, 'artwork_id');
-
-        $artworks = Artwork::find($artwork_ids);
-
-        $total = 0;
-        foreach ($artworks as $key => $artwork) {
-            if ($artwork->offer != null) {
-            $total += $artwork->offer;
-            } else {
-                $total += $artwork->price;
-            }
-        }
-
-        dd($total);
-        //dd($artworks);
-
-        //return Inertia::render('');
-
-        }
-    }
-
-    public function cleanShoppingCart()
-    {
-        return Cookie::forget('shopping_cart');
-
-        return back()->with('success', 'El carrito de compras se ha limpiado');
-    }
-
-
-    public function addToCart($artwork_id)
-    {
-        if (Cookie::get('shopping_cart'))
-        {
-            $cookie_data = stripslashes(Cookie::get('shopping_cart'));
-            $cart_data = json_decode($cookie_data, true);
-        }
-        else
-        {
-            $cart_data = array();
-        }
-
-        $artwork_id_list = array_column($cart_data, 'artwork_id');
-        $prod_id_is_there = $artwork_id;
-
-        if(in_array($prod_id_is_there, $artwork_id_list))
-        {
-            foreach($cart_data as $keys => $values)
-            {
-                if($cart_data[$keys]["artwork_id"] == $artwork_id)
-                {
-                    //$cart_data[$keys]["artwork_quantity"] = $request->input('quantity');
-                    $artwork_data = json_encode($cart_data);
-                    //$minutes = 60;
-                    Cookie::queue(Cookie::make('shopping_cart', $artwork_data));
-                    return response()->json(['status'=>'"'.$cart_data[$keys]["artwork_name"].'" agregado al carrito','status2'=>'2']);
-                }
-            }
-        }
-        else
-        {
-            $artwork = Artwork::find($artwork_id);
-            $artwork_name = $artwork->name;
-            $artwork_image = $artwork->artworkImages->where('principal')->first();
-            $artwork_price = $artwork->price;
-            $artwork_offer = $artwork->offer;
-
-            if($artwork)
-            {
-                $artwork_array = array(
-                    'artwork_id' => $artwork_id,
-                    'artwork_name' => $artwork_name,
-                    'artwork_price' => $artwork_price,
-                    'artwork_offer' => $artwork_offer,
-                    'artwork_image' => $artwork_image
-                );
-                $cart_data[] = $artwork_array;
-
-                $artwork_data = json_encode($cart_data);
-                //$minutes = 60;
-                Cookie::queue(Cookie::make('shopping_cart', $artwork_data));
-                return response()->json(['status'=>'"'.$artwork_name.'" agregado al carrito']);
-            }
-        }
-    }
+    // public function shoppingCart()
+    // {
+    //     if(Cookie::get('shopping_cart')) {
+    //     $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+    //     $cart_data = json_decode($cookie_data, true);
+    //
+    //     $artwork_ids = Arr::pluck($cart_data, 'artwork_id');
+    //
+    //     $artworks = Artwork::find($artwork_ids);
+    //
+    //     $total = 0;
+    //     foreach ($artworks as $key => $artwork) {
+    //         if ($artwork->offer != null) {
+    //         $total += $artwork->offer;
+    //         } else {
+    //             $total += $artwork->price;
+    //         }
+    //     }
+    //
+    //     dd($total);
+    //     //dd($artworks);
+    //
+    //     //return Inertia::render('');
+    //
+    //     }
+    // }
+    //
+    // public function cleanShoppingCart()
+    // {
+    //     return Cookie::forget('shopping_cart');
+    //
+    //     return back()->with('success', 'El carrito de compras se ha limpiado');
+    // }
+    //
+    //
+    // public function addToCart($artwork_id)
+    // {
+    //     if (Cookie::get('shopping_cart'))
+    //     {
+    //         $cookie_data = stripslashes(Cookie::get('shopping_cart'));
+    //         $cart_data = json_decode($cookie_data, true);
+    //     }
+    //     else
+    //     {
+    //         $cart_data = array();
+    //     }
+    //
+    //     $artwork_id_list = array_column($cart_data, 'artwork_id');
+    //     $prod_id_is_there = $artwork_id;
+    //
+    //     if(in_array($prod_id_is_there, $artwork_id_list))
+    //     {
+    //         foreach($cart_data as $keys => $values)
+    //         {
+    //             if($cart_data[$keys]["artwork_id"] == $artwork_id)
+    //             {
+    //                 //$cart_data[$keys]["artwork_quantity"] = $request->input('quantity');
+    //                 $artwork_data = json_encode($cart_data);
+    //                 //$minutes = 60;
+    //                 Cookie::queue(Cookie::make('shopping_cart', $artwork_data));
+    //                 return response()->json(['status'=>'"'.$cart_data[$keys]["artwork_name"].'" agregado al carrito','status2'=>'2']);
+    //             }
+    //         }
+    //     }
+    //     else
+    //     {
+    //         $artwork = Artwork::find($artwork_id);
+    //         $artwork_name = $artwork->name;
+    //         $artwork_image = $artwork->artworkImages->where('principal')->first();
+    //         $artwork_price = $artwork->price;
+    //         $artwork_offer = $artwork->offer;
+    //
+    //         if($artwork)
+    //         {
+    //             $artwork_array = array(
+    //                 'artwork_id' => $artwork_id,
+    //                 'artwork_name' => $artwork_name,
+    //                 'artwork_price' => $artwork_price,
+    //                 'artwork_offer' => $artwork_offer,
+    //                 'artwork_image' => $artwork_image
+    //             );
+    //             $cart_data[] = $artwork_array;
+    //
+    //             $artwork_data = json_encode($cart_data);
+    //             //$minutes = 60;
+    //             Cookie::queue(Cookie::make('shopping_cart', $artwork_data));
+    //             return response()->json(['status'=>'"'.$artwork_name.'" agregado al carrito']);
+    //         }
+    //     }
+    // }
 }
