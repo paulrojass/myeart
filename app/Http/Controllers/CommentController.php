@@ -27,6 +27,21 @@ class CommentController extends Controller
             $comment_id = $request->comment_id;
         }
 
+
+        $artwork = Artwork::find($artwork_id);
+
+        $user = $artwork->seller->user;
+
+        $sender = auth()->user();
+
+        $details = [
+                'greeting' => 'Hola '.$user->profile->firstName.' '.$user->profile->lastName.' han comentado una obra',
+                'body' => $comment->content,
+                //'thanks' => 'Thank you for visiting codechief.org!',
+        ];
+
+        $user->notify(new \App\Notifications\NewComment($details));
+
         return $comment->save();
     }
 
