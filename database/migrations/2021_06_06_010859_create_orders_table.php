@@ -17,6 +17,15 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->bigInteger('transaction_id');
+            $table->string('name')->nullable();
+            $table->string('lastname')->nullable();
+            $table->string('country')->nullable();
+            $table->text('address')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('city')->nullable();
+            $table->string('region')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('email')->nullable();
             $table->decimal('total', 10, 2);
             $table->timestamps();
         });

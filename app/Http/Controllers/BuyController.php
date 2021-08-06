@@ -82,5 +82,4 @@ class BuyController extends Controller
     {
         //
     }
-
 }

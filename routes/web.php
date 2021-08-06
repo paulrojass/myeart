@@ -66,7 +66,13 @@ Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::post('add-to-cart', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add-to-cart');
+
+Route::get('carrito', [App\Http\Controllers\HomeController::class, 'shoppingCart'])->name('shopping-cart');
+
+Route::get('carrito/agregar/{artwork_id}', [App\Http\Controllers\HomeController::class, 'addToCart'])->name('add-to-cart');
+
+Route::get('carrito/limpiar', [App\Http\Controllers\HomeController::class, 'cleanShoppingCart'])->name('shopping-cart.clean');
+
 
 require __DIR__.'/auth.php';
 
@@ -74,8 +80,6 @@ require __DIR__.'/auth.php';
 Route::get('/redirect', [App\Http\Controllers\LoginWithFacebookController::class, 'redirectFacebook']);
 Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class, 'facebookCallback']);
 
-Route::get('obra/{id}/agregar-a-carrito', [App\Http\Controllers\HomeController::class, 'addToCart'])
-->name('artowork.add-to-cart');
 //Vistas para home
 //Seleccionar Aristista o Galeria:
 Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 'selectArtistOrGallery'])
@@ -99,6 +103,9 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
     ->name('my-account.shopping');
     Route::get('mis-ventas', [App\Http\Controllers\SellerController::class, 'mySales'])
     ->name('my-account.shopping');
+
+    Route::post('checkout', [App\Http\Controllers\BuyController::class, 'checkout'])
+    ->name('my-account.checkout');
 
     //Obras del usuario
     Route::group(['prefix' => 'mis-obras'], function () {
