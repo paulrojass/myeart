@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Buy;
 use Illuminate\Http\Request;
 
+use App\Models\Artwork;
+use Inertia\Inertia;
+
 class BuyController extends Controller
 {
     /**
@@ -24,8 +27,8 @@ class BuyController extends Controller
      */
     public function create($id)
     {
-        $artwork = Artwork::find($id);
-        return Inertia::render('', [
+        $artwork = Artwork::where('id', $id)->with('artworkImages')->first();
+        return Inertia::render('buys/BuysIndex', [
             'artwork' => $artwork
         ]);
     }
@@ -39,7 +42,7 @@ class BuyController extends Controller
     public function store(Request $request)
     {
         $user = auth()->user();
-        $artwork = Artwork::find($request->artwork_id);
+        $artwork = Artwork::where('id', $request->artwork_id)->with('artworkImages')->first();
         if ($artwork->offer != null) {
             $total = $artwork->offer;
         } else {
@@ -60,9 +63,11 @@ class BuyController extends Controller
         $buy->phone = $request->phone;
         $buy->email = $request->email;
         $buy->total = $total;
-        $order->save();
+        $buy->save();
 
-        return Inertia::render('vista de compra exitosa');
+        return Inertia::render('buys/PurchaseSummary', [
+            'artwork' => $artwork
+        ]);
     }
 
     /**

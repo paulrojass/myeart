@@ -1,6 +1,8 @@
 <template>
 <div>
-    <CoverSection />
+    <CoverSection 
+      :categories="categories"
+    />
     <WorksArtSection 
       :docsLastest="latest_artworks"
       :docsPopulate="popular_artworks"
@@ -36,7 +38,8 @@ export default {
     'artists',
     'latest_artworks',
     'popular_artworks',
-    'galleries'
+    'galleries',
+    'categories'
   ],
   layout: LayoutDefault,
 

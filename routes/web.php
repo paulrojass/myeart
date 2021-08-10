@@ -111,7 +111,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
     ->name('buys.create');
     Route::resource(
         'compra',
-        App\Http\Controllers\GalleryController::class,
+        App\Http\Controllers\BuyController::class,
         [ 'names' => [
             'store' => 'buys.store',
             'edit' => 'buys.edit',

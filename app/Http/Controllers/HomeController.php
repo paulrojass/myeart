@@ -36,6 +36,7 @@ class HomeController extends Controller
             'popular_artworks' => $popular_artworks,
             'artists' => $artists,
             'galleries' => $galleries,
+            'categories' => $categories
         ]);
 
     }

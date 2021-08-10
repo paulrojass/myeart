@@ -142,7 +142,7 @@ class ArtworkController extends Controller
         $artwork = Artwork::where('id', $request->id)->with([
             'seller.user.profile',
             'artworkImages',
-            'elements',
+            'elements.attribute',
             'comments',
             'likes'])->first();
 

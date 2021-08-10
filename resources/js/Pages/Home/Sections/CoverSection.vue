@@ -27,7 +27,7 @@
                                 <div class="row">
                                     <div class="col-md-10 offset-md-1">
                                         <div class="search_box">
-                                            <form action="#">
+                                            <form @submit.prevent="submit">
                                                 <input
                                                     type="text"
                                                     class="text_field"
@@ -39,21 +39,16 @@
                                                     <select
                                                         name="category"
                                                         class="select--field"
+                                                        v-model="form.category"
                                                     >
                                                         <option value="">
                                                            Categorias
                                                         </option>
-                                                        <option value="">
-                                                            opcion 1
-                                                        </option>
-                                                        <option value="">
-                                                            opcion 2
-                                                        </option>
-                                                        <option value="">
-                                                            opcion 3
-                                                        </option>
-                                                        <option value="">
-                                                            opcion 4
+                                                        <option 
+                                                            v-for="category in categories" :key="category.id"
+                                                            :value="category.id" 
+                                                        >
+                                                            {{ category.name }}
                                                         </option>
                                                     </select>
                                                     <span
@@ -86,3 +81,22 @@
         
     </section>
 </template>
+
+<script>
+export default ({
+    props: ['categories'],
+    data(){
+        return {
+            form: this.$inertia.form({
+                category: ""
+            })
+        }
+    },
+    methods: {
+        submit() {
+            this.form.get(this.route('search'))
+        }
+    }
+})
+</script>
+

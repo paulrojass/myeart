@@ -83,95 +83,10 @@
                                     </div>
                                 </div>
                                 <div class="fade tab-pane product-tab" id="product-comment" role="tabpanel" aria-labelledby="tab2">
-                                    <div class="thread">
-                                        <ul 
-                                            class="media-list thread-list"
-                                            v-for="item in artwork.comments"
-                                            :key="item.id"
-                                            >
-                                            <li class="single-thread">
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <a href="#">
-                                                            <img class="media-object" src="/img/m1.png" alt="Commentator Avatar">
-                                                        </a>
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <div>
-                                                            <div class="media-heading">
-                                                                <a href="author.html">
-                                                                    <h4>Themexylum</h4>
-                                                                </a>
-                                                                <span>9 Hours Ago</span>
-                                                            </div>
-                                                            <span class="comment-tag buyer">Purchased</span>
-                                                            <a href="#" class="reply-link">Reply</a>
-                                                        </div>
-                                                        <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut
-                                                            sceleris que the mattis, leo quam aliquet congue placerat mi id nisi
-                                                            interdum mollis. </p>
-                                                    </div>
-                                                </div>
-                                                
-                                                <ul class="children">
-                                                    <li class="single-thread depth-2">
-                                                        <div class="media">
-                                                            <div class="media-left">
-                                                                <a href="#">
-                                                                    <img class="media-object" src="/img/m2.png" alt="Commentator Avatar">
-                                                                </a>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <div class="media-heading">
-                                                                    <h4>AazzTech</h4>
-                                                                    <span>6 Hours Ago</span>
-                                                                </div>
-                                                                <span class="comment-tag author">Author</span>
-                                                                <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra,
-                                                                    justo ut sceleris que the mattis, leo quam aliquet congue
-                                                                    placerat mi id nisi interdum mollis. </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="single-thread depth-2">
-                                                        <div class="media">
-                                                            <div class="media-left">
-                                                                <a href="#">
-                                                                    <img class="media-object" src="/img/m1.png" alt="Commentator Avatar">
-                                                                </a>
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <div class="media-heading">
-                                                                    <h4>Themexylum</h4>
-                                                                    <span>9 Hours Ago</span>
-                                                                </div>
-                                                                <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra,
-                                                                    justo ut sceleris que the mattis, leo quam aliquet congue
-                                                                    placerat mi id nisi interdum mollis. </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                                
-                                            </li>
-                                        </ul>
-                                    
-                                        <div class="comment-form-area">
-                                            <h4>Enviar un Comentario</h4>
-                                            <div class="media comment-form">
-                                                <div class="media-left">
-                                                    <a href="#">
-                                                        <img class="media-object" src="/img/m7.png" alt="Commentator Avatar">
-                                                    </a>
-                                                </div>
-                                                <div class="media-body">
-                                                    <form action="#" class="comment-reply-form">
-                                                        <textarea name="reply-comment" placeholder="Escribe tu comentario..."></textarea>
-                                                        <button class="btn btn--sm btn-primary">Postear Comentario</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div>
+                                        <CardComments 
+                                            :comments="artwork.comments"
+                                        />
                                     </div>
                                 </div>
                                 <div class="fade tab-pane product-tab" id="product-review" role="tabpanel" aria-labelledby="tab3">
@@ -234,11 +149,19 @@
                                 </div>
                                 <div class="row d-flex justify-content-around">
                                     <div class="col-5 btn-list buy">
-                                        <span class="">Comprar</span>
+                                        <inertia-link 
+                                            :href="route('buys.create', [ artwork.id ])" 
+                                            method="get" 
+                                            as="button" 
+                                            class="btn btn-link"
+                                        >
+                                            Comprar
+                                        </inertia-link>
+                                        <!-- <span class="">Comprar</span> -->
                                     </div>
-                                    <button class="col-5 btn-list add" v-on:click="addToCart(artwork.id)">
+                                    <!-- <button class="col-5 btn-list add" v-on:click="addToCart(artwork.id)">
                                         <span class=" ">Agregar a carrito</span>
-                                    </button>
+                                    </button> -->
                                 </div>
 
                                 <ul class="border-bottom">
@@ -310,21 +233,25 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="border-none">
+                                        <li 
+                                            class="border-none"
+                                            v-for="element in artwork.elements"
+                                            :key="element.id"
+                                        >
                                             <div class="custom-radio d-flex align-items-center">
                                                 <div class="mt-2 mr-2 img-list">
                                                     <img 
                                                         class="media-object rounded-circle" 
-                                                        src="/imagenes/icons/detailsWorkArtist/Thematic.png" 
+                                                        :src="iconElement(element.attribute.name)" 
                                                         alt=""
                                                     >
                                                 </div>
                                                 <div class="mt-2">
-                                                   Tematica: Abstracta Contemporanea
+                                                   {{ element.attribute.name }}: {{ element.name }}
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="border-none">
+                                        <!-- <li class="border-none">
                                             <div class="custom-radio d-flex align-items-center">
                                                 <div class="mt-2 mr-2 img-list">
                                                     <img 
@@ -337,8 +264,8 @@
                                                    Estilo: Clasico, Lumisimo
                                                 </div>
                                             </div>
-                                        </li>  
-                                        <li class="border-none">
+                                        </li>   -->
+                                        <!-- <li class="border-none">
                                             <div class="custom-radio d-flex align-items-center">
                                                 <div class="mt-2 mr-2 img-list">
                                                     <img 
@@ -351,7 +278,7 @@
                                                    Tecnica: Oleo, Pastel, Barniz
                                                 </div>
                                             </div>
-                                        </li>    
+                                        </li>     -->
                                         <li class="border-none mb-2">
                                             <div class="custom-radio d-flex align-items-center">
                                                 <div class="mt-2 mr-2 img-list">
@@ -383,12 +310,21 @@
 <script>
 import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
-import { Inertia } from '@inertiajs/inertia'
+import CardComments from "@/Components/CardComments.vue" 
+
+const mapIconElements = {
+    'Temática': "/imagenes/icons/detailsWorkArtist/Thematic.png",
+    "Estilo": "/imagenes/icons/detailsWorkArtist/Style.png",
+    "Material": "/imagenes/icons/detailsWorkArtist/Thematic.png",
+    "Tecnica": "/imagenes/icons/detailsWorkArtist/Technique.png"
+};
+
 export default {
     layout: Layout,
     props: ['artwork'],
     components: {
-        Header
+        Header,
+        CardComments
     },
     destroyed () {
         window.removeEventListener('scroll', this.handleScroll);
@@ -410,40 +346,7 @@ export default {
     },
     data(){
         return {
-            items: [
-                {
-                    id: 1,
-                    photo: "/imagenes/pinturas/pintura-1.jpg"
-                },
-                {
-                    id: 2,
-                    photo: "/imagenes/pinturas/pintura-2.jpg"
-                },
-                {
-                    id: 3,
-                    photo: "/imagenes/pinturas/pintura-3.jpg"
-                },
-                {
-                    id: 4,
-                    photo: "/imagenes/pinturas/pintura-4.jpg"
-                },
-                {
-                    id: 5,
-                    photo: "/imagenes/pinturas/pintura-5.jpg"
-                },
-                {
-                    id: 6,
-                    photo: "/imagenes/pinturas/pintura-6.jpg"
-                },
-                {
-                    id: 7,
-                    photo: "/imagenes/pinturas/pintura-7.jpg"
-                },
-                {
-                    id: 8,
-                    photo: "/imagenes/pinturas/pintura-8.jpg"
-                }
-            ],
+            items: [],
             currentItem: null
         }
     },
@@ -492,6 +395,14 @@ export default {
         },
         addToCart(id){
             Inertia.get(route('add-to-cart', id))
+        },
+        iconElement(nameElement){
+            let icon = mapIconElements[nameElement];
+
+            return icon ?  
+                icon
+                :
+                "/imagenes/icons/detailsWorkArtist/Thematic.png";
         }
 
     }
