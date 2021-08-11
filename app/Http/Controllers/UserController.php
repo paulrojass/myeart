@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Laravel\Cashier\Cashier;
 use App\Models\User;
+use Illuminate\Support\Str;
+use Image;
 
 class UserController extends Controller
 {
@@ -90,11 +92,23 @@ class UserController extends Controller
         $user = User::find($id);
 
         $user->update($request->all());
-        $user->profile->update($request->all());
+
+        if ($request->file('avatar')) {
+            $this->deleteAvatar($user->profile->avatar);
+            $user->profile->update($request->all());
+            $user->profile->avatar = $this->saveAvatar($request);
+        } else {
+            if ($request->avatar == null) {
+                $this->deleteAvatar($user->profile->avatar);
+                $request->replace(['avatar' => 'default.jpg']);
+                $user->profile->update($request->all());
+            } else {
+                $user->profile->update($request->all());
+            }
+        }
 
         return back();
         // return back()->json(['success' => 'Datos actualizados']);
-
     }
 
     /**
@@ -132,5 +146,38 @@ class UserController extends Controller
         return Inertia::render('buys/MyShopping', [
             'purchases' => $purchases
         ]);
+    }
+
+    public function saveAvatar(Request $request)
+    {
+        $originalImage = $request->file('avatar');
+        $image = Image::make($originalImage);
+        $originalPath = public_path().'/storage/avatars/';
+        //Nombre aleatorio para la image
+        $tempName = Str::random(10) . '.' . $originalImage->getClientOriginalExtension();
+
+        //Redimensinoar la imagen
+        if ($image->width() >= $image->height()) {
+            $image->heighten(400);
+        } else {
+            $image->widen(400);
+        }
+
+        $image->resizeCanvas(400, 400);
+
+        $image->save($originalPath.$tempName);
+
+        return $tempName;
+    }
+
+    public function deleteAvatar($avatar)
+    {
+        $originalPath = public_path().'/storage/avatars/';
+
+        if ($avatar != 'default.jpg') {
+            if (\File::exists($originalPath.$avatar)) {
+                \File::delete($originalPath.$avatar);
+            }
+        }
     }
 }
