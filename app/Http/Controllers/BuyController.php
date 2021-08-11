@@ -28,8 +28,14 @@ class BuyController extends Controller
     public function create($id)
     {
         $artwork = Artwork::where('id', $id)->with('artworkImages')->first();
+        $discount_rate = 10;
+
+        $amount = $artwork->offer ? $artwork->offer : $artwork->price;
+
+        $total_amount = $amount - ($amount * $discount_rate)/100;
         return Inertia::render('buys/BuysIndex', [
-            'artwork' => $artwork
+            'artwork' => $artwork,
+            'total_amount' => $total_amount
         ]);
     }
 
