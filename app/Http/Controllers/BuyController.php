@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -65,6 +66,21 @@ class BuyController extends Controller
         $buy->total = $total;
         $buy->save();
 
+        $buy_details = [
+                'greeting' => 'Has realizado una compra en Myeart',
+                'body' => 'Tu compra de '.$artwork->name.' se ha realizado satisfactoriamente',
+                //'thanks' => 'Thank you for visiting codechief.org!',
+        ];
+
+        $user->notify(new \App\Notifications\NewBuy($buy_details));
+
+        $seller = $artwork->seller->user;
+        $sale_details = [
+                'greeting' => 'Han comprado una de tus obras de arte',
+                'body' => 'La obra '.$artwork->name.' ha sido realizada por el usuario '.$user->profile->firstName.' '$user->profile->lastName,
+                //'thanks' => 'Thank you for visiting codechief.org!',
+        ];
+        $seller->notify(new \App\Notifications\NewSale($sale_details));
         return Inertia::render('buys/PurchaseSummary', [
             'artwork' => $artwork
         ]);
