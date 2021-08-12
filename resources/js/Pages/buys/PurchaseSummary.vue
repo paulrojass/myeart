@@ -48,10 +48,10 @@
                     <div>
                         <div>
                             <inertia-link 
-                                :href="route('cuenta')" 
+                                :href="route('my-account.shopping')" 
                                 class="btn btn-primary"
                             >
-                                Regresar
+                                Mis Compras
                             </inertia-link>
                         </div>
                     </div>

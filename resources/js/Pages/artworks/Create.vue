@@ -213,6 +213,7 @@ export default {
             form: this.$inertia.form({
                 category_id: this.categories[0].id,
                 attributes: [],
+                elements: [],
                 name: "",
                 description: "",
                 price: 0,
@@ -233,7 +234,10 @@ export default {
       submit(evt) {
         evt.preventDefault()
         this.form.image = this.previewFiles.map(p => p.file)
+        this.form.elements = Object.keys(this.form.attributes).map(a => this.form.attributes[a]);
+
         console.log('form', this.form)
+
         // console.log('query', route().params.type) 
         this.form.post(route('my-artworks.store'))
       },

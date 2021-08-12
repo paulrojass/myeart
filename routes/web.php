@@ -25,13 +25,13 @@ Route::get('/test', function(){
 
 // Account
 
-Route::get('/account/salesHistory', function(){
-    return Inertia::render('Account/SalesHistory', []);
-})->name('account-salesHistory');
+// Route::get('/account/salesHistory', function(){
+//     return Inertia::render('Account/SalesHistory', []);
+// })->name('account-salesHistory');
 
-Route::get('/account/shoppingHistory', function(){
-    return Inertia::render('Account/ShoppingHistory', []);
-})->name('account-shoppingHistory');
+// Route::get('/account/shoppingHistory', function(){
+//     return Inertia::render('Account/ShoppingHistory', []);
+// })->name('account-shoppingHistory');
 
 // Route::get('/account/profile', function(){
 //     return Inertia::render('Account/Profile', []);
@@ -102,7 +102,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
     Route::get('mis-compras', [App\Http\Controllers\UserController::class, 'myShopping'])
     ->name('my-account.shopping');
     Route::get('mis-ventas', [App\Http\Controllers\SellerController::class, 'mySales'])
-    ->name('my-account.shopping');
+    ->name('my-account.sales');
 
     //Rutas para las compras
     Route::post('checkout', [App\Http\Controllers\BuyController::class, 'checkout'])

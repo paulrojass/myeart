@@ -141,12 +141,13 @@ class UserController extends Controller
      */
     public function myShopping()
     {
-        $purchases = auth()->user()->purchases;
+        $buys = auth()->user()->buys;
 
-        return Inertia::render('buys/MyShopping', [
-            'purchases' => $purchases
+        return Inertia::render('Account/MyShopping', [
+            'buys' => $buys
         ]);
     }
+
 
     public function saveAvatar(Request $request)
     {

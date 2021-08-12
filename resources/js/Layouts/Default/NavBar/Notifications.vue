@@ -20,40 +20,32 @@
             </div>
             <div
                 class="notifications_module"
+                v-for="notif in notifications"
+                :key="notif.id"
             >
                 <div class="notification">
                     <div class="notification__info">
                         <div class="info_avatar">
-                            <img
-                                src="img/notification_head.png"
-                                alt=""
-                            />
+                            <i class="fa fa-shopping-cart"></i>
                         </div>
                         <div class="info">
                             <p>
-                                <span>Anderson</span>
-                                added to
-                                Favourite
-                                <a
-                                    href="#"
-                                    >Mccarther
-                                    Coffee
-                                    Shop</a
-                                >
+                                <!-- <span>Anderson</span> -->
+                                {{ notif.data.data }}
                             </p>
-                            <p class="time">
-                                Just now
+                            <p class="time mt-2">
+                                {{ moment(notif.data.created_at).fromNow() }}
                             </p>
                         </div>
                     </div>
 
-                    <div
+                    <!-- <div
                         class="notification__icons"
                     >
                         <span
                             class="icon-heart loved noti_icon"
                         ></span>
-                    </div>
+                    </div> -->
 
                 </div>
 
@@ -72,3 +64,19 @@
         </div>
     </div>
 </template>
+
+<script>
+
+export default ({
+    data() {
+        return {
+            
+        } 
+    },
+    computed: {
+        notifications() {
+            return this.$page.props.auth.user ?  this.$page.props.auth.user.unread_notifications : [];
+        }
+    }
+})
+</script>

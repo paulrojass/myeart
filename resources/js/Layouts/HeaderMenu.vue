@@ -58,19 +58,19 @@ const itemsMenu = [
     {
         title: "Historial de compras",
         icon: "/imagenes/icons/AccountMenu/Shopping.png",
-        path: "account-shoppingHistory",
+        path: "my-account.shopping",
         roles: ["buyer"]
     },
-    // {
-    //     title: "Historial de ventas",
-    //     icon: "/imagenes/icons/AccountMenu/Setting.png",
-    //     path: "account-salesHistory",
-    //     roles: ["seller"]
-    // },
+    {
+        title: "Historial de ventas",
+        icon: "/imagenes/icons/AccountMenu/Setting.png",
+        path: "my-account.sales",
+        roles: ["seller"]
+    },
     {
         title: "Informacion de la cuenta",
         icon: "/imagenes/icons/AccountMenu/Setting.png",
-        path: "account-profile",
+        path: "my-account.sales",
         roles: ["buyer"]
     },
     {

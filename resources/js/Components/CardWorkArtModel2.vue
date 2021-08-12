@@ -2,23 +2,17 @@
     <div class="product-single latest-single">
         <div class="product-thumb">
             <figure>
-                <img :src="item.photo" alt="" class="img-fluid" />
-                <!-- <figcaption>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href=""><span class="icon-basket"></span></a>
-                        </li>
-                        <li>
-                            <a href="">Live Demo</a>
-                        </li>
-                    </ul>
-                </figcaption> -->
+                <img 
+                    :src="doc.seller.artworks[0].artwork_images[0].location" 
+                    alt="" 
+                    class="img-fluid" 
+                />
             </figure>
         </div>
         
         <div class="product-excerpt">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="col-">
+                <div class="col-8">
                     <h5 class="mb-1">
                         {{ doc.name }}
                     </h5>
@@ -26,8 +20,10 @@
                         {{ doc.seller.user.name }}
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="price text-primary"> {{ item.price }}$</div>
+                <div class="col-4">
+                    <div class="price text-primary"> 
+                        {{ doc.seller.artworks[0].price }}$
+                    </div>
                 </div>
 
             </div>
@@ -38,7 +34,7 @@
                         title="Add to collection"
                         data-toggle="tooltip"
                     />
-                    <span class="ml-1"> 30 </span>
+                    <span class="ml-1"> 0 </span>
                 </div>
 
                 <div class="d-flex align-items-center">
@@ -80,34 +76,15 @@
 export default {
     props: ['doc'],
     created(){ 
-        this.photoTemplate();
-        // console.log('doc', this.doc)
+  
     },
     data(){
         return {
-            item: {
-                photo: '/img/product1.png',
-                title: 'Lorem ipsum dolor sit',
-                subtitle: '',
-                author: {
-                    name: "Lorem inpum",
-                    avatar: "/img/auth-img.png"
-                },
-                price: 10
-            }
+
         }
     },
     methods: {
-        photoTemplate(){
-            let indice = this.index + 1;
-            if (!(indice <= 3))
-            {
-                indice = (indice - 3) ;
-            }
-            
-            this.item.photo = `/imagenes/galerias/galeria-1.jpg`;
-            
-        }
+
     }
 }
 </script>

@@ -45,13 +45,13 @@ const itemsMenu = [
     {
         title: "Historial de compras",
         icon: "/imagenes/icons/AccountMenu/Shopping.png",
-        path: "account-shoppingHistory",
+        path: "my-account.shopping",
         userType: ["buyer"]
     },
     {
         title: "Historial de ventas",
         icon: "/imagenes/icons/AccountMenu/Setting.png",
-        path: "account-salesHistory",
+        path: "my-account.sales",
         userType: ["seller"]
     },
     {

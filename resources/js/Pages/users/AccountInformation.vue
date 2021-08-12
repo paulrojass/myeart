@@ -13,10 +13,15 @@
                                 <div class="information_wrapper">
                                     <div class="profile_image_area">
                                         <div>
-                                            <img src="/img/authplc.png" alt="Author profile area">
+                                            <img :src="(typeof form.avatar === 'string') ? form.avatar : form.avatar.url" 
+                                                alt="Author profile area"
+                                                style="width: 130px;"
+                                            >
                                             <div class="img_info">
-                                                <p class="bold">Agregar tu foto de perfil</p>
-                                                
+                                                <div class="btn" @click="$refs.avatar.click()">
+                                                    <p class="bold">Agregar tu foto de perfil</p>
+                                                    <input ref="avatar" type="file" id="thumbnail" class="files" @change="newAvatar">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -233,7 +238,7 @@
                         <div class="dashboard_setting_btn">
                             <button 
                                 class="btn btn--md btn-primary"
-                                @click="submit"
+                                type="submit"
                             >
                                 Guardar Cambios
                             </button>
@@ -264,7 +269,7 @@ export default {
         let user = this.$page.props.auth.user;
 
         this.form = this.$inertia.form({
-            avatar: this.user.profile.avatar,
+            avatar: this.user.profile.avatar ?? '',
             firstName: this.user.profile.firstName,
             lastName: this.user.profile.lastName,
             email: this.user.email,
@@ -282,7 +287,8 @@ export default {
             twitter: this.user.profile.twitter,
             google: this.user.profile.google,
         })
-        console.log('props user', this)
+
+        console.log('props user', this.user)
     },
     computed: {
         user(){
@@ -291,8 +297,27 @@ export default {
     },
     methods: {
         submit() {
+            // console.log('fomr', this.form)
+            if (this.form.avatar && (typeof this.form.avatar === "object")){
+                // console.log('file', this.form.avatar.file)
+                let file = this.form.avatar.file;
+                this.form.avatar = file;
+            }
+            
           this.form.put(route('users.update', this.user.id))
         },
+        newAvatar(event){
+            let file = event.target.files[0];
+            let preview = { 
+                file,
+                url: URL.createObjectURL(file),
+                name: file.name,
+                size: Number(file.size / 1024).toFixed(0)
+            };
+            
+            this.form.avatar = preview;
+            console.log('file', file)
+        }
     }
 }
 

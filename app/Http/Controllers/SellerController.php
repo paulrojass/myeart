@@ -104,7 +104,7 @@ class SellerController extends Controller
 
         $sales = auth()->user()->seller->sales;
 
-        return Inertia::render('buys/MySales', [
+        return Inertia::render('Account/MySales', [
             'sales' => $sales
         ]);
     }

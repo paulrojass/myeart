@@ -4,7 +4,7 @@
       <div class="col-12">
         <div v-if="canLogin" class="d-flex justify-content-end">
           <div>
-            <inertia-link v-if="$page.props.auth.user" href="/dashboard" class="text-muted">
+            <inertia-link v-if="user" href="/dashboard" class="text-muted">
               Dashboard
             </inertia-link>
 
@@ -143,6 +143,11 @@ export default {
     canRegister: Boolean,
     laravelVersion: String,
     phpVersion: String,
+  },
+  computed: {
+    user(){
+      return this.$page.props.auth.user;
+    }
   }
 }
 </script>

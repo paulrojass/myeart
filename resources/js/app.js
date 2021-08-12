@@ -19,6 +19,7 @@ createApp({
         methods: { 
             route,
             moment(...args){
+                moment.locale('es');
                 return moment(...args);
             }
         } 

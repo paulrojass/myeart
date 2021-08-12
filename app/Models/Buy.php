@@ -47,6 +47,6 @@ class Buy extends Model
      */
     public function artwork()
     {
-        return $this->belongsTo(Artwork::class);
+        return $this->belongsTo(Artwork::class)->with('artworkImages');
     }
 }

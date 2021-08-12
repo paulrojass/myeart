@@ -92,7 +92,7 @@ class ArtworkController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $artwork = Artwork::create([
             'seller_id' => auth()->user()->seller->id,
             'category_id' => $request->category_id,
@@ -105,11 +105,11 @@ class ArtworkController extends Controller
             'height' => $request->height
         ]);
 
-        foreach ($request->elements as $key => $element_id) {
-            $artwork->elements->attach($element_id);
+        // foreach ($request->elements as $key => $element_id) {
+            // $artwork->elements->attach($element_id);
             //creo que no es necesario enviar el artwork_id si ves que no funciona solo descomenta la lina siguiente y comenta la anterior, si funciona pues borras esto con la siguiente:
             //$artwork->elements->attach($element_id , ['artwork_id', $artwork_id]);
-        }
+        // }
 
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $key => $image) {

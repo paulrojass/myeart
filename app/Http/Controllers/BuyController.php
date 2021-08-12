@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -83,7 +82,7 @@ class BuyController extends Controller
         $seller = $artwork->seller->user;
         $sale_details = [
                 'greeting' => 'Han comprado una de tus obras de arte',
-                'body' => 'La obra '.$artwork->name.' ha sido realizada por el usuario '.$user->profile->firstName.' '$user->profile->lastName,
+                'body' => 'La obra '.$artwork->name.' ha sido realizada por el usuario '.$user->profile->firstName.' '.$user->profile->lastName,
                 //'thanks' => 'Thank you for visiting codechief.org!',
         ];
         $seller->notify(new \App\Notifications\NewSale($sale_details));

@@ -78,6 +78,6 @@ class Seller extends Model
      */
     public function sales()
     {
-        return $this->hasManyThrough(Buy::class, Artwork::class);
+        return $this->hasManyThrough(Buy::class, Artwork::class)->with('artwork');
     }
 }
