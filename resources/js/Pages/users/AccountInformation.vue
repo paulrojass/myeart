@@ -268,25 +268,7 @@ export default {
     created(){
         let user = this.$page.props.auth.user;
 
-        this.form = this.$inertia.form({
-            avatar: this.user.profile.avatar ?? '',
-            firstName: this.user.profile.firstName,
-            lastName: this.user.profile.lastName,
-            email: this.user.email,
-            name: this.user.name,
-            biography: this.user.profile.biography,
-            address: this.user.profile.address,
-            country: this.user.profile.country,
-            city: this.user.profile.city,
-            region: this.user.profile.region,
-            zip_code: this.user.profile.zip_code,
-            card_brand: this.user.card_brand,
-            card_last_four: this.user.card_last_four,
-            trial_ends_at: this.user.trial_ends_at,
-            facebook: this.user.profile.facebook,
-            twitter: this.user.profile.twitter,
-            google: this.user.profile.google,
-        })
+        this.init();
 
         console.log('props user', this.user)
     },
@@ -296,6 +278,28 @@ export default {
         }
     },
     methods: {
+        init(){
+            this.form = this.$inertia.form({
+                _method: 'put',
+                avatar: this.user.profile.avatar ?? '',
+                firstName: this.user.profile.firstName,
+                lastName: this.user.profile.lastName,
+                email: this.user.email,
+                name: this.user.name,
+                biography: this.user.profile.biography,
+                address: this.user.profile.address,
+                country: this.user.profile.country,
+                city: this.user.profile.city,
+                region: this.user.profile.region,
+                zip_code: this.user.profile.zip_code,
+                card_brand: this.user.card_brand,
+                card_last_four: this.user.card_last_four,
+                trial_ends_at: this.user.trial_ends_at,
+                facebook: this.user.profile.facebook,
+                twitter: this.user.profile.twitter,
+                google: this.user.profile.google,
+            })
+        },
         submit() {
             // console.log('fomr', this.form)
             if (this.form.avatar && (typeof this.form.avatar === "object")){
@@ -304,7 +308,12 @@ export default {
                 this.form.avatar = file;
             }
             
-          this.form.put(route('users.update', this.user.id))
+          this.form.post(route('users.update', this.user.id), {
+            //   preserveScroll: true,
+              onSuccess: () => {
+                  this.init();
+              }
+          })
         },
         newAvatar(event){
             let file = event.target.files[0];

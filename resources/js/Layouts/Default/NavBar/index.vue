@@ -122,9 +122,10 @@
                                     >
                                         <div class="author__avatar online">
                                             <img
-                                                src="/img/user-avater.png"
+                                                :src="user.profile.avatar ? user.profile.avatar : '/img/user-avater.png'"
                                                 alt="user avatar"
                                                 class="rounded-circle"
+                                                style="width: 50px;"
                                             />
                                         </div>
                                         <div class="dropdown dropdown--author">

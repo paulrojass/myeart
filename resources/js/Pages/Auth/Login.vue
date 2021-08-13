@@ -5,7 +5,8 @@
       <div class="container">
           <div class="row">
               <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
-                  <form action="#">
+                <breeze-validation-errors class="mb-3" />
+                  <form @submit.prevent="submit">
                       <div class="cardify login">
                           <div class="login--header">
                               <h3>Iniciar Sesión</h3>

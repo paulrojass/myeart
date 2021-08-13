@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Laravel\Cashier\Cashier;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Image;
 
@@ -89,15 +90,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        // dd($request->all());
         $user = User::find($id);
 
         $user->update($request->all());
 
         if ($request->file('avatar')) {
             $this->deleteAvatar($user->profile->avatar);
-            $user->profile->update($request->all());
-            $user->profile->avatar = $this->saveAvatar($request);
+            // $user->profile->update($request->all());
+            $newPath = $this->saveAvatar($request);
+            $user->profile->update(['avatar' => $newPath]);
+            
         } else {
             if ($request->avatar == null) {
                 $this->deleteAvatar($user->profile->avatar);
@@ -108,7 +111,7 @@ class UserController extends Controller
             }
         }
 
-        return back();
+        return back()->with('user', $user);
         // return back()->json(['success' => 'Datos actualizados']);
     }
 
@@ -152,11 +155,15 @@ class UserController extends Controller
 
     public function saveAvatar(Request $request)
     {
+        $id = auth()->user()->id;
+
         $originalImage = $request->file('avatar');
         $image = Image::make($originalImage);
-        $originalPath = public_path('avatars');
+        $folderAvatars = 'avatars';
+        $originalPath = public_path($folderAvatars);
+        
         //Nombre aleatorio para la image
-        $tempName = Str::random(10) . '.' . $originalImage->getClientOriginalExtension();
+        $tempName = 'avatar-'.$id. '.' . $originalImage->getClientOriginalExtension();
 
         //Redimensinoar la imagen
         if ($image->width() >= $image->height()) {
@@ -167,9 +174,10 @@ class UserController extends Controller
 
         $image->resizeCanvas(400, 400);
 
-        $image->save($originalPath.$tempName);
+        $path = '/'.$folderAvatars.'/'.$tempName;
+        $image->save($originalPath.'/'.$tempName);
 
-        return $tempName;
+        return $path;
     }
 
     public function deleteAvatar($avatar)
@@ -177,8 +185,8 @@ class UserController extends Controller
         $originalPath = public_path('avatars');
 
         if ($avatar != 'default.jpg') {
-            if (\File::exists($originalPath.$avatar)) {
-                \File::delete($originalPath.$avatar);
+            if (\File::exists($originalPath.'/'.$avatar)) {
+                \File::delete($originalPath.'/'.$avatar);
             }
         }
     }

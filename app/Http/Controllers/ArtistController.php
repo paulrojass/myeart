@@ -84,7 +84,7 @@ class ArtistController extends Controller
         //Creando datos artista del vendedor
         $artist = new Artist();
         $artist->seller_id = $seller->id;
-        $artist->artistic_name = 'artistic_name';
+        $artist->artistic_name = $request->artistic_name;
         $artist->save();
 
         foreach ($request->tags as $tag_id) {

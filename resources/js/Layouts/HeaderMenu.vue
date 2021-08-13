@@ -70,7 +70,7 @@ const itemsMenu = [
     {
         title: "Informacion de la cuenta",
         icon: "/imagenes/icons/AccountMenu/Setting.png",
-        path: "my-account.sales",
+        path: "account-profile",
         roles: ["buyer"]
     },
     {
