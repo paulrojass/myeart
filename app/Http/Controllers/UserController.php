@@ -89,6 +89,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        dd($request->all());
         $user = User::find($id);
 
         $user->update($request->all());
@@ -153,7 +154,7 @@ class UserController extends Controller
     {
         $originalImage = $request->file('avatar');
         $image = Image::make($originalImage);
-        $originalPath = public_path().'/storage/avatars/';
+        $originalPath = public_path('avatars');
         //Nombre aleatorio para la image
         $tempName = Str::random(10) . '.' . $originalImage->getClientOriginalExtension();
 
@@ -173,7 +174,7 @@ class UserController extends Controller
 
     public function deleteAvatar($avatar)
     {
-        $originalPath = public_path().'/storage/avatars/';
+        $originalPath = public_path('avatars');
 
         if ($avatar != 'default.jpg') {
             if (\File::exists($originalPath.$avatar)) {

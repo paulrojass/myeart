@@ -55,7 +55,7 @@ class ArtworkController extends Controller
             'categories' => $categories,
         ]);
     }
-    
+
     /**
      * Busqueda de obras
      *
@@ -92,7 +92,7 @@ class ArtworkController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
+        //dd($request->all());
         $artwork = Artwork::create([
             'seller_id' => auth()->user()->seller->id,
             'category_id' => $request->category_id,
@@ -105,16 +105,14 @@ class ArtworkController extends Controller
             'height' => $request->height
         ]);
 
-        // foreach ($request->elements as $key => $element_id) {
-            // $artwork->elements->attach($element_id);
-            //creo que no es necesario enviar el artwork_id si ves que no funciona solo descomenta la lina siguiente y comenta la anterior, si funciona pues borras esto con la siguiente:
-            //$artwork->elements->attach($element_id , ['artwork_id', $artwork_id]);
-        // }
+        foreach ($request->elements as $key => $element_id) {
+            $artwork->elements()->attach($element_id);
+        }
 
         if ($request->hasFile('image')) {
             foreach ($request->file('image') as $key => $image) {
                 $destinationPath = 'artwork_images/';
-                
+
                 $format = $image->extension();
 
                 $fileName = 'artwork'.$artwork->id.'.'.$format;
@@ -149,7 +147,7 @@ class ArtworkController extends Controller
         // dd($artwork);
 
         //return response()->json(['artwork' => $artwork]);
-        
+
         return Inertia::render('artworks/Show', [
             'artwork' => $artwork,
             // 'seller' => $seller
