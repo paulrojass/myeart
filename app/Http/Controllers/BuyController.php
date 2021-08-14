@@ -135,13 +135,11 @@ class BuyController extends Controller
         * si ya la recibio
         */
         $buy = Buy::find($id);
+        $buy->comment = $request->comment;
+        $buy->rating = $request->rating;
         $buy->finished = 1;
         $buy->save();
-        /**
-        * Luego debo agregar la funcion de stripe donde se libere el pago
-        *
-        *
-        */
+
         return response()->json(['success' => 'Compra finalizada']);
     }
 

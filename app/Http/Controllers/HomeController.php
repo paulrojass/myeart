@@ -18,14 +18,35 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $categories = Category::with(['artworks', 'artworks.ArtworkImages', 'attributes', 'attributes.elements'])->get();
-        $latest_artworks = Artwork::latest()->with(['artworkImages', 'seller.user'])->take(6)->get();
+        $categories = Category::with([
+            'artworks',
+            'artworks.ArtworkImages',
+            'attributes',
+            'attributes.elements'
+            ])->get();
+
+        $latest_artworks = Artwork::latest()
+                                ->withCount('buy')
+                                ->having('buy_count', '=', 0)
+                                ->with(['artworkImages', 'seller.user'])->take(6)->get();
         //$popular_artworks = Artwork::latest()->with(['artworkImages', 'seller.user'])->take(6)->get();
-        $popular_artworks = Artwork::withCount('likes')->with(['likes', 'artworkImages', 'seller.user'])->orderByDesc('likes_count')->take(6)->get();
+        $popular_artworks = Artwork::withCount('likes')
+                                ->withCount('buy')
+                                ->having('buy_count', '=', 0)
+                                ->with(['likes', 'artworkImages', 'seller.user'])
+                                ->orderByDesc('likes_count')->take(6)->get();
 
-        $artists = Artist::latest()->with(['seller', 'seller.user', 'seller.user.profile'])->take(6)->get()->sortByDesc('created_at');
-        $galleries = Gallery::latest()->with(['seller', 'seller.user', 'seller.user', 'seller.artworks', 'seller.artworks.artworkImages'])->take(6)->get();
+        $artists = Artist::latest()->with(['seller', 'seller.user', 'seller.user.profile'])
+                                    ->take(6)->get()->sortByDesc('created_at');
 
+        $galleries = Gallery::latest()
+                            ->with([
+                                'seller',
+                                'seller.user',
+                                'seller.user',
+                                'seller.artworks',
+                                'seller.artworks.artworkImages'
+                            ])->take(6)->get();
 
         return Inertia::render('Home/Welcome', [
             'canLogin' => Route::has('login'),
@@ -38,7 +59,6 @@ class HomeController extends Controller
             'galleries' => $galleries,
             'categories' => $categories
         ]);
-
     }
 
     public function artworks()
@@ -49,7 +69,8 @@ class HomeController extends Controller
     public function artist(Request $request)
     {
         $artist = Artist::where('id', $request->id)->with('seller.user.profile')->first();
-        $artworks = Artwork::where('seller_id', $artist->seller->id)->with(['artworkImages', 'seller.user'])->take(6)->get();
+        $artworks = Artwork::where('seller_id', $artist->seller->id)
+        ->with(['artworkImages', 'seller.user'])->take(6)->get();
 
         return Inertia::render('artists/Index', [
             'artist' => $artist,
