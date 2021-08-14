@@ -43,7 +43,10 @@ class ArtworkController extends Controller
         $minPrice = $request->minPrice;
         $maxPrice = $request->maxPrice;
         $elements = $request->elements;
-        $artworks = Artwork::query()->with([
+        $artworks = Artwork::query()
+        ->withCount('buy')
+        ->having('buy_count', '=', 0)
+        ->with([
             'seller.user',
             'artworkImages',
             'elements',

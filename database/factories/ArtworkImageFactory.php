@@ -22,7 +22,7 @@ class ArtworkImageFactory extends Factory
     public function definition()
     {
         return [
-            'location' => 'default.jpg',
+            'location' => '/artwork_images/default.jpg',
         ];
     }
 }

@@ -104,6 +104,12 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
     Route::get('mis-ventas', [App\Http\Controllers\SellerController::class, 'mySales'])
     ->name('my-account.sales');
 
+    Route::get('notificaciones/marcar', [App\Http\Controllers\NotificationController::class, 'markAsRead'])
+    ->name('my-account.notifications-mark-as-read');
+
+    Route::get('compra/certificado/{buy_id}', [App\Http\Controllers\PdfController::class, 'certificate'])
+    ->name('buys.certificate');
+
     //Rutas para las compras
     Route::post('checkout', [App\Http\Controllers\BuyController::class, 'checkout'])
     ->name('my-account.checkout');
