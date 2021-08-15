@@ -121,12 +121,11 @@
                                         v-if="user"
                                     >
                                         <div class="author__avatar online">
-                                            <img
-                                                :src="user.profile.avatar ? user.profile.avatar : '/img/user-avater.png'"
-                                                alt="user avatar"
-                                                class="rounded-circle"
-                                                style="width: 50px;"
-                                            />
+                                            <div style="width: 50px;">
+                                                <Avatar 
+                                                    :path="user.profile.avatar"
+                                                />
+                                            </div>
                                         </div>
                                         <div class="dropdown dropdown--author">
                                             <ul>
@@ -190,13 +189,15 @@
 </template>
 
 <script>
+import Avatar from '@/Components/Avatar.vue'
 import CardCart from './Cart'
 import Notifications from './Notifications.vue'
 
 export default ({
     components: {
         CardCart,
-        Notifications
+        Notifications,
+        Avatar
     },
     computed: {
         user() {

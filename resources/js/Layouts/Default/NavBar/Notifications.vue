@@ -4,9 +4,9 @@
             <span
                 class="icon-bell"
             ></span>
-            <span
-                class="notification_status noti"
-            ></span>
+            <span class="notification_count purch">
+                {{notifications.length }}
+            </span>
         </div>
         <div
             class="dropdown notification--dropdown"
@@ -14,9 +14,17 @@
             <div
                 class="dropdown_module_header"
             >
-                <h6>
-                    Mis Notificaciones
-                </h6>
+                <div class="d-flex justify-content-between">
+                    <h6>
+                        Mis Notificaciones
+                    </h6>
+                        <button 
+                            class="btn btn-outline-dark btn-sm"
+                            @click="deleteNotifications"
+                            >
+                            <i class="fa fa-trash"></i>
+                        </button>
+                </div>
             </div>
             <div
                 class="notifications_module"
@@ -76,6 +84,12 @@ export default ({
     computed: {
         notifications() {
             return this.$page.props.auth.user ?  this.$page.props.auth.user.unread_notifications : [];
+        }
+    },
+    methods: {
+        deleteNotifications(){
+            console.log('deleteNotif')
+            this.$inertia.get(route('my-account.notifications-mark-as-read'));
         }
     }
 })

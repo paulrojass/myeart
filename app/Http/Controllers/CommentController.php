@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Models\Artwork;
 
 class CommentController extends Controller
 {
@@ -15,6 +16,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+
         $comment = new Comment;
 
         $comment->artwork_id = $request->artwork_id;
@@ -27,8 +29,16 @@ class CommentController extends Controller
             $comment_id = $request->comment_id;
         }
 
+        $comment->save();
 
-        $artwork = Artwork::find($artwork_id);
+        $artwork = Artwork::where('id', $request->artwork_id)
+        ->with([
+            'seller.user.profile',
+            'artworkImages',
+            'elements.attribute',
+            'comments',
+            'likes'
+        ])->first();
 
         $user = $artwork->seller->user;
 
@@ -42,7 +52,9 @@ class CommentController extends Controller
 
         $user->notify(new \App\Notifications\NewComment($details));
 
-        return $comment->save();
+        return back()->with([
+            'artwork' => $artwork
+        ]);
     }
 
     /**

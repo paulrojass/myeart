@@ -1,7 +1,6 @@
 <template>
     <div>
-        
-        <section class="breadcrumb-area banner-author">
+        <section class="breadcrumb-area banner-author" style="height: 30vh;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -20,11 +19,11 @@
                             <div class="row">
                                 <div class="col-lg-5 col-md-7">
                                     <div class="author-desc">
-                                        <img 
-                                            :src="artist.seller.user.profile.avatar || '/imagenes/profile.png'" 
-                                            alt="" 
-                                            style="width: 150px; height: 150px;"
-                                        >
+                                        <div style="width: 150px; height: 150px;">
+                                            <Avatar 
+                                                :path="artist.seller.user.profile.avatar"
+                                            />
+                                        </div>
                                         <div class="infos">
                                             <h4>{{artist.seller.user.name}}</h4>
                                             <span>Miembro desde {{moment(artist.seller.user.created_at).format('MM/YYYY')}}</span>
@@ -35,7 +34,11 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a href="" class="btn btn-secondary btn--xs">
+                                                    <a 
+                                                        :class="`btn btn-secondary btn--xs ${!artist.seller.user.profile.google && 'disabled'}`"
+                                                        :href="artist.seller.user.profile.google"
+                                                        target="_blank"
+                                                        >
                                                         <span class="icon-globe"></span>
                                                     </a>
                                                 </li>
@@ -45,20 +48,32 @@
                                 </div>
                                 <div class="col-lg-4 order-lg-1 col-md-12 order-md-2">
                                     <div class="author-social social social--color--filled">
-                                        <ul>
+                                        <ul class="">
                                             <li>
-                                                <a href="#">
-                                                    <span class="fa fa-facebook"></span> Facebook
+                                                <a :class="`btn ${!artist.seller.user.profile.facebook && 'disabled'}`" 
+                                                    :href="artist.seller.user.profile.facebook" 
+                                                    target="_blank"
+                                                >
+                                                    <span class="fa fa-facebook"></span> 
+                                                    <span class="text-dark"> Facebook </span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <span class="fa fa-twitter"></span> Twitter
+                                                <a :class="`btn ${!artist.seller.user.profile.facebook && 'disabled'}`" 
+                                                    :href="artist.seller.user.profile.twitter"
+                                                    target="_blank"
+                                                    >                                                   
+                                                    <span class="fa fa-twitter"></span> 
+                                                    <span class="text-dark"> Twitter </span>                                                  
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="#">
-                                                    <span class="fa fa-dribbble"></span> Dribble
+                                                <a :class="`btn ${!artist.seller.user.profile.dribble && 'disabled'}`" 
+                                                    :href="artist.seller.user.profile.dribble"
+                                                    target="_blank"
+                                                    >                                               
+                                                    <span class="fa fa-dribbble"></span> 
+                                                    <span class="text-dark"> Dribble </span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -68,11 +83,11 @@
                                     <div class="author-stats">
                                         <ul>
                                             <li class="t_items">
-                                                <span>146</span>
+                                                <span>{{ artworks ? artworks.length : 0}}</span>
                                                 <p>Articulos totales</p>
                                             </li>
                                             <li class="t_sells">
-                                                <span>2426</span>
+                                                <span>0</span>
                                                 <p>Ventas totales</p>
                                             </li>
                                             <li class="t_reviews">
@@ -131,7 +146,9 @@
                                 </div>
                             </div>
                             <div class="tab-pane fade" id="items" role="tabpanel" aria-labelledby="items-tab">
-                                <div class="row">
+                                <div class="row"
+                                    v-if="artworks && artworks.length"
+                                >
                                     <div 
                                         v-for="doc in artworks"
                                         :key="doc.id"
@@ -140,9 +157,14 @@
                                         <CardWordArtModel :doc="doc" />
                                     </div>
                                 </div>
+                                <div v-else>
+                                    <div class="not-info">
+                                        <h4> Sin Obras </h4>
+                                    </div>
+                                </div>
                                 
                                 
-                                <nav class="pagination-default ">
+                                <!-- <nav class="pagination-default ">
                                     <ul class="pagination">
                                         <li class="page-item">
                                             <a class="page-link" href="#" aria-label="Previous">
@@ -162,7 +184,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </nav>
+                                </nav> -->
                             </div>
                             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                                 <div class="row">
@@ -485,13 +507,15 @@
 import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
 import CardWordArtModel from "@/Components/CardWorkArtModel1"
+import Avatar from '@/Components/Avatar'
 
 export default {
     layout: Layout,
     props: ['artist', 'artworks'],
     components: {
         Header,
-        CardWordArtModel
+        CardWordArtModel,
+        Avatar
     },
     created(){
         console.log('artist', this.artist)
@@ -508,5 +532,26 @@ export default {
 <style scoped>
     .banner-author {
         background-image: url('/imagenes/Banner-author.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .not-info {
+        background: white;
+        padding: 20px;
+    }
+
+    .btn-social .fa{
+        padding: 7px 10px;
+        color: white;
+    }
+
+    .btn-social{
+        display: "flex";
+        flex-direction: column;
+    }
+
+    .disabled {
+        pointer-events: none;
+        cursor: default;
     }
 </style>

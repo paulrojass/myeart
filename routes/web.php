@@ -148,7 +148,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
         //Comentarios de las obras de arte del usuario autenticado
         Route::resource(
             'comentarios',
-            App\Http\Controllers\ArtworkController::class,
+            App\Http\Controllers\CommentController::class,
             [ 'names' => [
                 'store' => 'comments.store',
                 'update' => 'comments.update',

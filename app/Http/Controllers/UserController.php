@@ -93,23 +93,15 @@ class UserController extends Controller
         // dd($request->all());
         $user = User::find($id);
 
-        $user->update($request->all());
-
         if ($request->file('avatar')) {
             $this->deleteAvatar($user->profile->avatar);
             // $user->profile->update($request->all());
             $newPath = $this->saveAvatar($request);
-            $user->profile->update(['avatar' => $newPath]);
-            
-        } else {
-            if ($request->avatar == null) {
-                $this->deleteAvatar($user->profile->avatar);
-                $request->replace(['avatar' => 'default.jpg']);
-                $user->profile->update($request->all());
-            } else {
-                $user->profile->update($request->all());
-            }
+            $user->profile->update(['avatar' => $newPath]); 
         }
+
+        $user->update($request->all());
+        $user->profile->update($request->all());
 
         return back()->with('user', $user);
         // return back()->json(['success' => 'Datos actualizados']);

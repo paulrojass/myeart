@@ -6,24 +6,30 @@
                     v-for="item in commentsFormat"
                     :key="item.comment.id"
                 >
-                <div class="media">
+                <div class="media m-0 p-3">
                     <div class="media-left">
-                        <a href="#">
-                            <img class="media-object" src="/img/m1.png" alt="Commentator Avatar">
-                        </a>
+                        <div style="width: 40px; height: 40px;">
+                            <Avatar 
+                                :path="item.comment.user.profile.avatar"
+                            />
+                        </div>
                     </div>
                     <div class="media-body">
                         <div>
-                            <div class="media-heading">
-                                <a href="author.html">
-                                    <h4>{{ item.comment.user.name }}</h4>
-                                </a>
+                            <div class="media-heading d-flex justify-content-between">
+                                <!-- <a href="author.html"> -->
+                                <h4>{{ item.comment.user.name }}</h4>
+                                <!-- </a> -->
                                 <span>{{ item.comment.time }}</span>
                             </div>
                             <!-- <span class="comment-tag buyer">Purchased</span> -->
                             <!-- <a href="#" class="reply-link">Reply</a> -->
                         </div>
-                        <p>{{ item.comment.content }}</p>
+                        <div style="width: 85%;">
+                            <div class="text-muted border-light rounded-pill py-2 px-4">
+                            {{ item.comment.content }} 
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -35,9 +41,9 @@
                     >
                         <div class="media">
                             <div class="media-left">
-                                <a href="#">
-                                    <img class="media-object" src="/img/m2.png" alt="Commentator Avatar">
-                                </a>
+                                <Avatar 
+                                    :path="question.user.profile.avatar"
+                                />
                             </div>
                             <div class="media-body">
                                 <div class="media-heading">
@@ -76,18 +82,21 @@
             <h4>Enviar un Comentario</h4>
             <div class="media comment-form">
                 <div class="media-left">
-                    <a href="#">
-                        <img class="media-object" src="/img/m7.png" alt="Commentator Avatar">
-                    </a>
+                    <div style="width: 50px; height: 50px;">
+                        <Avatar 
+                            :path="user.profile.avatar"
+                        />
+                    </div>
                 </div>
                 <div class="media-body">
-                    <form @submit.prevent="sendComment" class="comment-reply-form">
+                    <form @submit.prevent="sendComment" class="form-group">
                         <textarea 
                             name="reply-comment" 
                             placeholder="Escribe tu comentario..." 
                             v-model="textComment"
+                            class="form-control"
                         />
-                        <button class="btn btn--sm btn-primary">Escribir</button>
+                        <button class="btn btn--sm btn-primary">Enviar</button>
                     </form>
                 </div>
             </div>
@@ -96,11 +105,19 @@
 </template>
 
 <script>
-
+import Avatar from '@/Components/Avatar.vue'
 import moment from 'moment';
 
 export default ({
-    props: ['comments'],
+    props: ['comments', 'artwork'],
+    components: {
+        Avatar
+    },
+    computed: {
+        user(){
+            return this.$page.props.auth.user;
+        }
+    },
     data() {
         return {
             commentsFormat: [],
@@ -108,60 +125,83 @@ export default ({
         }
     },
     created(){
-        let newComments = []
-        let mapComments = {};
+        this.init();
+    },
+    methods: {
+        init(){
+            let newComments = []
+            let mapComments = {};
 
-        this.comments.forEach(value => {
-            let time = moment(value.created_at).format('DD/MM/YY');
-            let newValue = {
-                id: value.id,
-                comment_id: value.comment_id,
-                content: value.content,
-                user: value.user,
-                time,
-                created_at: value.created_at
-            }
+            this.comments.forEach(value => {
+                let time = moment(value.created_at).fromNow();
+                let newValue = {
+                    id: value.id,
+                    comment_id: value.comment_id,
+                    content: value.content,
+                    user: value.user,
+                    time,
+                    created_at: value.created_at
+                }
 
-            if (!value.comment_id){
-                mapComments[value.id] = newComments.length;
-                
-                newComments.push({
-                    comment: newValue,
-                    subcomments: []
-                });
-                //Es root
-                
-            }else {
-                let commentRoot = [...newComments].splice(mapComments[value.comment_id], 1)[0];
+                if (!value.comment_id){
+                    mapComments[value.id] = newComments.length;
+                    
+                    newComments.push({
+                        comment: newValue,
+                        subcomments: []
+                    });
+                    //Es root
+                    
+                }else {
+                    let commentRoot = [...newComments].splice(mapComments[value.comment_id], 1)[0];
 
-                let newCommentRoot = {
-                        ...commentRoot,
-                        subcomments: [
-                            ...commentRoot.subcomments,
-                            newValue
-                        ]
-                    }
+                    let newCommentRoot = {
+                            ...commentRoot,
+                            subcomments: [
+                                ...commentRoot.subcomments,
+                                newValue
+                            ]
+                        }
 
-                newComments = newComments.map(c => value.comment_id !== c.comment.id ? 
-                    c
-                    :
-                    newCommentRoot    
-                )
-                
-                // console.log('commentRoot', commentRoot)
-                // return newComments;
-            }
-            // console.log(newComments, value)
+                    newComments = newComments.map(c => value.comment_id !== c.comment.id ? 
+                        c
+                        :
+                        newCommentRoot    
+                    )
+                    
+                    // console.log('commentRoot', commentRoot)
+                    // return newComments;
+                }
+                // console.log(newComments, value)
         });
 
         this.commentsFormat = newComments;
 
-        console.log('newComments', newComments)
-    },
-    methods: {
+        // console.log('newComments', newComments)
+        },
         sendComment(){
-            console.log('textComment', this.textComment);
-            this.textComment = "";
+            // console.log('sendcoment', {
+            //     artwork_id: this.artwork.id,
+            //     content: this.textComment
+            // })
+
+            this.$inertia.post(
+                route('comments.store'),
+                {
+                    artwork_id: this.artwork.id,
+                    content: this.textComment
+                },
+                {
+                    preserveScroll: true,
+                    onSuccess: (res) => {
+                    //     // this.artwork = res.props.artwork;
+                        // console.log('res', res.props)
+                         this.init();
+                    //     // console.log('textComment', this.textComment);
+                        this.textComment = "";
+                    }
+                },
+            );
 
         }
     }
@@ -179,5 +219,9 @@ export default ({
         max-height: 500px;
         overflow: auto;
         border: 1px solid #ddd;
+    }
+    textarea {
+        min-height: 50px !important;
+        resize: vertical !important;
     }
 </style>

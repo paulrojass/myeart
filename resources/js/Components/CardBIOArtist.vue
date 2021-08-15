@@ -2,12 +2,15 @@
         <div class="product-single latest-single">
     <inertia-link
         :href="
-            route('home.artist', { id: doc.id })
+            route('home.artist', { id: doc.seller_id })
         "
     >
             <div class="product-thumb card-artist">
                 <figure class="position-relative artist-image" >
-                    <img :src="doc.seller.user.profile.avatar || '/img/speaker1.jpg'" alt="" style="width: 100%; height: 100%" />
+                    <Avatar 
+                        :path="doc.seller.user.profile.avatar"
+                    />
+                    <!-- <img :src="doc.seller.user.profile.avatar || '/img/speaker1.jpg'" alt="" style="width: 100%; height: 100%" /> -->
                     <figcaption
                         style="
                             border-radius: 50%;
@@ -79,8 +82,12 @@
 </template>
 
 <script>
+import Avatar from '@/Components/Avatar'
 export default {
     props: ['doc'],
+    components: {
+        Avatar
+    },
     created(){
         // console.log('doc', this.doc);
     },
