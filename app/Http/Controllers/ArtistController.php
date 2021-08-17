@@ -6,6 +6,7 @@ use App\Models\Artist;
 use Illuminate\Http\Request;
 
 use App\Models\Artwork;
+use App\Models\Buy;
 use App\Models\Seller;
 use App\Models\Tag;
 use Inertia\Inertia;
@@ -27,7 +28,6 @@ class ArtistController extends Controller
         return Inertia::render('dasboard/artists/Index', [
             'artists' => $artists
         ]);
-
     }
 
     /**
@@ -44,7 +44,6 @@ class ArtistController extends Controller
         return Inertia::render('artists/Index', [
             'artists' => $artists
         ]);
-
     }
 
 
@@ -111,7 +110,18 @@ class ArtistController extends Controller
             'seller.sales'
         ])->first();
 
-        $popular_artworks = Artwork::where('seller_id', $artist->seller_id)->withCount('likes')->with(['likes', 'artworkImages', 'seller.user'])->orderByDesc('likes_count')->take(6)->get();
+        $popular_artworks = Artwork::where('seller_id', $artist->seller_id)
+        ->withCount('likes')
+        ->with(['likes', 'artworkImages', 'seller.user'])
+        ->orderByDesc('likes_count')
+        ->take(6)->get();
+
+        $seller = $artist->seller;
+
+        //$sales = $seller->artworks->buy;
+
+        $sales = Buy::where('artwork_id', $seller->artworks->pluck('id'))->get();
+        dd($sales);
 
         //dd($popular_artworks);
 
@@ -121,7 +131,6 @@ class ArtistController extends Controller
             'artist' => $artist,
             'popular_artworks' => $popular_artworks
         ]);
-
     }
 
     /**
