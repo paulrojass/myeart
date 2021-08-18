@@ -16,6 +16,7 @@ class NotificationController extends Controller
             //dd($notification);
         }
 
-        return response()->json(['success' => 'leidas']);
+        // return response()->json(['success' => 'leidas']);
+        return back();
     }
 }

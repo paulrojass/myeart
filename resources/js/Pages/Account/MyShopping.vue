@@ -66,13 +66,16 @@
                                         </div>
                                     </td>
                                     <td class="text-primary p-3 text-center">
-                                        <div>
+                                        <div v-if="!item.finished">
                                             <div>
                                                 En Progreso
                                             </div>
-                                            <div class="btn-end">
+                                            <div  @click="finalizeBuy(item)" class="btn-end">
                                                 Finalizar
                                             </div>
+                                        </div>
+                                        <div v-else>
+                                            Finalizado
                                         </div>
                                     </td>
                                 </tr>
@@ -118,18 +121,63 @@
 
             </div>
         </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="height: 20px;">
+                        <div class="d-flex justify-content-between">
+                            <h5 class="modal-title" id="exampleModalLabel">Valoracion</h5>
+                            <div type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <h5 class="modal-title pb-0">Deja un comentario</h5>
+                        <div>
+                            <Qualify  
+                                v-bind:currentStar="currentStar"
+                                v-on:update:currentStar="currentStar = $event"
+                            />
+                        </div>
+                        <div class="">
+                            <div class="form-group">
+                                <textarea 
+                                    name="reply-comment" 
+                                    placeholder="Escribe tu comentario..." 
+                                    v-model="textComment"
+                                    class="form-control"
+                                />
+                            </div>
+                            <div class="mt-2">
+                                <button 
+                                    class="btn btn--sm btn-primary"
+                                    @click="sendComment"
+                                    >
+                                    Enviar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 import layout from "@/Layouts/Default/LayoutDefault.vue"
 import HeaderAccount from '@/Layouts/HeaderMenu.vue'
+import Qualify from '@/Components/Qualify'
 
 export default {
     props: ['buys'],
     layout,
     components: {
-        HeaderAccount
+        HeaderAccount,
+        Qualify
     },
     created(){
         console.log('myshopping', this.buys)
@@ -137,7 +185,11 @@ export default {
     data(){
         return {
             currentPage: 0,
-            search: ""
+            search: "",
+
+            currentBuy: null,
+            textComment: "",
+            currentStar: 0
         }
     },
     computed: {
@@ -148,6 +200,45 @@ export default {
                 this.buys.filter(b => b.artwork.name
                     .toLowerCase()
                     .includes(this.search.toLowerCase()));
+        }
+    },
+    methods: {
+        finalizeBuy(item){
+            this.currentBuy = item;
+            this.currentStar = 0;
+            this.textComment = "";
+
+            window.$('#exampleModal').modal({
+                show: true
+            })
+
+        },
+        sendComment(){
+            console.log('send', {
+                textComment: this.textComment,
+                currentStar: this.currentStar
+            })
+
+            this.$inertia.put(
+                route('buys.update', [this.currentBuy.id]),
+                {
+                    rating: this.currentStar,
+                    comment: this.textComment
+                },
+                {
+                    preserveScroll: true,
+                    onSuccess: (res) => {
+                        this.currentBuy = null;
+                        this.currentStar = 0;
+                        this.textComment = "";
+
+                        window.$('#exampleModal').modal({
+                            show: false
+                        })
+                    }
+                },
+            );
+
         }
     }
 }
@@ -175,5 +266,10 @@ export default {
 
     .btn-end:hover {
         opacity: .8;
+    }
+
+    textarea {
+        min-height: 50px !important;
+        resize: vertical !important;
     }
 </style>

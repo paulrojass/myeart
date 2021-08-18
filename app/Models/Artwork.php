@@ -84,7 +84,7 @@ class Artwork extends Model
      */
     public function comments()
     {
-        return $this->hasMany(Comment::class)->with('user');
+        return $this->hasMany(Comment::class)->with('user.profile')->orderBy('created_at', 'desc');
     }
 
     /**

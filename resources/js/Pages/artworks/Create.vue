@@ -74,7 +74,7 @@
                                             </div>
                                             <div class="custom_upload">
                                                 <label for="thumbnail">
-                                                    <input type="file" id="thumbnail" class="files" @change="newFile">
+                                                    <input type="file" id="thumbnail" class="files" @change="newFile" required>
                                                     <b-button class="btn btn-primary btn--md">Subir Imagen</b-button>
                                                 </label>
                                             </div>
@@ -183,7 +183,13 @@
                                     </div>
                                 </div>
                                 <div class="btns m-top-40">
-                                    <button type="submit" class="btn btn-lg btn-primary m-right-15">Guardar Cambios</button>
+                                    <button 
+                                        type="submit" 
+                                        class="btn btn-lg btn-primary m-right-15"
+                                        :disabled="!previewFiles.length"
+                                        >
+                                        Guardar Cambios
+                                    </button>
                                 </div>
                             </form>
                         </div>
@@ -216,18 +222,19 @@ export default {
                 elements: [],
                 name: "",
                 description: "",
-                price: 0,
-                offer: 0,
-                weight: 0,
-                width: 0,
-                height: 0,
+                price: 100,
+                offer: 90,
+                weight: 100,
+                width: 100,
+                height: 100,
                 image: []
             })
         }
     },
     computed: {
         attributes(){
-            return this.categories.find(c => this.form.category_id).attributes
+
+            return this.categories.find(c => c.id === this.form.category_id)?.attributes ?? []
         }
     },
     methods: {

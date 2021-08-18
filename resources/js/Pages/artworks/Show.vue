@@ -86,6 +86,7 @@
                                     <div>
                                         <CardComments 
                                             :comments="artwork.comments"
+                                            :artwork="artwork"
                                         />
                                     </div>
                                 </div>
@@ -95,13 +96,11 @@
                                             <li class="single-thread">
                                                 <div class="media">
                                                     <div class="media-left">
-                                                        
-                                                        <img 
-                                                            class="media-object rounded-circle" 
-                                                            :src="artwork.seller.user.profile.avatar || '/imagenes/profile.png'"
-                                                            alt="Commentator Avatar" 
-                                                            style="width: 80px; height: 80px;"
-                                                        >
+                                                        <div style="width: 80px; height: 80px;">
+                                                            <Avatar 
+                                                                :path="artwork.seller.user.profile.avatar"
+                                                            />
+                                                        </div>
                                                         
                                                     </div>
                                                     <div class="media-body">
@@ -128,7 +127,19 @@
                                             </li>
                                             
                                             <div class="ml-5">
-                                                <button class="btn btn--md btn-primary">Ver Autor</button>
+                                                <inertia-link
+                                                    :href="
+                                                        route('home.artist', [artwork.seller_id ])
+                                                    "
+                                                >
+                                                    <div class="btn btn--md btn-primary">
+                                                        Ver Autor
+                                                    </div>
+                                                </inertia-link>
+                                                <!-- <button 
+                                                    class="btn btn--md btn-primary"
+                                                    >
+                                                </button> -->
                                             </div>
 
                                         </ul>
@@ -148,7 +159,10 @@
                                     </h1>
                                 </div>
                                 <div class="row d-flex justify-content-around">
-                                    <div class="col-5 btn-list buy">
+                                    <div 
+                                        class="col-5 btn-list buy"
+                                        v-if="artwork.seller.user_id !== user.id"
+                                        >
                                         <inertia-link 
                                             :href="route('buys.create', [ artwork.id ])" 
                                             method="get" 
@@ -311,6 +325,7 @@
 import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
 import CardComments from "@/Components/CardComments.vue" 
+import Avatar from '@/Components/Avatar'
 
 const mapIconElements = {
     'Temática': "/imagenes/icons/detailsWorkArtist/Thematic.png",
@@ -324,13 +339,17 @@ export default {
     props: ['artwork'],
     components: {
         Header,
-        CardComments
+        CardComments,
+        Avatar
     },
     destroyed () {
         window.removeEventListener('scroll', this.handleScroll);
     },
     created(){
-        console.log('artwork', this.artwork);
+        console.log('artwork', {
+            artwork: this.artwork,
+            user: this.$page.props.auth.user
+        });
 
         window.addEventListener('scroll', this.handleScroll);
 
@@ -348,6 +367,11 @@ export default {
         return {
             items: [],
             currentItem: null
+        }
+    },
+    computed: {
+        user(){
+            return this.$page.props.auth.user;
         }
     },
     methods: {
@@ -375,7 +399,7 @@ export default {
         handleScroll(event){
             // console.log('scrollFn', event)
 
-            if (window.innerWidth < 1000){
+            if (window.innerWidth < 1000 || window.innerHeight < 1000){
                 return;
             }
 

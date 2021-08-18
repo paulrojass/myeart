@@ -12,16 +12,22 @@
                             <div class="information__set profile_images">
                                 <div class="information_wrapper">
                                     <div class="profile_image_area">
-                                        <div>
-                                            <img :src="(typeof form.avatar === 'string') ? form.avatar : form.avatar.url" 
-                                                alt="Author profile area"
-                                                style="width: 130px;"
-                                            >
+                                        <div class="d-flex ">
+                                                    
+                                            <div style="width: 130px;">
+                                                <Avatar 
+                                                    :path="(typeof form.avatar === 'string') ? 
+                                                        form.avatar : form.avatar.url"
+                                                />
+                                            </div>
+
                                             <div class="img_info">
-                                                <div class="btn" @click="$refs.avatar.click()">
-                                                    <p class="bold">Agregar tu foto de perfil</p>
-                                                    <input ref="avatar" type="file" id="thumbnail" class="files" @change="newAvatar">
+                                                <div class="btn btn-outline-secondary btn--sm" @click="$refs.avatar.click()">
+                                                    <span>
+                                                        {{ form.avatar !== "" ? 'Cambia' : 'Agrega' }} tu foto de perfil
+                                                    </span> 
                                                 </div>
+                                                <input ref="avatar" type="file" id="thumbnail" class="files" @change="newAvatar">
                                             </div>
                                         </div>
                                     </div>
@@ -68,14 +74,14 @@
                                             <input type="text" id="usrname" class="text_field" v-model="form.name">
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
+                                    <!-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="password">Clave
                                                 <sup>*</sup>
                                             </label>
                                             <input type="password" id="password" class="text_field" >
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="conpassword">Confirm Password
@@ -242,7 +248,7 @@
                             >
                                 Guardar Cambios
                             </button>
-                            <button class="btn btn-md btn-danger">Cancelar</button>
+                            <!-- <button class="btn btn-md btn-danger">Cancelar</button> -->
                         </div>
                     </div>
                 </div>
@@ -254,11 +260,13 @@
 <script>
 import layout from "@/Layouts/Default/LayoutDefault.vue"
 import HeaderAccount from '@/Layouts/HeaderMenu.vue'
+import Avatar from '@/Components/Avatar.vue'
 
 export default {
     layout,
     components: {
-        HeaderAccount
+        HeaderAccount,
+        Avatar
     },
     data() {
         return {
@@ -281,7 +289,7 @@ export default {
         init(){
             this.form = this.$inertia.form({
                 _method: 'put',
-                avatar: this.user.profile.avatar ?? '',
+                avatar: this.user.profile.avatar ?? "",
                 firstName: this.user.profile.firstName,
                 lastName: this.user.profile.lastName,
                 email: this.user.email,

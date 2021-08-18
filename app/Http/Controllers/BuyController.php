@@ -140,7 +140,9 @@ class BuyController extends Controller
         $buy->finished = 1;
         $buy->save();
 
-        return response()->json(['success' => 'Compra finalizada']);
+        return back();
+
+        // return response()->json(['success' => 'Compra finalizada']);
     }
 
     /**
