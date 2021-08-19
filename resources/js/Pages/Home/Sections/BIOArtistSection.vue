@@ -47,9 +47,15 @@
                                 
                             </div>
                             <div class="text-center m-top-20">
-                                <a href="" class="btn btn--lg btn-primary"
-                                    >Ver mas</a
-                                >
+                                    <inertia-link
+                                        :href="
+                                            route('artists.list')
+                                        "
+                                    >
+                                        <a href="" class="btn btn--lg btn-primary">
+                                            Ver mas
+                                            </a>
+                                    </inertia-link>
                             </div>
                         </div>
                         

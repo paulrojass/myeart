@@ -20,8 +20,9 @@ use Laravel\Socialite\Facades\Socialite;
 */
 
 Route::get('/test', function(){
-    return Inertia::render('Auth/VerifyEmail', []);
-});
+    // return Inertia::render('Auth/VerifyEmail', []);
+    return Inertia::render('artists/index', []);
+})->name('test');
 
 // Account
 
@@ -88,11 +89,13 @@ Route::get('/artista-o-galeria', [App\Http\Controllers\HomeController::class, 's
 // ->name('home.artist');
 Route::get('/artista/{id}', [App\Http\Controllers\ArtistController::class, 'show'])
 ->name('home.artist');
+Route::get('/artistas', [App\Http\Controllers\ArtistController::class, 'list'])
+->name('artists.list');
 
 //Listados de vendedores (artistas y galerias)
 Route::get('vendedores', [App\Http\Controllers\SellerController::class, 'list'])->name('sellers.index');
 Route::get('vendedores/{id}', [App\Http\Controllers\SellerController::class, 'show'])->name('sellers.show');
-Route::get('vendedores/artistas', [App\Http\Controllers\ArtistController::class, 'list'])->name('artists.index');
+Route::get('vendedores/artistas', [App\Http\Controllers\ArtistController::class, 'index'])->name('artists.index');
 Route::get('vendedores/galerias', [App\Http\Controllers\GalleryController::class, 'list'])->name('galleries.index');
 
 //Informacion de una Cuenta

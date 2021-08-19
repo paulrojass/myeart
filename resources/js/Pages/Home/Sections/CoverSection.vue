@@ -28,17 +28,15 @@
                                     <div class="col-md-10 offset-md-1">
                                         <div class="search_box">
                                             <form @submit.prevent="submit">
-                                                <input
-                                                    type="text"
-                                                    class="text_field"
-                                                    placeholder="Realiza tu busqueda"
-                                                />
+                                                <div class="col-6 d-flex align-items-center">
+                                                    <h4 class="text-muted">Buscar Obra por Categoria</h4>
+                                                </div>
                                                 <div
                                                     class="search__select select-wrap"
                                                 >
                                                     <select
                                                         name="category"
-                                                        class="select--field"
+                                                        class="select--field "
                                                         v-model="form.category"
                                                     >
                                                         <option value="">
@@ -60,7 +58,7 @@
                                                     type="submit"
                                                     class="search-btn btn--lg btn-primary"
                                                 >
-                                                    Avanzada
+                                                    Buscar
                                                 </button>
                                             </form>
                                         </div>

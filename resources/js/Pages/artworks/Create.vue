@@ -44,7 +44,7 @@
                                                 <div class="form-group">
                                                     <label for="attribute1">{{ attrib.name }}</label>
                                                     <div class="select-wrap select-wrap2">
-                                                        <select name="attribute1" id="attribute1" class="text_field" v-model="form.attributes[attrib.name]" >
+                                                        <select name="attribute1" id="attribute1" class="text_field" v-model="form.attributes[attrib.name]" required>
                                                             <option 
                                                                 v-for="elem in attrib.elements"
                                                                 :key="elem.id"
@@ -246,6 +246,7 @@ export default {
         console.log('form', this.form)
 
         // console.log('query', route().params.type) 
+
         this.form.post(route('my-artworks.store'))
       },
       newFile(event){

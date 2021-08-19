@@ -59,9 +59,10 @@
                                                     </inertia-link>
                                                 </li>
                                                 <li>
+
                                                     <inertia-link
                                                         :href="
-                                                            route('profileAuthor')
+                                                            route('artists.list')
                                                         "
                                                     >
                                                         Artistas

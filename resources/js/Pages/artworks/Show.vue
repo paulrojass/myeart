@@ -79,7 +79,6 @@
                                     <div class="tab-content-wrapper">
                                         <h3 class="text-primary">Información:</h3>
                                         <p class="p-bottom-30">{{ artwork.description }}</p>
-                                        <img src="/img/prodesc.jpg" alt="This is product description thumbnail">
                                     </div>
                                 </div>
                                 <div class="fade tab-pane product-tab" id="product-comment" role="tabpanel" aria-labelledby="tab2">
@@ -399,7 +398,7 @@ export default {
         handleScroll(event){
             // console.log('scrollFn', event)
 
-            if (window.innerWidth < 1000 || window.innerHeight < 1000){
+            if (window.innerWidth < 1000 || window.innerHeight < 500){
                 return;
             }
 

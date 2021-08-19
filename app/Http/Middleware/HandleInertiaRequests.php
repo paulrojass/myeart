@@ -35,7 +35,7 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
-        $user = User::with(['profile', 'roles', 'unreadNotifications'])
+        $user = User::with(['profile', 'roles', 'unreadNotifications', 'seller.tags'])
             ->find(Auth::id());
 
         // if(Cookie::get('shopping_cart')) {

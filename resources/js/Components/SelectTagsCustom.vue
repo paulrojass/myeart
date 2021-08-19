@@ -5,7 +5,7 @@
             v-for="(item, i) in tags" :key="i"
             >
             <span 
-                :class="`item ${selected.includes(item) && 'active'} m-1`" 
+                :class="`item ${selected.find(s => s.id === item.id) && 'active'} m-1`" 
                 @click="handleChange(item)"
             >
                 {{ item.name }}
@@ -17,10 +17,16 @@
 <script>
 
 export default ({
-    props: ["tags"],
+    props: ["tags", 'dataInitial'],
     data() {
         return {
             selected: []
+        }
+    },
+    created(){
+        console.log('dataInitial', this.dataInitial)
+        if (this.dataInitial){
+            this.selected = [...this.dataInitial];
         }
     },
     methods: {
@@ -30,6 +36,8 @@ export default ({
             }else {
                 this.selected = [...this.selected, item];
             }
+
+            console.log('selected', this.selected)
 
             this.$emit('update', this.selected.map(s => s.id))
         }

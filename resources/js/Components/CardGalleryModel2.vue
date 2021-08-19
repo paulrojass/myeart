@@ -20,24 +20,24 @@
                         {{ doc.seller.user.name }}
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="price text-primary"> 
-                        {{ doc.seller.artworks[0].price }}$
-                    </div>
-                </div>
 
             </div>
             <div class="row-cardWorkArt mt-2 pt-3 d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                     <span
-                        class="icon-user icon-cardWorkArt"
+                        class="icon-heart icon-cardWorkArt"
                         title="Add to collection"
                         data-toggle="tooltip"
                     />
                     <span class="ml-1"> 0 </span>
                 </div>
+                <div class="">
+                    <div class="price text-primary"> 
+                        {{ doc.seller.artworks[0].price }}$
+                    </div>
+                </div>
 
-                <div class="d-flex align-items-center">
+                <!-- <div class="d-flex align-items-center">
                     <div class="mr-2">
                         4/5
                     </div>
@@ -64,7 +64,7 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 

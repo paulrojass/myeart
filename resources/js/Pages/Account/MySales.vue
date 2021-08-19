@@ -79,30 +79,13 @@
 
                     <div class="product_archive">
                         <div class="row">
-                            
-                            <div class="col-md-12">
-                                
-                                <nav class="pagination-default ">
-                                    <ul class="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true"><i class="fa fa-long-arrow-left"></i></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">10</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true"><i class="fa fa-long-arrow-right"></i></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                            <div class="col-12">
+                                <Pagination 
+                                    :size="itemsDisplay.length"
+                                    :porPage="porPage"
+                                    v-bind:page="currentPage"
+                                    v-on:update="currentPage = $event"
+                                />
                             </div>
                         </div>
                     </div>
@@ -121,16 +104,20 @@
 <script>
 import layout from "@/Layouts/Default/LayoutDefault.vue"
 import HeaderAccount from '@/Layouts/HeaderMenu.vue'
+import Pagination from '@/Components/Pagination'
 
 export default {
     props: ['sales'],
     layout,
     components: {
-        HeaderAccount
+        HeaderAccount,
+        Pagination
     },
     data(){
         return {
-            search: ''
+            search: '',
+            currentPage: 1,
+            porPage: 5,
         }
     },
     created(){
@@ -144,6 +131,10 @@ export default {
                 this.sales.filter(b => b.artwork.name
                     .toLowerCase()
                     .includes(this.search.toLowerCase()));
+        },
+        displayDocsByPage(){
+            let chunk = window._.chunk(this.itemsDisplay, this.porPage);
+            return chunk[this.currentPage -1];
         }
     }
 }

@@ -24,7 +24,7 @@ class ArtworkController extends Controller
             'elements',
             'comments',
             'likes'
-        ])->get();
+        ])->orderBy('created_at', 'desc')->get();
 
 
         return Inertia::render('artworks/Index', [
@@ -95,7 +95,8 @@ class ArtworkController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all());
+        // dd($request->all());
+
         $artwork = Artwork::create([
             'seller_id' => auth()->user()->seller->id,
             'category_id' => $request->category_id,
@@ -118,7 +119,7 @@ class ArtworkController extends Controller
 
                 $format = $image->extension();
 
-                $fileName = 'artwork'.$artwork->id.'.'.$format;
+                $fileName = 'artwork'.$artwork->id.'_'.$key.'.'.$format;
                 $image->move($destinationPath, $fileName);
 
                 $artwork_image = ArtworkImage::create([

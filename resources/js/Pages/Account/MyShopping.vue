@@ -32,7 +32,7 @@
                                 <th class="text-primary text-center">Estado</th>
                             </thead>
                             <tbody>
-                                <tr v-for="item in itemsDisplay" :key="item.id">
+                                <tr v-for="item in displayDocsByPage" :key="item.id">
                                     <td>
                                         <div class="d-flex">
                                             <img
@@ -85,30 +85,13 @@
 
                     <div class="product_archive">
                         <div class="row">
-                            
-                            <div class="col-md-12">
-                                
-                                <nav class="pagination-default ">
-                                    <ul class="pagination">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true"><i class="fa fa-long-arrow-left"></i></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item disabled"><a class="page-link" href="#">...</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">10</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true"><i class="fa fa-long-arrow-right"></i></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                            <div class="col-12">
+                                <Pagination 
+                                    :size="itemsDisplay.length"
+                                    :porPage="porPage"
+                                    v-bind:page="currentPage"
+                                    v-on:update="currentPage = $event"
+                                />
                             </div>
                         </div>
                     </div>
@@ -172,21 +155,25 @@ import layout from "@/Layouts/Default/LayoutDefault.vue"
 import HeaderAccount from '@/Layouts/HeaderMenu.vue'
 import Qualify from '@/Components/Qualify'
 
+import Pagination from '@/Components/Pagination'
+
 export default {
     props: ['buys'],
     layout,
     components: {
         HeaderAccount,
-        Qualify
+        Qualify,
+        Pagination
     },
     created(){
         console.log('myshopping', this.buys)
     },
     data(){
         return {
-            currentPage: 0,
-            search: "",
+            currentPage: 1,
+            porPage: 5,
 
+            search: "",
             currentBuy: null,
             textComment: "",
             currentStar: 0
@@ -200,6 +187,10 @@ export default {
                 this.buys.filter(b => b.artwork.name
                     .toLowerCase()
                     .includes(this.search.toLowerCase()));
+        },
+        displayDocsByPage(){
+            let chunk = window._.chunk(this.itemsDisplay, this.porPage);
+            return chunk[this.currentPage -1];
         }
     },
     methods: {
@@ -208,9 +199,7 @@ export default {
             this.currentStar = 0;
             this.textComment = "";
 
-            window.$('#exampleModal').modal({
-                show: true
-            })
+            window.$('#exampleModal').modal('toggle')
 
         },
         sendComment(){
@@ -232,9 +221,7 @@ export default {
                         this.currentStar = 0;
                         this.textComment = "";
 
-                        window.$('#exampleModal').modal({
-                            show: false
-                        })
+                        window.$('#exampleModal').modal('toggle')
                     }
                 },
             );

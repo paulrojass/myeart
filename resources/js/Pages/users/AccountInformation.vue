@@ -96,6 +96,16 @@
                                             <input type="text" id="prohead" class="text_field" v-model="form.biography">
                                         </div>
                                     </div>
+                                    <div class="col-12 my-2" v-if="user.seller">
+                                        <h3 class="subtitle">Cambiar etiquetas</h3>
+                                        <div>
+                                            <SelectTagsCustom 
+                                                :dataInitial="user.seller?.tags ?? []"
+                                                :tags="tags"
+                                                v-on:update="form.tags = $event" 
+                                            />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -261,12 +271,15 @@
 import layout from "@/Layouts/Default/LayoutDefault.vue"
 import HeaderAccount from '@/Layouts/HeaderMenu.vue'
 import Avatar from '@/Components/Avatar.vue'
+import SelectTagsCustom from '@/Components/SelectTagsCustom'
 
 export default {
+    props: ['tags'],
     layout,
     components: {
         HeaderAccount,
-        Avatar
+        Avatar,
+        SelectTagsCustom
     },
     data() {
         return {
@@ -278,7 +291,10 @@ export default {
 
         this.init();
 
-        console.log('props user', this.user)
+        console.log('props', {
+            es: this,
+            tags: this.tags
+        })
     },
     computed: {
         user(){
@@ -306,6 +322,7 @@ export default {
                 facebook: this.user.profile.facebook,
                 twitter: this.user.profile.twitter,
                 google: this.user.profile.google,
+                tags: this.user.profile?.seller?.tags ?? []
             })
         },
         submit() {

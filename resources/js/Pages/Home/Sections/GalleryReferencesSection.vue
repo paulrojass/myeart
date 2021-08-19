@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import CardWorkArtModel from "../../../Components/CardWorkArtModel2";
+import CardWorkArtModel from "../../../Components/CardGalleryModel2";
 import Buttom from '../../../Components/ButtonCustom'
 
 export default {

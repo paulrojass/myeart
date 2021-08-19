@@ -24,7 +24,7 @@ class ArtistController extends Controller
 
         // dd($artists);
 
-        return Inertia::render('dasboard/artists/Index', [
+        return Inertia::render('artists/index', [
             'artists' => $artists
         ]);
 
@@ -37,11 +37,12 @@ class ArtistController extends Controller
      */
     public function list()
     {
+
         $artists = Artist::query()->with(['seller', 'seller.user', 'seller.user.profile'])->get();
 
         // dd($artists);
 
-        return Inertia::render('artists/Index', [
+        return Inertia::render('artists/index', [
             'artists' => $artists
         ]);
 
@@ -106,6 +107,7 @@ class ArtistController extends Controller
         $artist = Artist::where('seller_id', $id)->with([
             'seller.user',
             'seller.user.profile',
+            'seller.user.comments',
             'seller.artworks',
             'seller.artworks.artworkImages',
             'seller.sales'
@@ -117,7 +119,7 @@ class ArtistController extends Controller
 
         //Aqui me falta agregar las resenas
 
-        return Inertia::render('artists/Index', [
+        return Inertia::render('artists/show', [
             'artist' => $artist,
             'popular_artworks' => $popular_artworks
         ]);

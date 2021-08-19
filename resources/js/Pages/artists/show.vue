@@ -99,8 +99,8 @@
                                                         <i class="fa fa-star"></i>
                                                         <i class="fa fa-star"></i>
                                                     </span>
-                                                    <span class="avg_r">  5.0 </span>
-                                                    <span>(226 opiniones)</span>
+                                                    <span class="avg_r">  0 </span>
+                                                    <span>({{ artist.seller.user.comments.length || 0 }} opiniones)</span>
                                                 </div>
                                                 <p>Calificaciones de autor</p>
                                             </li>
@@ -147,10 +147,10 @@
                             </div>
                             <div class="tab-pane fade" id="items" role="tabpanel" aria-labelledby="items-tab">
                                 <div class="row"
-                                    v-if="artworks && artworks.length"
+                                    v-if="popular_artworks && popular_artworks.length"
                                 >
                                     <div 
-                                        v-for="doc in artworks"
+                                        v-for="doc in popular_artworks"
                                         :key="doc.id"
                                         class="col-lg-4 col-md-6"
                                     >
@@ -511,7 +511,7 @@ import Avatar from '@/Components/Avatar'
 
 export default {
     layout: Layout,
-    props: ['artist', 'artworks'],
+    props: ['artist', 'artworks', 'popular_artworks'],
     components: {
         Header,
         CardWordArtModel,
@@ -520,6 +520,7 @@ export default {
     created(){
         console.log('artist', this.artist)
         console.log('artworks', this.artworks)
+        console.log('popular_artworks', this.popular_artworks)
     },
     data(){
         return {

@@ -9,6 +9,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Image;
+use App\Models\Tag;
+use App\Models\Seller;
 
 class UserController extends Controller
 {
@@ -72,12 +74,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $tags = Tag::all();
         $user = User::where('id', $id)->with('profile')->first();
 
-        dd($user);
+        // dd($user);
 
         return Inertia::render('users/AccountInformation', [
-            'user' => $user
+            'user' => $user,
+            'tags' => $tags
         ]);
     }
 
@@ -91,17 +95,18 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
+        
         $user = User::find($id);
-
-        if ($request->file('avatar')) {
-            $this->deleteAvatar($user->profile->avatar);
-            // $user->profile->update($request->all());
-            $newPath = $this->saveAvatar($request);
-            $user->profile->update(['avatar' => $newPath]); 
-        }
 
         $user->update($request->all());
         $user->profile->update($request->all());
+
+        if ($request->file('avatar')) {
+            $this->deleteAvatar($user->profile->avatar);
+            $user->profile->update($request->all());
+            $newPath = $this->saveAvatar($request);
+            $user->profile->update(['avatar' => $newPath]); 
+        }
 
         return back()->with('user', $user);
         // return back()->json(['success' => 'Datos actualizados']);
@@ -127,8 +132,18 @@ class UserController extends Controller
      */
     public function editAccountInformation()
     {
+        $tags = Tag::all();
+        $seller = Seller::where('user_id', auth()->user()->id)
+            ->with('tags')
+            ->first();
+
+        // dd($seller);
+
         // En la vista se se toma la variable del usuario autenticado
-        return Inertia::render('users/AccountInformation');
+        return Inertia::render('users/AccountInformation', [
+            'tags' => $tags,
+            'seller' => $seller
+        ]);
     }
 
     /**
@@ -154,10 +169,10 @@ class UserController extends Controller
         $folderAvatars = 'avatars';
         $originalPath = public_path($folderAvatars);
         
-        //Nombre aleatorio para la image
+        // Nombre aleatorio para la image
         $tempName = 'avatar-'.$id. '.' . $originalImage->getClientOriginalExtension();
 
-        //Redimensinoar la imagen
+        // Redimensinoar la imagen
         if ($image->width() >= $image->height()) {
             $image->heighten(400);
         } else {
