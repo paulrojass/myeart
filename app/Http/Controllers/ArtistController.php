@@ -6,6 +6,7 @@ use App\Models\Artist;
 use Illuminate\Http\Request;
 
 use App\Models\Artwork;
+use App\Models\Buy;
 use App\Models\Seller;
 use App\Models\Tag;
 use Inertia\Inertia;
@@ -27,7 +28,6 @@ class ArtistController extends Controller
         return Inertia::render('artists/index', [
             'artists' => $artists
         ]);
-
     }
 
     /**
@@ -45,7 +45,6 @@ class ArtistController extends Controller
         return Inertia::render('artists/index', [
             'artists' => $artists
         ]);
-
     }
 
 
@@ -104,7 +103,7 @@ class ArtistController extends Controller
      */
     public function show($id)
     {
-        $artist = Artist::where('seller_id', $id)->with([
+        $artist = Artist::where('id', $id)->with([
             'seller.user',
             'seller.user.profile',
             'seller.user.comments',
@@ -113,17 +112,23 @@ class ArtistController extends Controller
             'seller.sales'
         ])->first();
 
-        $popular_artworks = Artwork::where('seller_id', $artist->seller_id)->withCount('likes')->with(['likes', 'artworkImages', 'seller.user'])->orderByDesc('likes_count')->take(6)->get();
+        $popular_artworks = Artwork::where('seller_id', $artist->seller_id)
+        ->withCount('likes')
+        ->with(['likes', 'artworkImages', 'seller.user'])
+        ->orderByDesc('likes_count')
+        ->take(6)->get();
 
-        //dd($popular_artworks);
+        $array_ids =  json_encode(array_values($artist->seller->artworks->pluck('id')->toArray()));
+        $array_ids =  $artist->seller->artworks->keyBy('id');
 
-        //Aqui me falta agregar las resenas
+        $sales_finished = Buy::whereIn('artwork_id', $artist->seller->artworks->modelKeys())
+        ->where('finished', 1)->get();
 
         return Inertia::render('artists/show', [
             'artist' => $artist,
-            'popular_artworks' => $popular_artworks
+            'popular_artworks' => $popular_artworks,
+            'sales_finished' => $sales_finished
         ]);
-
     }
 
     /**

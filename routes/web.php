@@ -78,8 +78,10 @@ Route::get('/dashboard', function () {
 require __DIR__.'/auth.php';
 
 //Laravel Socialite
-Route::get('/redirect', [App\Http\Controllers\LoginWithFacebookController::class, 'redirectFacebook']);
-Route::get('/callback', [App\Http\Controllers\LoginWithFacebookController::class, 'facebookCallback']);
+Route::get('auth/facebook', [App\Http\Controllers\LoginWithFacebookController::class, 'redirectFacebook'])->name('redirectFacebook');
+
+Route::get('auth/facebook/callback', [App\Http\Controllers\LoginWithFacebookController::class, 'facebookCallback'])->name('facebookCallback');
+
 
 //Vistas para home
 //Seleccionar Aristista o Galeria:
