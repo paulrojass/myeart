@@ -102,7 +102,7 @@ class ArtistController extends Controller
      */
     public function show($id)
     {
-        $artist = Artist::where('seller_id', $id)->with([
+        $artist = Artist::where('id', $id)->with([
             'seller.user',
             'seller.user.profile',
             'seller.artworks',
@@ -116,20 +116,16 @@ class ArtistController extends Controller
         ->orderByDesc('likes_count')
         ->take(6)->get();
 
-        $seller = $artist->seller;
+        $array_ids =  json_encode(array_values($artist->seller->artworks->pluck('id')->toArray()));
+        $array_ids =  $artist->seller->artworks->keyBy('id');
 
-        //$sales = $seller->artworks->buy;
-
-        $sales = Buy::where('artwork_id', $seller->artworks->pluck('id'))->get();
-        dd($sales);
-
-        //dd($popular_artworks);
-
-        //Aqui me falta agregar las resenas
+        $sales_finished = Buy::whereIn('artwork_id', $artist->seller->artworks->modelKeys())
+        ->where('finished', 1)->get();
 
         return Inertia::render('artists/Index', [
             'artist' => $artist,
-            'popular_artworks' => $popular_artworks
+            'popular_artworks' => $popular_artworks,
+            'sales_finished' => $sales_finished
         ]);
     }
 

@@ -32,12 +32,19 @@
                                       </label>
                                   </div>
                               </div>
-                                <b-button 
+                                <b-button
                                   @click="submit"
-                                  class="ml-4 btn--lg btn btn-primary" 
+                                  class="ml-4 btn--lg btn btn-primary"
                                   :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
                                   Iniciar
                                 </b-button>
+
+                                <a
+                                    :href="route('redirectFacebook')"
+                                    class="ml-4 btn--lg btn btn-primary">
+                                    Facebook
+                                </a>
+
 
                               <div class="login_assist">
                                   <inertia-link :href="route('register')" class="text-muted mr-3">
