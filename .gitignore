@@ -2,8 +2,9 @@
 /public/hot
 /public/storage
 /storage/*.key
-/public/artwork_images/
+/public/artwork_images/*
 /vendor
+/public/avatars/*
 .env
 .env.backup
 .phpunit.result.cache
