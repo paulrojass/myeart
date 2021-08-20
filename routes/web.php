@@ -60,6 +60,10 @@ Route::get('/detailsWorkArtist', function(){
 // Vista Obras (Public) Editada (Paul)
 Route::get('obras', [App\Http\Controllers\ArtworkController::class, 'list'])->middleware([])->name('search');
 
+Route::get('obras/{artwork_id}', [App\Http\Controllers\ArtworkController::class, 'show'])
+->middleware([])
+->name('artwork.show');
+
 // Vista  Home , Editada Paul
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->middleware([])->name('home');
 

@@ -74,6 +74,7 @@ class BuyController extends Controller
         $buy_details = [
                 'greeting' => 'Has realizado una compra en Myeart',
                 'body' => 'Tu compra de '.$artwork->name.' se ha realizado satisfactoriamente',
+                'url' => 'mis-compras',
                 //'thanks' => 'Thank you for visiting codechief.org!',
         ];
 
@@ -83,6 +84,7 @@ class BuyController extends Controller
         $sale_details = [
                 'greeting' => 'Han comprado una de tus obras de arte',
                 'body' => 'Su obra '.$artwork->name.' ha sido comprada por el usuario '.$user->profile->firstName.' '.$user->profile->lastName,
+                'url' => 'mis-ventas',
                 //'thanks' => 'Thank you for visiting codechief.org!',
         ];
         $seller->notify(new \App\Notifications\NewSale($sale_details));
