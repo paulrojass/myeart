@@ -26,8 +26,19 @@
                             <!-- <a href="#" class="reply-link">Reply</a> -->
                         </div>
                         <div style="width: 85%;">
-                            <div class="text-muted border-light rounded-pill py-2 px-4">
+                            <!-- border-light rounded-pill -->
+                            <div class="">
                             {{ item.comment.content }} 
+                            </div>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-end">
+                                <span 
+                                    :class="`badge rounded-pill ${reply === item.comment.id ? 'bg-primary text-light': 'bg-light text-dark'}`" 
+                                    style="cursor: pointer;"
+                                    @click="comentar(item.comment.id)">
+                                    Responder
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -39,19 +50,26 @@
                         v-for="question in item.subcomments"
                         :key="question.id"
                     >
-                        <div class="media">
+                        <div class="media py-3">
                             <div class="media-left">
-                                <Avatar 
-                                    :path="question.user.profile.avatar"
-                                />
+                                <div  style="width: 40px; height: 40px;">
+                                    <Avatar 
+                                        :path="question.user.profile.avatar"
+                                    />
+                                    <span class="badge rounded-pill bg-light text-dark">Autor</span>
+                                </div>
                             </div>
                             <div class="media-body">
-                                <div class="media-heading">
+                                <div class="media-heading d-flex justify-content-between">
                                     <h4>{{ question.user.name }}</h4>
                                     <span>{{ question.time }}</span>
                                 </div>
-                                <span class="comment-tag author">Author</span>
-                                <p>{{ question.content }}</p>
+                                <!-- <span class="comment-tag author">Autor</span> -->
+                                <div style="width: 85%;">
+                                    <div class="">
+                                    {{ question.content }} 
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </li>
@@ -74,6 +92,29 @@
                         </div>
                     </li> -->
                 </ul>
+
+                <div class="media p-3 d-flex justify-content-center">
+                    <div  class="d-flex" style="width: 90%;" v-if="reply === item.comment.id">
+                            <div style="width: 40px; height: 40px;">
+                                <Avatar 
+                                    :path="user.profile.avatar"
+                                />
+                            </div>
+                            <input 
+                                type="text" 
+                                :class="`border-light rounded-pill`" 
+                                placeholder="Escribe aqui..."
+                                v-model="textReply"
+                            >
+                            <div class="d-flex align-items-center btn-send">
+                                <span class="material-icons" 
+                                    @click="sendComment(item.comment.id)"
+                                    >
+                                    send
+                                </span>
+                            </div>
+                    </div>
+                </div>
                 
             </li>
         </ul>
@@ -89,7 +130,7 @@
                     </div>
                 </div>
                 <div class="media-body">
-                    <form @submit.prevent="sendComment" class="form-group">
+                    <form @submit.prevent="sendComment(null)" class="form-group">
                         <textarea 
                             name="reply-comment" 
                             placeholder="Escribe tu comentario..." 
@@ -120,19 +161,25 @@ export default ({
     },
     data() {
         return {
+            reply: null,
+            textReply: "",
+
             commentsFormat: [],
             textComment: ""
         }
     },
     created(){
+        console.log('this comment', this)
         this.init();
     },
     methods: {
         init(){
-            let newComments = []
+            let newComments = [];
             let mapComments = {};
+            let subcommentsPendientes = [];
 
-            this.comments.forEach(value => {
+            newComments = this.comments.reduce((acc, value)=>{
+                // Get comments Root
                 let time = moment(value.created_at).fromNow();
                 let newValue = {
                     id: value.id,
@@ -144,53 +191,114 @@ export default ({
                 }
 
                 if (!value.comment_id){
-                    mapComments[value.id] = newComments.length;
+                    mapComments[value.id] =  acc.length;
                     
-                    newComments.push({
+                    acc.push({
                         comment: newValue,
                         subcomments: []
-                    });
-                    //Es root
-                    
+                    });  
                 }else {
-                    let commentRoot = [...newComments].splice(mapComments[value.comment_id], 1)[0];
-
-                    let newCommentRoot = {
-                            ...commentRoot,
-                            subcomments: [
-                                ...commentRoot.subcomments,
-                                newValue
-                            ]
-                        }
-
-                    newComments = newComments.map(c => value.comment_id !== c.comment.id ? 
-                        c
-                        :
-                        newCommentRoot    
-                    )
-                    
-                    // console.log('commentRoot', commentRoot)
-                    // return newComments;
+                    subcommentsPendientes.push(value);
                 }
-                // console.log(newComments, value)
-        });
+                
+
+                return acc;
+            }, [])
+
+            subcommentsPendientes.forEach(subcomment => {
+                let index = mapComments[subcomment.comment_id];
+                let newComment = newComments[index];
+
+                let time = moment(subcomment.created_at).fromNow();
+                let newValue = {
+                    id: subcomment.id,
+                    comment_id: subcomment.comment_id,
+                    content: subcomment.content,
+                    user: subcomment.user,
+                    time,
+                    created_at: subcomment.created_at
+                }
+
+                newComment.subcomments = [
+                    newValue,
+                    ...newComment.subcomments,
+                ]
+
+                // console.log('newComment', newComment)
+            })
+
+            
+
+        //     this.comments.forEach(value => {
+        //         let time = moment(value.created_at).fromNow();
+        //         let newValue = {
+        //             id: value.id,
+        //             comment_id: value.comment_id,
+        //             content: value.content,
+        //             user: value.user,
+        //             time,
+        //             created_at: value.created_at
+        //         }
+
+        //         if (!value.comment_id){
+        //             mapComments[value.id] = newComments.length;
+                    
+        //             newComments.push({
+        //                 comment: newValue,
+        //                 subcomments: []
+        //             });
+        //             //Es root
+                    
+        //         }else {
+        //             let commentRoot = [...newComments].splice(mapComments[value.comment_id], 1)[0];
+
+        //             if (commentRoot){
+    
+        //                 let newCommentRoot = {
+        //                         ...commentRoot,
+        //                         subcomments: [
+        //                             ...commentRoot.subcomments,
+        //                             newValue
+        //                         ]
+        //                     }
+    
+        //                 newComments = newComments.map(c => value.comment_id !== c.comment.id ? 
+        //                     c
+        //                     :
+        //                     newCommentRoot    
+        //                 )
+        //             }
+                    
+        //             // console.log('commentRoot', commentRoot)
+        //             // return newComments;
+        //         }
+        //         // console.log(newComments, value)
+        // });
 
         this.commentsFormat = newComments;
 
-        // console.log('newComments', newComments)
+        console.log('newComments', newComments)
         },
-        sendComment(){
-            // console.log('sendcoment', {
-            //     artwork_id: this.artwork.id,
-            //     content: this.textComment
-            // })
+        sendComment(comment_id){
+            let form = {};
+
+            if (comment_id){
+                form = {
+                    artwork_id: this.artwork.id,
+                    content: this.textReply,
+                    comment_id: comment_id
+                }
+
+            }else {
+                form = {
+                    artwork_id: this.artwork.id,
+                    content: this.textComment
+                }
+            }
 
             this.$inertia.post(
                 route('comments.store'),
-                {
-                    artwork_id: this.artwork.id,
-                    content: this.textComment
-                },
+                form,
                 {
                     preserveScroll: true,
                     onSuccess: (res) => {
@@ -199,10 +307,16 @@ export default ({
                          this.init();
                     //     // console.log('textComment', this.textComment);
                         this.textComment = "";
+                        this.textReply = "";
+                        this.reply = null;
                     }
                 },
             );
 
+        },
+        comentar(commentId){
+            this.reply = commentId;
+            this.textReply = "";
         }
     }
 })
@@ -211,7 +325,7 @@ export default ({
 
 <style scoped>
     .list-comments-children {
-        max-height: 300px;
+        max-height: 160px;
         overflow: auto;
     }
 
@@ -223,5 +337,13 @@ export default ({
     textarea {
         min-height: 50px !important;
         resize: vertical !important;
+    }
+
+    .btn-send {
+        cursor: pointer;
+    }
+
+    .btn-send:hover {
+        opacity: .6;
     }
 </style>

@@ -35,6 +35,7 @@ class BuyController extends Controller
         $total_amount = $amount - ($amount * $discount_rate)/100;
         return Inertia::render('buys/BuysIndex', [
             'artwork' => $artwork,
+            "discount_rate" => $discount_rate,
             'total_amount' => $total_amount
         ]);
     }
@@ -74,7 +75,7 @@ class BuyController extends Controller
         $buy_details = [
                 'greeting' => 'Has realizado una compra en Myeart',
                 'body' => 'Tu compra de '.$artwork->name.' se ha realizado satisfactoriamente',
-                'url' => 'mis-compras',
+                'url' => '/cuenta/mis-compras',
                 //'thanks' => 'Thank you for visiting codechief.org!',
         ];
 
@@ -84,12 +85,13 @@ class BuyController extends Controller
         $sale_details = [
                 'greeting' => 'Han comprado una de tus obras de arte',
                 'body' => 'Su obra '.$artwork->name.' ha sido comprada por el usuario '.$user->profile->firstName.' '.$user->profile->lastName,
-                'url' => 'mis-ventas',
+                'url' => '/cuenta/mis-ventas',
                 //'thanks' => 'Thank you for visiting codechief.org!',
         ];
         $seller->notify(new \App\Notifications\NewSale($sale_details));
         return Inertia::render('buys/PurchaseSummary', [
-            'artwork' => $artwork
+            'artwork' => $artwork,
+            'buy' => $buy
         ]);
     }
 

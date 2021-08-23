@@ -133,18 +133,18 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-2">
-                                                    <span> {{ artwork.price }}$ </span>
+                                                    <span> {{ ' ' + artwork.price }}$ </span>
                                                 </div>
                                             </div>
                                         </li>
                                         
                                         <li>
                                             <p>Tasas e impuestos estimados:</p>
-                                            <span> 2 $</span>
+                                            <span> {{discount_rate}} %</span>
                                         </li>
                                         <li class="total_ammount">
                                             <p class="font-weight-bolder">Total:</p>
-                                            <span>  {{ ' ' + artwork.price }} $</span>
+                                            <span>  {{ ' ' + total_amount}} $</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -254,13 +254,13 @@ import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
 
 export default {
-    props: ['artwork'],
+    props: ['artwork', 'total_amount', 'discount_rate'],
     layout: Layout,
     components: {
         Header
     },
     created(){
-        console.log('artwork', this.artwork)
+        console.log('buysIndex', this)
     },
     data(){
         return {

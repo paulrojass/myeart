@@ -21,7 +21,7 @@
                                   <label for="password">Contraseña</label>
                                   <input id="password" type="password" v-model="form.password" required autocomplete="current-password">
                               </div>
-                              <div class="form-group">
+                              <!-- <div class="form-group">
                                   <div class="custom_checkbox">
                                       <input type="checkbox" id="ch2">
                                       <label for="ch2">
@@ -31,7 +31,7 @@
                                           </span>
                                       </label>
                                   </div>
-                              </div>
+                              </div> -->
                                 <b-button
                                   @click="submit"
                                   class="ml-4 btn--lg btn btn-primary"

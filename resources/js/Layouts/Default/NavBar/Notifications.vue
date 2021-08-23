@@ -32,20 +32,22 @@
                 :key="notif.id"
             >
                 <div class="notification">
-                    <div class="notification__info">
-                        <div class="info_avatar">
-                            <i class="fa fa-shopping-cart"></i>
+                    <inertia-link :href="notif.data.data.url">
+                        <div class="notification__info">
+                            <div class="info_avatar">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
+                            <div class="info">
+                                <p>
+                                    <!-- <span>Anderson</span> -->
+                                    {{ notif.data.data.greeting }}
+                                </p>
+                                <p class="time mt-2">
+                                    {{ moment(notif.created_at).fromNow() }}
+                                </p>
+                            </div>
                         </div>
-                        <div class="info">
-                            <p>
-                                <!-- <span>Anderson</span> -->
-                                {{ notif.data.data }}
-                            </p>
-                            <p class="time mt-2">
-                                {{ moment(notif.data.created_at).fromNow() }}
-                            </p>
-                        </div>
-                    </div>
+                    </inertia-link>
 
                     <!-- <div
                         class="notification__icons"
@@ -94,3 +96,10 @@ export default ({
     }
 })
 </script>
+
+
+<style scoped>
+    .notification {
+        cursor: pointer;
+    }
+</style>

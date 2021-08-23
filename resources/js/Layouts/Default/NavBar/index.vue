@@ -200,6 +200,9 @@ export default ({
         Notifications,
         Avatar
     },
+    created(){
+        console.log('notification', this.$page.props.auth)
+    },
     computed: {
         user() {
             return this.$page.props.auth.user

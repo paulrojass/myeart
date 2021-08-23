@@ -8,8 +8,9 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
-        
-        
+
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons" rel="stylesheet">
+
         <link rel="stylesheet" href="/vendor_assets/css/bootstrap/bootstrap.css">
         <link rel="stylesheet" href="/vendor_assets/css/animate.css">
         <link rel="stylesheet" href="/vendor_assets/css/font-awesome.min.css">

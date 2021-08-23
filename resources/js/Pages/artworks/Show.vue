@@ -264,34 +264,6 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <!-- <li class="border-none">
-                                            <div class="custom-radio d-flex align-items-center">
-                                                <div class="mt-2 mr-2 img-list">
-                                                    <img 
-                                                        class="media-object rounded-circle" 
-                                                        src="/imagenes/icons/detailsWorkArtist/Style.png" 
-                                                        alt=""
-                                                    >
-                                                </div>
-                                                <div class="mt-2">
-                                                   Estilo: Clasico, Lumisimo
-                                                </div>
-                                            </div>
-                                        </li>   -->
-                                        <!-- <li class="border-none">
-                                            <div class="custom-radio d-flex align-items-center">
-                                                <div class="mt-2 mr-2 img-list">
-                                                    <img 
-                                                        class="media-object rounded-circle" 
-                                                        src="/imagenes/icons/detailsWorkArtist/Technique.png" 
-                                                        alt=""
-                                                    >
-                                                </div>
-                                                <div class="mt-2">
-                                                   Tecnica: Oleo, Pastel, Barniz
-                                                </div>
-                                            </div>
-                                        </li>     -->
                                         <li class="border-none mb-2">
                                             <div class="custom-radio d-flex align-items-center">
                                                 <div class="mt-2 mr-2 img-list">
@@ -345,10 +317,6 @@ export default {
         window.removeEventListener('scroll', this.handleScroll);
     },
     created(){
-        console.log('artwork', {
-            artwork: this.artwork,
-            user: this.$page.props.auth.user
-        });
 
         window.addEventListener('scroll', this.handleScroll);
 
@@ -402,7 +370,7 @@ export default {
                 return;
             }
 
-            if (window.scrollY > 270 && window.scrollY < 1000){
+            if (window.scrollY > 270 && window.scrollY < 750){
                 // let { sidebar: refSidebar } = this.$refs;
                 // if (refSidebar){
                     let elem = document.getElementById('sidebar');

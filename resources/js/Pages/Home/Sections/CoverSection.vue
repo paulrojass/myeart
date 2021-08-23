@@ -27,7 +27,7 @@
                                 <div class="row">
                                     <div class="col-md-10 offset-md-1">
                                         <div class="search_box">
-                                            <form @submit.prevent="submit">
+                                            <div class="d-flex">
                                                 <div class="col-6 d-flex align-items-center">
                                                     <h4 class="text-muted">Buscar Obra por Categoria</h4>
                                                 </div>
@@ -53,14 +53,14 @@
                                                         class="icon-arrow-down"
                                                     ></span>
                                                 </div>
-                                                
-                                                <button
-                                                    type="submit"
-                                                    class="search-btn btn--lg btn-primary"
-                                                >
-                                                    Buscar
-                                                </button>
-                                            </form>
+                                                <inertia-link :href="`/obras`" class="search-btn">
+                                                    <button
+                                                        class=" btn--lg btn-primary"
+                                                    >
+                                                        Buscar
+                                                    </button>
+                                                </inertia-link>
+                                            </div>
                                         </div>
                                         
                                     </div>
