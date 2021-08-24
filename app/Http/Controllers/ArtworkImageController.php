@@ -78,8 +78,9 @@ class ArtworkImageController extends Controller
      * @param  \App\Models\ArtworkImage  $artworkImage
      * @return \Illuminate\Http\Response
      */
-    public function destroy(ArtworkImage $artworkImage)
+    public function destroy($id)
     {
-        //
+        $artworkImage =  ArtworkImage::find($id);
+        return $artworkImage->delete();
     }
 }

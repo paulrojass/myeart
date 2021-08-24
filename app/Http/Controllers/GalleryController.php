@@ -86,11 +86,11 @@ class GalleryController extends Controller
         //Se Asigna role de vendedor
         $user->assignRole('seller');
 
-        //Creando datos artista del vendedor
-        $artist = new Artist();
-        $artist->seller_id = $seller->id;
-        $artist->artistic_name = 'artistic_name';
-        $artist->save();
+        //Creando datos Galeria del vendedor
+        $gallery = new Gallery();
+        $gallery->seller_id = $seller->id;
+        $gallery->name = $request->name;
+        $gallery->save();
 
         foreach ($request->tags as $tag) {
             //reviso luego esta parte
@@ -117,9 +117,15 @@ class GalleryController extends Controller
      * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function edit(Gallery $gallery)
+    public function edit($id)
     {
-        //
+        $gallery = Gallery::where('id', $id)->with('seller.pivot.tags')->first();
+        $tags = Tag::all();
+        return Inertia::render('galleries/Edit', [
+            'gallery' => $gallery,
+            'tags' => $tags,
+            'entity' => "gallery"
+        ]);
     }
 
     /**
@@ -129,9 +135,25 @@ class GalleryController extends Controller
      * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Gallery $gallery)
+    public function update(Request $request, $id)
     {
-        //
+        $gallery = Gallery::find($id);
+        $seller = $gallery->seller;
+
+        $gallery->name = $request->name;
+        $gallery->save();
+
+        foreach ($seller->tags as $tag0) {
+            //elimina cada tag
+            $seller->tags()->dettach($tag0);
+        }
+
+        foreach ($request->tags as $tag) {
+            //agrega tags
+            $seller->tags()->attach($tag);
+        }
+
+        return back();
     }
 
     /**
