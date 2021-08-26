@@ -137,9 +137,15 @@ class ArtistController extends Controller
      * @param  \App\Models\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Artist $artist)
+    public function edit($id)
     {
-        //
+        $gallery = Artist::where('id', $id)->with('seller.pivot.tags')->first();
+        $tags = Tag::all();
+        return Inertia::render('galleries/Edit', [
+            'gallery' => $gallery,
+            'tags' => $tags,
+            'entity' => "gallery"
+        ]);
     }
 
     /**
@@ -149,9 +155,25 @@ class ArtistController extends Controller
      * @param  \App\Models\Artist  $artist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Artist $artist)
+    public function update(Request $request, $id)
     {
-        //
+        $artist = Artist::find($id);
+        $seller = $artist->seller;
+        
+        $artist->artistic_name = $request->artistic_name;
+        $artist->save();
+
+        foreach ($seller->tags as $tag0) {
+            //elimina cada tag
+            $seller->tags()->dettach($tag0);
+        }
+
+        foreach ($request->tags as $tag) {
+            //agrega tags
+            $seller->tags()->attach($tag);
+        }
+
+        return back();
     }
 
     /**

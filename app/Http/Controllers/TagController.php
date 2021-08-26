@@ -43,7 +43,7 @@ class TagController extends Controller
         $tag = new Tag();
 
         $tag->name = $request->name;
-        
+
         $tag->save();
 
         return redirect()->route('tags.index');
@@ -102,5 +102,15 @@ class TagController extends Controller
         $tag->delete();
 
         return redirect()->route('tags.index');
+    }
+
+    public function selleTagView()
+    {
+        return Inertia::render('');
+    }
+
+    public function updateSelleTag()
+    {
+        return Inertia::render('');
     }
 }

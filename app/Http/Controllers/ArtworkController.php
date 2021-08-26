@@ -201,6 +201,23 @@ class ArtworkController extends Controller
 
         $artwork->update($request->all());
 
+        if ($request->hasFile('image')) {
+            foreach ($request->file('image') as $key => $image) {
+                $destinationPath = 'artwork_images/';
+
+                $format = $image->extension();
+
+                $fileName = 'artwork'.$artwork->id.'_'.$key.'.'.$format;
+                $image->move($destinationPath, $fileName);
+
+                $artwork_image = ArtworkImage::create([
+                    'artwork_id' => $artwork->id,
+                    'location'  => '/'.$destinationPath.$fileName,
+                    'principal' => $key === 0 ? 1 : 0
+                ]);
+            }
+        }
+
         return redirect()->route('my-artworks.index');
     }
 
@@ -215,10 +232,8 @@ class ArtworkController extends Controller
         $id = $request->id;
         $artwork = Artwork::find($id);
 
-        $artwork->delete();
+        $artwork->trashed();
 
         return back();
-
     }
-
 }

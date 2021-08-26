@@ -104,6 +104,8 @@ class BuyController extends Controller
     public function show($id)
     {
         $buy = Buy::find($id);
+        $seller = Seller::query('id', $buy->artwork->seller->id)->with(['user', 'user.profile'])->first();
+        $buyer = User::query('id', $buy->user->id)->with(['profile'])->first();
 
         return Inertia::render('vista donde se ve como va la compra', [
             'buy' => $buy
