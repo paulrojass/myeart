@@ -4,7 +4,7 @@
         <section class="single-product-desc">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-md-12">
+                    <div class="col-lg-8 col-md-12" id="content">
                         <div class="item-preview border-none">
                             <div class="item-prev-area">
                                 <div class="preview-img-wrapper">
@@ -152,7 +152,14 @@
                     <div class="col-lg-4 col-md-12">
                         <aside id="sidebar" ref="sidebar" class="sidebar sidebar--single-product card-specs position-relative">
                             <div class="sidebar-card card-pricing bg-primary text-white">
-                                <div class="my-1 border-none d-flex justify-content-end mb-0">
+                                <div class="my-1 border-none d-flex justify-content-between mb-0">
+                                    <span 
+                                        class="material-icons" 
+                                        style="color: red;cursor:pointer;"
+                                        @click="favorite()"
+                                        >
+                                        favorite
+                                    </span>
                                     <h1 class="text-white">
                                         {{ artwork.price }} <sup>$</sup>
                                     </h1>
@@ -160,7 +167,7 @@
                                 <div class="row d-flex justify-content-around">
                                     <div 
                                         class="col-5 btn-list buy"
-                                        v-if="artwork.seller.user_id !== user.id"
+                                        v-if="artwork.seller.user_id !== user?.id"
                                         >
                                         <inertia-link 
                                             :href="route('buys.create', [ artwork.id ])" 
@@ -317,6 +324,7 @@ export default {
         window.removeEventListener('scroll', this.handleScroll);
     },
     created(){
+        console.log('artwork', this.artwork)
 
         window.addEventListener('scroll', this.handleScroll);
 
@@ -365,15 +373,17 @@ export default {
         },
         handleScroll(event){
             // console.log('scrollFn', event)
-
             if (window.innerWidth < 1000 || window.innerHeight < 500){
                 return;
             }
 
-            if (window.scrollY > 270 && window.scrollY < 750){
+            let maxHeight = document.getElementById('content').clientHeight;
+
+            let elem = document.getElementById('sidebar');
+
+            if (window.scrollY > 270 && window.scrollY < maxHeight-280){
                 // let { sidebar: refSidebar } = this.$refs;
                 // if (refSidebar){
-                    let elem = document.getElementById('sidebar');
                     // console.log('ele', elem)
                     elem.style.top = `${window.scrollY -280}px`;
                     // ele = 500;
@@ -394,6 +404,15 @@ export default {
                 icon
                 :
                 "/imagenes/icons/detailsWorkArtist/Thematic.png";
+        },
+        favorite(){
+            if (!this.user)
+                return;
+                
+            this.$inertia.post(route('likes.store'), {
+                user_id: this.user.id,
+                artwork_id: this.artwork.id
+            })
         }
 
     }

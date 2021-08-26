@@ -23,9 +23,7 @@
                                 <tr v-for="(item, i) in displayDocsByPage" :key="i">
                                     <td>
                                         <inertia-link
-                                            :href="
-                                                route('my-artworks.show', { id: item.id })
-                                            "
+                                            :href="`/obras/${item.id}`"
                                         >
                                             <div class="d-flex justify-content-center">
                                                 <img 

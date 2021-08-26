@@ -41,7 +41,7 @@
                         favorite
                     </span>
 
-                    <span class="ml-1"> 0 </span>
+                    <span class="ml-1"> {{ doc.likes.length ?? 0 }} </span>
                 </div>
                 <div class="price"> {{ doc.price }}$</div>
             </div>

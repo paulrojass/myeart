@@ -21,8 +21,25 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::get('/test', function(){
     // return Inertia::render('Auth/VerifyEmail', []);
-    return Inertia::render('artists/index', []);
+    return Inertia::render('Footer/About', []);
 })->name('test');
+
+// Links de Footer Static
+Route::get('/about', function(){
+    return Inertia::render('Footer/About', []);
+})->name('about');
+
+Route::get('/faq', function(){
+    return Inertia::render('Footer/Faq', []);
+})->name('faq');
+
+Route::get('/TermsCondition', function(){
+    return Inertia::render('Footer/TermCondition', []);
+})->name('termCondition');
+
+Route::get('/contact', function(){
+    return Inertia::render('Footer/Contact', []);
+})->name('contact');
 
 // Account
 

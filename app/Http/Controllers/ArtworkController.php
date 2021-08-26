@@ -20,7 +20,7 @@ class ArtworkController extends Controller
     public function index()
     {
         $artworks = Artwork::where('seller_id', auth()->user()->seller->id)->with([
-            'seller',
+            'seller.user.profile',
             'artworkImages',
             'elements',
             'comments',

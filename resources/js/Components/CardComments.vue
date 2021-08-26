@@ -56,7 +56,7 @@
                                     <Avatar 
                                         :path="question.user.profile.avatar"
                                     />
-                                    <span class="badge rounded-pill bg-light text-dark">Autor</span>
+                                    <!-- <span class="badge rounded-pill bg-light text-dark">Autor</span> -->
                                 </div>
                             </div>
                             <div class="media-body">
@@ -93,7 +93,7 @@
                     </li> -->
                 </ul>
 
-                <div class="media p-3 d-flex justify-content-center">
+                <div class="media p-3 d-flex justify-content-center" v-if="user">
                     <div  class="d-flex" style="width: 90%;" v-if="reply === item.comment.id">
                             <div style="width: 40px; height: 40px;">
                                 <Avatar 
@@ -119,7 +119,7 @@
             </li>
         </ul>
     
-        <div class="comment-form-area">
+        <div class="comment-form-area" v-if="user">
             <h4>Enviar un Comentario</h4>
             <div class="media comment-form">
                 <div class="media-left">

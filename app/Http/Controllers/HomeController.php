@@ -28,7 +28,7 @@ class HomeController extends Controller
         $latest_artworks = Artwork::latest()
                                 ->withCount('buy')
                                 ->having('buy_count', '=', 0)
-                                ->with(['artworkImages', 'seller.user'])->take(6)->get();
+                                ->with(['artworkImages', 'seller.user', 'likes'])->take(6)->get();
         //$popular_artworks = Artwork::latest()->with(['artworkImages', 'seller.user'])->take(6)->get();
         $popular_artworks = Artwork::withCount('likes')
                                 ->withCount('buy')

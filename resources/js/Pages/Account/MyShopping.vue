@@ -52,16 +52,17 @@
                                         <!-- <div>Daniel Lewis</div> -->
                                     </td>
                                     <td>
-                                        <div class="ml-3">
+                                        <div class="">
                                             <span>{{ item.total }}$</span>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="ml-4">
+                                        <div class="">
                                             <img
                                                 src="/imagenes/icons/fl_downloader.png" 
                                                 alt="" 
-                                                style="width: 30px; height: 30px;"
+                                                style="width: 30px; height: 30px; cursor:pointer;"
+                                                 @click="downloader(item.id)"
                                             >
                                         </div>
                                     </td>
@@ -226,6 +227,9 @@ export default {
                 },
             );
 
+        },
+        downloader(buyId){
+            this.$inertia.get(`/cuenta/compra/certificado/${buyId}`);
         }
     }
 }
@@ -236,11 +240,14 @@ export default {
 <style scoped>
     .table-custom th{
         font-size: 1.2rem;
+        font-family: "GalanoGrotesqueAltSemiBold";
+        text-align: center;
     }
 
     .table-custom td{
         font-weight: bolder;
         font-size: 1.2rem;
+        text-align: center;
     }
 
     .btn-end {

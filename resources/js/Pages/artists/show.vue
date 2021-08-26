@@ -83,7 +83,7 @@
                                     <div class="author-stats">
                                         <ul>
                                             <li class="t_items">
-                                                <span>{{ artworks ? artworks.length : 0}}</span>
+                                                <span>{{ popular_artworks ? popular_artworks.length : 0}}</span>
                                                 <p>Articulos totales</p>
                                             </li>
                                             <li class="t_sells">

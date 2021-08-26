@@ -92,7 +92,8 @@ export default ({
     },
     methods: {
         submit() {
-            this.form.get(this.route('search'))
+            this.$inertia.get(`/obras?category=${this.form.category}`)
+            // this.form.get(this.route('search'))
         }
     }
 })

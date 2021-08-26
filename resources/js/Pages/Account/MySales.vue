@@ -25,7 +25,7 @@
                     <div 
                         class="product_archive table-responsive table-custom"
                         >
-                        <table class="table mx-3">
+                        <table class="table">
                             <thead>
                                 <th class="text-muted">Producto</th>
                                 <th class="text-muted">Info</th>
@@ -54,22 +54,21 @@
                                         <!-- <div>Daniel Lewis</div> -->
                                     </td>
                                     <td>
-                                        <div class="ml-3">
+                                        <div class="">
                                             <span>{{ item.total }}$</span>
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="ml-4">
-                                            <img
-                                                src="/imagenes/icons/fl_downloader.png" 
-                                                alt="" 
-                                                style="width: 30px; height: 30px;"
-                                            >
-                                        </div>
+                                        <img
+                                            src="/imagenes/icons/fl_downloader.png" 
+                                            alt="" 
+                                            style="width: 30px; height: 30px; cursor:pointer;"
+                                            @click="downloader(item.id)"
+                                        >
                                     </td>
                                     <td class="text-primary">
                                         <div>
-                                            En Progreso
+                                            {{ item.finished ? 'En Progreso' : 'Finalizado'}}
                                         </div>
                                     </td>
                                 </tr>
@@ -136,6 +135,11 @@ export default {
             let chunk = window._.chunk(this.itemsDisplay, this.porPage);
             return chunk[this.currentPage -1];
         }
+    },
+    methods: {
+        downloader(buyId){
+            this.$inertia.get(`/cuenta/compra/certificado/${buyId}`);
+        }
     }
 }
 
@@ -145,11 +149,14 @@ export default {
 <style scoped>
     .table-custom th{
         font-size: 1.2rem;
+        font-family: "GalanoGrotesqueAltSemiBold";
+        text-align: center;
     }
 
     .table-custom td{
         font-weight: bolder;
         font-size: 1.2rem;
+        text-align: center;
     }
 
 </style>
