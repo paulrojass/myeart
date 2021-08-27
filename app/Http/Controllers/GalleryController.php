@@ -89,7 +89,7 @@ class GalleryController extends Controller
         //Creando datos Galeria del vendedor
         $gallery = new Gallery();
         $gallery->seller_id = $seller->id;
-        $gallery->name = $request->name;
+        $gallery->name = $request->artistic_name;
         $gallery->save();
 
         foreach ($request->tags as $tag) {

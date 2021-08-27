@@ -17,7 +17,7 @@ class CreateGalleriesTable extends Migration
             $table->id();
             $table->foreignId('seller_id')->constrained()->onDelete('cascade');
             $table->string('name');
-            $table->text('address');
+            $table->text('address')->nullable();
             $table->timestamps();
         });
     }

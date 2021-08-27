@@ -16,6 +16,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        $who_asks = auth()->user();
 
         $comment = new Comment;
 
@@ -25,7 +26,7 @@ class CommentController extends Controller
 
         $comment->user_id = auth()->user()->id;
 
-        if($request->comment_id) {
+        if ($request->comment_id) {
             $comment->comment_id = $request->comment_id;
         }
 
@@ -40,18 +41,20 @@ class CommentController extends Controller
             'likes'
         ])->first();
 
-        $user = $artwork->seller->user;
+        $user_seller = $artwork->seller->user;
 
-        $sender = auth()->user();
+        if ($user_seller != $who_asks) {
+            $user = $artwork->seller->user;
+            
+            $details = [
+                    'greeting' => 'Hola '.$user->profile->firstName.' '.$user->profile->lastName.' han comentado una obra',
+                    'body' => $comment->content,
+                    'url' => '/obras/'.$artwork->id,
+                    //'thanks' => 'Thank you for visiting codechief.org!',
+            ];
 
-        $details = [
-                'greeting' => 'Hola '.$user->profile->firstName.' '.$user->profile->lastName.' han comentado una obra',
-                'body' => $comment->content,
-                'url' => '/obras/'.$artwork->id,
-                //'thanks' => 'Thank you for visiting codechief.org!',
-        ];
-
-        $user->notify(new \App\Notifications\NewComment($details));
+            $user->notify(new \App\Notifications\NewComment($details));
+        }
 
         return back()->with([
             'artwork' => $artwork
