@@ -8,9 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Artwork extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
-    
+    use HasFactory, SoftDeletes;
+
     protected $fillable = [
         'seller_id',
         'category_id',

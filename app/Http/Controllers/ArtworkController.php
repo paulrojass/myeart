@@ -31,7 +31,28 @@ class ArtworkController extends Controller
             'artworks' => $artworks
         ]);
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexDashboard()
+    {
+        $artworks = Artwork::with([
+            'buy',
+            'seller',
+            'seller.user',
+            'artworkImages',
+            'elements',
+            'comments',
+            'likes'
+        ])->orderBy('created_at', 'desc')->get();
 
+
+        return Inertia::render('dashboard/artworks/Index', [
+            'artworks' => $artworks
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -140,7 +161,6 @@ class ArtworkController extends Controller
      */
     public function show(Request $request)
     {
-
         $artwork = Artwork::where('id', $request->id)->with([
             'seller.user.profile',
             'artworkImages',
@@ -158,6 +178,24 @@ class ArtworkController extends Controller
         ]);
     }
 
+    public function showDashboard($id)
+    {
+        $artwork = Artwork::where('id', $id)->with([
+            'seller.user.profile',
+            'artworkImages',
+            'elements.attribute',
+            'comments',
+            'likes'])->first();
+
+        //return response()->json(['artwork' => $artwork]);
+
+        return Inertia::render('dashboard/artworks/Show', [
+            'artwork' => $artwork,
+            // 'seller' => $seller
+        ]);
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -166,11 +204,9 @@ class ArtworkController extends Controller
      */
     public function edit($id)
     {
-        $artwork = Artwork::where('id', $id)->with('elements')->first();
+        $artwork = Artwork::find($id);
 
-        dd($artwork);
-
-        return Inertia::render('artworks/Edit', [
+        return Inertia::render('dashboard/artworks/Edit', [
             'artwork' => $artwork
         ]);
     }
@@ -208,6 +244,14 @@ class ArtworkController extends Controller
         return redirect()->route('my-account.artworks');
     }
 
+    public function updateDashboard(Request $request, $id)
+    {
+        $artwork = Artwork::find($id);
+
+        $artwork->update($request->all());
+
+        return redirect()->route('artworks.index');
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -221,5 +265,14 @@ class ArtworkController extends Controller
         $artwork->trashed();
 
         return redirect()->route('my-account.artworks');
+    }
+
+    public function destroyDashboard($id)
+    {
+        $artwork = Artwork::find($id);
+
+        $artwork->delete();
+
+        return redirect()->route('artworks.index');
     }
 }

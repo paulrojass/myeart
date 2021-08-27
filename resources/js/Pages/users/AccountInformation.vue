@@ -3,7 +3,7 @@
         <HeaderAccount />
 
         <div class="container my-5">
-            <form 
+            <form
                 @submit.prevent="submit" class="setting_form"
             >
                 <div class="row">
@@ -13,10 +13,10 @@
                                 <div class="information_wrapper">
                                     <div class="profile_image_area">
                                         <div class="d-flex ">
-                                                    
+
                                             <div style="width: 130px;">
-                                                <Avatar 
-                                                    :path="(typeof form.avatar === 'string') ? 
+                                                <Avatar
+                                                    :path="(typeof form.avatar === 'string') ?
                                                         form.avatar : form.avatar.url"
                                                 />
                                             </div>
@@ -25,7 +25,7 @@
                                                 <div class="btn btn-outline-secondary btn--sm" @click="$refs.avatar.click()">
                                                     <span>
                                                         {{ form.avatar !== "" ? 'Cambia' : 'Agrega' }} tu foto de perfil
-                                                    </span> 
+                                                    </span>
                                                 </div>
                                                 <input ref="avatar" type="file" id="thumbnail" class="files" @change="newAvatar">
                                             </div>
@@ -99,10 +99,10 @@
                                     <div class="col-12 my-2" v-if="user.seller">
                                         <h3 class="subtitle">Cambiar etiquetas</h3>
                                         <div>
-                                            <SelectTagsCustom 
+                                            <SelectTagsCustom
                                                 :dataInitial="user.seller?.tags ?? []"
                                                 :tags="tags"
-                                                v-on:update="form.tags = $event" 
+                                                v-on:update="form.tags = $event"
                                             />
                                         </div>
                                     </div>
@@ -252,7 +252,7 @@
                     </div>
                     <div class="col-md-12">
                         <div class="dashboard_setting_btn">
-                            <button 
+                            <button
                                 class="btn btn--md btn-primary"
                                 type="submit"
                             >
@@ -332,7 +332,7 @@ export default {
                 let file = this.form.avatar.file;
                 this.form.avatar = file;
             }
-            
+
           this.form.post(route('users.update', this.user.id), {
             //   preserveScroll: true,
               onSuccess: () => {
@@ -342,13 +342,13 @@ export default {
         },
         newAvatar(event){
             let file = event.target.files[0];
-            let preview = { 
+            let preview = {
                 file,
                 url: URL.createObjectURL(file),
                 name: file.name,
                 size: Number(file.size / 1024).toFixed(0)
             };
-            
+
             this.form.avatar = preview;
             console.log('file', file)
         }

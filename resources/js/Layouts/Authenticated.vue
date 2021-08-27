@@ -2,10 +2,11 @@
   <div>
     <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom sticky-top">
       <div class="container">
-        
+
         <a class="navbar-brand" href="/">
           <inertia-link :href="route('dashboard')">
-            <breeze-application-logo width="36" />
+              <img src="/imagenes/Logo.png" alt="">
+            <!-- <breeze-application-logo width="36" /> -->
           </inertia-link>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -13,16 +14,15 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          
+
           <ul class="navbar-nav mr-auto">
             <breeze-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-              Dashboard
+              Panel Administrativo
             </breeze-nav-link>
           </ul>
 
-          
           <ul class="navbar-nav ml-auto align-items-baseline">
-            
+
             <breeze-dropdown id="settingsDropdown">
               <template #trigger>
                 {{ $page.props.auth.user.name }}
@@ -33,7 +33,7 @@
               </template>
 
               <template #content>
-                
+
                 <breeze-dropdown-link :href="route('logout')" method="post">
                   Log Out
                 </breeze-dropdown-link>
@@ -44,17 +44,27 @@
       </div>
     </nav>
 
-    
+
     <header class="d-flex py-3 bg-white shadow-sm border-bottom">
       <div class="container">
-        <slot name="header" />
+        <!-- <slot name="header" /> -->
+
+        <nav class="navbar navbar-light">
+
+            <inertia-link class="navbar-brand" :href="route('users.index')">Usuarios</inertia-link>
+            <inertia-link class="navbar-brand" :href="route('artworks.index')">Obras</inertia-link>
+            <inertia-link class="navbar-brand" :href="route('transactions.index')">Transacciones</inertia-link>
+
+        </nav>
       </div>
     </header>
 
-    
-    <main class="container my-5">
-      <slot />
-    </main>
+    <transition name="fade-in-up">
+      <!--<router-view />-->
+      <main class="container my-5">
+        <slot />
+      </main>
+    </transition>
   </div>
 </template>
 

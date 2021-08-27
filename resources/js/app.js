@@ -16,13 +16,13 @@ createApp({
         }),
 })
     .mixin({
-        methods: { 
+        methods: {
             route,
             moment(...args){
                 moment.locale('es');
                 return moment(...args);
             }
-        } 
+        }
     })
     .use(InertiaPlugin)
     .mount(el);

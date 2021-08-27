@@ -21,12 +21,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::query()
-                ->with('seller')
-                ->get();
-
+        $users = User::role(['buyer', 'seller'])->get();
+        //excluimos si tiene rol admin
+        $users = $users->reject(function ($user, $key) {
+                    return $user->hasRole('admin');
+        });
         //dd($users);
-
         return Inertia::render('dashboard/users/Index', [
             'users' => $users
         ]);
@@ -62,7 +62,7 @@ class UserController extends Controller
     public function show($id)
     {
         return Inertia::render('dashboard/users/Show', [
-            'user' => User::find($id)
+            'user' => User::where('id', $id)->with(['profile', 'roles'])->first()
         ]);
     }
 
@@ -74,14 +74,17 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $tags = Tag::all();
-        $user = User::where('id', $id)->with('profile')->first();
+        $user = User::where('id', $id)->with(['profile', 'roles'])->first();
 
         // dd($user);
 
-        return Inertia::render('users/AccountInformation', [
-            'user' => $user,
-            'tags' => $tags
+        // return Inertia::render('users/AccountInformation', [
+        //     'user' => $user,
+        //     'tags' => $tags
+        // ]);
+
+        return Inertia::render('dashboard/users/Edit', [
+            'user' => $user
         ]);
     }
 
@@ -95,7 +98,7 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
-        
+
         $user = User::find($id);
 
         $user->update($request->all());
@@ -105,7 +108,7 @@ class UserController extends Controller
             $this->deleteAvatar($user->profile->avatar);
             $user->profile->update($request->all());
             $newPath = $this->saveAvatar($request);
-            $user->profile->update(['avatar' => $newPath]); 
+            $user->profile->update(['avatar' => $newPath]);
         }
 
         return back()->with('user', $user);
@@ -121,8 +124,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::find($id);
-
-        return $user->delete();
+        $this->deleteAvatar($user->profile->avatar);
+        $user->delete();
+        return redirect()->route('users.index');
     }
 
     /**
@@ -168,7 +172,7 @@ class UserController extends Controller
         $image = Image::make($originalImage);
         $folderAvatars = 'avatars';
         $originalPath = public_path($folderAvatars);
-        
+
         // Nombre aleatorio para la image
         $tempName = 'avatar-'.$id. '.' . $originalImage->getClientOriginalExtension();
 

@@ -1,5 +1,5 @@
 <template>
-    
+
     <div class="menu-area">
         <div class="top-menu-area">
             <div class="container-fluid">
@@ -34,7 +34,7 @@
                                                 class="navbar-toggler-icon icon-menu"
                                             ></span>
                                         </button>
-                                        
+
                                         <div
                                             class="collapse navbar-collapse"
                                             id="bs-example-navbar-collapse-1"
@@ -68,9 +68,21 @@
                                                         Artistas
                                                     </inertia-link>
                                                 </li>
+                                                <!-- <li>
+
+                                                    <inertia-link
+                                                        :href="
+                                                            route('dashboard')
+                                                        "
+                                                    >
+                                                        Panel
+                                                    </inertia-link>
+                                                </li> -->
+
+
                                             </ul>
                                         </div>
-                                        
+
                                     </nav>
                                 </div>
                             </div>
@@ -123,7 +135,7 @@
                                     >
                                         <div class="author__avatar online">
                                             <div style="width: 50px;">
-                                                <Avatar 
+                                                <Avatar
                                                     :path="user.profile.avatar"
                                                 />
                                             </div>
@@ -141,7 +153,7 @@
                                                         ></span
                                                         >Perfil
                                                     </inertia-link>
-                                                    
+
                                                 </li>
                                                 <li>
                                                     <inertia-link :href="route('logout')">
@@ -174,18 +186,18 @@
                                         </inertia-link
                                         >
                                     </div>
-                                    
+
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
-        
+
     </div>
 </template>
 
@@ -205,6 +217,6 @@ export default ({
             return this.$page.props.auth.user
         }
     }
-    
+
 })
 </script>

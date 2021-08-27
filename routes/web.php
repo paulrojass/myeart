@@ -67,7 +67,7 @@ Route::get('obras/{artwork_id}', [App\Http\Controllers\ArtworkController::class,
 // Vista  Home , Editada Paul
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->middleware([])->name('home');
 
-Route::get('/dashboard', function () {
+Route::get('/panel', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -184,11 +184,10 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
         'usuario',
         App\Http\Controllers\UserController::class,
         [ 'names' => [
-            'update' => 'users.update',
-            'destroy' => 'users.destroy'
+            'update' => 'users.update'
             ]
         ]
-    )->except(['index','create', 'store','show', 'edit']);
+    )->except(['index','create', 'store','show', 'edit', 'destroy']);
     //Usuario como vendedor solo se puede eliminar
     Route::delete('vendedor/{id}', [App\Http\Controllers\SellerController::class, 'destroy'])->name('sellers.destroy');
     //Usuario se crea como vendedor galeria, guardarse, actualizar sus datos y eliminarse como galeria
@@ -228,13 +227,30 @@ Route::group(['middleware' => ['web', 'auth', 'role:admin|operator'], 'prefix' =
         App\Http\Controllers\UserController::class,
         [ 'names' => [
             'index' => 'users.index',
-            'create' => 'users.create',
             'show' => 'users.show',
-            'store' => 'users.store',
+            'edit' => 'users.edit',
+            'update' => 'users.update',
             'destroy' => 'users.destroy'
             ]
         ]
-    )->except(['edit', 'update']);
+    )->except(['create', 'store']);
+
+    Route::get('obras', [App\Http\Controllers\ArtworkController::class, 'indexDashboard'])->name('artworks.index');
+    Route::get('obras/{id}', [App\Http\Controllers\ArtworkController::class, 'showDashboard'])->name('artworks.show');
+    Route::post('obras/{id}', [App\Http\Controllers\ArtworkController::class, 'updateDashboard'])->name('dashboard.artworks.update');
+    Route::delete('obras/{id}', [App\Http\Controllers\ArtworkController::class, 'destroyDashboard'])->name('dashboard.artworks.destroy');
+    Route::resource(
+        'obras',
+        App\Http\Controllers\ArtworkController::class,
+        [ 'names' => [
+            'edit' => 'artworks.edit',
+            ]
+        ]
+    )->except(['show', 'update', 'index','create', 'store', 'delete']);
+
+    //Transacciones
+    Route::get('transacciones', [App\Http\Controllers\BuyController::class, 'indexDashboard'])->name('transactions.index');
+    Route::get('transacciones/compra/{id}', [App\Http\Controllers\BuyController::class, 'showDashboard'])->name('transactions.show');
 
     //Tags de Vendedor: un administrador puede crear, visualizar, actualizar y eliminar Tags
     Route::resource(

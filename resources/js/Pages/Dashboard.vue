@@ -1,25 +1,33 @@
 <template>
-  <breeze-authenticated-layout>
-    <template #header>
-      <h2 class="h4 font-weight-bold">
-        Dashboard
-      </h2>
-    </template>
-
     <div class="card my-4 shadow-sm">
-      <div class="card-body">
-        You're logged in!
-      </div>
+        <div class="card-body">
+            <ul>
+                <li>
+                    <inertia-link :href="route('users.index')">Usuarios</inertia-link>
+                </li>
+                <li>
+                    <inertia-link :href="route('artworks.index')">Obras</inertia-link>
+                </li>
+                <li>
+                    <inertia-link :href="route('transactions.index')">Transacciones</inertia-link>
+                </li>
+            </ul>
+        </div>
     </div>
-  </breeze-authenticated-layout>
 </template>
 
 <script>
-import BreezeAuthenticatedLayout from '@/Layouts/Authenticated'
+import Layout from '@/Layouts/Authenticated'
 
-export default {
-  components: {
-    BreezeAuthenticatedLayout,
-  },
+export default{
+    name: "Home",
+    // Using a render function
+    layout: (h, page) => h(Layout, [page]),
+    metaInfo() {
+      return {
+        title: `Panel - Inicio`
+      }
+    },
 }
+
 </script>

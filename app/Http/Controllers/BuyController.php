@@ -159,4 +159,17 @@ class BuyController extends Controller
     {
         //
     }
+
+
+    public function indexDashboard()
+    {
+        $buys = Buy::with([
+            'artwork.seller.user',
+            'user'
+        ])->get();
+
+        return Inertia::render('dashboard/transactions/Index', [
+            'buys' => $buys
+        ]);
+    }
 }
