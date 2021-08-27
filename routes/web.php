@@ -254,16 +254,9 @@ Route::group(['middleware' => ['web', 'auth', 'role:admin|operator'], 'prefix' =
 
     Route::get('obras', [App\Http\Controllers\ArtworkController::class, 'indexDashboard'])->name('artworks.index');
     Route::get('obras/{id}', [App\Http\Controllers\ArtworkController::class, 'showDashboard'])->name('artworks.show');
+    Route::get('obras/{id}/editar', [App\Http\Controllers\ArtworkController::class, 'editDashboard'])->name('dashboard.artworks.edit');
     Route::post('obras/{id}', [App\Http\Controllers\ArtworkController::class, 'updateDashboard'])->name('dashboard.artworks.update');
     Route::delete('obras/{id}', [App\Http\Controllers\ArtworkController::class, 'destroyDashboard'])->name('dashboard.artworks.destroy');
-    Route::resource(
-        'obras',
-        App\Http\Controllers\ArtworkController::class,
-        [ 'names' => [
-            'edit' => 'artworks.edit',
-            ]
-        ]
-    )->except(['show', 'update', 'index','create', 'store', 'delete']);
 
     //Transacciones
     Route::get('transacciones', [App\Http\Controllers\BuyController::class, 'indexDashboard'])->name('transactions.index');

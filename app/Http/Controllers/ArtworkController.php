@@ -206,12 +206,6 @@ class ArtworkController extends Controller
      */
     public function edit(Request $request)
     {
-<<<<<<< HEAD
-        $artwork = Artwork::find($id);
-
-        return Inertia::render('dashboard/artworks/Edit', [
-            'artwork' => $artwork
-=======
         $categories = Category::query()->with(['attributes', 'attributes.elements'])->get();
 
         $id = $request->id;
@@ -229,7 +223,15 @@ class ArtworkController extends Controller
         return Inertia::render('artworks/Create', [
             'artwork' => $artwork,
             'categories' => $categories
->>>>>>> master
+        ]);
+    }
+
+    public function editDashboard($id)
+    {
+        $artwork = Artwork::find($id);
+
+        return Inertia::render('dashboard/artworks/Edit', [
+            'artwork' => $artwork
         ]);
     }
 

@@ -32,7 +32,7 @@
               </td>
               <td>
                   <inertia-link class="btn btn-primary btn-sm" :href="route('artworks.show', item.id)" role="button">ver</inertia-link>
-                  <inertia-link class="btn btn-primary btn-sm" :href="route('artworks.edit', item.id)" role="button">editar</inertia-link>
+                  <inertia-link class="btn btn-primary btn-sm" :href="route('dashboard.artworks.edit', item.id)" role="button">editar</inertia-link>
                   <inertia-link class="btn btn-primary btn-sm" :href="route('dashboard.artworks.destroy', item.id)" role="button" method="delete">eliminar</inertia-link>
               </td>
             </tr>
