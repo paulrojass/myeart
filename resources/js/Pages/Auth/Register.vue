@@ -18,7 +18,7 @@
 
                   <div class="form-group">
                     <breeze-label for="firstName" value="Nombres" />
-                    <breeze-input id="firstName" type="text" v-model="form.firstName" required autofocus autocomplete="Nombres" />
+                    <breeze-input id="firstName" type="text" v-model="form.firstName" required autofocus autocomplete="Nombres"/>
                   </div>
 
                   <div class="form-group">
@@ -58,9 +58,11 @@
 
                 <div class="mb-0">
                   <div class="d-flex justify-content-start align-items-baseline">
-                    <b-button @click="submit" class="mr-4 btn  btn--lg btn-primary" :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
+                    <button @click="submit" class="mr-4 btn  btn--lg btn-primary" :class="{ 'text-white-50': form.processing }" 
+                      :disabled=" form.processing || !form.terms"
+                    >
                       Registrate
-                    </b-button>
+                    </button>
                     <inertia-link :href="route('login')" class="text-muted mr-3 text-decoration-none">
                       ya tienes una cuenta ?
                     </inertia-link>

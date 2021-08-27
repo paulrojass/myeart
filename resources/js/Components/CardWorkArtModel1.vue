@@ -1,60 +1,62 @@
 <template>
-    <inertia-link
-        :href="
-            route('my-artworks.show', { id: doc.id })
-        "
-    >
-        <div :class="`product-single ${color}`">
-            <div class="product-thumb">
-                <figure>
-                    <img 
-                        :src="doc?.artwork_images[0]?.location" 
-                        alt="" 
-                        class="img-fluid" 
-                    />
-                    <!-- <figcaption>
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href=""><span class="icon-basket"></span></a>
-                            </li>
-                            <li>
-                                <a href="">Live Demo</a>
-                            </li>
-                        </ul>
-                    </figcaption> -->
-                </figure>
-            </div>
-            
-            <div class="descCardWorkArt">
-                <h5 class="mb-1 title-author-workArt">
-                    {{ doc.name }}
-                </h5>
-                <div class="subtitle-author-workArt">
-                    {{ doc.seller.user.name || 'Nombre Autor'}}
-                </div>
-                <div class="row-cardWorkArt my-2 pt-3 d-flex justify-content-between">
-                    
-                    <div class="d-flex align-items-center">
-                        <span
-                            class="icon-heart icon-cardWorkArt"
-                            title="Add to collection"
-                            data-toggle="tooltip"
-                            style=""
-                        />
-                        <span class="ml-1"> 0 </span>
-                    </div>
-                    <div class="price"> {{ doc.price }}$</div>
-                </div>
-            </div>
-
+    <div :class="`product-single ${color}`">
+        <div class="product-thumb">
+            <figure>
+                <img 
+                    :src="doc?.artwork_images[0]?.location" 
+                    alt="" 
+                    class="img-fluid" 
+                />
+                <figcaption>
+                    <ul class="list-unstyled">
+                        <li>
+                            <inertia-link
+                                class="routerLink"
+                                :href="`/obras/${doc.id}`"
+                            >
+                                Ver Detalle
+                            </inertia-link>
+                        </li>
+                    </ul>
+                </figcaption>
+            </figure>
         </div>
-    </inertia-link>
+        
+        <div class="descCardWorkArt">
+            <h5 class="mb-1 title-author-workArt">
+                {{ doc.name }}
+            </h5>
+            <div class="subtitle-author-workArt">
+                {{ doc.seller.user.name || 'Nombre Autor'}}
+            </div>
+            <div class="row-cardWorkArt my-2 pt-3 d-flex justify-content-between">
+                
+                <div class="d-flex align-items-center">
+                    <!-- <span
+                        class="icon-heart icon-cardWorkArt"
+                        title="Add to collection"
+                        data-toggle="tooltip"
+                    /> -->
+                    <span class="material-icons" style="color: red;">
+                        favorite
+                    </span>
+
+                    <span class="ml-1"> {{ doc.likes.length ?? 0 }} </span>
+                </div>
+                <div class="price"> {{ doc.price }}$</div>
+            </div>
+        </div>
+
+    </div>
 </template>
 
 <script>
 
 export default {
     props: ['doc'],
+    components: {
+        // MenuIcon
+    },
     created(){
         this.photoTemplate();
     },
@@ -89,6 +91,7 @@ export default {
 
     .product-single {
         padding: 10px;
+
     }
 
     .descCardWorkArt {
@@ -124,5 +127,11 @@ export default {
         line-height: 30px;
         border-radius: 3px; 
         background: rgba(110, 79, 246, 0.08);
+    }
+
+    .product-thumb {
+        /* width: 100%; */
+        max-height: 35vh;
+        overflow:  hidden;
     }
 </style>

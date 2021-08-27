@@ -2,32 +2,30 @@
     <div>
         <HeaderAccount />
         <div class="dashboard_contents mt-5 mb-5">
-            <div class="container p-2" style="background:white;">
-                <div class="px-2 mt-2">
+            <div class="container" style="background:white;">
+                <div class="px-2 pt-3">
                     <div>
                         <h4 class="title">Obras</h4>
                     </div>
                 </div>
                 <div v-if="artworks.length">
                     <div class="product_archive table-responsive table-custom">
-                        <table class="table mx-3">
+                        <table class="table">
                             <thead>
                                 <th class="text-muted">Nombre</th>
                                 <th class="text-muted">ID</th>
                                 <th class="text-muted">Precio</th>
                                 <th class="text-muted">Categoria</th>
                                 <th class="text-muted">Fecha</th>
-                                <th class="text-muted"></th>
+                                <th class="text-muted border-none"></th>
                             </thead>
                             <tbody>
                                 <tr v-for="(item, i) in displayDocsByPage" :key="i">
                                     <td>
                                         <inertia-link
-                                            :href="
-                                                route('my-artworks.show', { id: item.id })
-                                            "
+                                            :href="`/obras/${item.id}`"
                                         >
-                                            <div class="d-flex">
+                                            <div class="d-flex justify-content-center">
                                                 <img 
                                                     :src="`${item?.artwork_images[0]?.location}`"
                                                     alt="Purchase image"
@@ -42,7 +40,7 @@
                                         </inertia-link>
                                     </td>
                                     <td class="text-muted">
-                                        <div>{{ item.id }}</div>
+                                        {{ item.id }}
                                     </td>
                                     <td class="text-muted">
                                         <div class="">
@@ -50,13 +48,40 @@
                                         </div>
                                     </td>
                                     <td class="text-muted">
-                                        {{ item.name }}
+                                        {{ item.category.name }}
                                     </td>
                                     <td class="text-muted">
                                         <div>
                                             {{ new Date(item.created_at).getDate() }}/
                                             {{ new Date(item.created_at).getMonth() + 1}}/
                                             {{ new Date(item.created_at).getFullYear() }}
+                                        </div>
+                                    </td>
+                                    <td class="border-none" style="width: 90px;">
+                                        <div class="icons">
+                                                <!-- method="delete" -->
+                                            <inertia-link
+                                                class="routerLink"
+                                                :href="
+                                                    route('my-artworks.edit', {id: item.id})
+                                                "
+                                            >
+                                                <span class="material-icons">
+                                                    edit
+                                                </span>
+                                            </inertia-link>  
+
+                                            <inertia-link
+                                                class="routerLink"
+                                                method="delete"
+                                                :href="
+                                                    route('my-artworks.destroy', {id: item.id})
+                                                "
+                                            >
+                                                <span class="material-icons">
+                                                    delete
+                                                </span>
+                                            </inertia-link>
                                         </div>
                                     </td>
                                 </tr>
@@ -94,6 +119,7 @@
 import layout from "@/Layouts/Default/LayoutDefault.vue"
 import HeaderAccount from '@/Layouts/HeaderMenu.vue'
 import Pagination from '@/Components/Pagination'
+import { Link } from '@inertiajs/inertia-vue3'
 
 export default {
     props: ['artworks'],
@@ -103,7 +129,8 @@ export default {
     },
     components: {
         HeaderAccount,
-        Pagination
+        Pagination,
+        Link
     },
     data(){
         return {
@@ -123,13 +150,21 @@ export default {
 </script>
 
 <style scoped>
+
     .table-custom th{
         font-size: 1.2rem;
+        font-family: "GalanoGrotesqueAltSemiBold";
+        text-align: center;
     }
 
     .table-custom td{
         font-weight: bolder;
         font-size: 1.2rem;
+        text-align: center;
     }
 
+    .icons span {
+        margin: 2px;
+        cursor: pointer;
+    }
 </style>

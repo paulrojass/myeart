@@ -54,7 +54,7 @@ export default {
   },
 
   created(){
-    console.log('this', this.$page.props)
+    console.log('this', this)
   },
 
   data() {

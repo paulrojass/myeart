@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
 use App\Models\ArtworkImage;
+use App\Models\Artist;
 
 class ArtworkController extends Controller
 {
@@ -19,11 +20,12 @@ class ArtworkController extends Controller
     public function index()
     {
         $artworks = Artwork::where('seller_id', auth()->user()->seller->id)->with([
-            'seller',
+            'seller.user.profile',
             'artworkImages',
             'elements',
             'comments',
-            'likes'
+            'likes',
+            'category'
         ])->orderBy('created_at', 'desc')->get();
 
 
@@ -159,9 +161,9 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request)
+    public function show($id)
     {
-        $artwork = Artwork::where('id', $request->id)->with([
+        $artwork = Artwork::where('id', $id)->with([
             'seller.user.profile',
             'artworkImages',
             'elements.attribute',
@@ -202,12 +204,32 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
+<<<<<<< HEAD
         $artwork = Artwork::find($id);
 
         return Inertia::render('dashboard/artworks/Edit', [
             'artwork' => $artwork
+=======
+        $categories = Category::query()->with(['attributes', 'attributes.elements'])->get();
+
+        $id = $request->id;
+
+        $artwork = Artwork::where('id', $id)->with([
+            'seller.user.profile',
+            'artworkImages',
+            'elements.attribute',
+            'comments',
+            'likes'
+        ])->first();
+
+        // dd($artwork);
+
+        return Inertia::render('artworks/Create', [
+            'artwork' => $artwork,
+            'categories' => $categories
+>>>>>>> master
         ]);
     }
 
@@ -218,8 +240,9 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        $id = $request->id;
         $artwork = Artwork::find($id);
 
         $artwork->update($request->all());
@@ -241,7 +264,7 @@ class ArtworkController extends Controller
             }
         }
 
-        return redirect()->route('my-account.artworks');
+        return redirect()->route('my-artworks.index');
     }
 
     public function updateDashboard(Request $request, $id)
@@ -258,13 +281,14 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        $id = $request->id;
         $artwork = Artwork::find($id);
 
         $artwork->trashed();
 
-        return redirect()->route('my-account.artworks');
+        return back();
     }
 
     public function destroyDashboard($id)

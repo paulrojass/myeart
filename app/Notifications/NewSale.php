@@ -56,7 +56,7 @@ class NewSale extends Notification
     public function toArray($notifiable)
     {
         return [
-           'data' => $this->details['body']
+           'data' => $this->details
         ];
     }
 }

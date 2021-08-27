@@ -103,7 +103,7 @@ class ArtistController extends Controller
      */
     public function show($id)
     {
-        $artist = Artist::where('id', $id)->with([
+        $artist = Artist::where('seller_id', $id)->with([
             'seller.user',
             'seller.user.profile',
             'seller.user.comments',

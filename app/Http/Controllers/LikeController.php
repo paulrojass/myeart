@@ -21,7 +21,10 @@ class LikeController extends Controller
 
         $like->user_id = auth()->user()->id;
 
-        return $like->save();
+        $like->save();
+        
+        return back();
+
     }
 
     /**

@@ -9,7 +9,7 @@
                             <form @submit.prevent="submit">
                                 <div class="upload_modules">
                                     <div class="modules__title">
-                                        <h4 class="title">Subir Obra</h4>
+                                        <h4 class="title">{{artwork ? 'Actualizar' : 'Subir' }} Obra</h4>
                                     </div>
                                     <div class="modules__content">
                                         <div class="row">
@@ -37,7 +37,7 @@
                                             </div>
                                             
                                             <div
-                                                    v-for="attrib in attributes"
+                                                    v-for="attrib in listAttributes"
                                                     :key="attrib.id" 
                                                     class="col-md-4"
                                                 >
@@ -72,21 +72,27 @@
                                             <div>
                                                 <h4 class="title">Galeria</h4>
                                             </div>
-                                            <div class="custom_upload">
+                                            <div class="custom_upload" v-if="!imagenesOnlyRead">
                                                 <label for="thumbnail">
                                                     <input type="file" id="thumbnail" class="files" @change="newFile" required>
                                                     <b-button class="btn btn-primary btn--md">Subir Imagen</b-button>
                                                 </label>
+                                            </div>
+                                            <div v-else>
+                                                <b-button class="btn btn-primary btn--md" @click="changeImagenes()">Cambiar imagenes</b-button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="modules__content" v-if="previewFiles.length">
                                         <div class="row">
                                             <div
-                                                class="col-12 mb-3"
+                                                :class="`${imagenesOnlyRead ? 'row' : 'col-12'} mb-3`"
                                                 v-for="(preview, i) in previewFiles " :key="i"
                                                 >
-                                                <div class="row d-flex align-items-center">
+                                                <div 
+                                                    class="row d-flex align-items-center"
+                                                    v-if="!imagenesOnlyRead"
+                                                    >
                                                     <div class="col-3">
                                                         <img :src="preview.url" alt="" style="width: 100px; height: 100px">
                                                     </div>
@@ -96,36 +102,23 @@
                                                     <div class="col-3">
                                                         {{ preview.size }} PX
                                                     </div>
-                                                    <div class="col-3 d-flex justify-content-center">
-                                                                                                                                                                                    <div class="btn-cancel" @click="removeFile(preview)">
-                                                            <img src="/img/cancel.svg" alt="">
-                                                        </div>
+                                                    <div class="col-3 d-flex justify-content-center btn-cancel">
+                                                        <span class="material-icons" @click="removeFile(preview)">
+                                                            do_not_disturb_on
+                                                        </span>                                                                                        
                                                     </div>
 
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="row">
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group">
-                                                    <div class="upload_wrapper">
-                                                        <div class="upload-field">
-                                                            <div class="custom_upload">
-                                                                <label for="thumbnail">
-                                                                    <input type="file" id="thumbnail" class="files">
-                                                                    <span class="btn btn-primary btn--md"><i class="icon-cloud-upload"></i>Subir Imagen</span>
-                                                                </label>
-                                                            </div>
-                                                            <p>100x100px PX
-                                                            </p>
-                                                            <div class="upload_cross">
-                                                                <span><img src="/img/cancel.svg" alt="" class="svg"></span>
-                                                            </div>
-                                                        </div>
+                                                <div class="col-3 ml-2" v-else>
+                                                    <div class="">
+                                                        <img :src="preview.url" alt="" style="width: 100px; height: 100px">
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
+                                        <div>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="upload_modules mb-0">
@@ -205,17 +198,43 @@ import layout from "@/Layouts/Default/LayoutDefault.vue"
 import HeaderAccount from '@/Layouts/HeaderMenu.vue'
 
 export default {
-    props: ['categories'],
+    props: ['categories', 'artwork'],
     layout,
     components: {
         HeaderAccount
     },
     created(){
-        console.log('props', this.categories)
+        console.log('props', this);
+
+        if (this.artwork){
+            let attrs = this.artwork.elements
+                .reduce((acc, value)=>{
+                    acc[value.attribute.name] = value.id
+                    return acc;
+                }, []);
+
+            this.form = this.$inertia.form({
+                category_id: this.artwork.category_id,
+                attributes: attrs,
+                elements: this.artwork.elements.map(e => e.id),
+                name: this.artwork.name,
+                description: this.artwork.description,
+                price: this.artwork.price,
+                offer: this.artwork.offer,
+                weight: this.artwork.weight,
+                width: this.artwork.width,
+                height: this.artwork.height,
+                image: []
+            });
+
+            this.previewFiles = this.artwork.artwork_images.map( img => ({ url: img.location }));
+            this.imagenesOnlyRead = true;
+        }
     },
     data(){
         return {
             previewFiles: [],
+            imagenesOnlyRead: false,
             form: this.$inertia.form({
                 category_id: this.categories[0].id,
                 attributes: [],
@@ -232,7 +251,7 @@ export default {
         }
     },
     computed: {
-        attributes(){
+        listAttributes(){
 
             return this.categories.find(c => c.id === this.form.category_id)?.attributes ?? []
         }
@@ -240,14 +259,19 @@ export default {
     methods: {
       submit(evt) {
         evt.preventDefault()
-        this.form.image = this.previewFiles.map(p => p.file)
+
         this.form.elements = Object.keys(this.form.attributes).map(a => this.form.attributes[a]);
+        if (!this.imagenesOnlyRead) {
+            this.form.image = this.previewFiles.map(p => p.file)
+        }
 
         console.log('form', this.form)
 
         // console.log('query', route().params.type) 
-
-        this.form.post(route('my-artworks.store'))
+        this.artwork ?
+            this.form.put(route('my-artworks.update', { id: this.artwork.id}))
+            :
+            this.form.post(route('my-artworks.store'))
       },
       newFile(event){
         let file = event.target.files[0];
@@ -267,6 +291,10 @@ export default {
       removeFile(preview){
         this.previewFiles = this.previewFiles.filter(p => p.name !== preview.name);
         // this.form.image = this.form.image.filter(p => p.name !== preview.name);
+      },
+      changeImagenes(){
+          this.imagenesOnlyRead = false;
+          this.previewFiles = [];
       }
   }
 }
@@ -277,6 +305,7 @@ export default {
 <style scoped>
     .btn-cancel {
         cursor: pointer;
+        color: red;
     }
 
     .btn-cancel img {

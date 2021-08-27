@@ -88,7 +88,7 @@
                             </div>
                             <div class="author-menu">
                                 <div class="author-area">
-                                    <div class="search-wrapper">
+                                    <!-- <div class="search-wrapper">
                                         <div
                                             class="nav_right_module search_module"
                                         >
@@ -117,7 +117,7 @@
                                                 </form>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <div class="author__notification_area">
                                         <ul>
                                             <li class="has_dropdown">
@@ -211,6 +211,9 @@ export default ({
         CardCart,
         Notifications,
         Avatar
+    },
+    created(){
+        console.log('notification', this.$page.props.auth)
     },
     computed: {
         user() {

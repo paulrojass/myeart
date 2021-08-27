@@ -18,6 +18,8 @@ class PdfController extends Controller
 
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML('<h1>Test</h1>');
-        return $pdf->download('certificado.pdf');
+        $pdf->download('certificado.pdf');
+
+        return back();
     }
 }

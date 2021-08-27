@@ -43,16 +43,19 @@
                                 <h5 class="footer-widget-title">Ayuda</h5>
                                 <ul>
                                     <li>
-                                        <a href="#">Quienes Somos</a>
+                                        <inertia-link href="/about">
+                                            Quienes Somos
+                                        </inertia-link>
                                     </li>
                                     <li>
-                                        <a href="#">Pregunta Frecuentes</a>
+                                        <inertia-link href="/faq">
+                                            Pregunta Frecuentes
+                                        </inertia-link>
                                     </li>
                                     <li>
-                                        <a href="#">Contacto</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Categorias</a>
+                                        <inertia-link href="/contact">
+                                            Contacto
+                                        </inertia-link>
                                     </li>
                                 </ul>
                             </div>
@@ -61,7 +64,7 @@
                         
                     </div>
                     
-                    <div class="col-lg-3 col-sm-6">
+                    <!-- <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
                             <div class="footer-menu">
                                 <h5 class="footer-widget-title">Categorias</h5>
@@ -83,7 +86,7 @@
                             
                         </div>
                         
-                    </div>
+                    </div> -->
                     
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
@@ -99,7 +102,9 @@
                                         <a href="#">Politicas de Privacidad</a>
                                     </li>
                                     <li>
-                                        <a href="#">Terminos y Condiciones</a>
+                                        <inertia-link href="/TermsCondition">
+                                            Terminos y Condiciones
+                                        </inertia-link>
                                     </li>
                                     <li>
                                         <a href="#">Soporte</a>

@@ -83,14 +83,14 @@
                                     <div class="author-stats">
                                         <ul>
                                             <li class="t_items">
-                                                <span>{{ artworks ? artworks.length : 0}}</span>
+                                                <span>{{ popular_artworks ? popular_artworks.length : 0}}</span>
                                                 <p>Articulos totales</p>
                                             </li>
                                             <li class="t_sells">
-                                                <span>0</span>
+                                                <span>{{sales_finished ? sales_finished.length : 0}}</span>
                                                 <p>Ventas totales</p>
                                             </li>
-                                            <li class="t_reviews">
+                                            <!-- <li class="t_reviews">
                                                 <div>
                                                     <span class="ratings">
                                                         <i class="fa fa-star"></i>
@@ -103,7 +103,7 @@
                                                     <span>({{ artist.seller.user.comments.length || 0 }} opiniones)</span>
                                                 </div>
                                                 <p>Calificaciones de autor</p>
-                                            </li>
+                                            </li> -->
                                         </ul>
                                     </div>
                                 </div>
@@ -187,283 +187,47 @@
                                 </nav> -->
                             </div>
                             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
-                                <div class="row">
+                                <div class="row" v-if="sales_finished">
                                     <div class="col-md-12">
                                         <div class="thread thread_review thread_review2">
                                             <ul class="media-list thread-list">
-                                                <li class="single-thread">
+                                                <li 
+                                                    class="single-thread border-secondary"
+                                                    v-for="item in sales_finished"
+                                                        :key="item.id"
+                                                    >
                                                     <div class="media">
                                                         <div class="media-left">
-                                                            <a href="#">
-                                                                <img class="media-object" src="img/m1.png" alt="Commentator Avatar">
-                                                            </a>
+                                                            <div style="width: 60px; height: 60px;">
+                                                                <Avatar 
+                                                                            
+                                                                />
+                                                            </div>
                                                         </div>
                                                         <div class="media-body">
                                                             <div class="d-flex flex-wrap">
-                                                                <div class="">
+                                                                <div class="d-flex">
                                                                     <div class="media-heading">
-                                                                        <a href="author.html">
-                                                                            <h4>Themexylum</h4>
-                                                                        </a>
-                                                                        <a href="#" class="rev_item">Mini - Responsive Bootstrap Dashboard</a>
+                                                                        
+                                                                        <!-- <a href="author.html"> -->
+                                                                        <h4>{{ item.name }}</h4>
+                                                                        <!-- </a> -->
+                                                                        <!-- <a href="#" class="rev_item">Mini - Responsive Bootstrap Dashboard</a> -->
                                                                     </div>
-                                                                    <div class="rating product--rating">
-                                                                        <ul>
+                                                                    <div class="ml-3 rating product--rating">
+                                                                        <ul v-for="star in [1,2,3,4,5]" :key="star">
                                                                             <li>
-                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star" v-if="star <= item.rating"/>
+                                                                                <span class="fa fa-star-o" v-else/>
                                                                             </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star-half-o"></span>
-                                                                            </li>
+            
                                                                         </ul>
                                                                     </div>
-                                                                    <span class="review_tag">support</span>
+                                                                    <!-- <span class="review_tag">support</span> -->
                                                                 </div>
-                                                                <div class="rev_time">9 Hours Ago</div>
+                                                                <div class="rev_time">{{ moment(item.created_at).fromNow() }}</div>
                                                             </div>
-                                                            <p>Nunc placerat mi id nisi interdum mollis. Praesent
-                                                                pharetra,
-                                                                justo ut sceleris que the mattis, leo quam aliquet
-                                                                congue placerat mi id nisi interdum mollis.</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="single-thread">
-                                                    <div class="media">
-                                                        <div class="media-left">
-                                                            <a href="#">
-                                                                <img class="media-object" src="img/m2.png" alt="Commentator Avatar">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="d-flex flex-wrap">
-                                                                <div class="">
-                                                                    <div class="media-heading">
-                                                                        <a href="author.html">
-                                                                            <h4>Jhon Oliver</h4>
-                                                                        </a>
-                                                                        <a href="#" class="rev_item">Beidea - One Page Parallax</a>
-                                                                    </div>
-                                                                    <div class="rating product--rating">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star-half-o"></span>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <span class="review_tag">Code Quality</span>
-                                                                </div>
-                                                                <div class="rev_time">18 Hours Ago</div>
-                                                            </div>
-                                                            <p>Nunc placerat mi id nisi interdum mollis. Praesent
-                                                                pharetra,
-                                                                justo ut sceleris que the mattis, leo quam aliquet
-                                                                congue placerat mi id nisi interdum mollis.</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="single-thread">
-                                                    <div class="media">
-                                                        <div class="media-left">
-                                                            <a href="#">
-                                                                <img class="media-object" src="img/m3.png" alt="Commentator Avatar">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="d-flex flex-wrap">
-                                                                <div class="">
-                                                                    <div class="media-heading">
-                                                                        <a href="author.html">
-                                                                            <h4>Adam Smith</h4>
-                                                                        </a>
-                                                                        <a href="#" class="rev_item">Carlos - Creative Agency Template</a>
-                                                                    </div>
-                                                                    <div class="rating product--rating">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star-half-o"></span>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <span class="review_tag">Design</span>
-                                                                </div>
-                                                                <div class="rev_time">3 Days Ago</div>
-                                                            </div>
-                                                            <p>Nunc placerat mi id nisi interdum mollis. Praesent
-                                                                pharetra,
-                                                                justo ut sceleris que the mattis, leo quam aliquet
-                                                                congue placerat mi id nisi interdum mollis.</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="single-thread">
-                                                    <div class="media">
-                                                        <div class="media-left">
-                                                            <a href="#">
-                                                                <img class="media-object" src="img/m4.png" alt="Commentator Avatar">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="d-flex flex-wrap">
-                                                                <div class="">
-                                                                    <div class="media-heading">
-                                                                        <a href="author.html">
-                                                                            <h4>EcoTheme</h4>
-                                                                        </a>
-                                                                        <a href="#" class="rev_item">Appspress - applanding page</a>
-                                                                    </div>
-                                                                    <div class="rating product--rating">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star-half-o"></span>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <span class="review_tag">support</span>
-                                                                </div>
-                                                                <div class="rev_time">1 Week Ago</div>
-                                                            </div>
-                                                            <p>Nunc placerat mi id nisi interdum mollis. Praesent
-                                                                pharetra,
-                                                                justo ut sceleris que the mattis, leo quam aliquet
-                                                                congue placerat mi id nisi interdum mollis.</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="single-thread">
-                                                    <div class="media">
-                                                        <div class="media-left">
-                                                            <a href="#">
-                                                                <img class="media-object" src="img/m5.png" alt="Commentator Avatar">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="d-flex flex-wrap">
-                                                                <div class="">
-                                                                    <div class="media-heading">
-                                                                        <a href="author.html">
-                                                                            <h4>Aazztech</h4>
-                                                                        </a>
-                                                                        <a href="#" class="rev_item">Rida-Onepage vcard portfolio theme</a>
-                                                                    </div>
-                                                                    <div class="rating product--rating">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star-half-o"></span>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <span class="review_tag">support</span>
-                                                                </div>
-                                                                <div class="rev_time">2 Weeks Ago</div>
-                                                            </div>
-                                                            <p>Nunc placerat mi id nisi interdum mollis. Praesent
-                                                                pharetra,
-                                                                justo ut sceleris que the mattis, leo quam aliquet
-                                                                congue placerat mi id nisi interdum mollis.</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="single-thread">
-                                                    <div class="media">
-                                                        <div class="media-left">
-                                                            <a href="#">
-                                                                <img class="media-object" src="img/m6.png" alt="Commentator Avatar">
-                                                            </a>
-                                                        </div>
-                                                        <div class="media-body">
-                                                            <div class="d-flex flex-wrap">
-                                                                <div class="">
-                                                                    <div class="media-heading">
-                                                                        <a href="author.html">
-                                                                            <h4>MR9</h4>
-                                                                        </a>
-                                                                        <a href="#" class="rev_item">Tamabill - Multi-Purpose HTML Template</a>
-                                                                    </div>
-                                                                    <div class="rating product--rating">
-                                                                        <ul>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star"></span>
-                                                                            </li>
-                                                                            <li>
-                                                                                <span class="fa fa-star-half-o"></span>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <span class="review_tag">Flexibility</span>
-                                                                </div>
-                                                                <div class="rev_time">1 Month Ago</div>
-                                                            </div>
-                                                            <p>Nunc placerat mi id nisi interdum mollis. Praesent
-                                                                pharetra,
-                                                                justo ut sceleris que the mattis, leo quam aliquet
-                                                                congue placerat mi id nisi interdum mollis.</p>
+                                                            <p class="p-0">{{ item.comment }}</p>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -471,7 +235,7 @@
                                         </div>
                                         
                                         
-                                        <nav class="pagination-default ">
+                                        <!-- <nav class="pagination-default ">
                                             <ul class="pagination">
                                                 <li class="page-item">
                                                     <a class="page-link" href="#" aria-label="Previous">
@@ -491,7 +255,12 @@
                                                     </a>
                                                 </li>
                                             </ul>
-                                        </nav>
+                                        </nav> -->
+                                    </div>
+                                </div>
+                                <div v-else>
+                                    <div class="not-info">
+                                        <h4> Sin Reseñas </h4>
                                     </div>
                                 </div>
                             </div>
@@ -511,7 +280,7 @@ import Avatar from '@/Components/Avatar'
 
 export default {
     layout: Layout,
-    props: ['artist', 'artworks', 'popular_artworks'],
+    props: ['artist', 'artworks', 'popular_artworks', 'sales_finished'],
     components: {
         Header,
         CardWordArtModel,
@@ -521,6 +290,7 @@ export default {
         console.log('artist', this.artist)
         console.log('artworks', this.artworks)
         console.log('popular_artworks', this.popular_artworks)
+        console.log('sales_finished', this.sales_finished)
     },
     data(){
         return {

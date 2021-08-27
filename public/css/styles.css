@@ -16869,3 +16869,45 @@ span.counter {
   border-color: #2176bd;
   box-shadow: 0 0 0 0.2rem rgba(82, 161, 225, 0.5);
 }
+
+@font-face {
+  font-family: 'GalanoGrotesqueAltBold';
+  src: local('GalanoGrotesqueAltBold'), url("/fonts/GalanoGrotesqueAltBold.otf");
+}
+
+@font-face {
+  font-family: 'GalanoGrotesqueAltBlack';
+  src: local('GalanoGrotesqueAltBlack'), url("/fonts/GalanoGrotesqueAltBlack.otf");
+}
+
+@font-face {
+  font-family: 'GalanoGrotesqueAltHeavy';
+  src: local('GalanoGrotesqueAltHeavy'), url("/fonts/GalanoGrotesqueAltHeavy.otf");
+}
+
+@font-face {
+  font-family: 'GalanoGrotesqueAltExtraLight';
+  src: local('GalanoGrotesqueAltExtraLight'), url("/fonts/GalanoGrotesqueAltExtraLight.otf");
+}
+
+@font-face {
+  font-family: 'GalanoGrotesqueAltLight';
+  src: local('GalanoGrotesqueAltLight'), url("/fonts/GalanoGrotesqueAltLight.otf");
+}
+
+@font-face {
+  font-family: 'GalanoGrotesqueAltSemiBold';
+  src: local('GalanoGrotesqueAltSemiBold'), url("/fonts/GalanoGrotesqueAltSemiBold.otf");
+}
+
+body {
+  font-family: 'GalanoGrotesqueAltLight';
+}
+
+h1, h2, h3, h4 {
+  font-family: 'GalanoGrotesqueAltSemiBold';
+}
+
+.routerLink{
+  text-decoration: none;
+}

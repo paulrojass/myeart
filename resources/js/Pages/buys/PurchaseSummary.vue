@@ -40,7 +40,7 @@
                                 </li>
                                 <li class="total_ammount">
                                     <p class="font-weight-bolder">Total:</p>
-                                    <span>  {{ ' ' + artwork.price }} $</span>
+                                    <span>  {{ ' ' + buy.total }} $</span>
                                 </li>
                             </ul>
                         </div>
@@ -66,13 +66,14 @@ import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
 
 export default ({
-    props: ['artwork'],
+    props: ['artwork', 'buy'],
     layout: Layout,
     components: {
         Header
     },
     created(){
         console.log('artwork', this.artwork)
+        console.log('buy', this.buy)
     },
     data() {
         return {
