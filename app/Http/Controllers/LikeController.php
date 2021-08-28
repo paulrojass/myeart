@@ -36,7 +36,7 @@ class LikeController extends Controller
     public function destroy($id)
     {
         $like = Like::find($id);
-
-        return $like->delete();
+        $like->delete();
+        return back();
     }
 }

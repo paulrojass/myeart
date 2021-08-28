@@ -153,13 +153,9 @@
                         <aside id="sidebar" ref="sidebar" class="sidebar sidebar--single-product card-specs position-relative">
                             <div class="sidebar-card card-pricing bg-primary text-white">
                                 <div class="my-1 border-none d-flex justify-content-between mb-0">
-                                    <span 
-                                        class="material-icons" 
-                                        style="color: red;cursor:pointer;"
-                                        @click="favorite()"
-                                        >
-                                        favorite
-                                    </span>
+                                    <HeartLikes 
+                                        :artwork="artwork"
+                                    />
                                     <h1 class="text-white">
                                         {{ artwork.price }} <sup>$</sup>
                                     </h1>
@@ -304,6 +300,7 @@ import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
 import CardComments from "@/Components/CardComments.vue" 
 import Avatar from '@/Components/Avatar'
+import HeartLikes from '@/Components/HeartLikes.vue'
 
 const mapIconElements = {
     'Temática': "/imagenes/icons/detailsWorkArtist/Thematic.png",
@@ -318,7 +315,8 @@ export default {
     components: {
         Header,
         CardComments,
-        Avatar
+        Avatar,
+        HeartLikes
     },
     destroyed () {
         window.removeEventListener('scroll', this.handleScroll);
@@ -346,7 +344,7 @@ export default {
     },
     computed: {
         user(){
-            return this.$page.props.auth.user;
+            return this.$page.props.auth.user ?? null;
         }
     },
     methods: {
@@ -380,6 +378,10 @@ export default {
             let maxHeight = document.getElementById('content').clientHeight;
 
             let elem = document.getElementById('sidebar');
+
+            if (!elem){
+                return;
+            }
 
             if (window.scrollY > 270 && window.scrollY < maxHeight-280){
                 // let { sidebar: refSidebar } = this.$refs;

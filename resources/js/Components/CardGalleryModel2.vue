@@ -24,12 +24,15 @@
             </div>
             <div class="row-cardWorkArt mt-2 pt-3 d-flex justify-content-between">
                 <div class="d-flex align-items-center">
-                    <span
+                    <!-- <span
                         class="icon-heart icon-cardWorkArt"
                         title="Add to collection"
                         data-toggle="tooltip"
                     />
-                    <span class="ml-1"> 0 </span>
+                    <span class="ml-1"> 0 </span> -->
+                    <HeartLikes 
+                        :artwork="doc.seller.artworks[0]"
+                    />
                 </div>
                 <div class="">
                     <div class="price text-primary"> 
@@ -72,9 +75,12 @@
 </template>
 
 <script>
-
+import HeartLikes from '@/Components/HeartLikes.vue'
 export default {
     props: ['doc'],
+    components:{
+        HeartLikes
+    },
     created(){ 
   
     },

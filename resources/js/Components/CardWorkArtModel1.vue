@@ -32,14 +32,9 @@
             <div class="row-cardWorkArt my-2 pt-3 d-flex justify-content-between">
                 
                 <div class="d-flex align-items-center">
-                    <!-- <span
-                        class="icon-heart icon-cardWorkArt"
-                        title="Add to collection"
-                        data-toggle="tooltip"
-                    /> -->
-                    <span class="material-icons" style="color: red;">
-                        favorite
-                    </span>
+                    <HeartLikes 
+                        :artwork="doc"
+                    />
 
                     <span class="ml-1"> {{ doc.likes.length ?? 0 }} </span>
                 </div>
@@ -51,35 +46,12 @@
 </template>
 
 <script>
+import HeartLikes from '@/Components/HeartLikes.vue'
 
 export default {
     props: ['doc'],
     components: {
-        // MenuIcon
-    },
-    created(){
-        this.photoTemplate();
-    },
-    data(){
-        return {
-            item: {
-                photo: '/img/product1.png',
-                title: 'Nombre de la obra',
-                subtitle: '',
-                author: {
-                    name: "Nombre del autor",
-                    avatar: "/img/auth-img.png"
-                },
-                price: 24
-            }
-        }
-    },
-    methods: {
-        photoTemplate(){
-            if (this.index < 6) {
-                this.item.photo = `/imagenes/obras/obra-${this.index + 1}.jpg`
-            }
-        }
+        HeartLikes
     }
 }
 </script>

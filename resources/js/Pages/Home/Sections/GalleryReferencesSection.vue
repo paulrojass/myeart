@@ -34,10 +34,10 @@
                                 <div class="row">
                                     <div
                                         class="col-md-6 col-lg-4"
-                                        v-for="doc in docs"
+                                        v-for="doc in docs.filter(d => d.seller.artworks.length)"
                                         :key="doc.id"
                                     >
-                                        <CardWorkArtModel 
+                                        <CardGalleryModel 
                                             :doc="doc"
                                         />
                                     </div>
@@ -59,22 +59,14 @@
 </template>
 
 <script>
-import CardWorkArtModel from "../../../Components/CardGalleryModel2";
+import CardGalleryModel from "../../../Components/CardGalleryModel2";
 import Buttom from '../../../Components/ButtonCustom'
 
 export default {
     props: ['docs'],
     components: {
-        CardWorkArtModel,
+        CardGalleryModel,
         Buttom
-    },
-    created(){
-        // console.log('docs', this.docs )
-    },
-    data() {
-        return {
-            items: [1, 2, 3, 4, 5, 6],
-        };
-    },
+    }
 };
 </script>

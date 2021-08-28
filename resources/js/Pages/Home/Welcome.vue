@@ -10,9 +10,9 @@
     <BIOArtistSection  
       :docs="artists"
     />
-    <GalleryReferencesSection 
+    <!-- <GalleryReferencesSection 
       :docs="galleries"
-    />
+    /> -->
     <InfoConvertedSection />
     <ListBenefitsSection />
     <NewsletterSection />

@@ -44,7 +44,7 @@ class HomeController extends Controller
                                 'seller',
                                 'seller.user',
                                 'seller.user',
-                                'seller.artworks',
+                                'seller.artworks.likes',
                                 'seller.artworks.artworkImages'
                             ])->take(6)->get();
 
