@@ -8,6 +8,7 @@ use App\Models\Tag;
 use App\Models\Artist;
 use Inertia\Inertia;
 use App\Models\Seller;
+use Illuminate\Support\Facades\Redirect;
 
 class GalleryController extends Controller
 {
@@ -97,7 +98,7 @@ class GalleryController extends Controller
             $seller->tags()->attach($tag);
         }
 
-        return Inertia::render('user/Profile');
+        return Redirect::route('account-profile');
     }
 
     /**

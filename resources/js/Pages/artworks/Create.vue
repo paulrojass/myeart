@@ -242,7 +242,7 @@ export default {
                 name: "",
                 description: "",
                 price: 100,
-                offer: 90,
+                offer: 0,
                 weight: 100,
                 width: 100,
                 height: 100,
@@ -269,7 +269,7 @@ export default {
 
         // console.log('query', route().params.type) 
         this.artwork ?
-            this.form.put(route('my-artworks.update', { id: this.artwork.id}))
+            this.form.post(route('my-artworks.update', { id: this.artwork.id, _method: 'put'}))
             :
             this.form.post(route('my-artworks.store'))
       },
