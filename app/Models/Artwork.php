@@ -103,16 +103,21 @@ class Artwork extends Model
     //Scopes
     public function scopeMinPrice($query, $minPrice) {
         if ($minPrice) {
-            return $query->where('apellidos','>', $minPrice);
+            return $query->where('price','>', $minPrice);
         }
     }
 
     public function scopeMaxPrice($query, $maxPrice) {
         if ($maxPrice) {
-            return $query->where('apellidos','<', $maxPrice);
+            return $query->where('price','<', $maxPrice);
         }
     }
 
+    public function scopeWithCategory($query, $category) {
+        if ($category) {
+            return $query->where('category_id', $category);
+        }
+    }
     public function scopeElements($query, $elements) {
         if ($elements) {
             foreach($elements as $element_id) {

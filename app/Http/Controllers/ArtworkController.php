@@ -62,10 +62,12 @@ class ArtworkController extends Controller
      */
     public function list(Request $request)
     {
+        //dd($request->all());
         $categories = Category::with('attributes', 'attributes.elements')->get();
         $minPrice = $request->minPrice;
         $maxPrice = $request->maxPrice;
         $elements = $request->elements;
+        $category = $request->category;
         $artworks = Artwork::query()
         ->withCount('buy')
         ->having('buy_count', '=', 0)
@@ -74,7 +76,11 @@ class ArtworkController extends Controller
             'artworkImages',
             'elements',
             'likes'
-        ])->minPrice($minPrice)->maxPrice($maxPrice)->elements($elements)->get();
+        ])->minPrice($minPrice)
+        ->maxPrice($maxPrice)
+        ->elements($elements)
+        ->withCategory($category)
+        ->get();
 
         return Inertia::render('Search/index', [
             'artworks' => $artworks,
@@ -242,14 +248,28 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $id = $request->id;
+        dd($request->all());
         $artwork = Artwork::find($id);
+
+        if ($artwork->category->id != $request->category) {
+            foreach ($artwork->elements as $key => $element) {
+                $artwork->elements()->detach($element->element_id);
+            }
+
+            foreach ($request->elements as $key => $element_id) {
+                $artwork->elements()->attach($element_id);
+            }
+        }
 
         $artwork->update($request->all());
 
+
+
+
         if ($request->hasFile('image')) {
+            dd('tiene imagenes');
             foreach ($artwork->artworkImages as $key => $artworkImage) {
                 $this->deleteImage($artworkImage);
                 $artworkImage->delete();

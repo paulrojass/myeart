@@ -6,7 +6,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 col-sm-12">
-                            <form @submit.prevent="submit">
+                            <form @submit.prevent="submit" enctype="multipart/form-data">
                                 <div class="upload_modules">
                                     <div class="modules__title">
                                         <h4 class="title">{{artwork ? 'Actualizar' : 'Subir' }} Obra</h4>
@@ -24,7 +24,7 @@
                                                     <label for="category">Categoria</label>
                                                     <div class="select-wrap select-wrap2">
                                                         <select name="country" id="category" class="text_field" v-model="form.category_id">
-                                                            <option 
+                                                            <option
                                                                 v-for="category in categories" :key="category.id"
                                                                 :value="category.id"
                                                             >
@@ -35,17 +35,17 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div
                                                     v-for="attrib in listAttributes"
-                                                    :key="attrib.id" 
+                                                    :key="attrib.id"
                                                     class="col-md-4"
                                                 >
                                                 <div class="form-group">
                                                     <label for="attribute1">{{ attrib.name }}</label>
                                                     <div class="select-wrap select-wrap2">
                                                         <select name="attribute1" id="attribute1" class="text_field" v-model="form.attributes[attrib.name]" required>
-                                                            <option 
+                                                            <option
                                                                 v-for="elem in attrib.elements"
                                                                 :key="elem.id"
                                                                 :value="elem.id"
@@ -89,7 +89,7 @@
                                                 :class="`${imagenesOnlyRead ? 'row' : 'col-12'} mb-3`"
                                                 v-for="(preview, i) in previewFiles " :key="i"
                                                 >
-                                                <div 
+                                                <div
                                                     class="row d-flex align-items-center"
                                                     v-if="!imagenesOnlyRead"
                                                     >
@@ -105,7 +105,7 @@
                                                     <div class="col-3 d-flex justify-content-center btn-cancel">
                                                         <span class="material-icons" @click="removeFile(preview)">
                                                             do_not_disturb_on
-                                                        </span>                                                                                        
+                                                        </span>
                                                     </div>
 
                                                 </div>
@@ -117,7 +117,7 @@
                                             </div>
                                         </div>
                                         <div>
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -176,8 +176,8 @@
                                     </div>
                                 </div>
                                 <div class="btns m-top-40">
-                                    <button 
-                                        type="submit" 
+                                    <button
+                                        type="submit"
                                         class="btn btn-lg btn-primary m-right-15"
                                         :disabled="!previewFiles.length"
                                         >
@@ -236,6 +236,7 @@ export default {
             previewFiles: [],
             imagenesOnlyRead: false,
             form: this.$inertia.form({
+                _method : this.artwork ? 'patch' : 'post',
                 category_id: this.categories[0].id,
                 attributes: [],
                 elements: [],
@@ -267,21 +268,22 @@ export default {
 
         console.log('form', this.form)
 
-        // console.log('query', route().params.type) 
+        // console.log('query', route().params.type)
         this.artwork ?
             this.form.post(route('my-artworks.update', { id: this.artwork.id, _method: 'put'}))
+            //this.form.patch(route('my-artworks.update', this.artwork.id))
             :
             this.form.post(route('my-artworks.store'))
       },
       newFile(event){
         let file = event.target.files[0];
-        let preview = { 
+        let preview = {
             file,
             url: URL.createObjectURL(file),
             name: file.name,
             size: Number(file.size / 1024).toFixed(0)
         };
-        
+
         let previewFiles = [...this.previewFiles, preview]
         // this.form.image = [this.form.image, file];
 
