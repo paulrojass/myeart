@@ -78,7 +78,7 @@ Route::get('/detailsWorkArtist', function(){
 Route::get('obras', [App\Http\Controllers\ArtworkController::class, 'list'])->middleware([])->name('search');
 
 Route::get('obras/{artwork_id}', [App\Http\Controllers\ArtworkController::class, 'show'])
-->middleware([])
+->middleware(['auth'])
 ->name('artwork.show');
 
 // Vista  Home , Editada Paul
@@ -158,7 +158,7 @@ Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function (
     Route::group(['prefix' => 'mis-obras'], function () {
         //Obras de arte del usuario autenticado
         Route::resource(
-            '/',
+            '/obras',
             App\Http\Controllers\ArtworkController::class,
             [ 'names' => [
                 'index' => 'my-artworks.index',

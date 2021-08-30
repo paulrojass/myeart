@@ -204,11 +204,11 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(Request $request, $id)
     {
         $categories = Category::query()->with(['attributes', 'attributes.elements'])->get();
 
-        $id = $request->id;
+        //$id = $request->id;
 
         $artwork = Artwork::where('id', $id)->with([
             'seller.user.profile',
@@ -250,6 +250,11 @@ class ArtworkController extends Controller
         $artwork->update($request->all());
 
         if ($request->hasFile('image')) {
+            foreach ($artwork->artworkImages as $key => $artworkImage) {
+                $this->deleteImage($artworkImage);
+                $artworkImage->delete();
+            }
+
             foreach ($request->file('image') as $key => $image) {
                 $destinationPath = 'artwork_images/';
 
@@ -283,12 +288,12 @@ class ArtworkController extends Controller
      * @param  \App\Models\Artwork  $artwork
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $id = $request->id;
+        //$id = $request->id;
         $artwork = Artwork::find($id);
 
-        $artwork->trashed();
+        $artwork->delete();
 
         return back();
     }
@@ -300,5 +305,16 @@ class ArtworkController extends Controller
         $artwork->delete();
 
         return redirect()->route('artworks.index');
+    }
+
+    public function deleteImage($image)
+    {
+        $originalPath = public_path('artwork_images');
+
+        if ($avatar != 'default.jpg') {
+            if (\File::exists($originalPath.'/'.$image)) {
+                \File::delete($originalPath.'/'.$image);
+            }
+        }
     }
 }
