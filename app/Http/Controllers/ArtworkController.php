@@ -250,7 +250,7 @@ class ArtworkController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        // dd($request->all());
         $artwork = Artwork::find($id);
 
         if ($artwork->category->id != $request->category) {
@@ -269,7 +269,7 @@ class ArtworkController extends Controller
 
 
         if ($request->hasFile('image')) {
-            dd('tiene imagenes');
+            // dd('tiene imagenes');
             foreach ($artwork->artworkImages as $key => $artworkImage) {
                 $this->deleteImage($artworkImage);
                 $artworkImage->delete();
@@ -331,7 +331,7 @@ class ArtworkController extends Controller
     {
         $originalPath = public_path('artwork_images');
 
-        if ($avatar != 'default.jpg') {
+        if ($image != 'default.jpg') {
             if (\File::exists($originalPath.'/'.$image)) {
                 \File::delete($originalPath.'/'.$image);
             }

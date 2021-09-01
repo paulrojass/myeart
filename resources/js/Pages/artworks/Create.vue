@@ -270,7 +270,12 @@ export default {
 
         // console.log('query', route().params.type)
         this.artwork ?
-            this.form.post(route('my-artworks.update', { id: this.artwork.id, _method: 'put'}))
+            this.$inertia.post(route('my-artworks.update', [this.artwork.id]), {
+                id: this.artwork.id, 
+                _method: 'put',
+                ...this.form
+            })
+            // this.form.post(route('my-artworks.update', { id: this.artwork.id, _method: 'put'}))
             //this.form.patch(route('my-artworks.update', this.artwork.id))
             :
             this.form.post(route('my-artworks.store'))
