@@ -27,6 +27,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'card_last_four',
         'trial_ends_at',
         'facebook_id',
+        'google_id',
     ];
 
 //You can also use below statement

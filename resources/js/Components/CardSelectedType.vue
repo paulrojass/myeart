@@ -9,8 +9,8 @@
             </div>
 
             <div class="col-12">
-                <img 
-                    :src="`/imagenes/icons/auth/${icon}.png`" 
+                <img
+                    :src="`/imagenes/icons/auth/${icon}.png`"
                     alt=""
                     class="img-fluid"
                 >
@@ -18,9 +18,9 @@
 
             <div class="col-12 my-3">
                 <Link :href="route('artists.create')" :data="{type}"
-                    class="mr-4 btn  btn--lg btn-primary" 
+                    class="mr-4 btn  btn--lg btn-primary"
                 >
-                    Registrate
+                    Regístrate
                 </Link>
             </div>
         </div>

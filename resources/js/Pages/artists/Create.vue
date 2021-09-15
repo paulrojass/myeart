@@ -11,23 +11,23 @@
                 </div>
 
                 <div class="col-12">
-                  <label class="mb-0">Nombre Artistico</label>
+                  <label class="mb-0">Nombre Artístico</label>
                   <input type="text" class="" v-model="form.artistic_name" required>
                 </div>
 
                 <div class="col-12 my-2">
-                  <h3 class="subtitle">Categorias</h3>
+                  <h3 class="subtitle">Categorías</h3>
                   <div>
-                    <SelectTagsCustom 
+                    <SelectTagsCustom
                       :tags="tags"
-                      v-on:update="form.tags = $event" 
+                      v-on:update="form.tags = $event"
                     />
                   </div>
                 </div>
 
                 <div class="col-12">
                   <div class="dashboard_setting_btn">
-                      <button 
+                      <button
                           class="btn btn--md btn-primary-dark"
                           @click="submit"
                       >
@@ -72,7 +72,7 @@ export default {
       submit(evt) {
         evt.preventDefault()
         // console.log('form', this.form)
-        // console.log('query', route().params.type) 
+        // console.log('query', route().params.type)
         this.form.post(route(`${route().params.type}.store`))
       },
   }

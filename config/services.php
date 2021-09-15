@@ -36,6 +36,9 @@ return [
         'redirect' => 'http://localhost:8000/auth/facebook/callback',
     ],
 
-
-
+    'google' => [
+        'client_id' => 'app id',
+        'client_secret' => 'add secret',
+        'redirect' => 'http://localhost:8000/auth/google/callback',
+    ],
 ];

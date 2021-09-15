@@ -21,7 +21,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="category">Categoria</label>
+                                                    <label for="category">Categoría</label>
                                                     <div class="select-wrap select-wrap2">
                                                         <select name="country" id="category" class="text_field" v-model="form.category_id">
                                                             <option
@@ -59,7 +59,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="m-bottom-20 no-margin">
-                                                    <p class="label">Description</p>
+                                                    <p class="label">Descripción</p>
                                                     <textarea v-model="form.description" required></textarea>
                                                 </div>
                                             </div>
@@ -70,7 +70,7 @@
                                     <div class="modules__title">
                                         <div class="d-flex justify-content-between">
                                             <div>
-                                                <h4 class="title">Galeria</h4>
+                                                <h4 class="title">Galería</h4>
                                             </div>
                                             <div class="custom_upload" v-if="!imagenesOnlyRead">
                                                 <label for="thumbnail">
@@ -271,7 +271,7 @@ export default {
         // console.log('query', route().params.type)
         this.artwork ?
             this.$inertia.post(route('my-artworks.update', [this.artwork.id]), {
-                id: this.artwork.id, 
+                id: this.artwork.id,
                 _method: 'put',
                 ...this.form
             })

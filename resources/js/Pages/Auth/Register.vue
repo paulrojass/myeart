@@ -17,32 +17,32 @@
                   </div>
 
                   <div class="form-group">
-                    <breeze-label for="firstName" value="Nombres" />
+                    <breeze-label for="firstName" value="Nombres *" /><sup>*</sup>
                     <breeze-input id="firstName" type="text" v-model="form.firstName" required autofocus autocomplete="Nombres"/>
                   </div>
 
                   <div class="form-group">
-                    <breeze-label for="lastName" value="Apellidos" />
+                    <breeze-label for="lastName" value="Apellidos *" />
                     <breeze-input id="lastName" type="text" v-model="form.lastName" required autofocus autocomplete="Apellidos" />
                   </div>
 
                 <div class="form-group">
-                  <breeze-label for="email" value="Correo electrónico" />
+                  <breeze-label for="email" value="Correo electrónico *" />
                   <breeze-input id="email" type="email" v-model="form.email" required />
                 </div>
 
                 <div class="form-group">
-                    <breeze-label for="name" value="Nombre de usuario" />
+                    <breeze-label for="name" value="Nombre de usuario *" />
                     <breeze-input id="name" type="text" v-model="form.name" required autofocus autocomplete="name" />
                 </div>
 
                 <div class="form-group">
-                  <breeze-label for="password" value="Clave" />
+                  <breeze-label for="password" value="Clave *" />
                   <breeze-input id="password" type="password" v-model="form.password" required autocomplete="new-password" />
                 </div>
 
                 <div class="form-group">
-                  <breeze-label for="password_confirmation" value="Confirmar Clave" />
+                  <breeze-label for="password_confirmation" value="Confirmar Clave *" />
                   <breeze-input id="password_confirmation" type="password" v-model="form.password_confirmation" required autocomplete="new-password" />
                 </div>
 
@@ -58,7 +58,7 @@
 
                 <div class="mb-0">
                   <div class="d-flex justify-content-start align-items-baseline">
-                    <button @click="submit" class="mr-4 btn  btn--lg btn-primary" :class="{ 'text-white-50': form.processing }" 
+                    <button @click="submit" class="mr-4 btn  btn--lg btn-primary" :class="{ 'text-white-50': form.processing }"
                       :disabled=" form.processing || !form.terms"
                     >
                       Registrate
@@ -70,14 +70,19 @@
                   </div>
                 </div>
 
-                <!-- <div class="d-flex justify-content-center mt-3">
+                <div class="d-flex justify-content-center mt-3">
                   <div>
                     <label>O inicia sesion con</label>
-                    <div>
-                      
+                    <div class="row justify-content-center">
+                        <a class="btn btn-social-icon btn-facebook ml-2 mr-2" :href="route('redirectFacebook')">
+                            <span class="fa fa-facebook"></span>
+                        </a>
+                        <a class="btn btn-social-icon btn-google ml-2 mr-2" :href="route('redirectFacebook')">
+                            <span class="fa fa-google"></span>
+                        </a>
                     </div>
                   </div>
-                </div> -->
+                </div>
               </form>
             </div>
 

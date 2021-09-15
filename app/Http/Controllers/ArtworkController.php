@@ -171,12 +171,14 @@ class ArtworkController extends Controller
     {
         $artwork = Artwork::where('id', $id)->with([
             'seller.user.profile',
+            'seller.gallery',
+            'seller.artist',
             'artworkImages',
             'elements.attribute',
             'comments',
             'likes'])->first();
 
-        // dd($artwork);
+        //dd($artwork->seller->artist->artistic_name);
 
         //return response()->json(['artwork' => $artwork]);
 

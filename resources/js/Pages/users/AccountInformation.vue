@@ -238,14 +238,14 @@
                                             <input type="text" class="text_field" v-model="form.twitter">
                                         </div>
                                     </div>
-                                    <div class="social__single">
+                                    <!-- <div class="social__single">
                                         <div class="social_icon">
                                             <span class="fa fa-google-plus"></span>
                                         </div>
                                         <div class="link_field">
                                             <input type="text" class="text_field" v-model="form.google">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -321,7 +321,7 @@ export default {
                 trial_ends_at: this.user.trial_ends_at,
                 facebook: this.user.profile.facebook,
                 twitter: this.user.profile.twitter,
-                google: this.user.profile.google,
+                //google: this.user.profile.google,
                 tags: this.user.profile?.seller?.tags ?? []
             })
         },

@@ -100,8 +100,10 @@ require __DIR__.'/auth.php';
 
 //Laravel Socialite
 Route::get('auth/facebook', [App\Http\Controllers\LoginWithFacebookController::class, 'redirectFacebook'])->name('redirectFacebook');
+Route::get('auth/google', [App\Http\Controllers\LoginWithGoogleController::class, 'redirectGoogle'])->name('redirectGoogle');
 
 Route::get('auth/facebook/callback', [App\Http\Controllers\LoginWithFacebookController::class, 'facebookCallback'])->name('facebookCallback');
+Route::get('auth/google/callback', [App\Http\Controllers\LoginWithGoogleController::class, 'googleCallback'])->name('googleCallback');
 
 
 //Vistas para home
@@ -122,7 +124,7 @@ Route::get('vendedores/artistas', [App\Http\Controllers\ArtistController::class,
 Route::get('vendedores/galerias', [App\Http\Controllers\GalleryController::class, 'list'])->name('galleries.index');
 
 //Informacion de una Cuenta
-Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function () {
+Route::group(['middleware' => ['web', 'auth', 'role:admin|buyer|seller'], 'prefix' => 'cuenta'], function () {
     Route::get('editar', [App\Http\Controllers\UserController::class, 'editAccountInformation'])
     ->name('account-profile');
     Route::get('mis-compras', [App\Http\Controllers\UserController::class, 'myShopping'])

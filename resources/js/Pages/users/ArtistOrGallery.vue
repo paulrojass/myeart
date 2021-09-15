@@ -8,7 +8,7 @@
                         <CardSelectedType 
                             type="artists"
                             title="Artista"
-                            desc="Si eres artista y quieres vender tu obra registra aqui"
+                            desc="Si eres artista y quieres vender tu obra regístrate aqui"
                             icon="artist"
                         />
                     </div>
@@ -16,8 +16,8 @@
                     <div class="col-12 col-md-6">
                         <CardSelectedType
                             type="galleries"
-                            title="Galeria"
-                            desc="Si eres una Galeria o gestionas multiples obras registrate aqui"
+                            title="Galería"
+                            desc="Si eres una Galería o gestionas multiples obras regístrate aquí"
                             icon="gallery"
                         />
                     </div>

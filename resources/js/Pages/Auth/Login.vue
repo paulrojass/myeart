@@ -34,23 +34,27 @@
                               </div> -->
                                 <b-button
                                   @click="submit"
-                                  class="ml-4 btn--lg btn btn-primary"
+                                  class="ml-4 btn--lg btn btn-primary mr-2"
                                   :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
                                   Iniciar
                                 </b-button>
-
-                                <a
-                                    :href="route('redirectFacebook')"
-                                    class="ml-4 btn--lg btn btn-primary">
-                                    Facebook
-                                </a>
-
-
-                              <div class="login_assist">
-                                  <inertia-link :href="route('register')" class="text-muted mr-3">
+                                <inertia-link :href="route('register')" class="text-muted mr-3">
                                     ¿ No tienes una cuenta?
-                                  </inertia-link>
-                              </div>
+                                </inertia-link>
+
+                                <div class="d-flex justify-content-center mt-3">
+                                  <div>
+                                    <label>O inicia sesion con</label>
+                                    <div class="row justify-content-center">
+                                        <a class="btn btn-social-icon btn-facebook ml-2 mr-2" :href="route('redirectFacebook')">
+                                            <span class="fa fa-facebook"></span>
+                                        </a>
+                                        <a class="btn btn-social-icon btn-google ml-2 mr-2" :href="route('redirectGoogle')">
+                                            <span class="fa fa-google"></span>
+                                        </a>
+                                    </div>
+                                  </div>
+                                </div>
                           </div>
                       </div>
                   </form>

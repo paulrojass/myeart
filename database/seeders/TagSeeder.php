@@ -24,7 +24,7 @@ class TagSeeder extends Seeder
             "2" => "Pintura",
             "3" => "Escultura",
             "4" => "Dibujo",
-            "5" => "Fotrografía",
+            "5" => "Fotografía",
         ];
 
         DB::transaction(function () use ($tags) {

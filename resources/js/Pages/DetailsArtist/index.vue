@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+
         <section class="breadcrumb-area">
             <div class="container">
                 <div class="row">
@@ -50,11 +50,6 @@
                                             <li>
                                                 <a href="#">
                                                     <span class="fa fa-twitter"></span> Twitter
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">
-                                                    <span class="fa fa-dribbble"></span> Dribble
                                                 </a>
                                             </li>
                                         </ul>
@@ -171,7 +166,7 @@
                                                 </div>
                                             </div>
                                         </div> -->
-                                        <div 
+                                        <div
                                             v-for="(item, index) in [1,2,3]"
                                             :key="index"
                                             class="col-lg-4 col-md-6"
@@ -183,7 +178,7 @@
                             </div>
                             <div class="tab-pane fade" id="items" role="tabpanel" aria-labelledby="items-tab">
                                 <div class="row">
-                                    <div 
+                                    <div
                                         v-for="(item, index) in [1,2,3,4,5,6]"
                                         :key="index"
                                         class="col-lg-4 col-md-6"
@@ -191,8 +186,8 @@
                                         <CardWordArtModel />
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <nav class="pagination-default ">
                                     <ul class="pagination">
                                         <li class="page-item">
@@ -498,8 +493,8 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        
-                                        
+
+
                                         <nav class="pagination-default ">
                                             <ul class="pagination">
                                                 <li class="page-item">
@@ -545,7 +540,7 @@ export default {
     },
     data(){
         return {
-            
+
         }
     }
 }

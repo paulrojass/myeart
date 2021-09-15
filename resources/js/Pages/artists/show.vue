@@ -20,7 +20,7 @@
                                 <div class="col-lg-5 col-md-7">
                                     <div class="author-desc">
                                         <div style="width: 150px; height: 150px;">
-                                            <Avatar 
+                                            <Avatar
                                                 :path="artist.seller.user.profile.avatar"
                                             />
                                         </div>
@@ -34,7 +34,7 @@
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a 
+                                                    <a
                                                         :class="`btn btn-secondary btn--xs ${!artist.seller.user.profile.google && 'disabled'}`"
                                                         :href="artist.seller.user.profile.google"
                                                         target="_blank"
@@ -50,30 +50,21 @@
                                     <div class="author-social social social--color--filled">
                                         <ul class="">
                                             <li>
-                                                <a :class="`btn ${!artist.seller.user.profile.facebook && 'disabled'}`" 
-                                                    :href="artist.seller.user.profile.facebook" 
+                                                <a :class="`btn ${!artist.seller.user.profile.facebook && 'disabled'}`"
+                                                    :href="artist.seller.user.profile.facebook"
                                                     target="_blank"
                                                 >
-                                                    <span class="fa fa-facebook"></span> 
+                                                    <span class="fa fa-facebook"></span>
                                                     <span class="text-dark"> Facebook </span>
                                                 </a>
                                             </li>
                                             <li>
-                                                <a :class="`btn ${!artist.seller.user.profile.facebook && 'disabled'}`" 
+                                                <a :class="`btn ${!artist.seller.user.profile.facebook && 'disabled'}`"
                                                     :href="artist.seller.user.profile.twitter"
                                                     target="_blank"
-                                                    >                                                   
-                                                    <span class="fa fa-twitter"></span> 
-                                                    <span class="text-dark"> Twitter </span>                                                  
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a :class="`btn ${!artist.seller.user.profile.dribble && 'disabled'}`" 
-                                                    :href="artist.seller.user.profile.dribble"
-                                                    target="_blank"
-                                                    >                                               
-                                                    <span class="fa fa-dribbble"></span> 
-                                                    <span class="text-dark"> Dribble </span>
+                                                    >
+                                                    <span class="fa fa-twitter"></span>
+                                                    <span class="text-dark"> Twitter </span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -135,7 +126,7 @@
                                         <span>destacados del autor.</span>
                                     </h3>
                                     <div class="row">
-                                        <div 
+                                        <div
                                             v-for="doc in [...artworks].slice(0, 3)"
                                             :key="doc.id"
                                             class="col-lg-4 col-md-6"
@@ -149,7 +140,7 @@
                                 <div class="row"
                                     v-if="popular_artworks && popular_artworks.length"
                                 >
-                                    <div 
+                                    <div
                                         v-for="doc in popular_artworks"
                                         :key="doc.id"
                                         class="col-lg-4 col-md-6"
@@ -162,8 +153,8 @@
                                         <h4> Sin Obras </h4>
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <!-- <nav class="pagination-default ">
                                     <ul class="pagination">
                                         <li class="page-item">
@@ -191,7 +182,7 @@
                                     <div class="col-md-12">
                                         <div class="thread thread_review thread_review2">
                                             <ul class="media-list thread-list">
-                                                <li 
+                                                <li
                                                     class="single-thread border-secondary"
                                                     v-for="item in sales_finished"
                                                         :key="item.id"
@@ -199,8 +190,8 @@
                                                     <div class="media">
                                                         <div class="media-left">
                                                             <div style="width: 60px; height: 60px;">
-                                                                <Avatar 
-                                                                            
+                                                                <Avatar
+
                                                                 />
                                                             </div>
                                                         </div>
@@ -208,7 +199,7 @@
                                                             <div class="d-flex flex-wrap">
                                                                 <div class="d-flex">
                                                                     <div class="media-heading">
-                                                                        
+
                                                                         <!-- <a href="author.html"> -->
                                                                         <h4>{{ item.name }}</h4>
                                                                         <!-- </a> -->
@@ -220,7 +211,7 @@
                                                                                 <span class="fa fa-star" v-if="star <= item.rating"/>
                                                                                 <span class="fa fa-star-o" v-else/>
                                                                             </li>
-            
+
                                                                         </ul>
                                                                     </div>
                                                                     <!-- <span class="review_tag">support</span> -->
@@ -233,8 +224,8 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        
-                                        
+
+
                                         <!-- <nav class="pagination-default ">
                                             <ul class="pagination">
                                                 <li class="page-item">
@@ -294,7 +285,7 @@ export default {
     },
     data(){
         return {
-            
+
         }
     }
 }

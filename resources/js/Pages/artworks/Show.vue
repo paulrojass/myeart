@@ -11,42 +11,42 @@
                                     <div class="item__preview-img">
                                         <div class="item__preview-slider">
                                             <div class="prev-slide">
-                                                <img :src="preview().location" 
-                                                    alt="Preview Image" 
+                                                <img :src="preview().location"
+                                                    alt="Preview Image"
                                                     class="w-100"
                                                 >
                                             </div>
                                         </div>
                                         <div class="prev-nav thumb-nav">
                                             <div>
-                                                <span 
+                                                <span
                                                     v-if="preview().index !== 0"
-                                                    class="lnr nav-left icon-arrow-left" 
+                                                    class="lnr nav-left icon-arrow-left"
                                                     @click="changeTo('prev')"
                                                 />
                                             </div>
                                             <div>
-                                                <span 
+                                                <span
                                                     v-if="preview().index !== items.length -1"
-                                                    class="lnr nav-right icon-arrow-right" 
+                                                    class="lnr nav-right icon-arrow-right"
                                                     @click="changeTo('next')"
                                                 />
                                             </div>
-                                            
+
                                         </div>
                                     </div>
                                     <div class="item__preview-thumb pb-4 mt-4 border-primary">
                                         <div class="prev-thumb ">
-                                            <div 
+                                            <div
                                                 class="thumb-slider d-flex justify-content-around"
-                                                
+
                                                 >
-                                                <div class="item-thumb" 
-                                                    v-for="(item, i) in items" :key="i"> 
-                                                    <img 
-                                                        :src="item.location" 
+                                                <div class="item-thumb"
+                                                    v-for="(item, i) in items" :key="i">
+                                                    <img
+                                                        :src="item.location"
                                                         alt="Thumbnail Image"
-                                                        style="width: 100px; height: 80px;"
+                                                        style="width: 100px;"
                                                         @click="changeToPreview(item)"
                                                     >
                                                 </div>
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="fade tab-pane product-tab" id="product-comment" role="tabpanel" aria-labelledby="tab2">
                                     <div>
-                                        <CardComments 
+                                        <CardComments
                                             :comments="artwork.comments"
                                             :artwork="artwork"
                                         />
@@ -96,24 +96,24 @@
                                                 <div class="media">
                                                     <div class="media-left">
                                                         <div style="width: 80px; height: 80px;">
-                                                            <Avatar 
+                                                            <Avatar
                                                                 :path="artwork.seller.user.profile.avatar"
                                                             />
                                                         </div>
-                                                        
+
                                                     </div>
                                                     <div class="media-body">
                                                         <div class="clearfix">
                                                             <div class="pull-left">
                                                                 <div class="media-heading">
-                                                                    
                                                                         <h4 class="text-primary mb-0 font-weight-border">
                                                                             Autor:
                                                                         </h4>
                                                                         <h4>
                                                                             {{ artwork.seller.user.name }}
+                                                                            <span v-if="artwork.seller.artist != null">({{ artwork.seller.artist.artistic_name }})</span>
+                                                                            <span v-if="artwork.seller.gallery != null">({{ artwork.seller.gallery.name }})</span>
                                                                         </h4>
-                                                                    
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -122,9 +122,9 @@
                                                 <div class="p-4">
                                                     <p>{{ artwork.seller.user.profile.biography }}</p>
                                                 </div>
-                                                
+
                                             </li>
-                                            
+
                                             <div class="ml-5">
                                                 <inertia-link
                                                     :href="
@@ -135,14 +135,14 @@
                                                         Ver Autor
                                                     </div>
                                                 </inertia-link>
-                                                <!-- <button 
+                                                <!-- <button
                                                     class="btn btn--md btn-primary"
                                                     >
                                                 </button> -->
                                             </div>
 
                                         </ul>
-                                        
+
                                     </div>
                                 </div>
 
@@ -153,7 +153,7 @@
                         <aside id="sidebar" ref="sidebar" class="sidebar sidebar--single-product card-specs position-relative">
                             <div class="sidebar-card card-pricing bg-primary text-white">
                                 <div class="my-1 border-none d-flex justify-content-between mb-0">
-                                    <HeartLikes 
+                                    <HeartLikes
                                         :artwork="artwork"
                                     />
                                     <h1 class="text-white">
@@ -161,14 +161,14 @@
                                     </h1>
                                 </div>
                                 <div class="row d-flex justify-content-around">
-                                    <div 
+                                    <div
                                         class="col-5 btn-list buy"
                                         v-if="artwork.seller.user_id !== user?.id"
                                         >
-                                        <inertia-link 
-                                            :href="route('buys.create', [ artwork.id ])" 
-                                            method="get" 
-                                            as="button" 
+                                        <inertia-link
+                                            :href="route('buys.create', [ artwork.id ])"
+                                            method="get"
+                                            as="button"
                                             class="btn btn-link"
                                         >
                                             Comprar
@@ -184,37 +184,41 @@
                                     <li>
                                         <div class="custom-radio d-flex">
                                             <div class="mt-2 mr-2 img-list">
-                                                <img 
-                                                    class="media-object rounded-circle" 
-                                                    src="/imagenes/icons/detailsWorkArtist/User.png" 
+                                                <img
+                                                    class="media-object rounded-circle"
+                                                    src="/imagenes/icons/detailsWorkArtist/User.png"
                                                     alt=""
                                                 >
                                             </div>
                                             <div class="mt-2">
-                                                
+
                                                     <div class="list-bold">Autor</div>
-                                                    <p>{{ artwork.seller.user.name }}</p>
-                                                
+                                                    <p>
+                                                    {{ artwork.seller.user.name }}
+                                                    <span v-if="artwork.seller.artist != null">({{ artwork.seller.artist.artistic_name }})</span>
+                                                    <span v-if="artwork.seller.gallery != null">({{ artwork.seller.gallery.name }})</span>
+                                                    </p>
+
                                             </div>
                                         </div>
                                     </li>
                                     <li class="border-none">
                                         <div class="custom-radio d-flex">
                                             <div class="mt-2 mr-2 img-list">
-                                                <img 
-                                                    class="media-object rounded-circle" 
-                                                    src="/imagenes/icons/detailsWorkArtist/Desc.png" 
+                                                <img
+                                                    class="media-object rounded-circle"
+                                                    src="/imagenes/icons/detailsWorkArtist/Desc.png"
                                                     alt=""
                                                 >
                                             </div>
-                                            <div class="mt-2">                                             
+                                            <div class="mt-2">
                                                 <div class="mb-0">Titulo de la obra:</div>
-                                                <p class="">{{ artwork.name }}</p>                                  
+                                                <p class="">{{ artwork.name }}</p>
                                             </div>
                                         </div>
                                     </li>
                                 </ul>
-                                
+
                                 <div class="mt-3">
                                     <div class="ml-4">
                                         <h3 class="list-bold text-white">Atritutos.</h3>
@@ -224,9 +228,9 @@
                                         <li class="border-none">
                                             <div class="custom-radio d-flex align-items-center">
                                                 <div class="mt-2 mr-2 img-list">
-                                                    <img 
-                                                        class="media-object rounded-circle" 
-                                                        src="/imagenes/icons/detailsWorkArtist/Size.png" 
+                                                    <img
+                                                        class="media-object rounded-circle"
+                                                        src="/imagenes/icons/detailsWorkArtist/Size.png"
                                                         alt=""
                                                     >
                                                 </div>
@@ -238,9 +242,9 @@
                                         <li class="border-none">
                                             <div class="custom-radio d-flex align-items-center">
                                                 <div class="mt-2 mr-2 img-list">
-                                                    <img 
-                                                        class="media-object rounded-circle" 
-                                                        src="/imagenes/icons/detailsWorkArtist/Weight.png" 
+                                                    <img
+                                                        class="media-object rounded-circle"
+                                                        src="/imagenes/icons/detailsWorkArtist/Weight.png"
                                                         alt=""
                                                     >
                                                 </div>
@@ -249,16 +253,16 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        <li 
+                                        <li
                                             class="border-none"
                                             v-for="element in artwork.elements"
                                             :key="element.id"
                                         >
                                             <div class="custom-radio d-flex align-items-center">
                                                 <div class="mt-2 mr-2 img-list">
-                                                    <img 
-                                                        class="media-object rounded-circle" 
-                                                        :src="iconElement(element.attribute.name)" 
+                                                    <img
+                                                        class="media-object rounded-circle"
+                                                        :src="iconElement(element.attribute.name)"
                                                         alt=""
                                                     >
                                                 </div>
@@ -270,9 +274,9 @@
                                         <li class="border-none mb-2">
                                             <div class="custom-radio d-flex align-items-center">
                                                 <div class="mt-2 mr-2 img-list">
-                                                    <img 
-                                                        class="media-object rounded-circle" 
-                                                        src="/imagenes/icons/detailsWorkArtist/Calendar.png" 
+                                                    <img
+                                                        class="media-object rounded-circle"
+                                                        src="/imagenes/icons/detailsWorkArtist/Calendar.png"
                                                         alt=""
                                                     >
                                                 </div>
@@ -280,7 +284,7 @@
                                                    {{ moment(artwork.created_at).format('DD/MM/YYYY')}}
                                                 </div>
                                             </div>
-                                        </li>                                                                                                                     
+                                        </li>
                                     </ul>
                                 </div>
 
@@ -298,7 +302,7 @@
 <script>
 import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
-import CardComments from "@/Components/CardComments.vue" 
+import CardComments from "@/Components/CardComments.vue"
 import Avatar from '@/Components/Avatar'
 import HeartLikes from '@/Components/HeartLikes.vue'
 
@@ -402,7 +406,7 @@ export default {
         iconElement(nameElement){
             let icon = mapIconElements[nameElement];
 
-            return icon ?  
+            return icon ?
                 icon
                 :
                 "/imagenes/icons/detailsWorkArtist/Thematic.png";
@@ -410,7 +414,7 @@ export default {
         favorite(){
             if (!this.user)
                 return;
-                
+
             this.$inertia.post(route('likes.store'), {
                 user_id: this.user.id,
                 artwork_id: this.artwork.id
