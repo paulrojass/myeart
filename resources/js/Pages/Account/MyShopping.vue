@@ -57,14 +57,14 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <div class="">
+                                        <a :href="route('buys.certificate', item.id)">
                                             <img
-                                                src="/imagenes/icons/fl_downloader.png" 
-                                                alt="" 
+                                                src="/imagenes/icons/fl_downloader.png"
+                                                alt=""
                                                 style="width: 30px; height: 30px; cursor:pointer;"
-                                                 @click="downloader(item.id)"
                                             >
-                                        </div>
+                                        </a>
+
                                     </td>
                                     <td class="text-primary p-3 text-center">
                                         <div v-if="!item.finished">
@@ -87,7 +87,7 @@
                     <div class="product_archive">
                         <div class="row">
                             <div class="col-12">
-                                <Pagination 
+                                <Pagination
                                     :size="itemsDisplay.length"
                                     :porPage="porPage"
                                     v-bind:page="currentPage"
@@ -120,22 +120,22 @@
                     <div class="modal-body">
                         <h5 class="modal-title pb-0">Deja un comentario</h5>
                         <div>
-                            <Qualify  
+                            <Qualify
                                 v-bind:currentStar="currentStar"
                                 v-on:update:currentStar="currentStar = $event"
                             />
                         </div>
                         <div class="">
                             <div class="form-group">
-                                <textarea 
-                                    name="reply-comment" 
-                                    placeholder="Escribe tu comentario..." 
+                                <textarea
+                                    name="reply-comment"
+                                    placeholder="Escribe tu comentario..."
                                     v-model="textComment"
                                     class="form-control"
                                 />
                             </div>
                             <div class="mt-2">
-                                <button 
+                                <button
                                     class="btn btn--sm btn-primary"
                                     @click="sendComment"
                                     >
@@ -182,9 +182,9 @@ export default {
     },
     computed: {
         itemsDisplay(){
-            return !this.search.length ? 
+            return !this.search.length ?
                 this.buys ?? []
-                : 
+                :
                 this.buys.filter(b => b.artwork.name
                     .toLowerCase()
                     .includes(this.search.toLowerCase()));
@@ -229,6 +229,7 @@ export default {
 
         },
         downloader(buyId){
+            console.log(buyId);
             this.$inertia.get(`/cuenta/compra/certificado/${buyId}`);
         }
     }
