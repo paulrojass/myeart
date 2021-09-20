@@ -124,7 +124,7 @@ Route::get('vendedores/artistas', [App\Http\Controllers\ArtistController::class,
 Route::get('vendedores/galerias', [App\Http\Controllers\GalleryController::class, 'list'])->name('galleries.index');
 
 //Informacion de una Cuenta
-Route::group(['middleware' => ['web', 'auth', 'role:admin|buyer|seller'], 'prefix' => 'cuenta'], function () {
+Route::group(['middleware' => ['web', 'auth'], 'prefix' => 'cuenta'], function () {
     Route::get('editar', [App\Http\Controllers\UserController::class, 'editAccountInformation'])
     ->name('account-profile');
     Route::get('mis-compras', [App\Http\Controllers\UserController::class, 'myShopping'])
@@ -203,10 +203,11 @@ Route::group(['middleware' => ['web', 'auth', 'role:admin|buyer|seller'], 'prefi
         'usuario',
         App\Http\Controllers\UserController::class,
         [ 'names' => [
-            'update' => 'users.update'
+            'update' => 'dashboard-users.update'
             ]
         ]
     )->except(['index','create', 'store','show', 'edit', 'destroy']);
+    //Route::put('usuario/{user_id}', [App\Http\Controllers\BuyController::class, 'checkout'])
     //Usuario como vendedor solo se puede eliminar
     Route::delete('vendedor/{id}', [App\Http\Controllers\SellerController::class, 'destroy'])->name('sellers.destroy');
     //Usuario se crea como vendedor galeria, guardarse, actualizar sus datos y eliminarse como galeria

@@ -21,27 +21,27 @@ class PdfController extends Controller
         $artworkImage = $artwork->artworkImages->first();
         $image_location = $artworkImage->location;
 
-         // share data to view
-         $data = [
+        // share data to view
+        $data = [
 
-             'title' => 'Welcome to ItSolutionStuff.com',
+            'title' => 'Welcome to ItSolutionStuff.com',
 
-             'date' => date('m/d/Y'),
+            'date' => date('m/d/Y'),
 
-             'buy' => $buy,
+            'buy' => $buy,
 
-             'image_location' => $image_location
+            'image_location' => $image_location
 
-         ];
+        ];
 
-
+        //return view('certificate', compact('buy', 'image_location'));
 
         $pdf = PDF::loadView('certificate', $data);
+        //$pdf->set_base_path("/public/css/");
 
-
-        $pdf->setOptions(['javascript-delay' => 3000]);
+        //$pdf->setOptions(['javascript-delay' => 3000]);
+        //$pdf->setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
 
         return $pdf->download('Certificado_'.Str::replace(' ', '_', $artwork->name).'.pdf');
-
     }
 }

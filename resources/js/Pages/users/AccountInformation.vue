@@ -333,7 +333,7 @@ export default {
                 this.form.avatar = file;
             }
 
-          this.form.post(route('users.update', this.user.id), {
+          this.form.post(route('dashboard-users.update', this.user.id), {
             //   preserveScroll: true,
               onSuccess: () => {
                   this.init();

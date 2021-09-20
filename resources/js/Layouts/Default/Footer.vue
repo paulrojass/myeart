@@ -1,7 +1,7 @@
 <template>
     <footer class="footer-area footer--light">
         <div class="footer-big">
-            
+
             <div class="container">
                 <div class="row">
                     <div class="col-lg-3 col-sm-6">
@@ -34,9 +34,9 @@
                                 </ul>
                             </div>
                         </div>
-                        
+
                     </div>
-                    
+
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
                             <div class="footer-menu footer-menu--1">
@@ -59,11 +59,11 @@
                                     </li>
                                 </ul>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
-                    
+
                     <!-- <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
                             <div class="footer-menu">
@@ -83,11 +83,11 @@
                                     </li>
                                 </ul>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div> -->
-                    
+
                     <div class="col-lg-3 col-sm-6">
                         <div class="footer-widget">
                             <div class="footer-menu no-padding">
@@ -111,17 +111,17 @@
                                     </li>
                                 </ul>
                             </div>
-                            
+
                         </div>
-                        
+
                     </div>
-                    
+
                 </div>
-                
+
             </div>
-            
+
         </div>
-        
+
         <div class="mini-footer">
             <div class="container">
                 <div class="row">
@@ -132,9 +132,9 @@
                                 &copy; 2021
                             </p>
                         </div>
-                        <div class="go_top">
+                        <!-- <div class="go_top">
                             <span class="icon-arrow-up"></span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
