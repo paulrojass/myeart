@@ -121,8 +121,8 @@
                                                 <div class="col-10">
                                                     <div class="row">
                                                         <div class="col-4">
-                                                            <img 
-                                                                :src="artwork.artwork_images[0].location" 
+                                                            <img
+                                                                :src="artwork.artwork_images[0].location"
                                                                 alt=""
                                                                 style="width: 80px"
                                                             >
@@ -137,7 +137,7 @@
                                                 </div>
                                             </div>
                                         </li>
-                                        
+
                                         <li>
                                             <p>Tasas e impuestos estimados:</p>
                                             <span> {{discount_rate}} %</span>
@@ -172,6 +172,13 @@
                                     </ul>
                                     <div class="payment_info modules__content">
                                         <div class="form-group">
+                                            <label for="card-element">N de Tarjeta</label>
+                                            <div id="card-element"></div>
+                                        </div>
+
+
+
+                                        <div class="form-group">
                                             <label for="card_number">N de Tarjeta</label>
                                             <input id="card_number" type="number" class="text_field" placeholder="0000000000000000">
                                         </div>
@@ -180,7 +187,7 @@
                                             <label for="date_v">Fecha de Vencimiento</label>
                                             <input id="date_V" type="text" class="text_field" v-model="form.date">
                                         </div>
-                                        
+
                                         <!-- <label for="name">Fecha de Vencimiento</label>
                                         <div class="row">
                                             <div class="col-md-6 col-sm-6">
@@ -234,7 +241,7 @@
                                                     <label for="cv_code">CVV Codigo</label>
                                                     <input id="cv_code" type="text" class="text_field" v-model="form.vc_code">
                                                 </div>
-                                                <button type="submit" class="btn btn--md btn-primary">Proceder Compra</button>
+                                                <button type="submit" @click="processPayment" class="btn btn--md btn-primary">Proceder Compra</button>
                                             </div>
                                         </div>
                                     </div>
@@ -252,7 +259,7 @@
 <script>
 import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
-
+import {loadStripe} from "@stripe/stripe-js"
 export default {
     props: ['artwork', 'total_amount', 'discount_rate'],
     layout: Layout,
@@ -262,8 +269,20 @@ export default {
     created(){
         console.log('buysIndex', this)
     },
+    async mounted(){
+        this.stripe = await loadStripe(`${process.env.MIX_STRIPE_KEY}`);
+        const element = this.stripe.elements();
+        this.cardElement = element.create('card', {
+            classes: {
+                base: ''
+            }
+        });
+        this.cardElement.mount('#card-element');
+    },
     data(){
         return {
+            stripe : {},
+            cardElement : {},
             form: this.$inertia.form({
                 transaction_id: '1',
                 artwork_id: this.artwork.id,
@@ -288,6 +307,9 @@ export default {
 
             this.form.post(route('buys.store'));
         },
+        processPayment() {
+
+        }
     }
 }
 

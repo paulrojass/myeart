@@ -25,7 +25,7 @@
         <link rel="stylesheet" href="/vendor_assets/css/venobox.css">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ mix('css/styles.css') }}">
-        
+
         @routes
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js" defer></script>
         <script src="vendor_assets/js/bootstrap/bootstrap.min.js" defer></script>
@@ -50,6 +50,7 @@
         <script src="theme_assets/js/dashboard.js" defer></script>
         <script src="theme_assets/js/main.js" defer></script>
         <script src="theme_assets/js/map.js" defer></script>
+        <script src="https://js.stripe.com/v3/"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="bg-light">

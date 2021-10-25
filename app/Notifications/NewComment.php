@@ -32,7 +32,7 @@ class NewComment extends Notification
     public function via($notifiable)
     {
         //return ['mail'];
-        return ['database'];
+        return ['database', 'mail'];
     }
 
     /**
@@ -44,9 +44,7 @@ class NewComment extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+                    ->line('Has recibido un comentario en una de tus obras.');
     }
 
     /**

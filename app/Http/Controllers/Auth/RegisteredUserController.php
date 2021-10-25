@@ -65,7 +65,8 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME)->with([
-            'user' => $user
+            'user' => $user,
+            'intent' => $user->createSetupIntent()
         ]);
         //Se cambia el retorno a la vista de Información de la cuenta
         // return redirect()->route('users.edit', $user->id);

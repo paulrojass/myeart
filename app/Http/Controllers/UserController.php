@@ -146,7 +146,9 @@ class UserController extends Controller
         // En la vista se se toma la variable del usuario autenticado
         return Inertia::render('users/AccountInformation', [
             'tags' => $tags,
-            'seller' => $seller
+            'seller' => $seller,
+            'user' => auth()->user(),
+            'intent' => auth()->user()->createSetupIntent(),
         ]);
     }
 
