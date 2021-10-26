@@ -30,7 +30,7 @@ class NewSale extends Notification
     public function via($notifiable)
     {
         //return ['mail'];
-        return ['database'];
+        return ['database', 'mail'];
     }
 
     /**
@@ -42,9 +42,10 @@ class NewSale extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+        ->subject('Obra vendida')
+        ->line('han realizado la compra de una de tus obras.')
+                    ->line('Revisa tus ventas para verificar los detalles de la misma')
+                    ->action('Mis ventas', url('/cuenta/mis-ventas'));
     }
 
     /**

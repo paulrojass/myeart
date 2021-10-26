@@ -48,6 +48,7 @@ class BuyController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $user = auth()->user();
         $artwork = Artwork::where('id', $request->artwork_id)->with('artworkImages')->first();
         if ($artwork->offer != null) {
@@ -140,11 +141,24 @@ class BuyController extends Controller
         * en este caso puede ser solo cambiar a estatus finished
         * si ya la recibio
         */
+
+
+
+
+
         $buy = Buy::find($id);
         $buy->comment = $request->comment;
         $buy->rating = $request->rating;
         $buy->finished = 1;
         $buy->save();
+
+
+        //Agregado para el pago!
+        $stripeCharge = $request->user()->charge(
+            $buy->total, $request->paymentMethodId
+        );
+
+
 
         return back();
 
