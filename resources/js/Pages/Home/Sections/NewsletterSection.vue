@@ -8,12 +8,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <p class="subcribe-title">Una newsletter con mucho arte... no te pierdas!</p>
+                    <p class="subcribe-title">El newsletter para grandes artistas.</p>
                 </div>
                 <div class="col-lg-6 offset-lg-3 col-md-12 subscribe-inner">
                     <form action="#" class="subscribe-form">
                         <div class="form-group">
-                            <input type="text" placeholder="" required />
+                            <input type="text" placeholder="Correo Electrónico" required />
                             <button
                                 type="submit"
                                 class="btn btn--sm btn-primary"
@@ -26,10 +26,8 @@
 
                 <div class="col-12">
                     <p class="mt-4 subcribe-subtitle">
-                        El Spam es una obra fallida, por eso no enviaremos
-                        información que no sea de tu interés
+                        100% arte, 0% spam, lo prometemos.
                     </p>
-
                 </div>
             </div>
         </div>

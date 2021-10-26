@@ -78,8 +78,11 @@ Route::get('/detailsWorkArtist', function(){
 Route::get('obras', [App\Http\Controllers\ArtworkController::class, 'list'])->middleware([])->name('search');
 
 Route::get('obras/{artwork_id}', [App\Http\Controllers\ArtworkController::class, 'show'])
-->middleware(['auth'])
 ->name('artwork.show');
+
+/*Route::get('obras/{artwork_id}', [App\Http\Controllers\ArtworkController::class, 'show'])
+->middleware(['auth'])
+->name('artwork.show');*/
 
 // Vista  Home , Editada Paul
 Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->middleware([])->name('home');

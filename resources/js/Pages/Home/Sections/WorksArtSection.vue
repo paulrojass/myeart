@@ -1,9 +1,9 @@
 <template>
-    <section class="latest-product section--padding">
+    <section class="latest-product section--padding pt-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="section-title">
+                    <div class="section-title pb-2">
                         <h2 class="title">Obras</h2>
                     </div>
                     <div class="d-flex justify-content-center mb-4">

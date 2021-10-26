@@ -325,8 +325,8 @@ export default ({
 
 <style scoped>
     .list-comments-children {
-        max-height: 160px;
-        overflow: auto;
+       /*max-height: 160px;
+       overflow: auto; */
     }
 
     .list-comments {

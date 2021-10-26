@@ -4,6 +4,7 @@
         style="
             background-image: url('imagenes/Banner-home.jpg'); 
             background-size: cover;
+            background-position:center;
         "
     >
         
@@ -16,10 +17,10 @@
                                 <h1 class="display-3">
                                     El arte que todos
                                     <br />
-                                    llevamos dentro...
+                                    llevamos dentro.
                                 </h1>
                                 <p class="tagline">
-                                    La Red Social donde podrás exponer, difundir y compartir el amor por el arte y tus creaciones
+                                    La Red Social donde puedes exponer, difundir y compartir el amor por el arte y tus creaciones
                                 </p>
                             </div>
                             
@@ -27,10 +28,8 @@
                                 <div class="row">
                                     <div class="col-md-10 offset-md-1">
                                         <div class="search_box">
-                                            <div class="d-flex">
-                                                <div class="col-6 d-flex align-items-center">
-                                                    <h4 class="text-muted">Buscar Obra por Categoria</h4>
-                                                </div>
+                                            <div class="d-lg-flex align-items-center">
+                                                <h4 class="text-muted m-0 flex-1">Buscar Obra</h4>
                                                 <div
                                                     class="search__select select-wrap"
                                                 >
@@ -53,12 +52,8 @@
                                                         class="icon-arrow-down"
                                                     ></span>
                                                 </div>
-                                                <inertia-link :href="`/obras`" class="search-btn">
-                                                    <button
-                                                        class=" btn--lg btn-primary"
-                                                    >
+                                                <inertia-link :href="`/obras`" class="btn btn-lg btn-primary">
                                                         Buscar
-                                                    </button>
                                                 </inertia-link>
                                             </div>
                                         </div>

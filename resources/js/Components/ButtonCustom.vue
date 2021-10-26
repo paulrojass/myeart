@@ -72,13 +72,14 @@
 
   /* Variants Primary */
   .btn-primary {
-    color: #fff;
-    background-color: rgba(82, 161, 225, 0.5);
+    color: #2566AE;
+    background-color: transparent;
     border-color: #2566AE;
   }
 
   .btn-primary.activo {
     background-color: #2566AE;
+    color:#fff;
   }
 
   .btn-primary:hover {
@@ -96,25 +97,24 @@
   /* Variant Secondary */
 
   .btn-secondary {
-    color: #2566AE;
-    background-color: #F2DFA8;
-    border-color: #F2DFA8;
+    color: #ff9500;
+    background-color: transparent;
+    border-color: #ff9500;
   }
 
   .btn-secondary:hover {
-    color: #2566AE;
-    background-color: #F2DFA8;
-    border-color: #ffe817;
+    color: #fff;
+    background-color: #ff9500;
   }
 
   .btn-secondary.activo {
-    background-color: #f0d78e
+    color: #fff;
+    background-color: #ff9500
   }
 
   .btn-secondary:focus, .btn-secondary.focus {
-    color: #2566AE;
-    background-color: #F2DFA8;
-    border-color: #ffe817;
+    color: #fff;
+    background-color: #ff9500;
     box-shadow: 0 0 0 0.2rem rgba(222, 207, 69, 0.5);
   }
 </style>

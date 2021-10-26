@@ -1,5 +1,5 @@
 <template>
-    <div :class="`product-single ${color}`">
+    <div :class="`product-single ${color} mt-4`">
         <div class="product-thumb">
             <figure>
                 <img 
@@ -38,7 +38,7 @@
 
                     <span class="ml-1"> {{ doc.likes.length ?? 0 }} </span>
                 </div>
-                <div class="price"> {{ doc.price }}$</div>
+                <div class="price"> {{ doc.price }}€</div>
             </div>
         </div>
 
@@ -68,7 +68,7 @@ export default {
 
     .descCardWorkArt {
         padding: 10px;
-        color: #125CA0;
+        color: #3490dc;
     }
 
     .descCardWorkArt:hover {
@@ -86,7 +86,7 @@ export default {
         font-weight: bolder;
     }
     .row-cardWorkArt {
-        border-top: 2px solid #125CA0;
+        border-top: 2px solid #3490dc;
         font-size: 22px;
     }
     

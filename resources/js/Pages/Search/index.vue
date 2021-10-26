@@ -31,7 +31,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 col-md-12 order-lg-0 order-md-1 order-sm-1 order-1 pl-5 pr-5">
-                        <h3 class="h3 text-primary mb-4 font-weight-bolder">Avanzada</h3>
                         <aside class="sidebar product--sidebar">
                             
                             <div>

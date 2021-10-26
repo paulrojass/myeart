@@ -13,9 +13,9 @@
                         </inertia-link>
                     </div>
                 </div>
-                <div class="col-12 text-center">
-                    <h2 class="header-text text-white font-weight-bolder">
-                        Hola {{ user.name }}
+                <div class="col-12 text-center pt-4 pb-3">
+                    <h2 class="header-text text-white">
+                        ¡Hola {{ user.name }}!
                     </h2>
                 </div>
             </div>
@@ -31,13 +31,14 @@
                             :href="
                                 route(item.path)
                             "
+                            class="text-decoration-none"
                         >
                             <div class="item-menu">
                                 <span class="mr-1">
                                     <img 
                                         :src="item.icon" 
                                         alt=""
-                                        class=""
+                                        class="w-25-px"
                                     >
                                 </span>
                                 <span>
@@ -59,7 +60,7 @@ const itemsMenu = [
         title: "Historial de compras",
         icon: "/imagenes/icons/AccountMenu/Shopping.png",
         path: "my-account.shopping",
-        roles: ["buyer"]
+        roles: ["buyer","seller"]
     },
     {
         title: "Historial de ventas",

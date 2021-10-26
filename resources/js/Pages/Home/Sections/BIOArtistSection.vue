@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title">
-                            <h2 class="title">BIO de Artistas</h2>
+                            <h2 class="title">Artistas</h2>
                         </div>
                         <!-- <div class="d-flex justify-content-center mb-4">
                             <div class="m-1">

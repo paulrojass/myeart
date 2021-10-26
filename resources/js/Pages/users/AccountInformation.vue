@@ -38,7 +38,7 @@
                     <div class="col-md-12">
                         <div class="information_module">
                             <div class="toggle_title">
-                                <h4>Informatión Personal</h4>
+                                <h4>Información Personal</h4>
                             </div>
                             <div class="information__set">
                                 <div class="information_wrapper form--fields row">

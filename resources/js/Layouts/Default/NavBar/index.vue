@@ -1,6 +1,6 @@
 <template>
 
-    <div class="menu-area">
+    <div class="menu-area position-sticky" style="top:0; z-index:5;">
         <div class="top-menu-area">
             <div class="container-fluid">
                 <div class="row">
@@ -43,15 +43,6 @@
                                                 <li>
                                                     <inertia-link
                                                         :href="
-                                                            route('home')
-                                                        "
-                                                    >
-                                                        Inicio
-                                                    </inertia-link>
-                                                </li>
-                                                <li>
-                                                    <inertia-link
-                                                        :href="
                                                             route('search')
                                                         "
                                                     >
@@ -87,37 +78,58 @@
                                 </div>
                             </div>
                             <div class="author-menu">
-                                <div class="author-area">
-                                    <!-- <div class="search-wrapper">
-                                        <div
-                                            class="nav_right_module search_module"
-                                        >
-                                            <span
-                                                class="icon-magnifier search_trigger"
-                                            ></span>
-                                            <div class="search_area">
-                                                <form action="#">
-                                                    <div
-                                                        class="input-group input-group-light"
-                                                    >
-                                                        <span
-                                                            class="icon-left"
-                                                            id="basic-addon1"
-                                                        >
-                                                            <i
-                                                                class="icon-magnifier"
-                                                            ></i>
-                                                        </span>
-                                                        <input
-                                                            type="text"
-                                                            class="form-control search_field"
-                                                            placeholder="Type words and hit enter..."
-                                                        />
-                                                    </div>
-                                                </form>
+                                <div class="d-flex align-items-center d-lg-none">
+                                    <div class="author__notification_area p-0">
+                                        <ul class="align-items-center">
+                                            <li class="has_dropdown p-0">
+                                                <Notifications />
+                                            </li>
+                                            <inertia-link
+                                            :href="route('login')"
+                                            v-if="!user">
+                                                Ingresa
+                                            </inertia-link>
+                                        </ul>
+                                    </div>
+                                    <div
+                                        class="author-author__info has_dropdown ml-3 p-0"
+                                        v-if="user"
+                                    >
+                                        <div class="author__avatar online">
+                                            <div style="width: 30px;">
+                                                <Avatar
+                                                    :path="user.profile.avatar"
+                                                />
                                             </div>
                                         </div>
-                                    </div> -->
+                                        <div class="dropdown dropdown--author">
+                                            <ul>
+                                                <li>
+                                                    <inertia-link
+                                                        :href="
+                                                            route('account-profile')
+                                                        "
+                                                    >
+                                                        <span
+                                                            class="icon-user"
+                                                        ></span
+                                                        >Perfil
+                                                    </inertia-link>
+
+                                                </li>
+                                                <li>
+                                                    <inertia-link :href="route('logout')">
+                                                        <span
+                                                            class="icon-logout"
+                                                        ></span
+                                                        >Salir
+                                                    </inertia-link>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="author-area">
                                     <div class="author__notification_area">
                                         <ul>
                                             <li class="has_dropdown">
@@ -180,7 +192,7 @@
                                                 route('login')
                                             "
                                             class="ml-1 btn--xs btn btn-warning"
-                                            style="background: #F4B731; color: white;"
+                                            style="border-color:#ff453a;background: #ff453a; color: white;"
                                         >
                                             Iniciar Sesion
                                         </inertia-link

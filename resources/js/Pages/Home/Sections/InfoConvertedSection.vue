@@ -2,7 +2,7 @@
     <div class="section">
         <div class="container text-center">
             <div class="mb-4">
-                <h5 class="title"> La comunidad que crea arte </h5>
+                <h5 class="title"> Una comunidad que crea arte </h5>
             </div>
             <div class="mb-4">
                 <h5 class="title text-primary"> Quiero mostrar mis creaciones </h5>

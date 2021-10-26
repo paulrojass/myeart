@@ -1,9 +1,10 @@
 <template>
-        <div class="product-single latest-single">
+        <div class="product-single latest-single text-center shadow-none">
     <inertia-link
         :href="
             route('home.artist', { id: doc.seller_id })
         "
+        class="d-inline-block rounded-circle"
     >
             <div class="product-thumb card-artist">
                 <figure class="position-relative artist-image" >
@@ -98,10 +99,6 @@ export default {
 </script>
 
 <style scoped>
-    .card-artist {
-        width: 290px;
-        height: 290px;
-    }
     .cardBIO-text {
         font-weight: bold;
         font-size: 18px;
@@ -117,8 +114,13 @@ export default {
         height: auto;
     }
 
-    .artist-image {
-        width: 290px;
-        height: 290px;
+    .artist-image, .card-artist {
+        width: 200px;
+        height: 200px;
+        display: block;
+        margin: auto;
+        border-radius: 50%;
+        overflow: hidden;
     }
+
 </style>

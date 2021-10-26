@@ -1,6 +1,6 @@
 <template>
     <img
-        :src="`${path ? path : '/imagenes/avatarDefault.jpg'}`" 
+        :src="`${path ? path : '/avatars/default.jpg'}`" 
         alt="" 
         class="rounded-circle"
         style="width: 100%;"

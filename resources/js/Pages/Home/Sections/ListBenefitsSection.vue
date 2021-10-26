@@ -1,5 +1,5 @@
 <template>
-    <section class="services">
+    <section class="services" style="background:#E3E9F3;">
         <div class="container">
             <div class="row">
                 <div

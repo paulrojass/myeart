@@ -3,10 +3,10 @@
         
         <div class="col-12 mb-0">
             <div class="d-flex justify-content-between section-title-range">
-                <div class="text-primary">
+                <div class="text-primary h5">
                     {{title}}
                 </div>
-                <div class="text-muted">
+                <div class="text-muted h6">
                     {{min}} - {{max}} {{prefix}}
                 </div>
             </div>
@@ -46,7 +46,8 @@ export default {
     },
     methods: {
         formatPrefix(value){
-            return `${value} $`;
+            value = value.toFixed(0);
+            return `${value}`;
         },
         print(value){
             console.log('pring', value)
