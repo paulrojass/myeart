@@ -51,7 +51,7 @@
                             
                         </div>
                         <div class="text-center m-top-20">
-                                                        <inertia-link
+                            <inertia-link
                                 :href="
                                     route('search')
                                 "

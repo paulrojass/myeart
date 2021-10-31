@@ -7,20 +7,6 @@
                         <div class="section-title">
                             <h2 class="title">Artistas</h2>
                         </div>
-                        <!-- <div class="d-flex justify-content-center mb-4">
-                            <div class="m-1">
-                                <Buttom
-                                    text="obras destacadas"
-                                />
-                            </div>
-                            <div class="m-1">
-                                <Buttom
-                                    text="ultimas obras"
-                                    variant="secondary"
-                                    size="lg"
-                                />
-                            </div>
-                        </div> -->
                     </div>
                     
                     <div class="col-lg-12">
@@ -47,15 +33,9 @@
                                 
                             </div>
                             <div class="text-center m-top-20">
-                                    <inertia-link
-                                        :href="
-                                            route('artists.list')
-                                        "
-                                    >
-                                        <a href="" class="btn btn--lg btn-primary">
-                                            Ver mas
-                                            </a>
-                                    </inertia-link>
+                                <a href="#" class="btn btn--lg btn-primary" @click="fetchMoreArtists">
+                                    Ver mas
+                                </a>
                             </div>
                         </div>
                         
@@ -75,6 +55,23 @@ export default {
     components: {
         CardBIOArtist,
         Buttom
+    },
+    data: function(){
+        return {
+            pageCount: 1
+        }
+    },
+    methods: {
+        fetchMoreArtists(event) {
+            event.preventDefault();
+            this.pageCount++;
+            fetch(`/fetchArtists?page=${this.pageCount}`).then(response => response.json()).then(data => {
+                console.log(data);
+                for (var element of data.data) {
+                    this.docs.push(element)
+                }
+            });
+        }
     }
 };
 </script>

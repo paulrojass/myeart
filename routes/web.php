@@ -120,6 +120,9 @@ Route::get('/artista/{id}', [App\Http\Controllers\ArtistController::class, 'show
 Route::get('/artistas', [App\Http\Controllers\ArtistController::class, 'list'])
 ->name('artists.list');
 
+Route::get('/fetchArtists', [App\Http\Controllers\ArtistController::class, 'api_endpoint'])
+->name('artists.api_endpoint');
+
 //Listados de vendedores (artistas y galerias)
 Route::get('vendedores', [App\Http\Controllers\SellerController::class, 'list'])->name('sellers.index');
 Route::get('vendedores/{id}', [App\Http\Controllers\SellerController::class, 'show'])->name('sellers.show');

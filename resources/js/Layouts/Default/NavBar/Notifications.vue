@@ -4,7 +4,7 @@
             <span
                 class="icon-bell"
             ></span>
-            <span class="notification_count purch">
+            <span class="notification_count purch" v-if="notifications.length > 0">
                 {{notifications.length }}
             </span>
         </div>

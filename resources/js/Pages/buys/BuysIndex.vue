@@ -287,15 +287,14 @@ export default {
                 transaction_id: '1',
                 artwork_id: this.artwork.id,
 
-                name: "",
-                email: "",
-                lastname: "",
-                country: "",
-                address: "",
-                zip_code: "",
-                city: "",
-                region: "",
-                phone: ""
+                name: this.$page.props.auth.user.profile.firstName,
+                lastname: this.$page.props.auth.user.profile.lastName,
+                email: this.$page.props.auth.user.email,
+                country: this.$page.props.auth.user.profile.country,
+                address: this.$page.props.auth.user.profile.address,
+                zip_code: this.$page.props.auth.user.profile.zip_code,
+                city: this.$page.props.auth.user.profile.city,
+                region: this.$page.props.auth.user.profile.region,
             })
         }
     },

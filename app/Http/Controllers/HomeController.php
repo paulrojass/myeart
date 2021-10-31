@@ -37,7 +37,7 @@ class HomeController extends Controller
                                 ->orderByDesc('likes_count')->take(6)->get();
 
         $artists = Artist::latest()->with(['seller', 'seller.user', 'seller.user.profile'])
-                                    ->take(6)->get()->sortByDesc('created_at');
+                                    ->take(3)->get()->sortByDesc('created_at');
 
         $galleries = Gallery::latest()
                             ->with([

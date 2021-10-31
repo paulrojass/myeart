@@ -33,10 +33,11 @@ class BuyController extends Controller
         $amount = $artwork->offer ? $artwork->offer : $artwork->price;
 
         $total_amount = $amount - ($amount * $discount_rate)/100;
+
         return Inertia::render('buys/BuysIndex', [
-            'artwork' => $artwork,
+            "artwork" => $artwork,
             "discount_rate" => $discount_rate,
-            'total_amount' => $total_amount
+            "total_amount" => $total_amount
         ]);
     }
 

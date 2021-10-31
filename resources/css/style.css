@@ -11605,7 +11605,7 @@ this file contains style for different social sharing option and icon style
 ******************************/
 .hero-area, .hero-area2, .hero-area4 {
   position: relative;
-  min-height: 623px;
+  min-height: 523px;
   width: 100%;
   display: flex;
   justify-content: center;

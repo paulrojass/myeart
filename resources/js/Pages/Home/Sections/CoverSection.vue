@@ -20,7 +20,7 @@
                                     llevamos dentro.
                                 </h1>
                                 <p class="tagline">
-                                    La Red Social donde puedes exponer, difundir y compartir el amor por el arte y tus creaciones
+                                    Convierte tu arte en una comunidad.
                                 </p>
                             </div>
                             

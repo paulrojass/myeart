@@ -47,6 +47,16 @@ class ArtistController extends Controller
         ]);
     }
 
+    public function api_endpoint()
+    {
+
+        $artists = Artist::query()->with(['seller', 'seller.user', 'seller.user.profile'])->paginate(3);
+
+        // dd($artists);
+
+        return $artists;
+    }
+
 
     /**
      * Show the form for creating a new resource.
