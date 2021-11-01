@@ -20,11 +20,11 @@
                 </div>
             </div>
         </div>
-        <div class="header-content d-flex align-items-center">
+        <div class="header-content">
             <div class="container">
-                <div class="d-flex justify-content-center align-items-center py-1">
+                <div class="d-flex align-items-baseline flex-column align-items-lg-center flex-lg-row justify-content-center py-1">
                     <div 
-                        class="p-2"
+                        class="p-2 w-100 w-lg-auto"
                         v-for="item in itemsMenu" :key="item.title"
                     >
                         <inertia-link
@@ -121,7 +121,6 @@ export default {
     }
 
     .header-content{
-        height: 8vh;
         /* height: auto; */
         background-color: #125CA0;
     }

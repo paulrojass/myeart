@@ -527,7 +527,7 @@
         },
         mainClass: 'mfp-fade'
     });
-
+    
 })();
 
 

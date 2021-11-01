@@ -12,7 +12,7 @@
                         <div class="information__set profile_images">
                             <div class="information_wrapper">
                                 <div class="profile_image_area">
-                                    <div class="d-flex ">
+                                    <div class="d-flex align-items-center">
 
                                         <div style="width: 130px;">
                                             <Avatar
