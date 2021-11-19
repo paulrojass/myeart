@@ -5,24 +5,24 @@
 
     <form @submit.prevent="submit">
       <div class="form-group">
-        <breeze-label for="email" value="Email" />
+        <breeze-label for="email" value="Correo electrónico" />
         <breeze-input id="email" type="email" v-model="form.email" required autofocus />
       </div>
 
       <div class="form-group">
-        <breeze-label for="password" value="Password" />
+        <breeze-label for="password" value="Contraseña" />
         <breeze-input id="password" type="password" v-model="form.password" required autocomplete="new-password" />
       </div>
 
       <div class="form-group">
-        <breeze-label for="password_confirmation" value="Confirm Password" />
+        <breeze-label for="password_confirmation" value="Confirmar contraseña" />
         <breeze-input id="password_confirmation" type="password" v-model="form.password_confirmation" required autocomplete="new-password" />
       </div>
 
       <div class="mb-0">
         <div class="d-flex justify-content-end">
           <breeze-button :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
-            Reset Password
+            Resetear Contraseña
           </breeze-button>
         </div>
       </div>

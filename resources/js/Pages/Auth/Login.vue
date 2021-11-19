@@ -38,10 +38,12 @@
                                   :class="{ 'text-white-50': form.processing }" :disabled="form.processing">
                                   Iniciar
                                 </b-button>
+                                <inertia-link :href="route('password.request')" class="text-muted mr-3">
+                                    Olvide mi contraseña
+                                </inertia-link>
                                 <inertia-link :href="route('register')" class="text-muted mr-3">
                                     ¿ No tienes una cuenta?
                                 </inertia-link>
-
                                 <div class="d-flex justify-content-center mt-3">
                                   <div>
                                     <label>O inicia sesion con</label>
