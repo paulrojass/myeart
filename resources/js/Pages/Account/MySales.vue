@@ -22,7 +22,7 @@
                 </div>
 
                 <div v-if="sales.length">
-                    <div 
+                    <div
                         class="product_archive table-responsive table-custom"
                         >
                         <table class="table">
@@ -37,7 +37,7 @@
                                 <tr v-for="item in itemsDisplay" :key="item.key">
                                     <td>
                                         <div class="d-flex">
-                                            <img 
+                                            <img
                                                 :src="item.artwork.artwork_images[0].location"
                                                 alt="Purchase image"
                                                 style="width: 100px; height: 80px;"
@@ -55,13 +55,13 @@
                                     </td>
                                     <td>
                                         <div class="">
-                                            <span>{{ item.total }}$</span>
+                                            <span>{{ item.total }}€</span>
                                         </div>
                                     </td>
                                     <td>
                                         <img
-                                            src="/imagenes/icons/fl_downloader.png" 
-                                            alt="" 
+                                            src="/imagenes/icons/fl_downloader.png"
+                                            alt=""
                                             style="width: 30px; height: 30px; cursor:pointer;"
                                             @click="downloader(item.id)"
                                         >
@@ -79,7 +79,7 @@
                     <div class="product_archive">
                         <div class="row">
                             <div class="col-12">
-                                <Pagination 
+                                <Pagination
                                     :size="itemsDisplay.length"
                                     :porPage="porPage"
                                     v-bind:page="currentPage"
@@ -124,9 +124,9 @@ export default {
     },
     computed: {
         itemsDisplay(){
-            return !this.search.length ? 
+            return !this.search.length ?
                 this.sales ?? []
-                : 
+                :
                 this.sales.filter(b => b.artwork.name
                     .toLowerCase()
                     .includes(this.search.toLowerCase()));

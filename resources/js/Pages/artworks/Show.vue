@@ -157,7 +157,7 @@
                                         :artwork="artwork"
                                     />
                                     <h1 class="text-white">
-                                        {{ artwork.price }} <sup>$</sup>
+                                        {{ artwork.price }} <sup>€</sup>
                                     </h1>
                                 </div>
                                 <div class="row d-flex justify-content-around">

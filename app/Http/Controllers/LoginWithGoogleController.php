@@ -17,14 +17,13 @@ class LoginWithGoogleController extends Controller
 
     public function googleCallback()
     {
-        try {
+        // try {
             $user = Socialite::driver('google')->user();
 
             $finduser = User::where('google_id', $user->id)->first();
 
             if ($finduser) {
                 Auth::login($finduser);
-
                 return redirect()->intended('dashboard');
             } else {
                 $newUser = User::create([
@@ -33,13 +32,11 @@ class LoginWithGoogleController extends Controller
                     'google_id'=> $user->id,
                     'password' => encrypt('Test123456')
                 ]);
-
                 Auth::login($newUser);
-
                 return redirect()->intended('dashboard');
             }
-        } catch (Exception $e) {
-            dd($e->getMessage());
-        }
+        // } catch (Exception $e) {
+        //     dd($e->getMessage());
+        // }
     }
 }

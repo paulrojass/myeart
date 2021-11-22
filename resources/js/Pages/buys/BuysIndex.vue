@@ -118,7 +118,7 @@
                                     <ul>
                                         <li class="item">
                                             <div class="d-flex justify-content-between">
-                                                <div class="col-10">
+                                                <div class="col-8">
                                                     <div class="row">
                                                         <div class="col-4">
                                                             <img
@@ -132,27 +132,28 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-2">
-                                                    <span> {{ ' ' + artwork.price }}$ </span>
+                                                <div class="col-4">
+                                                    <span> {{ ' ' + artwork.price }}€ </span>
+                                                    <p v-if="artwork.offer">Oferta: {{ artwork.offer }}€</p>
                                                 </div>
                                             </div>
                                         </li>
 
                                         <li>
                                             <p>Tasas e impuestos estimados:</p>
-                                            <span> {{discount_rate}} %</span>
+                                            <span> {{' ' + discount_rate}} %</span>
                                         </li>
                                         <li class="total_ammount">
-                                            <p class="font-weight-bolder">Total:</p>
-                                            <span>  {{ ' ' + total_amount}} $</span>
+                                            <p class="font-weight-bolder">Total: </p>
+                                            <span>  {{' ' +  total_amount}} €</span>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="information_module payment_options">
                                     <div class="toggle_title">
-                                        <h4>Seleccionar método de pago</h4>
+                                        <h4>Realizar pago</h4>
                                     </div>
-                                    <ul>
+                                    <!-- <ul>
                                         <li>
                                             <div class="custom-radio">
                                                 <input type="radio" id="opt1" class="" name="filter_opt">
@@ -169,16 +170,16 @@
                                             </div>
                                             <img src="/img/paypal.png" alt="Visa Cards">
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                     <div class="payment_info modules__content">
                                         <div class="form-group">
-                                            <label for="card-element">N de Tarjeta</label>
+                                            <label for="card-element">Datos de tarjeta</label>
                                             <div id="card-element"></div>
                                         </div>
 
 
 
-                                        <div class="form-group">
+                                        <!-- <div class="form-group">
                                             <label for="card_number">N de Tarjeta</label>
                                             <input id="card_number" type="number" class="text_field" placeholder="0000000000000000">
                                         </div>
@@ -187,6 +188,14 @@
                                             <label for="date_v">Fecha de Vencimiento</label>
                                             <input id="date_V" type="text" class="text_field" v-model="form.date">
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="cv_code">CVV Codigo</label>
+                                            <input id="cv_code" type="text" class="text_field" v-model="form.vc_code">
+                                        </div>
+
+
+                                    -->
 
                                         <!-- <label for="name">Fecha de Vencimiento</label>
                                         <div class="row">
@@ -235,13 +244,9 @@
                                                 </div>
                                             </div>
                                         </div> -->
-                                        <div class="row">
+                                        <div class="row pt-5">
                                             <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="cv_code">CVV Codigo</label>
-                                                    <input id="cv_code" type="text" class="text_field" v-model="form.vc_code">
-                                                </div>
-                                                <button type="submit" @click="processPayment" class="btn btn--md btn-primary">Proceder Compra</button>
+                                                <button type="button" @click="processPayment" class="btn btn--md btn-primary">Proceder Compra</button>
                                             </div>
                                         </div>
                                     </div>
@@ -259,7 +264,7 @@
 <script>
 import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
-import {loadStripe} from "@stripe/stripe-js"
+import { loadStripe } from "@stripe/stripe-js"
 export default {
     props: ['artwork', 'total_amount', 'discount_rate'],
     layout: Layout,
@@ -270,7 +275,7 @@ export default {
         console.log('buysIndex', this)
     },
     async mounted(){
-        this.stripe = await loadStripe(`${process.env.MIX_STRIPE_KEY}`);
+        this.stripe = await loadStripe(process.env.MIX_STRIPE_KEY);
         const element = this.stripe.elements();
         this.cardElement = element.create('card', {
             classes: {
@@ -284,7 +289,6 @@ export default {
             stripe : {},
             cardElement : {},
             form: this.$inertia.form({
-                transaction_id: '1',
                 artwork_id: this.artwork.id,
 
                 name: this.$page.props.auth.user.profile.firstName,
@@ -295,6 +299,8 @@ export default {
                 zip_code: this.$page.props.auth.user.profile.zip_code,
                 city: this.$page.props.auth.user.profile.city,
                 region: this.$page.props.auth.user.profile.region,
+                amount: this.total_amount,
+                payment_method_id: ''
             })
         }
     },
@@ -306,8 +312,36 @@ export default {
 
             this.form.post(route('buys.store'));
         },
-        processPayment() {
+        async processPayment() {
+            //Enviar informacion de pago al controlador
+            this.paymentProcessing = true;
 
+            const {paymentMethod, error} = await this.stripe.createPaymentMethod(
+                'card', this.cardElement, {
+                    billing_details: {
+                        name: this.form.firstName + ' ' + this.form.lastName,
+                        email: this.form.email,
+                        address: {
+                            line1: this.form.adress,
+                            city: this.form.city,
+                            state: this.form.state,
+                            postal_code: this.form.zip_code
+                        }
+                    }
+                }
+            );
+
+            if ( error ) {
+                this.paymentProcessing = false;
+                alert('hello');
+                console.log(error);
+            } else {
+                this.form.payment_method_id = paymentMethod.id;
+                // this.customer.amount = this.cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+                // this.customer.cart = JSON.stringify(this.cart);
+
+                this.form.post(route('buys.store'));
+            }
         }
     }
 }

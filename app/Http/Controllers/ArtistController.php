@@ -169,7 +169,7 @@ class ArtistController extends Controller
     {
         $artist = Artist::find($id);
         $seller = $artist->seller;
-        
+
         $artist->artistic_name = $request->artistic_name;
         $artist->save();
 

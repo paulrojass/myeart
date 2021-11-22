@@ -20,7 +20,7 @@ class CreateBuysTable extends Migration
             $table->boolean('finished')->default(0);
             $table->text('comment')->nullable();
             $table->integer('rating')->nullable();
-            $table->bigInteger('transaction_id');
+            $table->string('transaction_id');
             $table->string('name')->nullable();
             $table->string('lastname')->nullable();
             $table->string('country')->nullable();

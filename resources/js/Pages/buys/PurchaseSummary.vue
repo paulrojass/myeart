@@ -18,8 +18,8 @@
                                                     <a>{{ artwork.name }}</a>
                                                 </div>
                                                 <div class="col-12">
-                                                    <img 
-                                                        :src="artwork.artwork_images[0].location" 
+                                                    <img
+                                                        :src="artwork.artwork_images[0].location"
                                                         alt=""
                                                         style="width: 100%;"
                                                     >
@@ -31,24 +31,28 @@
 
                                 <li>
                                     <p>Precio: </p>
-                                    <span class="font-weight-bold"> {{ artwork.price }}$ </span>
+                                    <span class="font-weight-bold"> {{ artwork.price }}€ </span>
+                                    <div v-if="artwork.offer">
+                                        <p>Oferta: </p>
+                                        <span class="font-weight-bold"> {{ artwork.offer }}€ </span>
+                                    </div>
                                 </li>
-                                
+
                                 <li>
                                     <p>Tasas e impuestos estimados:</p>
-                                    <span class="font-weight-bold"> 2 $</span>
+                                    <span class="font-weight-bold"> {{ discount_rate }} €</span>
                                 </li>
                                 <li class="total_ammount">
                                     <p class="font-weight-bolder">Total:</p>
-                                    <span>  {{ ' ' + buy.total }} $</span>
+                                    <span>  {{ ' ' + total_amount }} €</span>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div>
                         <div>
-                            <inertia-link 
-                                :href="route('my-account.shopping')" 
+                            <inertia-link
+                                :href="route('my-account.shopping')"
                                 class="btn btn-primary"
                             >
                                 Mis Compras
@@ -66,7 +70,7 @@ import Layout from "@/Layouts/Default/LayoutDefault"
 import Header from "@/Layouts/Header"
 
 export default ({
-    props: ['artwork', 'buy'],
+    props: ['artwork', 'buy', 'discount_rate', 'total_amount'],
     layout: Layout,
     components: {
         Header

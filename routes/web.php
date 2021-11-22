@@ -103,10 +103,10 @@ require __DIR__.'/auth.php';
 
 //Laravel Socialite
 Route::get('auth/facebook', [App\Http\Controllers\LoginWithFacebookController::class, 'redirectFacebook'])->name('redirectFacebook');
-Route::get('auth/google', [App\Http\Controllers\LoginWithGoogleController::class, 'redirectGoogle'])->name('redirectGoogle');
+Route::any('auth/google', [App\Http\Controllers\LoginWithGoogleController::class, 'redirectGoogle'])->name('redirectGoogle');
 
 Route::get('auth/facebook/callback', [App\Http\Controllers\LoginWithFacebookController::class, 'facebookCallback'])->name('facebookCallback');
-Route::get('auth/google/callback', [App\Http\Controllers\LoginWithGoogleController::class, 'googleCallback'])->name('googleCallback');
+Route::any('auth/google/callback', [App\Http\Controllers\LoginWithGoogleController::class, 'googleCallback'])->name('googleCallback');
 
 
 //Vistas para home

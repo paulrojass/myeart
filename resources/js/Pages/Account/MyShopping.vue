@@ -53,7 +53,7 @@
                                     </td>
                                     <td>
                                         <div class="">
-                                            <span>{{ item.total }}$</span>
+                                            <span>{{ item.total }}€</span>
                                         </div>
                                     </td>
                                     <td>
