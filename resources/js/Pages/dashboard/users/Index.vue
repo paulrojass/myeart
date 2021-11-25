@@ -22,14 +22,14 @@
                 </thead>
                 <tbody>
                     <!-- <tr v-for="item in items" :key="item.key"> -->
-                    <tr v-for="(item, i) in items" :key="i">
+                    <tr v-for="(item, index) in items" :key="item.key">
                         <th scope="row">{{item.id}}</th>
                         <td>{{item.name}}</td>
                         <td>{{item.email}}</td>
                         <td>
                             <inertia-link class="btn btn-primary btn-sm" :href="route('users.show', item.id)" role="button">ver</inertia-link>
                             <inertia-link class="btn btn-primary btn-sm" :href="route('users.edit', item.id)" role="button">editar</inertia-link>
-                            <button class="btn btn-primary btn-sm" @click="deleteUser(item.id)" role="button">eliminar</button>
+                            <button class="btn btn-primary btn-sm" @click="deleteUser(item.id, index)" role="button">eliminar</button>
                         </td>
                     </tr>
                 </tbody>
@@ -39,7 +39,7 @@
 
                     <div class="col-md-12">
                         <Pagination
-                        :size="users.length"
+                        :size="items.length"
                         :porPage="porPage"
                         v-bind:page="currentPage"
                         v-on:update="currentPage = $event"
@@ -76,17 +76,18 @@ export default{
         }
     },
     methods: {
-        deleteArtwork(id){
+        deleteUser(id, index){
+            this.items.splice(index, 1);
             this.$inertia.delete(route('users.destroy', id))
         }
     },
-    computed: {
-        displayDocsByPage(){
-            let chunk = window._.chunk(this.users, this.porPage);
-            console.log('chunk', chunk)
-            return chunk[this.currentPage -1];
-        }
-    }
+    // computed: {
+    //     displayDocsByPage(){
+    //         let chunk = window._.chunk(this.items, this.porPage);
+    //         console.log('chunk', chunk)
+    //         return chunk[this.currentPage -1];
+    //     }
+    // }
 }
 
 </script>

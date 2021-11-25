@@ -17,7 +17,7 @@
                   </div>
 
                   <div class="form-group">
-                    <breeze-label for="firstName" value="Nombres *" /><sup>*</sup>
+                    <breeze-label for="firstName" value="Nombres *" />
                     <breeze-input id="firstName" type="text" v-model="form.firstName" required autofocus autocomplete="Nombres"/>
                   </div>
 

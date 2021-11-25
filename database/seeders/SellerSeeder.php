@@ -19,13 +19,13 @@ class SellerSeeder extends Seeder
         /** @var object Busca el rol de vendedor del sistema */
         $sellerRole = Role::where('name', 'seller')->first();
         foreach (User::all() as $user) {
-            if (rand(0, 1) == 1) {
+            //if (rand(0, 1) == 1) {
                 Seller::factory()->create(['user_id' => $user->id]);
                 /** Asigna el rol de Vendedor */
                 if ($sellerRole) {
                     $user->assignRole($sellerRole);
                 }
-            }
+            //}
         }
     }
 }

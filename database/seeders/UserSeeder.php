@@ -66,17 +66,17 @@ class UserSeeder extends Seeder
         });
 
         //Se eliminan las siguienteslineas en produccion
-        $users = User::factory()->count(12)->create();
-
-        /** @var object Busca el rol de administrador del sistema */
-        $buyerRole = Role::where('name', 'buyer')->first();
-
-        /** Asigna el rol de operador */
-        if ($buyerRole) {
-            foreach ($users as $user) {
-                // code...
-                $user->assignRole($buyerRole);
-            }
-        }
+        // $users = User::factory()->count(12)->create();
+        //
+        // /** @var object Busca el rol de administrador del sistema */
+        // $buyerRole = Role::where('name', 'buyer')->first();
+        //
+        // /** Asigna el rol de operador */
+        // if ($buyerRole) {
+        //     foreach ($users as $user) {
+        //         // code...
+        //         $user->assignRole($buyerRole);
+        //     }
+        // }
     }
 }

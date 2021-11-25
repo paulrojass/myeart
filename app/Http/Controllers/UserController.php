@@ -21,11 +21,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::role(['buyer', 'seller'])->get();
+        $users = User::role(['buyer', 'seller'])->where('id', '<>', auth()->user()->id)->get();
         //excluimos si tiene rol admin
-        $users = $users->reject(function ($user, $key) {
-                    return $user->hasRole('admin');
-        });
+        // $users = $users->reject(function ($user, $key) {
+        //             return $user->hasRole('admin');
+        // });
         //dd($users);
         return Inertia::render('dashboard/users/Index', [
             'users' => $users
@@ -126,7 +126,8 @@ class UserController extends Controller
         $user = User::find($id);
         $this->deleteAvatar($user->profile->avatar);
         $user->delete();
-        return redirect()->route('users.index');
+        return back();
+        //return redirect()->route('users.index');
     }
 
     /**

@@ -323,9 +323,30 @@ class ArtworkController extends Controller
     public function destroyDashboard($id)
     {
         $artwork = Artwork::find($id);
-
+        foreach ($artwork->artworkImages as $key => $artworkImage) {
+            $this->deleteImage($artworkImage);
+            $artworkImage->delete();
+        }
         $artwork->delete();
 
+        $artworks = Artwork::with([
+            'buy',
+            'seller',
+            'seller.user',
+            'artworkImages',
+            'elements',
+            'comments',
+            'likes'
+        ])->orderBy('created_at', 'desc')->where('id', '<>', $id)->get();
+
+
+
+        return Inertia::render('dashboard/artworks/Index', [
+            'artworks' => $artworks
+        ]);
+
+
+        return back();
         return redirect()->route('artworks.index');
     }
 

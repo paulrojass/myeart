@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-sm-9"></div>
                 <div class="col-sm-3 align-items-end">
-                    <inertia-link class="btn btn-primary btn-sm" :href="route('artworks.edit', artwork.id)" role="button">editar</inertia-link>
+                    <inertia-link class="btn btn-primary btn-sm" :href="route('dashboard.artworks.edit', artwork.id)" role="button">editar</inertia-link>
                 </div>
             </div>
             <div class="row">
